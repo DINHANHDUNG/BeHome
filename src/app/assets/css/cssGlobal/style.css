@@ -1,0 +1,122 @@
+.info_image {
+  position: relative;
+  cursor: pointer;
+}
+
+.icon_delete {
+  position: absolute;
+  cursor: pointer;
+  top: -5px;
+  /* right: 3px; */
+  color: red;
+}
+.layout-dashboard .ant-card {
+  border-radius: 12px;
+  box-shadow: 1px 20px 27px 20px rgb(0 0 0 / 5%) !important;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+.ant-image-preview-img-wrapper {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.image::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  top: 30px;
+  bottom: 30px;
+  transition: all ease-in-out 0.3s;
+  z-index: 2;
+  opacity: 0;
+}
+.image .image-info {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image .image-info::before {
+  display: block;
+  content: "";
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  border-top: 3px solid #bdc6ca;
+  border-left: 3px solid #bdc6ca;
+  transition: all 0.5s ease 0s;
+  z-index: 9994;
+}
+.image .image-info::after {
+  display: block;
+  content: "";
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  bottom: 35px;
+  right: 35px;
+  border-bottom: 3px solid #bdc6ca;
+  border-right: 3px solid #bdc6ca;
+  transition: all 0.5s ease 0s;
+  z-index: 9994;
+}
+
+.image .image-links a {
+  color: #49b5e7;
+  margin: 0 2px;
+  font-size: 28px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.image .image-links a:hover {
+  color: #8dd0f0;
+}
+
+.image:hover::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+}
+.image:hover .image-info {
+  opacity: 1;
+}
+.image:hover .image-info::before {
+  top: 15px;
+  left: 15px;
+}
+.image:hover .image-info::after {
+  bottom: 15px;
+  right: 15px;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.image-title {
+  font-size: 20px;
+  color: #8e8fb5;
+}
