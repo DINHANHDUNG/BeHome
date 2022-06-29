@@ -3803,13 +3803,14 @@ p {
   position: absolute;
   right: 1.9rem;
   top: 50%;
-  margin-top: -1.15rem;
+  margin-top: -6px;
   font-weight: normal;
   margin-left: 0;
   float: right;
+  font-size: 15px;
 }
 .header-10 .category-dropdown.show .dropdown-toggle:after {
-  content: "\f131";
+  content: "x";
 }
 .header-10 .category-dropdown .dropdown-menu {
   box-shadow: none;
