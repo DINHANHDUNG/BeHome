@@ -9,6 +9,9 @@ import Header from "./app/component/customer/header/header";
 import Product from "./app/component/customer/product/product";
 import Listproduct from "./app/component/customer/product/listproduct";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./app/page/home/home";
+import DetailProduct from "./app/page/detail/DetailProduct";
+import ProductByCategory from "./app/page/productByCategory/productByCategory";
 function App() {
   return (
     <BrowserRouter>
@@ -19,12 +22,12 @@ function App() {
             <div style={{ position: "relative" }}>
               <div className="page-wrapper">
                 <Header />
-                <div className="container">
-                  <Banner2 />
-                  <Listproduct />
-                  <Listproduct />
-                  <Listproduct />
-                </div>
+                <Routes>
+                  <Route index element={<Home />} />
+                  <Route path="detailproduct" element={<DetailProduct />} />
+                  <Route path="danhmuc" element={<ProductByCategory />} />
+                </Routes>
+
                 <Footer />
               </div>
               <button id="scroll-top" title="Back to Top">
