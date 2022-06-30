@@ -548,8 +548,15 @@ blockquote.text-white cite span {
   align-items: center;
 }
 .header-right {
-  margin-left: auto;
+  /* margin-left: auto; */
   align-self: stretch;
+}
+
+@media screen and (max-width: 992px) {
+  .header-right {
+    margin-left: auto !important;
+    align-self: stretch;
+  }
 }
 .header-center {
   margin-left: auto;
@@ -1456,6 +1463,7 @@ blockquote.text-white cite span {
   .mobile-menu-toggler {
     display: none;
   }
+
 }
 @media screen and (min-width: 1600px) {
   .header .container-fluid .megamenu-container {
@@ -1744,7 +1752,7 @@ blockquote.text-white cite span {
   font-size: 1.4rem;
   letter-spacing: -0.01em;
   padding: 3.95rem 3rem;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 .menu > li + li {
   margin-left: 0;
@@ -2001,15 +2009,16 @@ blockquote.text-white cite span {
   transition: background 0.4s, color 0.1s;
 }
 .category-dropdown .dropdown-toggle:after {
-  content: "";
-  font-family: "Roboto";
+  content: "\f0c9 ";
+  font-family: "FontAwesome";
   border: none;
   font-size: 2.3rem;
   line-height: 1;
   margin-left: 6.7rem;
 }
 .category-dropdown .dropdown-toggle:before {
-  content: "";
+  content: "\f0c9 ";
+  font-family: "FontAwesome";
   display: block;
   position: absolute;
   left: 0;
@@ -2033,7 +2042,8 @@ blockquote.text-white cite span {
   background-color: #c96;
 }
 .category-dropdown:not(.is-on):hover .dropdown-toggle:after {
-  content: "";
+  content: "\f0c9 ";
+  font-family: "FontAwesome";
 }
 .category-dropdown.show .dropdown-toggle {
   color: #fff;
@@ -2126,8 +2136,10 @@ blockquote.text-white cite span {
   z-index: 1002;
   margin-top: 0;
   background-color: #fff;
-  box-shadow: 5px 10px 16px rgba(51, 51, 51, 0.05),
-    -5px 10px 16px rgba(51, 51, 51, 0.05);
+  /* box-shadow: 5px 10px 16px rgba(51, 51, 51, 0.05),
+    -5px 10px 16px rgba(51, 51, 51, 0.05); */
+box-shadow:  5px 11px 12px 9px rgb(51 51 51 / 5%), -5px 10px 16px rgb(51 51 51 / 49%);
+    padding: 10px;
 }
 .menu-vertical ul:before,
 .menu-vertical .megamenu:before {
@@ -2652,13 +2664,15 @@ blockquote.text-white cite span {
   color: #333;
 }
 a {
-  font-family: "Poppins" !important;
+  /* font-family: "Roboto" !important; */
+  /* font-family: "Poppins" !important; */
 }
 p {
   margin-bottom: 0;
   font-size: 1.4rem;
   font-weight: 300;
-  font-family: "Poppins" !important;
+  /* font-family: "Roboto" !important; */
+  /* font-family: "Poppins" !important; */
   letter-spacing: 0;
   color: #000;
 }
@@ -3788,7 +3802,7 @@ p {
 }
 .header-10 .category-dropdown .dropdown-toggle {
   color: #fff;
-  text-transform: capitalize;
+  text-transform: none;
   font-weight: 500;
   font-size: 1.6rem;
   letter-spacing: -0.01em;
@@ -3835,7 +3849,8 @@ p {
 }
 @media screen and (min-width: 1200px) {
   .header-10 .header-search-extended {
-    margin-right: 6.6rem;
+    /* margin-right: 6.6rem; */
+    margin-right: 0;
   }
 }
 .header-11 {
