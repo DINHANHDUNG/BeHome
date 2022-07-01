@@ -65,8 +65,8 @@ function Header() {
           {/* Cart */}
           <div className="header-right">
             <div className="dropdown cart-dropdown">
-              <a
-                href="#"
+              <Link
+                to={"cart"}
                 className="dropdown-toggle"
                 role="button"
                 data-toggle="dropdown"
@@ -81,7 +81,7 @@ function Header() {
                 >
                   2
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
