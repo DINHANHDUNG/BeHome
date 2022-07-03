@@ -8,10 +8,6 @@ import { Numberformat } from "../../hooks";
 function DetailProduct() {
   const [img, setIMG] = useState([
     {
-      id: 1,
-      img: "https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/5/26/913299/Ngan-Ha25.jpg",
-    },
-    {
       id: 2,
       img: "http://103.173.155.138:5500/images/412554e8a8a9430ba6566fa9c38c1775.jpg",
     },
