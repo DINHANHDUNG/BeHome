@@ -1,0 +1,45 @@
+.icon-boxCombo-card {
+  background-color: #fafafa;
+  padding: 10px;
+}
+.icon-boxCombo-card .icon-boxCombo-title {
+  font-weight: 600;
+}
+.icon-boxCombo-card .icon-boxCombo-icon {
+  margin-bottom: 1.3rem;
+}
+
+.icon-boxCombo-card {
+  /* padding-top: 3rem;
+    padding-bottom: 3.2rem; */
+  border: 0.2rem solid #258cae;
+  background-color: transparent;
+  transition: all 0.3s;
+  border-radius: 10px;
+}
+
+.boxCombo-price {
+  font-size: 18px;
+  color: #39f;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.icon-boxCombo-content {
+  position: relative;
+  text-align: left;
+}
+
+.title-boxCombo {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.icon-boxCombo-info {
+  display: flex;
+  
+}
+
+.icon-boxCombo-info-img{
+    margin-right: 10px;
+}

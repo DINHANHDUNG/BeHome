@@ -1,6 +1,7 @@
 import { Button } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import React, { useState } from "react";
+import BoxComboProduct from "../../component/customer/box-combo-product/box-combo-product";
 import BoxPromotion from "../../component/customer/box-promotion/box-promotion";
 import Comment from "../../component/customer/comment/comment";
 import ReplyComment from "../../component/customer/comments/replyComment";
@@ -90,41 +91,13 @@ function DetailProduct() {
                 <p> ✔ HĐH: Win 10</p>
               </div>
 
-              {/* <div className="details-filter-row details-row-size">
-                <label htmlFor="size">Size:</label>
-                <div className="select-custom">
-                  <select name="size" id="size" className="form-control">
-                    <option value="#" selected={true}>
-                      Select a size
-                    </option>
-                    <option value="s">Small</option>
-                    <option value="m">Medium</option>
-                    <option value="l">Large</option>
-                    <option value="xl">Extra Large</option>
-                  </select>
-                </div>
-              </div> */}
-
-              {/* <div className="details-filter-row details-row-size mb-3" >
-                <label htmlFor="qty">Qty:</label>
-                <div className="product-details-quantity">
-                  <input
-                    type="number"
-                    id="qty"
-                    className="form-control"
-                    value="1"
-                    min="1"
-                    max="10"
-                    step="1"
-                    data-decimals="0"
-                    required
-                  />
-                </div>
-              </div> */}
+              
 
               <BoxPromotion />
 
-              <div className="product-details-action">
+              <BoxComboProduct />
+
+              <div className="product-details-action mt-3">
                 <a href="#" className="btn-product btn-cart">
                   <span>Mua ngay</span>
                 </a>

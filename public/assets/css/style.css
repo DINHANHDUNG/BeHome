@@ -5405,7 +5405,7 @@ p {
 }
 @media screen and (min-width: 768px) {
   .icon-box {
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
   }
   .icon-box-side {
     margin-bottom: 0;
