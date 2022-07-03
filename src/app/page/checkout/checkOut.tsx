@@ -22,12 +22,6 @@ function CheckOut() {
                 <label>Địa chỉ *</label>
                 <input type="text" className="form-control" required />
 
-                
-                
-
-                
-               
-
                 <label>Ghi chú</label>
                 <textarea
                   className="form-control"

@@ -1,10 +1,34 @@
 import TextArea from "antd/lib/input/TextArea";
-import React from "react";
+import React, { useState } from "react";
 import BoxPromotion from "../../component/customer/box-promotion/box-promotion";
 import Comment from "../../component/customer/comment/comment";
+import ModalNextIMG from "../../component/customer/modalNextImg/modalNextIMG";
 import { Numberformat } from "../../hooks";
 
 function DetailProduct() {
+  const [img, setIMG] = useState([
+    {
+      id: 1,
+      img: "https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/5/26/913299/Ngan-Ha25.jpg",
+    },
+    {
+      id: 2,
+      img: "http://103.173.155.138:5500/images/412554e8a8a9430ba6566fa9c38c1775.jpg",
+    },
+    {
+      id: 3,
+      img: "http://103.173.155.138:5500/images/bb55052e71d940dabc9b62cb974208db.jpg",
+    },
+    {
+      id: 4,
+      img: "http://103.173.155.138:5500/images/5c7c3da1148f45df91e96d5458d742b3.jpg",
+    },
+  ]);
+  const [dispayIMG, setDisplayIMG] = useState(img[0] ? img[0] : ({} as any));
+  const [visible, setVisible] = useState(false);
+
+  console.log(dispayIMG);
+
   return (
     <div className="container">
       <div className="product-details-top mb-2 mt-3">
@@ -14,90 +38,31 @@ function DetailProduct() {
               <figure className="product-main-image">
                 <img
                   id="product-zoom"
-                  src="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                  data-zoom-image="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
+                  src={dispayIMG.img}
                   alt="product image"
                 />
 
                 <a
-                  href="#"
                   id="btn-product-gallery"
                   className="btn-product-gallery"
+                  onClick={() => setVisible(true)}
                 >
                   <i className="icon-arrows"></i>
                 </a>
               </figure>
 
+              {/*thêm className active thêm viền xanh */}
+
               <div id="product-zoom-gallery" className="product-image-gallery">
-                <a
-                  className="product-gallery-item"
-                  href="#"
-                  data-image="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                  data-zoom-image="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                >
-                  <img
-                    src="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                    alt="product side"
-                  />
-                </a>
-
-                <a
-                  className="product-gallery-item"
-                  href="#"
-                  data-image="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                  data-zoom-image="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                >
-                  <img
-                    src="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                    alt="product cross"
-                  />
-                </a>
-
-                <a
-                  className="product-gallery-item active"
-                  href="#"
-                  data-image="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                  data-zoom-image="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                >
-                  <img
-                    src="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                    alt="product with model"
-                  />
-                </a>
-
-                <a
-                  className="product-gallery-item"
-                  href="#"
-                  data-image="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                  data-zoom-image="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                >
-                  <img
-                    src="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                    alt="product back"
-                  />
-                </a>
-                <a
-                  className="product-gallery-item"
-                  href="#"
-                  data-image="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                  data-zoom-image="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                >
-                  <img
-                    src="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                    alt="product back"
-                  />
-                </a>
-                <a
-                  className="product-gallery-item"
-                  href="#"
-                  data-image="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                  data-zoom-image="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                >
-                  <img
-                    src="http://103.173.155.138:5500/images/fe96d2e3b5b642c6a4caee4191ba09b3.jpg"
-                    alt="product back"
-                  />
-                </a>
+                {img.map((value) => (
+                  <a
+                    key={value.id}
+                    className="product-gallery-item "
+                    onClick={() => setDisplayIMG(value)}
+                  >
+                    <img src={value.img} alt="product side" />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -115,11 +80,12 @@ function DetailProduct() {
               </div>
 
               <div className="product-content mb-3">
-                <p>
-                  Sed egestas, ante et vulputate volutpat, eros pede semper est,
-                  vitae luctus metus libero eu augue. Morbi purus libero,
-                  faucibus adipiscing. Sed lectus.{" "}
-                </p>
+                <p> ✔ CPU: Intel core i7 11800H</p>
+                <p> ✔ RAM: 64GB</p>
+                <p> ✔ Ổ cứng: 1TB SSD</p>
+                <p> ✔ VGA: Nvidia RTX 3080 8G</p>
+                <p> ✔ Màn hình: 16.0 inch WQXGA 165Hz 100%sRGB</p>
+                <p> ✔ HĐH: Win 10</p>
               </div>
 
               {/* <div className="details-filter-row details-row-size">
@@ -304,89 +270,89 @@ function DetailProduct() {
               aria-labelledby="product-price-link"
             >
               <div className="product-desc-content">
+                <h3 style={{ fontWeight: 600 }}>
+                  Sò Lap Xin Gửi Tới Quý Khách Hàng Bảng Giá Nâng Cấp:
+                </h3>
+                <h3 style={{ fontWeight: 600 }}>Giá Nâng Cấp Chip:</h3>
+                Từ i5 - 2520M lên i7 - 2620M thêm 890.000đ <br /> Từ i5 - 3320M
+                lên i7 - 3520M thêm 1.200.000đ <br /> Từ i5 - 2520M lên i7 -
+                2720QM thêm 1.400.000đ <br /> Từ i5 - 3320M lên i7 - 3720QM thêm
+                1.900.000đ
+                <hr />
+                <h3 style={{ fontWeight: 600 }}>Giá Nâng Cấp Ram (PC3-PC3L)</h3>
+                <p>Từ 4gb lên 8gb thêm - 500.000đ</p>
+                <p>Từ 8gb lên 16gb thêm - 850.000đ</p>
+                <p>Từ 16gb lên 32gb thêm - 1.550.000đ</p>
+                <hr />
+                <h3 style={{ fontWeight: 600 }}>Ram (DDR4)</h3>
+                <p>Từ 4gb lên 8gb thêm - 600.000đ</p>
+                <p>Từ 8gb lên 16gb thêm - 900.000đ</p>
+                <p>Từ 16gb lên 32gb thêm - 1.700.000đ</p>
+                <hr />
+                <h3 style={{ fontWeight: 600 }}>
+                  {" "}
+                  Giá Nâng Cấp Ổ Cứng (2.5 inch):
+                </h3>
                 <p>
-                  <h3 style={{ fontWeight: 600 }}>
-                    Sò Lap Xin Gửi Tới Quý Khách Hàng Bảng Giá Nâng Cấp:
-                  </h3>
-                  <h3 style={{ fontWeight: 600 }}>Giá Nâng Cấp Chip:</h3>
-                  Từ i5 - 2520M lên i7 - 2620M thêm 890.000đ <br /> Từ i5 -
-                  3320M lên i7 - 3520M thêm 1.200.000đ <br /> Từ i5 - 2520M lên
-                  i7 - 2720QM thêm 1.400.000đ <br /> Từ i5 - 3320M lên i7 -
-                  3720QM thêm 1.900.000đ
-                  <hr />
-                  <h3 style={{ fontWeight: 600 }}>
-                    Giá Nâng Cấp Ram (PC3-PC3L)
-                  </h3>
-                  <p>Từ 4gb lên 8gb thêm - 500.000đ</p>
-                  <p>Từ 8gb lên 16gb thêm - 850.000đ</p>
-                  <p>Từ 16gb lên 32gb thêm - 1.550.000đ</p>
-                  <hr />
-                  <h3 style={{ fontWeight: 600 }}>Ram (DDR4)</h3>
-                  <p>Từ 4gb lên 8gb thêm - 600.000đ</p>
-                  <p>Từ 8gb lên 16gb thêm - 900.000đ</p>
-                  <p>Từ 16gb lên 32gb thêm - 1.700.000đ</p>
-                  <hr />
-                  <h3 style={{ fontWeight: 600 }}>
-                    {" "}
-                    Giá Nâng Cấp Ổ Cứng (2.5 inch):
-                  </h3>
-                  <p>
-                    Từ HDD 500gb lên SSD 120gb (mới) thêm - 750.000đ nay chỉ còn
-                    590.000đ
-                  </p>
-                  <p>
-                    Từ HDD 500gb lên SSD 240gb (mới) thêm - 1.250.000đ nay chỉ
-                    còn 850.000đ
-                  </p>
-                  <p>
-                    Từ HDD 1TB lên SSD 240gb (mới) thêm - 1.250.000đ nay chỉ còn
-                    650.000đ
-                  </p>
-                  <p>
-                    Từ SSD 120gb (cũ) lên SSD 240gb (mới) thêm - 900.000đ nay
-                    chỉ còn 700.000đ
-                  </p>
-                  <p>
-                    Từ SSD 120gb (cũ) lên SSD 480gb (mới) thêm - 1.650.000đ nay
-                    chỉ còn 1.400.000đ
-                  </p>
-                  <p>
-                    Từ SSD 256gb (cũ) lên SSD 480gb (mới) thêm - 1.450.000đ nay
-                    chỉ còn 1.200.000đ
-                  </p>
-                  <hr />
-                  <h3 style={{ fontWeight: 600 }}>
-                    Áp dụng với ổ dạng M2 sata :
-                  </h3>
-                  <p>
-                    Từ SSD 120gb (cũ) lên SSD 240gb (mới) thêm - 1.200.000đ nay
-                    chỉ còn 800.000đ
-                  </p>
-                  <p>
-                    Từ SSD 120gb (cũ) lên SSD 480gb (mới) thêm - 1.650.000đ nay
-                    chỉ còn 1.500.000đ
-                  </p>
-                  <p>
-                    Từ SSD 256gb (cũ) lên SSD 480gb (mới) thêm - 1.450.000đ nay
-                    chỉ còn 1.300.000đ
-                  </p>
-                  <hr />
-                  <h2 style={{ color: "red" }}>
-                    {" "}
-                    Lưu ý: Giá nâng cấp áp dụng trong 15 ngày đầu kể từ khi quý
-                    khách mua máy.
-                  </h2>
+                  Từ HDD 500gb lên SSD 120gb (mới) thêm - 750.000đ nay chỉ còn
+                  590.000đ
                 </p>
+                <p>
+                  Từ HDD 500gb lên SSD 240gb (mới) thêm - 1.250.000đ nay chỉ còn
+                  850.000đ
+                </p>
+                <p>
+                  Từ HDD 1TB lên SSD 240gb (mới) thêm - 1.250.000đ nay chỉ còn
+                  650.000đ
+                </p>
+                <p>
+                  Từ SSD 120gb (cũ) lên SSD 240gb (mới) thêm - 900.000đ nay chỉ
+                  còn 700.000đ
+                </p>
+                <p>
+                  Từ SSD 120gb (cũ) lên SSD 480gb (mới) thêm - 1.650.000đ nay
+                  chỉ còn 1.400.000đ
+                </p>
+                <p>
+                  Từ SSD 256gb (cũ) lên SSD 480gb (mới) thêm - 1.450.000đ nay
+                  chỉ còn 1.200.000đ
+                </p>
+                <hr />
+                <h3 style={{ fontWeight: 600 }}>
+                  Áp dụng với ổ dạng M2 sata :
+                </h3>
+                <p>
+                  Từ SSD 120gb (cũ) lên SSD 240gb (mới) thêm - 1.200.000đ nay
+                  chỉ còn 800.000đ
+                </p>
+                <p>
+                  Từ SSD 120gb (cũ) lên SSD 480gb (mới) thêm - 1.650.000đ nay
+                  chỉ còn 1.500.000đ
+                </p>
+                <p>
+                  Từ SSD 256gb (cũ) lên SSD 480gb (mới) thêm - 1.450.000đ nay
+                  chỉ còn 1.300.000đ
+                </p>
+                <hr />
+                <h2 style={{ color: "red" }}>
+                  {" "}
+                  Lưu ý: Giá nâng cấp áp dụng trong 15 ngày đầu kể từ khi quý
+                  khách mua máy.
+                </h2>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="row">
-          {/* <Comment /> */}
-            
-        </div>
+        <div className="row">{/* <Comment /> */}</div>
       </div>
+
+      <ModalNextIMG
+        visible={visible}
+        listImg={img}
+        imgDisplay={dispayIMG}
+        toggle={() => setVisible(!visible)}
+      />
     </div>
   );
 }

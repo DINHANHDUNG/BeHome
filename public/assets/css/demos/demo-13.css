@@ -403,8 +403,8 @@
   background-color: #39f;
 }
 .product-action {
-  left: 2rem;
-  right: 2rem;
+  left: 0;
+  right: 0;
   transform: translateY(0);
 }
 .btn-product {
@@ -630,8 +630,10 @@
 }
 .toolbox {
   color: #666666;
-  background-color: #f8f8f8;
-  padding: 2rem;
+  background-color: #f8f8f800;
+  /* padding: 2rem; */
+  padding-right: 2rem;
+  padding-left: 2rem;
   margin-bottom: 2.5rem;
 }
 .toolbox-info {
@@ -953,7 +955,6 @@
   }
 }
 /*# sourceMappingURL=demo-13.css.map */
-
 
 .icon-box-card {
   /* padding-top: 3rem;

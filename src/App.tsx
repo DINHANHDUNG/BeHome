@@ -14,6 +14,7 @@ import DetailProduct from "./app/page/detail/DetailProduct";
 import ProductByCategory from "./app/page/productByCategory/productByCategory";
 import CartShopping from "./app/page/cartShopping/cartShopping";
 import CheckOut from "./app/page/checkout/checkOut";
+import Build from "./app/page/build/build";
 function App() {
   return (
     <BrowserRouter>
@@ -30,6 +31,7 @@ function App() {
                   <Route path="danhmuc" element={<ProductByCategory />} />
                   <Route path="cart" element={<CartShopping />} />
                   <Route path="checkout" element={<CheckOut />} />
+                  <Route path="build" element={<Build />} />
                 </Routes>
 
                 <Footer />

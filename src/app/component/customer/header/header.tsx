@@ -254,14 +254,15 @@ function Header() {
             <div className="col-lg-9">
               <nav className="main-nav">
                 <ul className="menu sf-arrows">
-                  <li className="megamenu-container active">
+                  {/* active Thêm gạch chân */}
+                  <li className="megamenu-container ">
                     {/* className="sf-with-ul" */}
                     <a href="/">Trang chủ</a>
                   </li>
 
                   <li className="megamenu-container ">
                     {/* className="sf-with-ul" */}
-                    <a href="/">Thiết kế xây dụng</a>
+                    <Link to={"/build"}>Thiết kế xây dựng</Link>
                   </li>
 
                   <li className="megamenu-container ">
