@@ -1,0 +1,10 @@
+.single-comment-content,
+.single-comment-reply,
+.single-comment-content-form {
+  padding-left: 45px;
+}
+
+.single-comment-reply {
+  color: #00a1ff;
+  cursor: pointer;
+}

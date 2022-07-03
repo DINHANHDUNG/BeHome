@@ -1,4 +1,4 @@
-import { message } from "antd";
+import { message, notification } from "antd";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "./store";
 
@@ -13,4 +13,17 @@ export const Numberformat = function (number: any) {
 
 export const success = (text: any) => {
   message.success(text);
+};
+
+type NotificationType = "success" | "info" | "warning" | "error";
+
+export const openNotificationWithIcon = (
+  type: NotificationType,
+  message: string,
+  description?: string
+) => {
+  notification[type]({
+    message: message,
+    description: description,
+  });
 };

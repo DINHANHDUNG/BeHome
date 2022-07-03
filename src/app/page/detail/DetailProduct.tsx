@@ -1,9 +1,13 @@
+import { Button } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import React, { useState } from "react";
 import BoxPromotion from "../../component/customer/box-promotion/box-promotion";
 import Comment from "../../component/customer/comment/comment";
-import ModalNextIMG from "../../component/customer/modalNextImg/modalNextIMG";
-import { Numberformat } from "../../hooks";
+import ReplyComment from "../../component/customer/comments/replyComment";
+import SingleComment from "../../component/customer/comments/singleComment";
+import ModalFormComment from "../../component/customer/modal/modalFormCommnet/modalFormCommnet";
+import ModalNextIMG from "../../component/customer/modal/modalNextImg/modalNextIMG";
+import { Numberformat, openNotificationWithIcon } from "../../hooks";
 
 function DetailProduct() {
   const [img, setIMG] = useState([
@@ -22,6 +26,8 @@ function DetailProduct() {
   ]);
   const [dispayIMG, setDisplayIMG] = useState(img[0] ? img[0] : ({} as any));
   const [visible, setVisible] = useState(false);
+  const [visibleRepLyComment, setVisibleRepLyComment] = useState(false);
+  const [valueComment, setValueComment] = useState("");
 
   console.log(dispayIMG);
 
@@ -340,7 +346,48 @@ function DetailProduct() {
           </div>
         </div>
 
-        <div className="row">{/* <Comment /> */}</div>
+        <div className="row">
+          <div className="col-md-12">
+            <h4>Bình luận</h4>
+            <hr
+              style={{
+                marginTop: "10px",
+                marginRight: "0px",
+                marginBottom: "10px",
+                marginLeft: "0px",
+              }}
+            />
+            <TextArea
+              value={valueComment}
+              onChange={(e) => {
+                setValueComment(e.target.value);
+              }}
+              className="mt-1"
+              rows={4}
+            />
+            <Button
+              className="mt-2 mb-2"
+              onClick={() => {
+                if (valueComment.length > 0) {
+                  setVisibleRepLyComment(!visibleRepLyComment);
+                } else {
+                  openNotificationWithIcon("error", "Vui lòng nhập bình luận");
+                }
+              }}
+            >
+              Gửi bình luận
+            </Button>
+            <div className="col-md-6">
+              <SingleComment reply={true} />
+              <ReplyComment />
+              <ReplyComment />
+              <ReplyComment />
+              <SingleComment reply={true} />
+              <SingleComment reply={true} />
+              <SingleComment reply={true} />
+            </div>
+          </div>
+        </div>
       </div>
 
       <ModalNextIMG
@@ -348,6 +395,12 @@ function DetailProduct() {
         listImg={img}
         imgDisplay={dispayIMG}
         toggle={() => setVisible(!visible)}
+      />
+
+      <ModalFormComment
+        visible={visibleRepLyComment}
+        value={{ id: 0, replycomment: valueComment }}
+        toggle={() => setVisibleRepLyComment(!visibleRepLyComment)}
       />
     </div>
   );
