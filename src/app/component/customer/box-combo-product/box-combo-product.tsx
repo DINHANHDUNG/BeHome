@@ -52,13 +52,16 @@ function BoxComboProduct() {
               >
                 <div className="price-combo">
                   <span style={{ fontWeight: 500 }}>Giá combo:</span>{" "}
-                  <span style={{ fontWeight: 500, color: '#d30808f7' }}>
+                  <span style={{ fontWeight: 500, color: "#d30808f7" }}>
                     {Numberformat(5000000)} VNĐ
                   </span>
                 </div>
               </div>
               <div className="col-6">
-                <div className="product-details-action mt-2 mb-1 ">
+                <div
+                  className="product-details-action mt-2 mb-1 "
+                  style={{ justifyContent: "flex-end" }}
+                >
                   <a href="#" className="btn-product btn-cart">
                     <span>Mua combo</span>
                   </a>
