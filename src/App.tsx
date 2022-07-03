@@ -15,6 +15,7 @@ import ProductByCategory from "./app/page/productByCategory/productByCategory";
 import CartShopping from "./app/page/cartShopping/cartShopping";
 import CheckOut from "./app/page/checkout/checkOut";
 import Build from "./app/page/build/build";
+import Mobilemenu from "./app/component/customer/menu/mobile-menu/mobilemenu";
 function App() {
   return (
     <BrowserRouter>
@@ -33,9 +34,10 @@ function App() {
                   <Route path="checkout" element={<CheckOut />} />
                   <Route path="build" element={<Build />} />
                 </Routes>
-
+                
                 <Footer />
               </div>
+              <Mobilemenu />
               <button id="scroll-top" title="Back to Top">
                 <i className="fa-solid fa-angles-up"></i>
               </button>
