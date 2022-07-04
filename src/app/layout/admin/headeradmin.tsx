@@ -12,11 +12,14 @@ import { LogoutOutlined, UnlockOutlined } from "@ant-design/icons";
 // import { accountAdminStore } from "../../../commom/use-selector";
 import ModalChangePass from "../../component/customer/modal/ChangePassword/modal-changepass";
 import { profile, toggler } from "../../assets/icon/iconsvg";
+import { ChangePassAdmin, postLogoutAdmin } from "../../../features/Admin/accountAdmin";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { accountAdminStore } from "../../../use-selector";
 function Headeradmin({ placement, name, subName, onPress }: any) {
-  // const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { Title, Text } = Typography;
   const [visible, setVisible] = useState(false);
-  // const acc = useAppSelector(accountAdminStore);
+  const acc = useAppSelector(accountAdminStore);
   const datause = [
     {
       title: "Đổi mật khẩu",
@@ -39,7 +42,7 @@ function Headeradmin({ placement, name, subName, onPress }: any) {
           onClick={() => {
             console.log(item.title);
             if (item.title === "Đăng xuất") {
-              // dispatch(postLogoutAdmin());
+              dispatch(postLogoutAdmin());
             }
 
             if (item.title === "Đổi mật khẩu") {
@@ -113,13 +116,13 @@ function Headeradmin({ placement, name, subName, onPress }: any) {
           oldpassword: String;
         }) => {
           console.log(value);
-          // dispatch(
-          //   ChangePassAdmin({
-          //     id: Number(acc.listuser.id),
-          //     oldpassword: value.oldpassword.toString(),
-          //     newpassword: value.newpassword.toString(),
-          //   })
-          // );
+          dispatch(
+            ChangePassAdmin({
+              id: Number(acc.listuser.id),
+              oldpassword: value.oldpassword.toString(),
+              newpassword: value.newpassword.toString(),
+            })
+          );
         }}
       />
     </div>

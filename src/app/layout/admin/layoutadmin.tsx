@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { checkTokenAdmin } from "../../../features/Admin/accountAdmin";
+import { accountAdminStore } from "../../../use-selector";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 // import { checkTokenAdmin } from "../../../../features/admin/accountAdmin";
 // import { useAppDispatch, useAppSelector } from "../../../commom/hooks";
 // import { accountAdminStore } from "../../../commom/use-selector";
@@ -12,20 +15,17 @@ import Login from "../../page/Login/login";
 import LayoutDashboard from "./layoutdashboard";
 
 function LayoutAdmin() {
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   const history = useNavigate();
   useEffect(() => {
-    // dispatch(checkTokenAdmin()).catch((err) => {
-    //   history("/loginadmin");
-    // });
+    dispatch(checkTokenAdmin()).catch((err) => {
+      history("/loginadmin");
+    });
   }, []);
 
-  // const acc = useAppSelector(accountAdminStore);
-  const acc = {
-    token: 'âs'
-  }
+  const acc = useAppSelector(accountAdminStore);
   function PrivateRoute({ children }: any) {
-    const auth = !acc.token ? true : false;
+    const auth = acc.token ? true : false;
     return auth ? children : <Navigate to="loginadmin" />;
   }
   return (

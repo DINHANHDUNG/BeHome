@@ -82,7 +82,7 @@ function CartShopping() {
                         <input
                           type="number"
                           className="form-control"
-                          value="1"
+                          defaultValue={2}
                           min="1"
                           max="10"
                           step="1"
@@ -122,6 +122,7 @@ function CartShopping() {
                           <input
                             type="radio"
                             id="free-shipping"
+                            checked
                             name="shipping"
                             className="custom-control-input"
                           />
