@@ -22,7 +22,7 @@ export const checkTokenAdmin = createAsyncThunk(
   "/accountadmin/checktokenAdmin",
   async () => {
     const response = await accountAdminAPI.postCheckTokenAdmin();
-    console.log("checktoken", response);
+    // console.log("checktoken", response);
     // if (response.user.permission === "1") {
     //   socket.emit("join_room", `Admin`);
     // } else {

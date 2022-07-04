@@ -28,7 +28,7 @@ const accountAdminSlice = createSlice({
       })
       .addCase(postLoginAdmin.fulfilled, (state, action) => {
         const { listuser, token } = action.payload;
-        console.log("listuser", listuser);
+        // console.log("listuser", listuser);
 
         state.listuser = listuser;
         state.token = token;
@@ -72,7 +72,7 @@ const accountAdminSlice = createSlice({
       .addCase(checkTokenAdmin.fulfilled, (state, action) => {
         const { user, customer } = action.payload;
 
-        console.log("user", user);
+        // console.log("user", user);
 
         state.listuser = user;
         state.token = localStorage.getItem("tokenadmin") ?? "";

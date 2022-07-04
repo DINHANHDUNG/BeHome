@@ -1,6 +1,6 @@
 export interface Promotion {
   id: 0;
-  Promotion_name: string;
+  name: string;
   show: boolean;
   created_date: string;
   updated_date: string;
@@ -10,12 +10,11 @@ export interface Promotion {
 export interface promotiondetails {
   id: number;
   id_promotion: number;
-  promotiondetail_name: string;
-  promotion: string;
+  name: string;
 }
 
 export interface AddPromotion {
-  Promotion_name: string;
+  name: string;
   promotiondetails: Array<promotiondetails>;
 }
 

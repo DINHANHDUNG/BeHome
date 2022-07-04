@@ -154,19 +154,33 @@ function Sidenav({ color }: any) {
         </Menu.Item>
 
         <Menu.Item key="3">
-          <NavLink to="/admin/categoryproduct">
+          <NavLink to="/admin/rank">
             <span
               className="icon"
               style={{
-                background: page === "admin/categoryproduct" ? color : "",
+                background: page === "admin/rank" ? color : "",
               }}
             >
               {Category}
             </span>
-            <span className="label">Danh mục SP</span>
+            <span className="label">Rank</span>
           </NavLink>
         </Menu.Item>
+
         <Menu.Item key="4">
+          <NavLink to="/admin/manufacturer">
+            <span
+              className="icon"
+              style={{
+                background: page === "admin/manufacturer" ? color : "",
+              }}
+            >
+              {Category}
+            </span>
+            <span className="label">Hãng sản xuất</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="5">
           <NavLink to="/admin/promotion">
             <span
               className="icon"
@@ -179,63 +193,6 @@ function Sidenav({ color }: any) {
             <span className="label">Khuyến mại</span>
           </NavLink>
         </Menu.Item>
-
-        <Menu.Item key="5">
-          <NavLink to="/admin/warehouse">
-            <span
-              className="icon"
-              style={{
-                background: page === "admin/warehouse" ? color : "",
-              }}
-            >
-              {Category}
-            </span>
-            <span className="label">Kho</span>
-          </NavLink>
-        </Menu.Item>
-
-        {/* <Menu.Item key="3">
-          <NavLink to="/admin/product">
-            <span
-              className="icon"
-              style={{
-                background: page === "admin/product" ? color : "",
-              }}
-            >
-              {product}
-            </span>
-            <span className="label">Product</span>
-          </NavLink>
-        </Menu.Item>
-
-          <Menu.Item key="5">
-            <NavLink to="/admin/customer">
-              <span
-                className="icon"
-                style={{
-                  background: page === "admin/customer" ? color : "",
-                }}
-              >
-                {profile}
-              </span>
-              <span className="label">Customer</span>
-            </NavLink>
-          </Menu.Item>
-
-        
-          <Menu.Item key="4">
-            <NavLink to="/admin/shop">
-              <span
-                className="icon"
-                style={{
-                  background: page === "admin/shop" ? color : "",
-                }}
-              >
-                {product}
-              </span>
-              <span className="label">shop</span>
-            </NavLink>
-          </Menu.Item> */}
       </Menu>
     </>
   );

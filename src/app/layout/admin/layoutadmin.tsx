@@ -3,6 +3,9 @@ import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { checkTokenAdmin } from "../../../features/Admin/accountAdmin";
 import { accountAdminStore } from "../../../use-selector";
 import { useAppDispatch, useAppSelector } from "../../hooks";
+import Manufacturer from "../../page/admin/manufacturer/manufacturer";
+import Promotion from "../../page/admin/promotion/promotion";
+import Rank from "../../page/admin/rank/rank";
 // import { checkTokenAdmin } from "../../../../features/admin/accountAdmin";
 // import { useAppDispatch, useAppSelector } from "../../../commom/hooks";
 // import { accountAdminStore } from "../../../commom/use-selector";
@@ -38,11 +41,13 @@ function LayoutAdmin() {
           </PrivateRoute>
         }
       >
-        {/* <Route path="/" element={<Dashboard />} />
-        <Route path="/category" element={<Category />} />
-        <Route path="/categoryproduct" element={<CategoryProduct />} />
+        {/* <Route path="/" element={<Dashboard />} /> */}
+        {/* <Route path="/category" element={<Category />} /> */}
+        {/* <Route path="/categoryproduct" element={<CategoryProduct />} /> */}
         <Route path="/promotion" element={<Promotion />} />
-        <Route path="/warehouse" element={<WareHouse />} /> */}
+        <Route path="/manufacturer" element={<Manufacturer />} />
+        <Route path="/rank" element={<Rank />} />
+        {/* <Route path="/warehouse" element={<WareHouse />} /> */}
       </Route>
 
       <Route path="loginadmin" element={<Login />} />
