@@ -2,14 +2,6 @@ import { Badge, Button, Col, Dropdown, List, Row, Typography } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { LogoutOutlined, UnlockOutlined } from "@ant-design/icons";
-// import { profile, toggler } from "../../../assets/icon/iconsvg";
-// import {
-//   ChangePassAdmin,
-//   postLogoutAdmin,
-// } from "../../../../features/admin/accountAdmin";
-// import { useDispatch } from "react-redux";
-// import { useAppSelector } from "../../../commom/hooks";
-// import { accountAdminStore } from "../../../commom/use-selector";
 import ModalChangePass from "../../component/customer/modal/ChangePassword/modal-changepass";
 import { profile, toggler } from "../../assets/icon/iconsvg";
 import { ChangePassAdmin, postLogoutAdmin } from "../../../features/Admin/accountAdmin";
@@ -97,7 +89,7 @@ function Headeradmin({ placement, name, subName, onPress }: any) {
         </Col>
 
         <Col span={24} md={18} className="header-control">
-          <Dropdown overlay={menuuse} trigger={["click"]}>
+          <Dropdown overlay={menuuse} trigger={["click"]} placement="bottomRight" arrow={{ pointAtCenter: true }}>
             <Link to="#" className="btn-sign-in">
               {profile}
               <span>{"Admin"}</span>

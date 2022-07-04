@@ -413,8 +413,10 @@ span {
   margin-top: 10px;
 }
 
+
+
 .ant-dropdown-menu.ant-dropdown-menu-split.header-notifications-dropdown {
-  background: #fff;
+  background: rgb(180, 32, 32);
   box-shadow: 0 20px 27px rgb(0 0 0 / 5%);
   border-radius: 12px;
   min-width: 276px;
@@ -491,6 +493,17 @@ span {
   width: 22px;
   height: 22px;
 }
+
+.ant-dropdown-show-arrow.ant-dropdown-placement-bottomRight  {
+  width: 200px;
+  left: -922px;
+  background-color: rgb(255, 255, 255);
+  top: -907px;
+  padding-left: 30px;
+  border-radius: 15px;
+  box-shadow: rgb(0 0 0 / 95%) 0px 2px 5px -2px;
+}
+
 
 .h3,
 .h4,
