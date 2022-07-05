@@ -1,6 +1,9 @@
 import { Button, Form, Input, Modal, Select } from "antd";
 import React, { useEffect } from "react";
-import { getAllCategoryTrees, postAddCategoryByIdAdmin } from "../../../../../features/Admin/categoryAdnim";
+import {
+  getAllCategoryTrees,
+  postAddCategoryByIdAdmin,
+} from "../../../../../features/Admin/categoryAdnim";
 import { categoryAdminStore } from "../../../../../use-selector";
 import { useAppDispatch, useAppSelector } from "../../../../hooks";
 
@@ -32,7 +35,10 @@ function ModalCategory2(props: propsModalCategory) {
         name: value.name,
         type: props.value.type,
       })
-    ).then(() => dispatch(getAllCategoryTrees()));
+    ).then(() => {
+      dispatch(getAllCategoryTrees());
+      props.toggle()
+    });
   }
 
   //Select
