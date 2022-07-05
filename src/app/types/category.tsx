@@ -4,6 +4,7 @@ export interface Category {
   name: string;
   name_parent: string;
   show: boolean;
+  action: boolean;
   children: Array<Category>;
   products: Array<any>;
   combos: Array<any>;

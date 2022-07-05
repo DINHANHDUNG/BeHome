@@ -24,7 +24,6 @@ function CategoryProduct() {
   const dispatch = useAppDispatch();
   const categorytrees = useAppSelector(categoryAdminStore);
 
-
   const [listCategory, setListCategory] = useState(
     () => categorytrees.listcategoryProduct
   );
@@ -68,15 +67,17 @@ function CategoryProduct() {
       title: "Hành động",
       dataIndex: "action",
       key: "action",
-      render: () => (
+      render: (text: any, row: any, index: any) => (
         <Space size="middle">
-          <Button
-            onClick={() => {
-              setVisible2(true);
-            }}
-          >
-            Thêm
-          </Button>
+          {row.action ?? (
+            <Button
+              onClick={() => {
+                setVisible2(true);
+              }}
+            >
+              Thêm
+            </Button>
+          )}
 
           <Popconfirm
             title="Xóa danh mục sẽ xóa hết sản phẩm trong danh mục đó, bạn có chắc muốn xóa không？"
