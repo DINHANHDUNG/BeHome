@@ -15,11 +15,7 @@ function Header() {
             </button>
 
             <a href="" className="logo">
-              <img
-                src={logo}
-                alt=""
-                style={{ width: "200px", }}
-              />
+              <img src={logo} alt="" style={{ width: "200px" }} />
               {/* BEHOME */}
             </a>
           </div>
@@ -114,6 +110,154 @@ function Header() {
                 <div className="dropdown-menu">
                   <nav className="side-nav">
                     <ul className="menu-vertical sf-arrows">
+                      <li className="megamenu-container">
+                      <div  className="menu-title pl-4 mt-1">Danh mục bán lẻ</div>
+                      </li>
+                      
+                      <li className="megamenu-container">
+                        <Link to={`danhmuc`} className="sf-with-ul">
+                          Electronics
+                        </Link>
+
+                        <div className="megamenu">
+                          <div className="row no-gutters">
+                            <div className="col-md-12">
+                              <div className="menu-col">
+                                <div className="row">
+                                  <div className="col-md-4">
+                                    <div className="menu-title">
+                                      Laptops & Computers
+                                    </div>
+                                    <ul>
+                                      <li>
+                                        <a href="#">Desktop Computers</a>
+                                        <ul>
+                                          <li>
+                                            <a href="about.html">About 01</a>
+                                          </li>
+                                          <li>
+                                            <a href="about-2.html">About 02</a>
+                                          </li>
+                                        </ul>
+                                      </li>
+                                      <li>
+                                        <a href="#">Monitors</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Laptops</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">iPad & Tablets</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Hard Drives & Storage</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Printers & Supplies</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Computer Accessories</a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <div className="col-md-4">
+                                    <div className="menu-title">
+                                      Laptops & Computers
+                                    </div>
+                                    <ul>
+                                      <li>
+                                        <a href="#">Desktop Computers</a>
+                                        <ul>
+                                          <li>
+                                            <a href="about.html">About 01</a>
+                                          </li>
+                                          <li>
+                                            <a href="about-2.html">About 02</a>
+                                          </li>
+                                        </ul>
+                                      </li>
+                                      <li>
+                                        <a href="#">Monitors</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Laptops</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">iPad & Tablets</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Hard Drives & Storage</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Printers & Supplies</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Computer Accessories</a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <div className="col-md-4">
+                                    <div className="menu-title">
+                                      Laptops & Computers
+                                    </div>
+                                    <ul>
+                                      <li>
+                                        <a href="#">Desktop Computers</a>
+                                        <ul>
+                                          <li>
+                                            <a href="about.html">About 01</a>
+                                          </li>
+                                          <li>
+                                            <a href="about-2.html">About 02</a>
+                                          </li>
+                                        </ul>
+                                      </li>
+                                      <li>
+                                        <a href="#">Monitors</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Laptops</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">iPad & Tablets</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Hard Drives & Storage</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Printers & Supplies</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Computer Accessories</a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+
+                      <li>
+                        <Link to={`danhmuc`}> Travel & Outdoor</Link>
+                      </li>
+                      <li>
+                        <Link to={`danhmuc`}> Smart Phones</Link>
+                      </li>
+                      <li>
+                        <Link to={`danhmuc`}> TV & Audio</Link>
+                      </li>
+                      <li>
+                        <Link to={`danhmuc`}> Gift Ideas</Link>
+                      </li>
+                    </ul>
+
+                    <ul className="menu-vertical sf-arrows">
+                      <li className="megamenu-container">
+                      <div  className="menu-title pl-4 mt-1">Danh mục combo</div>
+                      </li>
+                      
                       <li className="megamenu-container">
                         <Link to={`danhmuc`} className="sf-with-ul">
                           Electronics

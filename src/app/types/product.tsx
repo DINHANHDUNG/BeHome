@@ -30,6 +30,7 @@ export interface Product {
   comments: any;
 }
 
+
 // export interface AddProduct {
 //   id_category: number;
 //   id_promotion: number;
@@ -60,6 +61,28 @@ export interface AddProduct {
     {
       imagename: string;
       type: string /* "1" |  "2"  1 la anh dau tien, 2 la anh sau*/;
+    }
+  ];
+}
+
+
+export interface AddProductCombo {
+  id_category: Number;
+  id_promotion: Number;
+  name: string;
+  describe: string;
+  price: Number;
+  linkvideo: string;
+  combo_products: [
+    {
+      id_product: Number;
+      amountproduct: string;
+    }
+  ];
+  images: [
+    {
+      imagename: string;
+      type: string;
     }
   ];
 }
