@@ -123,7 +123,7 @@ function CategoryCombo() {
           <Card
             bordered={false}
             className="criclebox tablespace mb-24"
-            title="Quản lý combo"
+            title="Quản lý danh mục combo"
             extra={
               <>
                 <Button
