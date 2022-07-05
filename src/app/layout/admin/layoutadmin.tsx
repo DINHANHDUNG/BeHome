@@ -3,6 +3,8 @@ import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { checkTokenAdmin } from "../../../features/Admin/accountAdmin";
 import { accountAdminStore } from "../../../use-selector";
 import { useAppDispatch, useAppSelector } from "../../hooks";
+import CategoryCombo from "../../page/admin/category/categoryCombo";
+import CategoryProduct from "../../page/admin/category/categoryProduct";
 import Manufacturer from "../../page/admin/manufacturer/manufacturer";
 import Promotion from "../../page/admin/promotion/promotion";
 import Rank from "../../page/admin/rank/rank";
@@ -42,8 +44,8 @@ function LayoutAdmin() {
         }
       >
         {/* <Route path="/" element={<Dashboard />} /> */}
-        {/* <Route path="/category" element={<Category />} /> */}
-        {/* <Route path="/categoryproduct" element={<CategoryProduct />} /> */}
+        <Route path="/categoryproduct" element={<CategoryProduct />} />
+        <Route path="/categorycombo" element={<CategoryCombo />} />
         <Route path="/promotion" element={<Promotion />} />
         <Route path="/manufacturer" element={<Manufacturer />} />
         <Route path="/rank" element={<Rank />} />

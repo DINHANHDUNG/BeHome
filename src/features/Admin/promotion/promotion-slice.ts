@@ -1,14 +1,8 @@
 import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
-import queryString from "query-string";
 import {
-  postDeletePromotionAdmin,
-  getPromotionByIdAdmin,
-  getAllPromotionAdmin,
-  postEditPromotionByIdAdmin,
-  postAddPromotionByIdAdmin,
+  getAllPromotionAdmin, getPromotionByIdAdmin, postAddPromotionByIdAdmin, postDeletePromotionAdmin, postEditPromotionByIdAdmin
 } from ".";
 import { openNotification, openNotificationWithIcon } from "../../../app/hooks";
-import { Category, CustomesCategory } from "../../../app/types/category";
 import { CustomesPromotion, Promotion } from "../../../app/types/promotion";
 const initialStateCategory: CustomesPromotion = {
   listpromotion: [] as Array<Promotion>,

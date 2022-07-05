@@ -2,8 +2,12 @@ import { AddCategory, EditCategory } from "../../../types/category";
 import axiosClientAdmin from "./axios-clientAdmin";
 
 const categoryAPIAdmin = {
-  getAllCategoryAdmin(): Promise<any> {
-    const url = "category/getallcategory";
+  getAllCategoryProductAdmin(): Promise<any> {
+    const url = "category/getallcategoryproduct";
+    return axiosClientAdmin.get(url);
+  },
+  getAllCategoryComboAdmin(): Promise<any> {
+    const url = "category/getallcategorycombo";
     return axiosClientAdmin.get(url);
   },
 

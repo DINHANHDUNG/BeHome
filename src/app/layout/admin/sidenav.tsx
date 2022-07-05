@@ -118,6 +118,34 @@ function Sidenav({ color }: any) {
   ];
   const dispatch = useAppDispatch();
 
+  const router = [
+    {
+      path: "/",
+      pathname: "Sản phẩm",
+      key: "1",
+    },
+    {
+      path: "/category",
+      pathname: "Danh mục",
+      key: "2",
+    },
+    {
+      path: "/rank",
+      pathname: "Rank",
+      key: "3",
+    },
+    {
+      path: "/manufacturer",
+      pathname: "Hãng sản xuất",
+      key: "4",
+    },
+    {
+      path: "/promotion",
+      pathname: "Khuyến mãi",
+      key: "5",
+    },
+  ];
+
   return (
     <>
       <div className="brand-admin">
@@ -140,16 +168,30 @@ function Sidenav({ color }: any) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="2">
-          <NavLink to="/admin/category">
+          <NavLink to="/admin/categoryproduct">
             <span
               className="icon"
               style={{
-                background: page === "admin/category" ? color : "",
+                background: page === "admin/categoryproduct" ? color : "",
               }}
             >
               {Category}
             </span>
-            <span className="label">Danh mục</span>
+            <span className="label">Danh mục sản phẩm</span>
+          </NavLink>
+        </Menu.Item>
+
+        <Menu.Item key="6">
+          <NavLink to="/admin/categorycombo">
+            <span
+              className="icon"
+              style={{
+                background: page === "admin/categorycombo" ? color : "",
+              }}
+            >
+              {Category}
+            </span>
+            <span className="label">Danh mục combo</span>
           </NavLink>
         </Menu.Item>
 
