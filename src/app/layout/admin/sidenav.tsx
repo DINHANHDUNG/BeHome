@@ -250,7 +250,22 @@ function Sidenav({ color }: any) {
           </NavLink>
         </Menu.Item>
 
-        {/* 7 */}
+        <Menu.Item key="8">
+          <NavLink to="/admin/combo">
+            <span
+              className="icon"
+              style={{
+                background: page === "admin/combo" ? color : "",
+              }}
+            >
+              {Category}
+            </span>
+            <span className="label">Combo</span>
+          </NavLink>
+        </Menu.Item>
+
+
+        {/* 8 */}
       </Menu>
     </>
   );
