@@ -476,7 +476,7 @@ function ModalCombo(props: propsModalProduct) {
         >
           <Input />
         </Form.Item>
-        <h5 style={{ textAlign: "center" }}>Chọn combo sản phẩm </h5>
+        <h5 style={{ textAlign: "center" }}>Chọn sản phẩm trong combo</h5>
 
         <Form.List name="combo_products">
           {(fields, { add, remove }) => {
