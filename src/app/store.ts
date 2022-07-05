@@ -6,6 +6,7 @@ import rankAdminReducer from "../features/Admin/rankAdnim/rank-slice";
 import manufacturerAdminReducer from "../features/Admin/manufacturerAdnim/manufacturer-product-slice";
 import categoryAdminReducer from "../features/Admin/categoryAdnim/category-slice";
 import productAdminReducer from "../features/Admin/productAdnim/product-slice";
+import companyAdminReducer from "../features/Admin/company/compali-slice";
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
@@ -17,6 +18,7 @@ export const store = configureStore({
     manufacturerAdmin: manufacturerAdminReducer,
     categoryAdmin: categoryAdminReducer,
     productAdmin: productAdminReducer,
+    companyAdmin: companyAdminReducer,
   },
 });
 

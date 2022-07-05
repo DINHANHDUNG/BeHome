@@ -235,6 +235,22 @@ function Sidenav({ color }: any) {
             <span className="label">Khuyến mại</span>
           </NavLink>
         </Menu.Item>
+
+        <Menu.Item key="7">
+          <NavLink to="/admin/company">
+            <span
+              className="icon"
+              style={{
+                background: page === "admin/company" ? color : "",
+              }}
+            >
+              {Category}
+            </span>
+            <span className="label">Công ty</span>
+          </NavLink>
+        </Menu.Item>
+
+        {/* 7 */}
       </Menu>
     </>
   );
