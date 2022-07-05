@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import logo from "../../../assets/images/logo/avtfb.png"
+import logo from "../../../assets/images/logo/biafb.png";
 
 function Header() {
   return (
@@ -13,8 +15,12 @@ function Header() {
             </button>
 
             <a href="" className="logo">
-              {/* <img src={logo} alt="" /> */}
-              BEHOME
+              <img
+                src={logo}
+                alt=""
+                style={{ width: "200px", }}
+              />
+              {/* BEHOME */}
             </a>
           </div>
           <div className="header-center">
