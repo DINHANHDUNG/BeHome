@@ -11,6 +11,15 @@ export const Numberformat = function (number: any) {
   }).format(number);
 };
 
+//Format curency
+export const currency = function (number: any) {
+  return new Intl.NumberFormat("vi-VN", {
+    style: "currency",
+    currency: "VND",
+    // minimumFractionDigits: 2,
+  }).format(number);
+};
+
 export const success = (text: any) => {
   message.success(text);
 };

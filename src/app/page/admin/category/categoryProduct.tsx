@@ -123,7 +123,7 @@ function CategoryProduct() {
           <Card
             bordered={false}
             className="criclebox tablespace mb-24"
-            title="Quản lý danh mục sản phẩm"
+            title="Quản lý danh mục bán lẻ"
             extra={
               <>
                 <Button

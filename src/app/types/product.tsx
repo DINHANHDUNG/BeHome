@@ -5,32 +5,63 @@ export interface Product {
   id: number;
   id_category: number;
   id_promotion: number;
-  id_dmsps: number;
-  product_dmsps: any;
-  productcode: string;
-  productname: string;
-  price_origin: number;
-  price_sale: number;
-  configuration: string;
+  id_rank: number;
+  id_manufacturer: number;
+  name: string;
+  price: number;
+  linkvideo: string;
+  show: boolean;
   describe: string;
-  created_date: string;
-  updated_date: string;
+  rank: {
+    id: number;
+    name: string;
+  };
+  manufacturer: {
+    id: number;
+    name: string;
+  };
   category: Category;
   promotion: Promotion;
+  created_date: string;
+  updated_date: string;
   promotiondetails: promotiondetails;
-  productimages: Array<any>;
+  images: Array<any>;
   productdetails: any;
+  comments: any;
 }
+
+// export interface AddProduct {
+//   id_category: number;
+//   id_promotion: number;
+//   productcode: string;
+//   productname: string;
+//   price_origin: number;
+//   price_sale: number;
+//   configuration: string;
+//   describe: string;
+// }
 
 export interface AddProduct {
   id_category: number;
+  id_rank: number;
+  id_manufacturer: number;
   id_promotion: number;
-  productcode: string;
-  productname: string;
-  price_origin: number;
-  price_sale: number;
-  configuration: string;
+  name: string;
   describe: string;
+  price: number;
+  linkvideo: string;
+  productdetails: [
+    {
+      title: string;
+      specifications: string;
+    }
+  ];
+  images: [
+    {
+      imagename: string;
+      type: string /* "1" |  "2"  1 la anh dau tien, 2 la anh sau*/;
+    }
+  ];
 }
 
 export type EditProduct = AddProduct & { id: number };
@@ -48,12 +79,15 @@ export interface CustomesProduct {
 
 // sort: 0 là mới nhất, 1 là tăng dần, 2 là giảm dần
 
-export interface GetAllProductByCategory {
-  id_category: number;
+export interface GetAllProductNeedUpdate {
   sort: number;
   page: number;
   noitem: number;
 }
+
+export type GetAllProductByCategory = GetAllProductNeedUpdate & {
+  id_category: number;
+};
 
 export interface GetAllProductByDMSP {
   id_dmsp: number;
@@ -63,6 +97,9 @@ export interface GetAllProductByDMSP {
 }
 
 export interface GetSearchProduct {
+  id_category: number;
+  id_rank: number;
+  id_manufacturer: number;
   productKey: string | null;
   minprice: number | null;
   maxprice: number | null;

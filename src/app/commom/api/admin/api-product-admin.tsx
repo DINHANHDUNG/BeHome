@@ -4,18 +4,24 @@ import {
   EditProduct,
   GetAllProductByCategory,
   GetAllProductByDMSP,
+  GetAllProductNeedUpdate,
   GetSearchProduct,
 } from "../../../types/product";
 import axiosClientAdmin from "./axios-clientAdmin";
 
 const productAPIAdmin = {
-  getAllProductAdmin(data: GetAllProductByCategory): Promise<any> {
+  getAllProductByCategoryAdmin(data: GetAllProductByCategory): Promise<any> {
     const url = "product/getallproductbycategory";
     return axiosClientAdmin.post(url, data);
   },
 
-  getAllProductbyDMSPAdmin(data: GetAllProductByDMSP): Promise<any> {
-    const url = "product/getallproductbydmsp";
+  getAllProductNeedUpdateAdmin(data: GetAllProductNeedUpdate): Promise<any> {
+    const url = "product/getallproductneedupdate";
+    return axiosClientAdmin.post(url, data);
+  },
+
+  getProductByIdADmin(data: { id: number }): Promise<any> {
+    const url = "product/getproductbyid";
     return axiosClientAdmin.post(url, data);
   },
 
@@ -27,11 +33,6 @@ const productAPIAdmin = {
   getProductbyHomePage(): Promise<any> {
     const url = "product/getproducthomepage";
     return axiosClientAdmin.get(url);
-  },
-
-  getProductByIdADmin(data: { id: number }): Promise<any> {
-    const url = "product/getproductbyid";
-    return axiosClientAdmin.post(url, data);
   },
 
   postAddProductADmin(data: AddProduct): Promise<any> {

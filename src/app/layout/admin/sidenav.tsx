@@ -177,7 +177,7 @@ function Sidenav({ color }: any) {
             >
               {Category}
             </span>
-            <span className="label">Danh mục sản phẩm</span>
+            <span className="label">Danh mục bán lẻ</span>
           </NavLink>
         </Menu.Item>
 

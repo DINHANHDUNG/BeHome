@@ -1,20 +1,22 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import counterReducer from "../features/counter/counterSlice";
 import accountAdminReducer from "../features/Admin/accountAdmin/accountAdmin-slice";
 import promotionAdminReducer from "../features/Admin/promotion/promotion-slice";
 import rankAdminReducer from "../features/Admin/rankAdnim/rank-slice";
 import manufacturerAdminReducer from "../features/Admin/manufacturerAdnim/manufacturer-product-slice";
 import categoryAdminReducer from "../features/Admin/categoryAdnim/category-slice";
+import productAdminReducer from "../features/Admin/productAdnim/product-slice";
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
 
-     /*--------------------------------Admin------------------------------ */
-     accountAdmin: accountAdminReducer,
-     promotionAdmin: promotionAdminReducer,
-     rankAdmin: rankAdminReducer,
-     manufacturerAdmin: manufacturerAdminReducer,
-     categoryAdmin: categoryAdminReducer,
+    /*--------------------------------Admin------------------------------ */
+    accountAdmin: accountAdminReducer,
+    promotionAdmin: promotionAdminReducer,
+    rankAdmin: rankAdminReducer,
+    manufacturerAdmin: manufacturerAdminReducer,
+    categoryAdmin: categoryAdminReducer,
+    productAdmin: productAdminReducer,
   },
 });
 

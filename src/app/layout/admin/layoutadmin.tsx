@@ -5,6 +5,7 @@ import { accountAdminStore } from "../../../use-selector";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import CategoryCombo from "../../page/admin/category/categoryCombo";
 import CategoryProduct from "../../page/admin/category/categoryProduct";
+import Dashboard from "../../page/admin/dashboard/dashboard";
 import Manufacturer from "../../page/admin/manufacturer/manufacturer";
 import Promotion from "../../page/admin/promotion/promotion";
 import Rank from "../../page/admin/rank/rank";
@@ -43,7 +44,7 @@ function LayoutAdmin() {
           </PrivateRoute>
         }
       >
-        {/* <Route path="/" element={<Dashboard />} /> */}
+        <Route path="/" element={<Dashboard />} />
         <Route path="/categoryproduct" element={<CategoryProduct />} />
         <Route path="/categorycombo" element={<CategoryCombo />} />
         <Route path="/promotion" element={<Promotion />} />
