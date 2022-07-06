@@ -5,6 +5,7 @@ import {
   GetAllProductByCategory,
   GetAllProductByDMSP,
   GetAllProductNeedUpdate,
+  GetAllProductUpdate,
   GetSearchProduct,
 } from "../../../types/product";
 import axiosClientAdmin from "./axios-clientAdmin";
@@ -15,7 +16,7 @@ const productAPIAdmin = {
     return axiosClientAdmin.post(url, data);
   },
 
-  getAllProductNeedUpdateAdmin(data: GetAllProductNeedUpdate): Promise<any> {
+  getAllProductNeedUpdateAdmin(data: GetAllProductUpdate): Promise<any> {
     const url = "product/getallproductneedupdate";
     return axiosClientAdmin.post(url, data);
   },

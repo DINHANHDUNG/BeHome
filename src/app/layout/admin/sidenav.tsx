@@ -167,6 +167,19 @@ function Sidenav({ color }: any) {
             <span className="label">Sản phẩm</span>
           </NavLink>
         </Menu.Item>
+        <Menu.Item key="10">
+          <NavLink to="/admin/productupdate">
+            <span
+              className="icon"
+              style={{
+                background: page === "admin/productupdate" ? color : "",
+              }}
+            >
+              {dashboard}
+            </span>
+            <span className="label">Sản phẩm cập nhật</span>
+          </NavLink>
+        </Menu.Item>
         <Menu.Item key="2">
           <NavLink to="/admin/categoryproduct">
             <span
@@ -264,7 +277,6 @@ function Sidenav({ color }: any) {
           </NavLink>
         </Menu.Item>
 
-
         <Menu.Item key="9">
           <NavLink to="/admin/comment">
             <span
@@ -279,8 +291,7 @@ function Sidenav({ color }: any) {
           </NavLink>
         </Menu.Item>
 
-
-        {/* 9 */}
+        {/* 10 */}
       </Menu>
     </>
   );

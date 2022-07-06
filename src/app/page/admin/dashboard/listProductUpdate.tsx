@@ -14,6 +14,7 @@ import React, { useEffect, useState } from "react";
 import { getAllCategoryProductAdmin } from "../../../../features/Admin/categoryAdnim";
 import {
   getAllProductAdmin,
+  getAllProductNeedUpdate,
   getProductSearchAdmin,
   postDeleteProductAdmin,
 } from "../../../../features/Admin/productAdnim";
@@ -23,6 +24,7 @@ import {
   productAdminStore,
 } from "../../../../use-selector";
 import ModalProduct from "../../../component/customer/modal/Product/modal-product";
+import ModalProductUpdate from "../../../component/customer/modal/Product/modal-productUpdate";
 import {
   currency,
   getParsedDate,
@@ -32,31 +34,24 @@ import {
 } from "../../../hooks";
 import { Product } from "../../../types/product";
 
-function Dashboard() {
+function ProductUpdateAdmin() {
   const { Option } = Select;
   const dispatch = useAppDispatch();
   const products = useAppSelector(productAdminStore);
-  const categorys = useAppSelector(categoryAdminStore);
   const acc = useAppSelector(accountAdminStore);
   const [selected, setSelected] = useState([] as any);
   const [selectedID, setSelectedID] = useState([] as any);
   const [visible, setVisible] = useState(false);
   const [value, setValue] = useState({} as Product);
-  const [valueInputSelect, setValueInputSelect] = useState(0);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [visibleSearch, setVisibleSearch] = useState(false);
-  const [valueSearch, setValueSearch] = useState("");
-  const [arrImgDelete, setArrImgDelete] = useState([] as any);
-  console.log(products, categorys);
 
   useEffect(() => {
     dispatch(getAllCategoryProductAdmin()).then((res: any) => {});
-    setValueInputSelect(0);
 
     dispatch(
-      getAllProductAdmin({
-        id_category: 0,
+      getAllProductNeedUpdate({
         page: page,
         sort: 0,
         noitem: pageSize,
@@ -82,7 +77,7 @@ function Dashboard() {
     },
 
     {
-      title: "Phân khúc",
+      title: "Hạng",
       dataIndex: "rank",
       key: "rank",
       render: (text: any, row: any, index: any) => row.rank.name,
@@ -90,7 +85,7 @@ function Dashboard() {
     },
 
     {
-      title: "Hãng",
+      title: "Phân khúc",
       dataIndex: "manufacturer",
       key: "manufacturer",
       render: (text: any, row: any, index: any) => row.manufacturer.name,
@@ -153,42 +148,6 @@ function Dashboard() {
     },
   };
 
-  function onChange(value: any) {
-    console.log(`selected ${value}`);
-    setValueInputSelect(value);
-    setPage(1);
-    dispatch(
-      getAllProductAdmin({
-        id_category: value,
-        page: 1,
-        sort: 0,
-        noitem: pageSize,
-      })
-    );
-  }
-
-  function onSearch(val: any) {
-    console.log("search:", val.target.value);
-    setValueSearch(val.target.value);
-  }
-
-  const handleKeyDown = (event: any) => {
-    if (event.key === "Enter") {
-      dispatch(
-        getProductSearchAdmin({
-          id_category: 0,
-          id_rank: 0,
-          id_manufacturer: 0,
-          productKey: valueSearch ? valueSearch : "",
-          minprice: null,
-          maxprice: null,
-          page: page,
-          noitem: pageSize,
-        })
-      );
-    }
-  };
-
   return (
     <div className="tabled" style={{ marginBottom: "20px" }}>
       <Row gutter={[24, 0]}>
@@ -196,51 +155,9 @@ function Dashboard() {
           <Card
             bordered={false}
             className="criclebox tablespace mb-24"
-            title="Quản lý sản phẩm theo danh mục"
+            title="Quản lý sản phẩm cần cập nhật"
             extra={
               <>
-                <Button
-                  style={{ marginRight: "10px" }}
-                  onClick={() => {
-                    setVisibleSearch(!visibleSearch);
-                  }}
-                >
-                  Tìm kiếm
-                </Button>
-                <Select
-                  showSearch
-                  placeholder="Chọn danh mục"
-                  optionFilterProp="children"
-                  onChange={onChange}
-                  onSearch={onSearch}
-                  style={{ minWidth: "120px", marginRight: "10px" }}
-                  value={valueInputSelect}
-                  filterOption={(input, option: any) =>
-                    option?.children
-                      .toLowerCase()
-                      .indexOf(input.toLowerCase()) >= 0
-                  }
-                >
-                  <Option value={0} key={0}>
-                    Tất cả danh mục
-                  </Option>
-                  {categorys?.listcategoryProduct?.map((item) => (
-                    <Option value={item.id} key={item.id}>
-                      {item.name}
-                    </Option>
-                  ))}
-                </Select>
-                
-                <Button
-                  style={{ marginRight: "10px" }}
-                  onClick={() => {
-                    setVisible(true);
-                    setValue({} as Product);
-                  }}
-                >
-                  Thêm
-                </Button>
-
                 <Popconfirm
                   title="Bạn có chắc muốn xóa sản phẩm?"
                   okText="Có"
@@ -255,8 +172,7 @@ function Dashboard() {
                       dispatch(postDeleteProductAdmin({ id: selectedID })).then(
                         () => {
                           dispatch(
-                            getAllProductAdmin({
-                              id_category: valueInputSelect,
+                            getAllProductNeedUpdate({
                               page: page,
                               sort: 0,
                               noitem: pageSize,
@@ -276,43 +192,7 @@ function Dashboard() {
               <Col xl={24}>
                 {visibleSearch && (
                   <Row gutter={[24, 24]}>
-                    <Col md={10} xs={20} style={{ margin: "20px" }}>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "row",
-                          justifyContent: "space-around",
-                          alignItems: "center",
-                        }}
-                      >
-                        <Input
-                          placeholder="Tìm kiếm"
-                          onChange={onSearch}
-                          style={{ width: "100%", marginRight: "10px" }}
-                          size="small"
-                          onKeyDown={handleKeyDown}
-                        />
-                        <Button
-                          size="large"
-                          onClick={() => {
-                            dispatch(
-                              getProductSearchAdmin({
-                                id_category: 0,
-                                id_rank: 0,
-                                id_manufacturer: 0,
-                                productKey: valueSearch ? valueSearch : "",
-                                minprice: null,
-                                maxprice: null,
-                                page: page,
-                                noitem: pageSize,
-                              })
-                            );
-                          }}
-                        >
-                          Tìm
-                        </Button>
-                      </div>
-                    </Col>
+                    <Col md={10} xs={20} style={{ margin: "20px" }}></Col>
                   </Row>
                 )}
                 <div className="table-responsive">
@@ -356,8 +236,7 @@ function Dashboard() {
                     console.log(page, pageSizeNew);
                     setPage(page);
                     dispatch(
-                      getAllProductAdmin({
-                        id_category: valueInputSelect,
+                      getAllProductNeedUpdate({
                         page: page,
                         sort: 0,
                         noitem: pageSizeNew ? pageSizeNew : pageSize,
@@ -378,21 +257,18 @@ function Dashboard() {
       </Row>
 
       {visible && (
-        <ModalProduct
+        <ModalProductUpdate
           visible={visible}
           toggle={() => {
             setVisible(false);
           }}
           value={value}
-          valueInputSelect={valueInputSelect}
           page={page}
           pageSize={pageSize}
-          productkey={valueSearch}
-          visibleSearch={visibleSearch}
         />
       )}
     </div>
   );
 }
 
-export default Dashboard;
+export default ProductUpdateAdmin;

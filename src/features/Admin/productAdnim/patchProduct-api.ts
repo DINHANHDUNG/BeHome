@@ -5,6 +5,7 @@ import {
   EditProduct,
   GetAllProductByCategory,
   GetAllProductByDMSP,
+  GetAllProductUpdate,
   GetSearchProduct,
 } from "../../../app/types/product";
 
@@ -38,7 +39,7 @@ export const getAllProductAdmin = createAsyncThunk(
 
 export const getAllProductNeedUpdate = createAsyncThunk(
   "/productadmin/getallneedupdate",
-  async (data: GetAllProductByDMSP) => {
+  async (data: GetAllProductUpdate) => {
     const response = await productAPIAdmin.getAllProductNeedUpdateAdmin(data);
 
     return response;

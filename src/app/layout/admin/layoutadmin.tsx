@@ -9,6 +9,7 @@ import Combo from "../../page/admin/Combo/combo";
 import CommentAdmin from "../../page/admin/comment/comment";
 import Company from "../../page/admin/company/company";
 import Dashboard from "../../page/admin/dashboard/dashboard";
+import ProductUpdateAdmin from "../../page/admin/dashboard/listProductUpdate";
 import Manufacturer from "../../page/admin/manufacturer/manufacturer";
 import Promotion from "../../page/admin/promotion/promotion";
 import Rank from "../../page/admin/rank/rank";
@@ -48,6 +49,7 @@ function LayoutAdmin() {
         }
       >
         <Route path="/" element={<Dashboard />} />
+        <Route path="/productupdate" element={<ProductUpdateAdmin />} />
         <Route path="/categoryproduct" element={<CategoryProduct />} />
         <Route path="/categorycombo" element={<CategoryCombo />} />
         <Route path="/promotion" element={<Promotion />} />

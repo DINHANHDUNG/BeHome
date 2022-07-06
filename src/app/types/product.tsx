@@ -30,7 +30,6 @@ export interface Product {
   comments: any;
 }
 
-
 // export interface AddProduct {
 //   id_category: number;
 //   id_promotion: number;
@@ -64,7 +63,6 @@ export interface AddProduct {
     }
   ];
 }
-
 
 export interface AddProductCombo {
   id_category: Number;
@@ -114,6 +112,12 @@ export type GetAllProductByCategory = GetAllProductNeedUpdate & {
 
 export interface GetAllProductByDMSP {
   id_dmsp: number;
+  page: number;
+  sort: number;
+  noitem: number;
+}
+
+export interface GetAllProductUpdate {
   page: number;
   sort: number;
   noitem: number;

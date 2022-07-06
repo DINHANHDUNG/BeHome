@@ -73,7 +73,7 @@ function CommentAdmin() {
             okText="Có"
             cancelText="Không"
             onConfirm={() =>
-              dispatch(postDeleteReplyAdmin({ id: row.id })).then(() =>
+              dispatch(postDeleteReplyAdmin({ id: [row.id] })).then(() =>
                 dispatch(getAllCommentAdmin({ page: page, noitem: noitem }))
               )
             }
@@ -219,19 +219,6 @@ function CommentAdmin() {
             title="Quản lý comment"
             extra={
               <>
-                {/* <Button
-                  style={{ marginRight: "10px" }}
-                  onClick={() => {
-                    setValue({
-                      id: 0,
-                      id_parent: 0,
-                      name: "",
-                    });
-                    setVisible(true);
-                  }}
-                >
-                  Thêm
-                </Button> */}
 
                 <Popconfirm
                   title="Bạn có chắc muốn xóa không?"
@@ -270,7 +257,7 @@ function CommentAdmin() {
                   return {
                     onClick: (event) => {}, // click row
                     onDoubleClick: (event) => {
-                      setVisible(true);
+                    //   setVisible(true);
                     }, // double click row
                     onContextMenu: (event) => {}, // right button click row
                     onMouseEnter: (event) => {
