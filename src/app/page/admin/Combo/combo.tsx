@@ -348,7 +348,7 @@ function Combo() {
                   }}
                   pageSize={pageSize}
                   current={page}
-                  total={combos.listCombo.length}
+                  total={combos.total}
                 />
               </Col>
             </Row>

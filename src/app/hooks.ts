@@ -82,7 +82,6 @@ export function getParsedDateTime(strDate: any) {
   var hours = date.getUTCHours() as any;
   var min = date.getUTCMinutes() as any;
   var seconds = date.getSeconds() as any;
-  console.log(date);
   var dd = date.getDate() as any;
   var mm = (date.getMonth() + 1) as any; //January is 0!
 

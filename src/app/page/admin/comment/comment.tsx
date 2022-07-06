@@ -296,7 +296,7 @@ function CommentAdmin() {
             }}
             pageSize={noitem}
             current={page}
-            total={commentTrees.listComment?.length}
+            total={commentTrees.total}
           />
         </Col>
       </Row>

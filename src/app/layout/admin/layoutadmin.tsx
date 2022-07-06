@@ -24,6 +24,7 @@ import BuildDesign from "../../page/build/build";
 // import Promotion from "../../../page/admin/promotion/promotion";
 // import WareHouse from "../../../page/admin/wareHouse/ware-house";
 import Login from "../../page/Login/login";
+import OrderAdmin from "../../page/orderAdmin/order";
 import LayoutDashboard from "./layoutdashboard";
 
 function LayoutAdmin() {
@@ -50,7 +51,8 @@ function LayoutAdmin() {
           </PrivateRoute>
         }
       >
-        <Route path="/" element={<Dashboard2 />} />
+        <Route path="/" element={<OrderAdmin />} />
+        <Route path="/product" element={<Dashboard2 />} />
         <Route path="/productupdate" element={<ProductUpdateAdmin />} />
         <Route path="/categoryproduct" element={<CategoryProduct />} />
         <Route path="/categorycombo" element={<CategoryCombo />} />
@@ -61,6 +63,7 @@ function LayoutAdmin() {
         <Route path="/combo" element={<Combo />} />
         <Route path="/comment" element={<CommentAdmin />} />
         <Route path="/builddesign" element={<BuildDesign />} />
+
         {/* <Route path="/warehouse" element={<WareHouse />} /> */}
       </Route>
 

@@ -164,6 +164,20 @@ function Sidenav({ color }: any) {
             >
               {dashboard}
             </span>
+            <span className="label">Đơn hàng</span>
+          </NavLink>
+        </Menu.Item>
+
+        <Menu.Item key="11">
+          <NavLink to="/admin/product">
+            <span
+              className="icon"
+              style={{
+                background: page === "admin/product" ? color : "",
+              }}
+            >
+              {dashboard}
+            </span>
             <span className="label">Sản phẩm</span>
           </NavLink>
         </Menu.Item>
@@ -304,7 +318,7 @@ function Sidenav({ color }: any) {
           </NavLink>
         </Menu.Item>
 
-        {/* 10 */}
+        {/* 11 */}
       </Menu>
     </>
   );

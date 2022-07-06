@@ -13,6 +13,7 @@ export interface AddComment {
 export interface CustomesComment {
   listComment: Array<Comment>;
   loading: boolean;
+  total: number;
   error: boolean;
 }
 

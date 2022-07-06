@@ -16,6 +16,7 @@ import {
 const initialState: CustomesCombo = {
   listCombo: [],
   loading: false,
+  total: 0,
   categoryname: "",
   error: false,
 };
@@ -31,9 +32,10 @@ const comboSliceAdmin = createSlice({
         state.loading = true;
       })
       .addCase(getAllComboAdmin.fulfilled, (state, action) => {
-        const { result, categoryname } = action.payload;
+        const { result, categoryname, total } = action.payload;
         state.listCombo = result;
         state.categoryname = categoryname;
+        state.total = total;
         state.loading = false;
         state.error = false;
       })
@@ -52,8 +54,9 @@ const comboSliceAdmin = createSlice({
         state.loading = true;
       })
       .addCase(getComboSearchAdmin.fulfilled, (state, action) => {
-        const { result } = action.payload;
+        const { result, total } = action.payload;
         state.listCombo = result;
+        state.total = total;
         state.loading = false;
         state.error = false;
       })

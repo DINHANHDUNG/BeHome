@@ -369,7 +369,7 @@ function Dashboard() {
                   }}
                   pageSize={pageSize}
                   current={page}
-                  total={products.listproduct.length}
+                  total={products.total}
                 />
               </Col>
             </Row>

@@ -17,6 +17,7 @@ const initialState: CustomesComment = {
   listComment: [],
   loading: false,
   error: false,
+  total: 0,
 };
 
 const commentSliceAdmin = createSlice({
@@ -30,7 +31,7 @@ const commentSliceAdmin = createSlice({
         state.loading = true;
       })
       .addCase(getAllCommentAdmin.fulfilled, (state, action) => {
-        const { result } = action.payload;
+        const { result , total} = action.payload;
         let newArr = [] as any;
 
         result?.map((value: any) => {
@@ -51,6 +52,7 @@ const commentSliceAdmin = createSlice({
 
         state.listComment = newArr;
         state.loading = false;
+        state.total = total;
         state.error = false;
       })
       .addCase(getAllCommentAdmin.rejected, (state) => {

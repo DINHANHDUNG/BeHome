@@ -10,6 +10,7 @@ import companyAdminReducer from "../features/Admin/company/compali-slice";
 import comboAdminReducer from "../features/Admin/comboAdnim/combo-slice";
 import commentAdminReducer from "../features/Admin/commentAdnim/comment-slice";
 import buildAdminReducer from "../features/Admin/buildAdmin/build-slice";
+import orderAdminReducer from "../features/Admin/orderAdnim/order-admin-slice";
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
@@ -25,6 +26,7 @@ export const store = configureStore({
     comboAdmin: comboAdminReducer,
     commentAdmin: commentAdminReducer,
     buildAdmin: buildAdminReducer,
+    orderAdmin: orderAdminReducer,
   },
 });
 

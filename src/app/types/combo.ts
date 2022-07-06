@@ -51,6 +51,7 @@ export interface CustomesCombo {
   listCombo: Array<Combo>;
   categoryname: string;
   loading: boolean;
+  total: number;
   error: boolean;
 }
 
@@ -58,7 +59,7 @@ export interface SearchCombo {
   id_category: number;
   comboKey: string;
   minprice: number | null;
-  maxprice: number| null;
+  maxprice: number | null;
   page: number;
   noitem: number;
 }
