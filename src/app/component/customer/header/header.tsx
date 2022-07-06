@@ -1,9 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { categoryAdminStore } from "../../../../use-selector";
 // import logo from "../../../assets/images/logo/avtfb.png"
 import logo from "../../../assets/images/logo/biafb.png";
+import { useAppSelector } from "../../../hooks";
 
 function Header() {
+  const categoryTrees = useAppSelector(categoryAdminStore);
+
+  console.log("categoryTrees", categoryTrees);
+
   return (
     <header className="header header-10">
       <div className="header-middle">
@@ -111,290 +117,147 @@ function Header() {
                   <nav className="side-nav">
                     <ul className="menu-vertical sf-arrows">
                       <li className="megamenu-container">
-                      <div  className="menu-title pl-4 mt-1">Danh mục bán lẻ</div>
+                        <div className="menu-title pl-4 mt-1">
+                          Danh mục bán lẻ
+                        </div>
                       </li>
-                      
-                      <li className="megamenu-container">
-                        <Link to={`danhmuc`} className="sf-with-ul">
-                          Electronics
-                        </Link>
-
-                        <div className="megamenu">
-                          <div className="row no-gutters">
-                            <div className="col-md-12">
-                              <div className="menu-col">
-                                <div className="row">
-                                  <div className="col-md-4">
-                                    <div className="menu-title">
-                                      Laptops & Computers
+                      {categoryTrees.listcategoryProduct?.map((val) =>
+                        val.children.length > 0 ? (
+                          <li className="megamenu-container">
+                            <Link to={`danhmuc`} className="sf-with-ul">
+                              {val.name}
+                            </Link>
+                            {val.children.length > 0 ? (
+                              <div className="megamenu">
+                                <div className="row no-gutters">
+                                  <div className="col-md-12">
+                                    <div className="menu-col">
+                                      <div className="row">
+                                        {val.children?.map((val2) => (
+                                          <div className="col-md-4">
+                                            <div className="menu-title ">
+                                              <Link to={`danhmuc`}>
+                                                {val2.name}
+                                              </Link>
+                                            </div>
+                                            {val2.children?.length > 0 ? (
+                                              <ul>
+                                                {val2.children?.map((val3) => (
+                                                  // cap 4 thi them className="sf-with-ul" vaof li
+                                                  <li>
+                                                    <a href="#">{val3.name}</a>
+                                                    {/* cap 4 */}
+                                                    {/* {val2.children.length > 0 ? (
+                                                    <ul>
+                                                      {val2.children?.map(
+                                                        (val3) => (
+                                                          <li>
+                                                            <a href="about.html">
+                                                              {val3.name}
+                                                            </a>
+                                                          </li>
+                                                        )
+                                                      )}
+                                                    </ul>
+                                                  ) : null} */}
+                                                  </li>
+                                                ))}
+                                              </ul>
+                                            ) : (
+                                              <ul>
+                                                <li>
+                                                  <a href="#">{val2.name}</a>
+                                                </li>
+                                              </ul>
+                                            )}
+                                          </div>
+                                        ))}
+                                      </div>
                                     </div>
-                                    <ul>
-                                      <li>
-                                        <a href="#">Desktop Computers</a>
-                                        <ul>
-                                          <li>
-                                            <a href="about.html">About 01</a>
-                                          </li>
-                                          <li>
-                                            <a href="about-2.html">About 02</a>
-                                          </li>
-                                        </ul>
-                                      </li>
-                                      <li>
-                                        <a href="#">Monitors</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Laptops</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">iPad & Tablets</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Hard Drives & Storage</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Printers & Supplies</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Computer Accessories</a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                  <div className="col-md-4">
-                                    <div className="menu-title">
-                                      Laptops & Computers
-                                    </div>
-                                    <ul>
-                                      <li>
-                                        <a href="#">Desktop Computers</a>
-                                        <ul>
-                                          <li>
-                                            <a href="about.html">About 01</a>
-                                          </li>
-                                          <li>
-                                            <a href="about-2.html">About 02</a>
-                                          </li>
-                                        </ul>
-                                      </li>
-                                      <li>
-                                        <a href="#">Monitors</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Laptops</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">iPad & Tablets</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Hard Drives & Storage</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Printers & Supplies</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Computer Accessories</a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                  <div className="col-md-4">
-                                    <div className="menu-title">
-                                      Laptops & Computers
-                                    </div>
-                                    <ul>
-                                      <li>
-                                        <a href="#">Desktop Computers</a>
-                                        <ul>
-                                          <li>
-                                            <a href="about.html">About 01</a>
-                                          </li>
-                                          <li>
-                                            <a href="about-2.html">About 02</a>
-                                          </li>
-                                        </ul>
-                                      </li>
-                                      <li>
-                                        <a href="#">Monitors</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Laptops</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">iPad & Tablets</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Hard Drives & Storage</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Printers & Supplies</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Computer Accessories</a>
-                                      </li>
-                                    </ul>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li>
-                        <Link to={`danhmuc`}> Travel & Outdoor</Link>
-                      </li>
-                      <li>
-                        <Link to={`danhmuc`}> Smart Phones</Link>
-                      </li>
-                      <li>
-                        <Link to={`danhmuc`}> TV & Audio</Link>
-                      </li>
-                      <li>
-                        <Link to={`danhmuc`}> Gift Ideas</Link>
-                      </li>
+                            ) : null}
+                          </li>
+                        ) : (
+                          <li>
+                            <Link to={`danhmuc`}>{val.name}</Link>
+                          </li>
+                        )
+                      )}
                     </ul>
 
                     <ul className="menu-vertical sf-arrows">
                       <li className="megamenu-container">
-                      <div  className="menu-title pl-4 mt-1">Danh mục combo</div>
-                      </li>
-                      
-                      <li className="megamenu-container">
-                        <Link to={`danhmuc`} className="sf-with-ul">
-                          Electronics
-                        </Link>
-
-                        <div className="megamenu">
-                          <div className="row no-gutters">
-                            <div className="col-md-12">
-                              <div className="menu-col">
-                                <div className="row">
-                                  <div className="col-md-4">
-                                    <div className="menu-title">
-                                      Laptops & Computers
-                                    </div>
-                                    <ul>
-                                      <li>
-                                        <a href="#">Desktop Computers</a>
-                                        <ul>
-                                          <li>
-                                            <a href="about.html">About 01</a>
-                                          </li>
-                                          <li>
-                                            <a href="about-2.html">About 02</a>
-                                          </li>
-                                        </ul>
-                                      </li>
-                                      <li>
-                                        <a href="#">Monitors</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Laptops</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">iPad & Tablets</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Hard Drives & Storage</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Printers & Supplies</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Computer Accessories</a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                  <div className="col-md-4">
-                                    <div className="menu-title">
-                                      Laptops & Computers
-                                    </div>
-                                    <ul>
-                                      <li>
-                                        <a href="#">Desktop Computers</a>
-                                        <ul>
-                                          <li>
-                                            <a href="about.html">About 01</a>
-                                          </li>
-                                          <li>
-                                            <a href="about-2.html">About 02</a>
-                                          </li>
-                                        </ul>
-                                      </li>
-                                      <li>
-                                        <a href="#">Monitors</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Laptops</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">iPad & Tablets</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Hard Drives & Storage</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Printers & Supplies</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Computer Accessories</a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                  <div className="col-md-4">
-                                    <div className="menu-title">
-                                      Laptops & Computers
-                                    </div>
-                                    <ul>
-                                      <li>
-                                        <a href="#">Desktop Computers</a>
-                                        <ul>
-                                          <li>
-                                            <a href="about.html">About 01</a>
-                                          </li>
-                                          <li>
-                                            <a href="about-2.html">About 02</a>
-                                          </li>
-                                        </ul>
-                                      </li>
-                                      <li>
-                                        <a href="#">Monitors</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Laptops</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">iPad & Tablets</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Hard Drives & Storage</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Printers & Supplies</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Computer Accessories</a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                        <div className="menu-title pl-4 mt-1">
+                          Danh mục combo
                         </div>
                       </li>
 
-                      <li>
-                        <Link to={`danhmuc`}> Travel & Outdoor</Link>
-                      </li>
-                      <li>
-                        <Link to={`danhmuc`}> Smart Phones</Link>
-                      </li>
-                      <li>
-                        <Link to={`danhmuc`}> TV & Audio</Link>
-                      </li>
-                      <li>
-                        <Link to={`danhmuc`}> Gift Ideas</Link>
-                      </li>
+                      {categoryTrees.listcategoryCombo?.map((val) =>
+                        val.children.length > 0 ? (
+                          <li className="megamenu-container">
+                            <Link to={`danhmuc`} className="sf-with-ul">
+                              {val.name}
+                            </Link>
+                            {val.children.length > 0 ? (
+                              <div className="megamenu">
+                                <div className="row no-gutters">
+                                  <div className="col-md-12">
+                                    <div className="menu-col">
+                                      <div className="row">
+                                        {val.children?.map((val2) => (
+                                          <div className="col-md-4">
+                                            <div className="menu-title ">
+                                              <Link to={`danhmuc`}>
+                                                {val2.name}
+                                              </Link>
+                                            </div>
+                                            {val2.children?.length > 0 ? (
+                                              <ul>
+                                                {val2.children?.map((val3) => (
+                                                  // cap 4 thi them className="sf-with-ul" vaof li
+                                                  <li>
+                                                    <a href="#">{val3.name}</a>
+                                                    {/* cap 4 */}
+                                                    {/* {val2.children.length > 0 ? (
+                                                    <ul>
+                                                      {val2.children?.map(
+                                                        (val3) => (
+                                                          <li>
+                                                            <a href="about.html">
+                                                              {val3.name}
+                                                            </a>
+                                                          </li>
+                                                        )
+                                                      )}
+                                                    </ul>
+                                                  ) : null} */}
+                                                  </li>
+                                                ))}
+                                              </ul>
+                                            ) : (
+                                              <ul>
+                                                <li>
+                                                  <a href="#">{val2.name}</a>
+                                                </li>
+                                              </ul>
+                                            )}
+                                          </div>
+                                        ))}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            ) : null}
+                          </li>
+                        ) : (
+                          <li>
+                            <Link to={`danhmuc`}>{val.name}</Link>
+                          </li>
+                        )
+                      )}
                     </ul>
                   </nav>
                 </div>

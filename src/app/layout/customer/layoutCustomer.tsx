@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import { getAllCategoryTrees } from "../../../features/Admin/categoryAdnim";
 import Footer from "../../component/customer/footer/footer";
 import Header from "../../component/customer/header/header";
 import Mobilemenu from "../../component/customer/menu/mobile-menu/mobilemenu";
+import { useAppDispatch } from "../../hooks";
 import Build from "../../page/build/build";
 import CartShopping from "../../page/cartShopping/cartShopping";
 import CheckOut from "../../page/checkout/checkOut";
@@ -11,6 +13,10 @@ import Home from "../../page/home/home";
 import ProductByCategory from "../../page/productByCategory/productByCategory";
 
 function LayoutCustomer() {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(getAllCategoryTrees());
+  }, []);
   return (
     <div style={{ position: "relative" }}>
       <div className="page-wrapper">
