@@ -204,7 +204,7 @@ function OrderCancel() {
             }}
             pageSize={pageSize}
             current={page}
-            total={order.listOrder.length}
+            total={order.total}
           />
         </Col>
       </Row>
