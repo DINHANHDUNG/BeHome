@@ -14,6 +14,7 @@ import ProductUpdateAdmin from "../../page/admin/dashboard/listProductUpdate";
 import Manufacturer from "../../page/admin/manufacturer/manufacturer";
 import Promotion from "../../page/admin/promotion/promotion";
 import Rank from "../../page/admin/rank/rank";
+import BuildDesign from "../../page/build/build";
 // import { checkTokenAdmin } from "../../../../features/admin/accountAdmin";
 // import { useAppDispatch, useAppSelector } from "../../../commom/hooks";
 // import { accountAdminStore } from "../../../commom/use-selector";
@@ -59,6 +60,7 @@ function LayoutAdmin() {
         <Route path="/company" element={<Company />} />
         <Route path="/combo" element={<Combo />} />
         <Route path="/comment" element={<CommentAdmin />} />
+        <Route path="/builddesign" element={<BuildDesign />} />
         {/* <Route path="/warehouse" element={<WareHouse />} /> */}
       </Route>
 

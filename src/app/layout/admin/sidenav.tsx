@@ -180,6 +180,19 @@ function Sidenav({ color }: any) {
             <span className="label">Sản phẩm cập nhật</span>
           </NavLink>
         </Menu.Item> */}
+        <Menu.Item key="10">
+          <NavLink to="/admin/builddesign">
+            <span
+              className="icon"
+              style={{
+                background: page === "admin/builddesign" ? color : "",
+              }}
+            >
+              {dashboard}
+            </span>
+            <span className="label">Xây dựng thiết kế</span>
+          </NavLink>
+        </Menu.Item>
         <Menu.Item key="2">
           <NavLink to="/admin/categoryproduct">
             <span

@@ -121,6 +121,6 @@
   color: #8e8fb5;
 }
 
-thead[class*="ant-table-thead"] th {
+/* thead[class*="ant-table-thead"] th {
   text-align: center !important;
-}
+} */
