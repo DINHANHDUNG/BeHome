@@ -167,7 +167,7 @@ function Sidenav({ color }: any) {
             <span className="label">Sản phẩm</span>
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="10">
+        {/* <Menu.Item key="10">
           <NavLink to="/admin/productupdate">
             <span
               className="icon"
@@ -179,7 +179,7 @@ function Sidenav({ color }: any) {
             </span>
             <span className="label">Sản phẩm cập nhật</span>
           </NavLink>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item key="2">
           <NavLink to="/admin/categoryproduct">
             <span

@@ -230,7 +230,7 @@ function Dashboard() {
                     </Option>
                   ))}
                 </Select>
-                
+
                 <Button
                   style={{ marginRight: "10px" }}
                   onClick={() => {
@@ -369,7 +369,7 @@ function Dashboard() {
                   }}
                   pageSize={pageSize}
                   current={page}
-                  total={products.total}
+                  total={products.listproduct.length}
                 />
               </Col>
             </Row>

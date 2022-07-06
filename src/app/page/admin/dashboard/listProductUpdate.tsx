@@ -248,7 +248,7 @@ function ProductUpdateAdmin() {
                   }}
                   pageSize={pageSize}
                   current={page}
-                  total={products.total}
+                  total={products.listproduct.length}
                 />
               </Col>
             </Row>

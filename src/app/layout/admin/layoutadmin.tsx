@@ -9,6 +9,7 @@ import Combo from "../../page/admin/Combo/combo";
 import CommentAdmin from "../../page/admin/comment/comment";
 import Company from "../../page/admin/company/company";
 import Dashboard from "../../page/admin/dashboard/dashboard";
+import Dashboard2 from "../../page/admin/dashboard/dashboard2";
 import ProductUpdateAdmin from "../../page/admin/dashboard/listProductUpdate";
 import Manufacturer from "../../page/admin/manufacturer/manufacturer";
 import Promotion from "../../page/admin/promotion/promotion";
@@ -48,7 +49,7 @@ function LayoutAdmin() {
           </PrivateRoute>
         }
       >
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<Dashboard2 />} />
         <Route path="/productupdate" element={<ProductUpdateAdmin />} />
         <Route path="/categoryproduct" element={<CategoryProduct />} />
         <Route path="/categorycombo" element={<CategoryCombo />} />
