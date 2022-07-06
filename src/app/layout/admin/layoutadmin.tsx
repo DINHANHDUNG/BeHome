@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import CategoryCombo from "../../page/admin/category/categoryCombo";
 import CategoryProduct from "../../page/admin/category/categoryProduct";
 import Combo from "../../page/admin/Combo/combo";
+import CommentAdmin from "../../page/admin/comment/comment";
 import Company from "../../page/admin/company/company";
 import Dashboard from "../../page/admin/dashboard/dashboard";
 import Manufacturer from "../../page/admin/manufacturer/manufacturer";
@@ -54,6 +55,7 @@ function LayoutAdmin() {
         <Route path="/rank" element={<Rank />} />
         <Route path="/company" element={<Company />} />
         <Route path="/combo" element={<Combo />} />
+        <Route path="/comment" element={<CommentAdmin />} />
         {/* <Route path="/warehouse" element={<WareHouse />} /> */}
       </Route>
 
