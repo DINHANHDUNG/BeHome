@@ -20,7 +20,7 @@ function Header() {
               <i className="icon-bars"></i>
             </button>
 
-            <a href="" className="logo">
+            <a href="/" className="logo">
               <img src={logo} alt="" style={{ width: "200px" }} />
               {/* BEHOME */}
             </a>

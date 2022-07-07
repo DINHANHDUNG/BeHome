@@ -18,12 +18,15 @@ import {
   postDeleteOrderAdmin,
 } from "../../../features/Admin/orderAdnim";
 import { orderAdminStore } from "../../../use-selector";
+import ModalDetailoOderDdmin from "../../component/customer/modal/order/modal-detailorder-admin";
 import {
   getParsedDate,
   getParsedDateTime,
   useAppDispatch,
   useAppSelector,
 } from "../../hooks";
+import { Order } from "../../types/order";
+import { Product } from "../../types/product";
 
 function OrderWaitForPay() {
   const { Title, Text } = Typography;
@@ -36,7 +39,7 @@ function OrderWaitForPay() {
   const [selected, setSelected] = useState([] as any);
   const [selectedID, setSelectedID] = useState([] as any);
   const [visible, setVisible] = useState(false);
-  const [value, setValue] = useState({ id: 0, name: "" });
+  const [value, setValue] = useState({} as Order);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
@@ -256,8 +259,8 @@ function OrderWaitForPay() {
           />
         </Col>
       </Row>
-      {/* {visible && (
-        <ModalManufacturer
+      {visible && (
+        <ModalDetailoOderDdmin
           visible={visible}
           toggle={() => {
             setVisible(false);
@@ -266,7 +269,7 @@ function OrderWaitForPay() {
           pageSize={pageSize}
           page={page}
         />
-      )} */}
+      )}
     </div>
   );
 }

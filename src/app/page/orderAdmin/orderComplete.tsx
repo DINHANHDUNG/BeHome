@@ -15,7 +15,14 @@ import {
   postDeleteOrderAdmin,
 } from "../../../features/Admin/orderAdnim";
 import { orderAdminStore } from "../../../use-selector";
-import { getParsedDate, getParsedDateTime, useAppDispatch, useAppSelector } from "../../hooks";
+import ModalDetailoOderDdmin from "../../component/customer/modal/order/modal-detailorder-admin";
+import {
+  getParsedDate,
+  getParsedDateTime,
+  useAppDispatch,
+  useAppSelector,
+} from "../../hooks";
+import { Order } from "../../types/order";
 
 function OrderCompalete() {
   const { Title, Text } = Typography;
@@ -26,7 +33,7 @@ function OrderCompalete() {
   const [selected, setSelected] = useState([] as any);
   const [selectedID, setSelectedID] = useState([] as any);
   const [visible, setVisible] = useState(false);
-  const [value, setValue] = useState({ id: 0, name: "" });
+  const [value, setValue] = useState({} as Order);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(12);
 
@@ -93,17 +100,17 @@ function OrderCompalete() {
         a.emailcustomer.localeCompare(b.emailcustomer),
     },
     {
-        title: "Ngày tạo",
-        dataIndex: "created_date",
-        key: "created_date",
-        render: (created_date: any) => <>{getParsedDateTime(created_date)}</>,
-        sorter: (a: any, b: any) => {
-          if (moment(a.created_date).isBefore(moment(b.created_date))) {
-            return -1;
-          }
-          return 1;
-        },
+      title: "Ngày tạo",
+      dataIndex: "created_date",
+      key: "created_date",
+      render: (created_date: any) => <>{getParsedDateTime(created_date)}</>,
+      sorter: (a: any, b: any) => {
+        if (moment(a.created_date).isBefore(moment(b.created_date))) {
+          return -1;
+        }
+        return 1;
       },
+    },
   ];
 
   // rowSelection object indicates the need for row selection
@@ -208,17 +215,17 @@ function OrderCompalete() {
           />
         </Col>
       </Row>
-      {/* {visible && (
-          <ModalManufacturer
-            visible={visible}
-            toggle={() => {
-              setVisible(false);
-            }}
-            value={value}
-            pageSize={pageSize}
-            page={page}
-          />
-        )} */}
+      {visible && (
+        <ModalDetailoOderDdmin
+          visible={visible}
+          toggle={() => {
+            setVisible(false);
+          }}
+          value={value}
+          pageSize={pageSize}
+          page={page}
+        />
+      )}
     </div>
   );
 }
