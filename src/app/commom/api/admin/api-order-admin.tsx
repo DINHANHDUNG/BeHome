@@ -56,5 +56,10 @@ const orderAPIAdmin = {
     const url = "order/deleteorder";
     return axiosClientAdmin.post(url, data);
   },
+
+  getSearchOrderAdmin(data: { orderkey: string }): Promise<any> {
+    const url = "order/searchorder";
+    return axiosClientAdmin.post(url, data);
+  },
 };
 export default orderAPIAdmin;

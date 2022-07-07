@@ -11,6 +11,15 @@ export const getAllOrderWaitForPayAdmin = createAsyncThunk(
   }
 );
 
+export const getSearchOrderAdmin = createAsyncThunk(
+  "/Orderadmin/getSearchOrderAdmin",
+  async (data: { orderkey: string; type: string }) => {
+    const response = await orderAPIAdmin.getSearchOrderAdmin(data);
+
+    return response;
+  }
+);
+
 export const getAllOrderCompletedAdmin = createAsyncThunk(
   "/Orderadmin/getallOrderCompleted",
   async (data: GetOrder) => {

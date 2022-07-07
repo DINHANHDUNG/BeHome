@@ -6,6 +6,7 @@ import {
   getAllOrderCompletedAdmin,
   getAllOrderWaitForPayAdmin,
   getOrderByIdAdmin,
+  getSearchOrderAdmin,
   OrderCanceledADmin,
   OrderCompletedADmin,
   postAddOrderByIdAdmin,
@@ -46,6 +47,28 @@ const orderSliceAdmin = createSlice({
         });
       });
 
+    // getSearchOrderAdmin
+    builder
+      .addCase(getSearchOrderAdmin.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getSearchOrderAdmin.fulfilled, (state, action) => {
+        const { result, total } = action.payload;
+
+        state.listOrder = result;
+        state.total = total;
+
+        state.loading = false;
+        state.error = false;
+      })
+      .addCase(getSearchOrderAdmin.rejected, (state) => {
+        state.loading = false;
+        state.error = true; //Show lỗi
+        openNotification({
+          message: "Lấy dữ liệu thất bại",
+          type: "error",
+        });
+      });
     // getAllOrderCancelAdmin
     builder
       .addCase(getAllOrderCancelAdmin.pending, (state) => {

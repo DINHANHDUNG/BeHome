@@ -2,6 +2,7 @@ import {
   Button,
   Card,
   Col,
+  Input,
   Pagination,
   Popconfirm,
   Row,
@@ -12,6 +13,7 @@ import moment from "moment";
 import React, { useEffect, useState } from "react";
 import {
   getAllOrderCompletedAdmin,
+  getSearchOrderAdmin,
   postDeleteOrderAdmin,
 } from "../../../features/Admin/orderAdnim";
 import { orderAdminStore } from "../../../use-selector";
@@ -36,6 +38,8 @@ function OrderCompalete() {
   const [value, setValue] = useState({} as Order);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(12);
+  const [valueSearch, setValueSearch] = useState("");
+  const [visibleSearch, setVisibleSearch] = useState(false);
 
   useEffect(() => {
     dispatch(
@@ -127,6 +131,22 @@ function OrderCompalete() {
     },
   };
 
+  function onSearch(val: any) {
+    console.log("search:", val.target.value);
+    setValueSearch(val.target.value);
+  }
+
+  const handleKeyDown = (event: any) => {
+    if (event.key === "Enter") {
+      dispatch(
+        getSearchOrderAdmin({
+          orderkey: valueSearch ? valueSearch : "",
+          type: "ĐÃ THANH TOÁN"
+        })
+      );
+    }
+  };
+
   return (
     <div className="tabled" style={{ marginBottom: "20px" }}>
       <Row gutter={[24, 0]}>
@@ -137,6 +157,14 @@ function OrderCompalete() {
             title="Quản lý đơn hàng đã thanh toán"
             extra={
               <>
+                <Button
+                  style={{ marginRight: "10px" }}
+                  onClick={() => {
+                    setVisibleSearch(!visibleSearch);
+                  }}
+                >
+                  Tìm kiếm
+                </Button>
                 <Popconfirm
                   title="Bạn có chắc muốn xóa không?"
                   okText="Có"
@@ -158,6 +186,41 @@ function OrderCompalete() {
               </>
             }
           >
+            {visibleSearch && (
+              <Row gutter={[24, 24]}>
+                <Col md={10} xs={20} style={{ margin: "20px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "space-around",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Input
+                      placeholder="Tìm kiếm"
+                      onChange={onSearch}
+                      style={{ width: "100%", marginRight: "10px" }}
+                      size="small"
+                      onKeyDown={handleKeyDown}
+                    />
+                    <Button
+                      size="large"
+                      onClick={() => {
+                        dispatch(
+                          getSearchOrderAdmin({
+                            orderkey: valueSearch ? valueSearch : "",
+                            type: "ĐÃ THANH TOÁN"
+                          })
+                        );
+                      }}
+                    >
+                      Tìm
+                    </Button>
+                  </div>
+                </Col>
+              </Row>
+            )}
             <div className="table-responsive">
               <Table
                 columns={columns}
