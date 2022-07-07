@@ -11,7 +11,7 @@ import {
 } from "antd";
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { getAllCategoryProductAdmin } from "../../../../features/Admin/categoryAdnim";
+import { getAllCategoryComboAdmin, getAllCategoryProductAdmin } from "../../../../features/Admin/categoryAdnim";
 import {
     getAllComboAdmin,
     getComboSearchAdmin,
@@ -50,7 +50,7 @@ function Combo() {
   const [arrImgDelete, setArrImgDelete] = useState([] as any);
 
   useEffect(() => {
-    dispatch(getAllCategoryProductAdmin()).then((res: any) => {});
+    dispatch(getAllCategoryComboAdmin()).then((res: any) => {});
     setValueInputSelect(0);
 
     dispatch(
@@ -205,7 +205,7 @@ function Combo() {
                   <Option value={0} key={0}>
                     Tất cả danh mục
                   </Option>
-                  {categorys?.listcategoryProduct?.map((item) => (
+                  {categorys?.listcategoryCombo?.map((item) => (
                     <Option value={item.id} key={item.id}>
                       {item.name}
                     </Option>
