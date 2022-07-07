@@ -54,7 +54,7 @@ function BoxComboProduct(props: PropsComboProduct) {
                   <br />
                   <span>{Numberformat(val.product?.price)} VNĐ </span>
                   <br />
-                  <span>Số lượng: 10 </span>
+                  <span>Số lượng: {Numberformat(val?.amountproduct)}</span>
                 </div>
               </div>
             ))}
