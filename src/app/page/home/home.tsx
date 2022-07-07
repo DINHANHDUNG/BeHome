@@ -1,11 +1,15 @@
 import React from "react";
 import Banner2 from "../../component/customer/banner/banner2";
 import Listproduct from "../../component/customer/product/listproduct";
+import { CustomesCompany } from "../../types/company";
 
-function Home() {
+interface typeProps {
+  company: CustomesCompany;
+}
+function Home(props: typeProps) {
   return (
     <div className="container">
-      <Banner2 />
+      <Banner2 Company={props.company.Company} />
       <Listproduct />
       <Listproduct />
       <Listproduct />

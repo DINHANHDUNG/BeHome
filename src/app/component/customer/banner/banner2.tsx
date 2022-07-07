@@ -1,7 +1,10 @@
 import { Image } from "antd";
 import React from "react";
 import Slider from "react-slick";
-function Banner2() {
+import { companyAdminStore } from "../../../../use-selector";
+import { useAppSelector } from "../../../hooks";
+import { Company } from "../../../types/company";
+function Banner2(props: { Company: Company }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -14,22 +17,14 @@ function Banner2() {
   };
   return (
     <div className="banner">
-      <Slider {...settings} >
-        <img
-          src="https://www.laptopdealer.vn/image/banner-1-ee.jpg"
-          alt=""
-          style={{ height: "100%", objectFit: "cover" }}
-        />
-        <img
-          src="https://theme.hstatic.net/200000251697/1000655457/14/smallbanner_img1.jpg?v=277"
-          alt=""
-          style={{ height: "100%", objectFit: "cover" }}
-        />
-        <img
-          src="https://tinhocmiennam.com/wp-content/uploads/2018/06/laptop-banner.jpg"
-          alt=""
-          style={{ height: "100%", objectFit: "cover" }}
-        />
+      <Slider {...settings}>
+        {props.Company.images?.map((val) => (
+          <img
+            src={"http://103.173.155.138:5500/images/" + val.imagename}
+            alt=""
+            style={{ height: "100%", objectFit: "cover" }}
+          />
+        ))}
       </Slider>
     </div>
   );

@@ -1,6 +1,11 @@
 import React from "react";
+import { CustomesCompany } from "../../../types/company";
 // import logo2 from "../../../assets/images/logo/logo2.png";
-function Footer() {
+
+interface typeProps {
+  company: CustomesCompany;
+}
+function Footer(props: typeProps) {
   return (
     <footer className="footer footer-2">
       <div
@@ -10,14 +15,14 @@ function Footer() {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-2xl-5col">
-              <h3 className="cta-title text-white">Tham gia nhận thông tin</h3>
+              {/* <h3 className="cta-title text-white">Tham gia nhận thông tin</h3>
               <p className="cta-desc text-white">
                 Đăng ký để nhận thông tin sản phẩm và phiếu giảm giá
-              </p>
+              </p> */}
             </div>
 
             <div className="col-3xl-5col">
-              <form action="#">
+              {/* <form action="#">
                 <div className="input-group">
                   <input
                     type="email"
@@ -36,7 +41,7 @@ function Footer() {
                     </button>
                   </div>
                 </div>
-              </form>
+              </form> */}
             </div>
           </div>
         </div>
@@ -44,6 +49,79 @@ function Footer() {
 
       <div className="footer-middle border-0">
         <div className="container">
+          <div className="row">
+            <div className="col-sm-4 col-lg-3">
+              <div className="widget">
+                <h4 className="widget-title">GIỚI THIỆU BEHOME</h4>
+
+                <ul className="widget-list">
+                  <li>
+                    <a href="#">Giới thiệu BEHOME</a>
+                  </li>
+                  <li>
+                    <a href="#">Liên hợp tác kinh doanh</a>
+                  </li>
+                  <li>
+                    <a href="#">Thông tin tuyển dụng</a>
+                  </li>
+                  <li>
+                    <a href="#">Tin tức</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-sm-4 col-lg-3">
+              <div className="widget">
+                <h4 className="widget-title">HỖ TRỢ KHÁCH HÀNG</h4>
+
+                <ul className="widget-list">
+                  <li>
+                    <a href="#">Hướng dẫn mua hàng trực tuyến</a>
+                  </li>
+                  <li>
+                    <a href="#">Gửi yêu cầu bảo hành</a>
+                  </li>
+                  <li>
+                    <a href="#">Góp ý, Khiếu Nại</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-sm-4 col-lg-3">
+              <div className="widget">
+                <h4 className="widget-title">CHÍNH SÁCH CHUNG</h4>
+
+                <ul className="widget-list">
+                  <li>
+                    <a href="#">Chính sách, quy định chung</a>
+                  </li>
+                  <li>
+                    <a href="#">Chính sách bảo hành</a>
+                  </li>
+                  <li>
+                    <a href="#">Chính sách vận chuyển</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-sm-4 col-lg-3">
+              <div className="widget">
+                <h4 className="widget-title">THÔNG TIN KHUYẾN MẠI</h4>
+
+                <ul className="widget-list">
+                  <li>
+                    <a href="#">Thông tin khuyến mại</a>
+                  </li>
+                  <li>
+                    <a href="#">Hỗ trợ</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
           <div className="row">
             <div className="col-sm-12 col-lg-6">
               <div className="widget widget-about">
@@ -56,18 +134,21 @@ function Footer() {
                 /> */}
 
                 <p>
-                  <span style={{ fontWeight: 600 }}>Địa chỉ</span>: Số 20 - Chợ
-                  Tre - Từ Sơn - Bắc Ninh
+                  <span style={{ fontWeight: 600 }}>Địa chỉ</span>:{" "}
+                  {props.company.Company.address}
                 </p>
-                <br />
                 <p>
+                  <span style={{ fontWeight: 600 }}>Email</span>:{" "}
+                  {props.company.Company.email}
+                </p>
+                {/* <p>
                   Sự khác biệt của Sò Lap là chúng tôi sẵn sàng lắng nghe, sẵn
                   sàng chia sẻ mọi điều quý khách mong muốn, và chúng tôi hiểu
                   được giá trị cốt lõi của sự phát triển, đó chính là niềm tin
                   của khách hàng. Với đội ngũ nhân viên dày dặn kinh nghiệm
                   trong các khâu bán hàng, bảo hành, CSKH, MKT,.. Sò Lap tin
                   rằng đây sẽ nơi trải nghiệm tốt nhất cho khách hàng.
-                </p>
+                </p> */}
 
                 <div className="widget-about-info">
                   <div className="row">
@@ -75,10 +156,12 @@ function Footer() {
                       <span className="widget-about-title">
                         Hỗ trợ khách hàng 24/7
                       </span>
-                      <a href="tel:0886431286">0886 431 286</a>
+                      <a href={"tel:" + props.company.Company.phonenumber}>
+                        {props.company.Company.phonenumber}
+                      </a>
                     </div>
-                    <div className="col-sm-6 col-md-8">
-                      <span className="widget-about-title">Thanh toán</span>
+                    <div className="col-sm-6 col-md-8 " id="icon-fixed-right">
+                      {/* <span className="widget-about-title">Thanh toán</span>
                       <figure className="footer-payments">
                         <img
                           src="assets/images/payments.png"
@@ -86,71 +169,38 @@ function Footer() {
                           width="272"
                           height="20"
                         />
-                      </figure>
+                      </figure> */}
+                      <span className="widget-about-title mb-2">
+                        Mạng xã hội
+                      </span>
+                      <a href="" className="mr-2">
+                        <i className="icons fab fa-facebook-f"></i>
+                      </a>
+
+                      <a href="" className="mr-2">
+                        <i
+                          className="icons fa-brands fa-youtube-square"
+                          style={{ color: "red", fontSize: "40px" }}
+                        ></i>
+                      </a>
+
+                      <a href="">
+                        <i className="icons fab fa-facebook-messenger"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="col-sm-4 col-lg-2">
-              <div className="widget">
-                <h4 className="widget-title">Thông tin</h4>
-
-                <ul className="widget-list">
-                  <li>
-                    <a href="#">Sò Lap</a>
-                  </li>
-                  <li>
-                    <a href="#">Làm thế nào để mua sắm </a>
-                  </li>
-                  <li>
-                    <a href="#">FAQ</a>
-                  </li>
-                  <li>
-                    <a href="#">Liên hệ với chúng tôi</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-sm-4 col-lg-2">
-              <div className="widget">
-                <h4 className="widget-title">Dịch vụ</h4>
-
-                <ul className="widget-list">
-                  <li>
-                    <a href="#">Nâng cấp</a>
-                  </li>
-                  <li>
-                    <a href="#">Sửa chữa</a>
-                  </li>
-                  <li>
-                    <a href="#">Bảo hành</a>
-                  </li>
-                  <li>
-                    <a href="#">Vận chuyển</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-sm-4 col-lg-2">
-              <div className="widget">
-                <h4 className="widget-title">Tài khoản</h4>
-
-                <ul className="widget-list">
-                  <li>
-                    <a href="#">Đăng nhập</a>
-                  </li>
-                  {/* <li>
-                    <a href="#">Giỏ hàng</a>
-                  </li> */}
-                  <li>
-                    <a href="#">Hỗ trợ</a>
-                  </li>
-                </ul>
-              </div>
+            <div className="col-sm-12 col-lg-6">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29752.48250359397!2d105.4888145!3d21.2294568!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134f1e48e6ec6d3%3A0xdb10ab16279982f2!2sBehome!5e0!3m2!1svi!2s!4v1657183754937!5m2!1svi!2s"
+                width="100%"
+                height="300"
+                style={{ border: "0" }}
+                loading="lazy"
+              ></iframe>
             </div>
           </div>
         </div>

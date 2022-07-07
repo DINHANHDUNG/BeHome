@@ -4,6 +4,8 @@ import { categoryAdminStore } from "../../../../use-selector";
 // import logo from "../../../assets/images/logo/avtfb.png"
 import logo from "../../../assets/images/logo/biafb.png";
 import { useAppSelector } from "../../../hooks";
+import { CustomesCompany } from "../../../types/company";
+
 
 function Header() {
   const categoryTrees = useAppSelector(categoryAdminStore);
