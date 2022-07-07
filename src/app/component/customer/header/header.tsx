@@ -6,7 +6,6 @@ import logo from "../../../assets/images/logo/biafb.png";
 import { useAppSelector } from "../../../hooks";
 import { CustomesCompany } from "../../../types/company";
 
-
 function Header() {
   const categoryTrees = useAppSelector(categoryAdminStore);
 
@@ -123,9 +122,9 @@ function Header() {
                           Danh mục bán lẻ
                         </div>
                       </li>
-                      {categoryTrees.listcategoryProduct?.map((val) =>
+                      {categoryTrees.listcategoryProduct?.map((val, idx) =>
                         val.children.length > 0 ? (
-                          <li className="megamenu-container">
+                          <li className="megamenu-container" key={idx}>
                             <Link to={`danhmuc`} className="sf-with-ul">
                               {val.name}
                             </Link>

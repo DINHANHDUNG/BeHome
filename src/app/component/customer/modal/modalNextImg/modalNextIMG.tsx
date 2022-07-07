@@ -71,7 +71,11 @@ function ModalNextIMG(props: propsModalNextIMG) {
         >
           pre
         </p> */}
-        <img style={{ width: "800px" }} src={IMGDISPLAY.img} alt="" />
+        <img
+          style={{ width: "800px" }}
+          src={"http://103.173.155.138:5500/images/" + IMGDISPLAY?.imagename}
+          alt=""
+        />
         {/* <p
           style={{ marginLeft: "10px", cursor: "pointer" }}
           onClick={() => nextImg(IMGDISPLAY.id)}

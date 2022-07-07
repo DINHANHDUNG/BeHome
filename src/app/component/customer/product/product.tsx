@@ -1,27 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { success } from "../../../hooks";
-import { ProductHomePage } from "../../../types/product-home-page";
+import { Numberformat, success } from "../../../hooks";
+import { Combo } from "../../../types/combo";
+import { Product as Product2 } from "../../../types/product";
 interface propsProduct {
-  value: ProductHomePage;
+  value: Product2 | Combo;
 }
-function Product(props: any) {
-  console.log("props", props);
+function Product(props: propsProduct) {
+  console.log("props", props.value.type);
 
   return (
     <div className="product">
       <figure className="product-media">
-        <Link to={"/detailproduct"}>
-          {/* <img
-            src={"http://103.173.155.138:5500/images/" + props.product.imagename}
-            alt="Product image"
-            className="product-image"
-          /> */}
-          <img
-            src="assets/images/demos/demo-13/products/product-7.jpg"
-            alt="Product image"
-            className="product-image"
-          />
+        <Link
+          to={
+            props.value.type === "PRODUCT"
+              ? "/detailproduct/"
+              : "/detailcombo/" + props.value.id
+          }
+        >
+          {props.value?.images ? (
+            <img
+              src={
+                "http://103.173.155.138:5500/images/" +
+                props.value?.images[0]?.imagename
+              }
+              alt="Product image"
+              className="product-image"
+            />
+          ) : (
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+              alt="Product image"
+              className="product-image"
+            />
+          )}
         </Link>
 
         <div className="product-action">
@@ -38,12 +51,14 @@ function Product(props: any) {
 
       <div className="product-body">
         <div className="product-cat">
-          <a href="#">Laptops</a>
+          <a href="#">{props.value.name}</a>
         </div>
         <h3 className="product-title">
-          <a href="product.html">MacBook Pro 13" Display, i5</a>
+          <a href="product.html">{props.value.describe}</a>
         </h3>
-        <div className="product-price">$1,199.00</div>
+        <div className="product-price">
+          {Numberformat(props.value.price)} VNĐ
+        </div>
       </div>
     </div>
   );

@@ -130,7 +130,8 @@
   border-radius: 12px;
 }
 
-.icons.fab.fa-facebook-f, .icons.fab.fa-facebook-messenger {
+.icons.fab.fa-facebook-f,
+.icons.fab.fa-facebook-messenger {
   background: #4267b2;
 }
 
@@ -142,4 +143,8 @@
   border-radius: 9999px;
   font-size: 35px;
   line-height: 40px;
+}
+
+.ant-notification {
+  z-index: 999999 !important;
 }

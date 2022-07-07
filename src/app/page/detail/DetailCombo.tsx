@@ -3,8 +3,9 @@ import TextArea from "antd/lib/input/TextArea";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getComboByIdAdmin } from "../../../features/Admin/comboAdnim";
+import { postAddCommentByIdAdmin } from "../../../features/Admin/commentAdnim";
 import { getProductByIdAdmin } from "../../../features/Admin/productAdnim";
-import { productAdminStore } from "../../../use-selector";
+import { comboAdminStore, productAdminStore } from "../../../use-selector";
 import BoxComboProduct from "../../component/customer/box-combo-product/box-combo-product";
 import BoxPromotion from "../../component/customer/box-promotion/box-promotion";
 import Comment from "../../component/customer/comment/comment";
@@ -21,22 +22,30 @@ import {
 import ComponentInfoDetail from "./componentInfoDetail/componentInfoDetail";
 import ComponentVideo from "./componentVideo/componentVideo";
 
-function DetailProduct() {
+function DetailCombo() {
   const { ID } = useParams();
   const dispatch = useAppDispatch();
-  console.log(ID);
-  const products = useAppSelector(productAdminStore);
+  const combo = useAppSelector(comboAdminStore);
 
-  console.log(products);
-
-  useEffect(() => {
-    setIMG(products?.listproduct[0]?.images);
-    setDisplayIMG(products?.listproduct[0]?.images[0]);
-  }, [products]);
+  console.log(combo);
 
   useEffect(() => {
-    dispatch(getProductByIdAdmin({ id: Number(ID) }));
+    // dispatch(getProductByIdAdmin({ id: Number(ID) }));
+    dispatch(getComboByIdAdmin({ id: Number(ID) }));
   }, []);
+
+  useEffect(() => {
+    setIMG(combo?.listCombo[0]?.images);
+    if (combo?.listCombo[0]?.images?.length > 0) {
+      setDisplayIMG(combo?.listCombo[0]?.images[0]);
+    }
+    var newtotal = 0;
+    combo.listCombo[0]?.combo_products?.map((val) => {
+      newtotal = newtotal + val.product.price;
+    });
+
+    setTotal(newtotal);
+  }, [combo]);
   const [img, setIMG] = useState([] as any);
   const [dispayIMG, setDisplayIMG] = useState(
     img?.length > 0 ? img[0] : ({} as any)
@@ -44,12 +53,11 @@ function DetailProduct() {
   const [visible, setVisible] = useState(false);
   const [visibleRepLyComment, setVisibleRepLyComment] = useState(false);
   const [valueComment, setValueComment] = useState("");
-
-  console.log(dispayIMG);
+  const [total, setTotal] = useState(0);
 
   return (
     <div className="container">
-      {products?.listproduct[0]?.id ? (
+      {combo?.listCombo[0]?.id ? (
         <div className="product-details-top mb-2 mt-3">
           <div className="row">
             <div className="col-md-6">
@@ -100,31 +108,34 @@ function DetailProduct() {
 
             <div className="col-md-6">
               <div className="product-details">
-                <h1 className="product-title">Laptop Del 3456</h1>
+                <h1 className="product-title">{combo.listCombo[0]?.name}</h1>
 
                 <div
                   className="product-price"
                   style={{ justifyContent: "left" }}
                 >
-                  <span>{Numberformat(2000000000)} VNĐ</span>
+                  <span>{Numberformat(combo.listCombo[0]?.price)} VNĐ</span>
                   &nbsp;
-                  <del style={{ fontSize: "13px", opacity: "0.4" }}>
-                    {Numberformat(3000000000)} VNĐ
+                  <del
+                    style={{ fontSize: "13px", opacity: "0.4" }}
+                    className="ml-2"
+                  >
+                    {Numberformat(total)} VNĐ
                   </del>{" "}
                 </div>
 
                 <div className="product-content mb-3">
-                  <p> ✔ CPU: Intel core i7 11800H</p>
-                  <p> ✔ RAM: 64GB</p>
-                  <p> ✔ Ổ cứng: 1TB SSD</p>
-                  <p> ✔ VGA: Nvidia RTX 3080 8G</p>
-                  <p> ✔ Màn hình: 16.0 inch WQXGA 165Hz 100%sRGB</p>
-                  <p> ✔ HĐH: Win 10</p>
+                  <p> ✔ Mô tả: {combo.listCombo[0]?.describe}</p>
+                  {/* <p> ✔ RAM: 64GB</p>
+                <p> ✔ Ổ cứng: 1TB SSD</p>
+                <p> ✔ VGA: Nvidia RTX 3080 8G</p>
+                <p> ✔ Màn hình: 16.0 inch WQXGA 165Hz 100%sRGB</p>
+                <p> ✔ HĐH: Win 10</p> */}
                 </div>
 
-                <BoxPromotion />
+                {/* <BoxPromotion /> */}
 
-                {/* <BoxComboProduct /> */}
+                <BoxComboProduct combo={combo.listCombo[0]} />
 
                 <div className="product-details-action mt-3">
                   <a href="#" className="btn-product btn-cart">
@@ -138,11 +149,11 @@ function DetailProduct() {
           <div className="row">
             <div className="col-md-12">
               <h4>Video</h4>
-              <ComponentVideo link={"abc"} />
+              <ComponentVideo link={combo.listCombo[0]?.linkvideo} />
             </div>
           </div>
 
-          <ComponentInfoDetail />
+          {/* <ComponentInfoDetail /> */}
 
           <div className="row">
             <div className="col-md-12">
@@ -178,15 +189,31 @@ function DetailProduct() {
               >
                 Gửi bình luận
               </Button>
-              {/* <div className="col-md-6">
-                <SingleComment reply={true} />
-                <ReplyComment />
-                <ReplyComment />
-                <ReplyComment />
-                <SingleComment reply={true} />
-                <SingleComment reply={true} />
-                <SingleComment reply={true} />
-              </div> */}
+              <div className="col-md-6">
+                {combo?.listCombo[0]?.comments?.map((val) => (
+                  <>
+                    <SingleComment
+                      reply={true}
+                      value={val}
+                      toggleDone={() =>
+                        dispatch(getComboByIdAdmin({ id: Number(ID) }))
+                      }
+                    />
+                    {/* Reply */}
+                    {val.replys.map((rep) => (
+                      <div style={{ marginLeft: "45px" }}>
+                        <SingleComment
+                          reply={false}
+                          value={rep}
+                          toggleDone={() => {}}
+                        />
+                      </div>
+                    ))}
+
+                    {/* <ReplyComment /> */}
+                  </>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -203,12 +230,24 @@ function DetailProduct() {
 
       <ModalFormComment
         visible={visibleRepLyComment}
-        toggleValue={(value) => console.log(value)}
         // value={{ id: 0, replycomment: valueComment }}
         toggle={() => setVisibleRepLyComment(!visibleRepLyComment)}
+        toggleValue={(val) => {
+          dispatch(
+            postAddCommentByIdAdmin({
+              ...val,
+              id_product: null,
+              id_combo: Number(ID),
+              contents: valueComment,
+            })
+          ).then(() => {
+            dispatch(getComboByIdAdmin({ id: Number(ID) }));
+            setValueComment("");
+          });
+        }}
       />
     </div>
   );
 }
 
-export default DetailProduct;
+export default DetailCombo;

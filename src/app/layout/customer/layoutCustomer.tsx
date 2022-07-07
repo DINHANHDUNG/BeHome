@@ -11,6 +11,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import Build from "../../page/build/build";
 import CartShopping from "../../page/cartShopping/cartShopping";
 import CheckOut from "../../page/checkout/checkOut";
+import DetailCombo from "../../page/detail/DetailCombo";
 import DetailProduct from "../../page/detail/DetailProduct";
 import Home from "../../page/home/home";
 import ProductByCategory from "../../page/productByCategory/productByCategory";
@@ -29,7 +30,8 @@ function LayoutCustomer() {
         <Header />
         <Routes>
           <Route index element={<Home company={company} />} />
-          <Route path="detailproduct" element={<DetailProduct />} />
+          <Route path="detailproduct/:ID" element={<DetailProduct />} />
+          <Route path="detailcombo/:ID" element={<DetailCombo />} />
           <Route path="danhmuc" element={<ProductByCategory />} />
           <Route path="cart" element={<CartShopping />} />
           <Route path="checkout" element={<CheckOut />} />

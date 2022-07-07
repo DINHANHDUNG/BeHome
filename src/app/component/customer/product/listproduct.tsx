@@ -26,17 +26,23 @@ function Listproduct(props: propsProduct) {
         </Link>
       </h2>
 
-
       <div className="products mb-3">
         <div className="row">
           {/* <div className="col-6 col-md-4 col-xl-3">
             <Product />
           </div> */}
-          {props.product.products.slice(0, 8).map((value) => (
-            <div className="col-6 col-md-4 col-xl-3">
-              <Product value={value}/>
-            </div>
-          ))}
+
+          {props.product.products?.length > 0
+            ? props.product.products.slice(0, 8).map((value, idx) => (
+                <div className="col-6 col-md-4 col-xl-3" key={idx}>
+                  <Product value={value} />
+                </div>
+              ))
+            : props.product.combos.slice(0, 8).map((value, idx) => (
+                <div className="col-6 col-md-4 col-xl-3" key={idx}>
+                  <Product value={value} />
+                </div>
+              ))}
         </div>
       </div>
     </div>

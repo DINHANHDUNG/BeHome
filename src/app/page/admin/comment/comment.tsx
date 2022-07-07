@@ -106,16 +106,24 @@ function CommentAdmin() {
     },
 
     {
-      title: "Tên sản phẩm",
+      title: "Sản phẩm /Combo",
       dataIndex: "product",
       key: "product",
       render: (text: any, row: any, index: any) =>
         row.product?.id > 0
           ? row.product?.name
           : row.combo?.id > 0
-          ? row.product?.name
+          ? row.combo?.name
           : null,
     },
+
+    // {
+    //   title: "Combo",
+    //   dataIndex: "combo",
+    //   key: "combo",
+    //   render: (text: any, row: any, index: any) =>
+    //     row.product?.id > 0 ? null : row.combo?.id > 0 ? row.combo?.name : null,
+    // },
 
     {
       title: "Tên khách",
@@ -219,7 +227,6 @@ function CommentAdmin() {
             title="Quản lý comment"
             extra={
               <>
-
                 <Popconfirm
                   title="Bạn có chắc muốn xóa không?"
                   okText="Có"
@@ -257,7 +264,7 @@ function CommentAdmin() {
                   return {
                     onClick: (event) => {}, // click row
                     onDoubleClick: (event) => {
-                    //   setVisible(true);
+                      //   setVisible(true);
                     }, // double click row
                     onContextMenu: (event) => {}, // right button click row
                     onMouseEnter: (event) => {

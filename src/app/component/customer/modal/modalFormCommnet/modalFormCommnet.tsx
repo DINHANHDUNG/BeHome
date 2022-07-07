@@ -1,27 +1,36 @@
 import { Button, Form, Input, InputNumber, Modal } from "antd";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppDispatch } from "../../../../hooks";
 
 interface propsModalFormComment {
   visible: boolean;
   toggle: () => void;
-  value: {
-    id: number;
-    replycomment: string;
-  };
+  toggleValue: (value: any) => void;
+  // value: {
+  //   id: number;
+  //   replycomment: string;
+  // };
 }
 function ModalFormComment(props: propsModalFormComment) {
+  const [infoCus, setInfoCus] = useState({} as any);
+  // var retrievedObject = localStorage.getItem("InfoCustomer") as any;
+  console.log(infoCus);
+
   const dispatch = useAppDispatch();
   const [form] = Form.useForm();
   useEffect(() => {
     form.resetFields();
-  }, [props.value.id]);
+    if (localStorage.getItem("InfoCustomer")) {
+      setInfoCus(JSON.parse(localStorage.getItem("InfoCustomer") || "{}"));
+    }
+  }, [props.visible]);
+
+  // console.log("retrievedObject: ", JSON.parse(retrievedObject));
 
   function onFinish(value: any) {
     props.toggle();
-    console.log(value);
-
-    console.log(props.value);
+    props.toggleValue(value);
+    localStorage.setItem("InfoCustomer", JSON.stringify(value));
   }
 
   return (
@@ -42,38 +51,32 @@ function ModalFormComment(props: propsModalFormComment) {
         form={form}
         // wrapperCol={{ span: 16 }}f
         initialValues={{
-          name: "",
-          email: "",
-          numberphone: "",
+          namecustomer: infoCus?.namecustomer,
+          addresscustomer: infoCus?.addresscustomer,
+          phonenumbercustomer: infoCus?.phonenumbercustomer,
         }}
         onFinish={onFinish}
         autoComplete="off"
       >
         <Form.Item
           label="Họ tên "
-          name="name"
+          name="namecustomer"
           rules={[{ required: true, message: "Nhập họ tên!" }]}
         >
           <Input />
         </Form.Item>
 
         <Form.Item
-          label="Email"
-          name="Email"
-          rules={[
-            { required: true, message: "Nhập email!" },
-            {
-              type: "email",
-              message: "Chưa đúng định dạng!",
-            },
-          ]}
+          label="addresscustomer"
+          name="addresscustomer"
+          rules={[{ required: true, message: "Nhập địa chỉ!" }]}
         >
           <Input />
         </Form.Item>
 
         <Form.Item
           label="Số điện thoại"
-          name="numberphone"
+          name="phonenumbercustomer"
           rules={[
             {
               pattern: /^(?:\d*)$/,
@@ -88,9 +91,7 @@ function ModalFormComment(props: propsModalFormComment) {
           <Input />
         </Form.Item>
 
-        <Form.Item
-          wrapperCol={{ offset: props.value?.id > 0 ? 21 : 20, span: 24 }}
-        >
+        <Form.Item wrapperCol={{ offset: 20, span: 24 }}>
           <Button type="primary" htmlType="submit">
             Cập nhật
           </Button>

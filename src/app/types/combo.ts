@@ -1,4 +1,6 @@
 import { Category } from "./category";
+import { Comment } from "./comment";
+import { Product } from "./product";
 import { Promotion } from "./promotion";
 
 export interface AddCombo {
@@ -42,9 +44,12 @@ export interface Combo {
     id_product: number;
     id_combo: number;
     amountproduct: number;
+    product: Product;
+    combo: Combo;
   }>;
+  type: string;
   images: Array<any>;
-  comments: [];
+  comments: Array<Comment>;
 }
 
 export interface CustomesCombo {

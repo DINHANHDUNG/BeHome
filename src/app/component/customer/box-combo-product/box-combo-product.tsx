@@ -1,60 +1,77 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Numberformat } from "../../../hooks";
+import { Combo } from "../../../types/combo";
 import "./styleBoxCombo.css";
+interface PropsComboProduct {
+  combo: Combo;
+}
 
-function BoxComboProduct() {
+function BoxComboProduct(props: PropsComboProduct) {
+  console.log("props", props.combo);
+
+  const [total, setTotal] = useState(0);
+  // useEffect(() => {
+  //   var newtotal = 0;
+  //   props.combo?.combo_products?.map((val) => {
+  //     newtotal = newtotal + val.product.price;
+  //   });
+
+  //   setTotal(newtotal);
+  // }, [props.combo]);
+
   return (
     <div className="row mt-2">
       <div className="col-sm-12">
         <div className="icon-boxCombo icon-boxCombo-card">
           <div className="icon-boxCombo-content">
-            <span className="title-boxCombo">Mua theo combo</span>
+            <span className="title-boxCombo">Danh sách sản phẩm</span>
             <br />
 
-            <div className="icon-boxCombo-info mt-2">
-              <div className="icon-boxCombo-info-img">
-                <img
-                  src="http://103.173.155.138:5500/images/8d7c4355be064d3593e38ef56a480c4a.jpg"
-                  style={{ height: "50px", width: "50px", objectFit: "cover" }}
-                  alt=""
-                />
+            {props.combo?.combo_products?.map((val) => (
+              <div className="icon-boxCombo-info mt-2 mb-2">
+                <div className="icon-boxCombo-info-img">
+                  {val.product.images?.length > 0 ? (
+                    <img
+                      src={
+                        "http://103.173.155.138:5500/images/" +
+                        val.product?.images[0]?.imagename
+                      }
+                      style={{
+                        height: "70px",
+                        width: "70px",
+                        objectFit: "cover",
+                        cursor: "pointer",
+                      }}
+                      alt=""
+                    />
+                  ) : null}
+                </div>
+
+                <div className="icon-boxCombo-info-product">
+                  <span style={{ color: "#d30808f7", cursor: "pointer" }}>
+                    {val.product?.name}
+                  </span>
+                  <br />
+                  <span>{Numberformat(val.product?.price)} VNĐ </span>
+                  <br />
+                  <span>Số lượng: 10 </span>
+                </div>
               </div>
-              <div className="icon-boxCombo-info-product">
-                <span>Laptop ACE</span>
-                <br />
-                <span>{Numberformat(2000000000)} VNĐ </span>
-                <del style={{ fontSize: "13px", opacity: "0.4" }}>
-                  {Numberformat(3000000000)} VNĐ
-                </del>{" "}
-              </div>
-            </div>
-            <div className="icon-boxCombo-info mt-2">
-              <div className="icon-boxCombo-info-img">
-                <img
-                  src="https://zda.vn/wp-content/uploads/2021/04/chuot-fuhlen-12.jpg"
-                  style={{ height: "50px", width: "50px", objectFit: "cover" }}
-                  alt=""
-                />
-              </div>
-              <div className="icon-boxCombo-info-product">
-                <span>Chuột Fulhen</span>
-                <br />
-                <span>{Numberformat(2000000000)} VNĐ </span>
-                <del style={{ fontSize: "13px", opacity: "0.4" }}>
-                  {Numberformat(3000000000)} VNĐ
-                </del>{" "}
-              </div>
-            </div>
-            <div className="row">
+            ))}
+
+            {/* <div className="row mt-2">
               <div
-                className="col-6"
+                className="col-12"
                 style={{ display: "flex", alignItems: "center" }}
               >
                 <div className="price-combo">
                   <span style={{ fontWeight: 500 }}>Giá combo:</span>{" "}
                   <span style={{ fontWeight: 500, color: "#d30808f7" }}>
-                    {Numberformat(5000000)} VNĐ
+                    {Numberformat(props.combo?.price)} VNĐ
                   </span>
+                  <del style={{ fontSize: "13px", opacity: "0.4" }} className="ml-2">
+                    {Numberformat(total)} VNĐ
+                  </del>{" "}
                 </div>
               </div>
               <div className="col-6">
@@ -67,7 +84,7 @@ function BoxComboProduct() {
                   </a>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* {props.value.promotion.promotiondetails?.map((val: any) => (
               <p>✔ {val.promotiondetail_name}</p>
