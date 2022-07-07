@@ -1,4 +1,5 @@
 import { Category } from "./category";
+import { Combo } from "./combo";
 import { Promotion, promotiondetails } from "./promotion";
 
 export interface Product {
@@ -8,6 +9,7 @@ export interface Product {
   id_rank: number;
   id_manufacturer: number;
   name: string;
+  type: string;
   price: number;
   linkvideo: string;
   show: boolean;
@@ -28,6 +30,8 @@ export interface Product {
   images: Array<any>;
   productdetails: any;
   comments: any;
+  products: Array<Product>;
+  combos: Array<Combo>;
 }
 
 // export interface AddProduct {

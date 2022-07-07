@@ -1,7 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ProductHomePage } from "../../../types/product-home-page";
 import Product from "./product";
-function Listproduct() {
+interface propsProduct {
+  product: ProductHomePage;
+}
+function Listproduct(props: propsProduct) {
+  console.log("props", props);
+
   return (
     <div>
       <h2
@@ -14,40 +20,25 @@ function Listproduct() {
           justifyContent: "space-between",
         }}
       >
-        Máy tính
-        {/* <Link  to={`danhmuc/${props.value.id}`} style={{ fontSize: "16px" }}>Xem thêm</Link> */}
-        <Link  to={``} style={{ fontSize: "16px" }}>Xem thêm</Link>
+        <span>{props.product?.name}</span>
+        <Link to={`danhmuc/${props.product?.id}`} style={{ fontSize: "16px" }}>
+          Xem thêm
+        </Link>
       </h2>
+
 
       <div className="products mb-3">
         <div className="row">
-          <div className="col-6 col-md-4 col-xl-3">
+          {/* <div className="col-6 col-md-4 col-xl-3">
             <Product />
-          </div>
-          <div className="col-6 col-md-4 col-xl-3">
-            <Product />
-          </div>
-          <div className="col-6 col-md-4 col-xl-3">
-            <Product />
-          </div>
-
-          <div className="col-6 col-md-4 col-xl-3">
-            <Product />
-          </div>
-          {/* {props.value.products.slice(0, 8).map((value) => (
+          </div> */}
+          {props.product.products.slice(0, 8).map((value) => (
             <div className="col-6 col-md-4 col-xl-3">
-              <ItemProduct value={value} />
+              <Product value={value}/>
             </div>
-          ))} */}
+          ))}
         </div>
       </div>
-      {/* <Slider {...settings}>
-        {props.value.products.map((e) => (
-          <div className="slide-home-page" style={{ margin: "10px" }}>
-            <ItemProduct value={e} />
-          </div>
-        ))}
-      </Slider> */}
     </div>
   );
 }

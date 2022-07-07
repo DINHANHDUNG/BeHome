@@ -65,8 +65,6 @@ function ModalCombo(props: propsModalProduct) {
   const dispatch = useAppDispatch();
   const [form] = Form.useForm();
   const listComboProduct = Form.useWatch("combo_products", form);
-  console.log(products);
-  console.log(listComboProduct);
 
   useEffect(() => {
     setFileIMG(props.value.images ? props.value.images : []);
@@ -268,7 +266,7 @@ function ModalCombo(props: propsModalProduct) {
   }
 
   //Select
-  const valueSelect = categorys.listcategoryProduct.filter(
+  const valueSelect = categorys.listcategoryCombo.filter(
     (item) => item.id != 0
   );
   console.log(valueSelect);

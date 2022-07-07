@@ -1,22 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { success } from "../../../hooks";
+import { ProductHomePage } from "../../../types/product-home-page";
+interface propsProduct {
+  value: ProductHomePage;
+}
+function Product(props: any) {
+  console.log("props", props);
 
-function Product() {
   return (
     <div className="product">
       <figure className="product-media">
         <Link to={"/detailproduct"}>
-          <img
-            src="http://103.173.155.138:5500/images/d4f84139b801496e9ffad8229eb1751b.jpg"
-            alt="Product image"
-            className="product-image"
-          />
           {/* <img
-            src="assets/images/demos/demo-13/products/product-7.jpg"
+            src={"http://103.173.155.138:5500/images/" + props.product.imagename}
             alt="Product image"
             className="product-image"
           /> */}
+          <img
+            src="assets/images/demos/demo-13/products/product-7.jpg"
+            alt="Product image"
+            className="product-image"
+          />
         </Link>
 
         <div className="product-action">

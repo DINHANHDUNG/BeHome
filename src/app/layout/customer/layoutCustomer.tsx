@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { getAllCategoryTrees } from "../../../features/Admin/categoryAdnim";
 import { getCompany } from "../../../features/Admin/company";
+import { getProductHomePage } from "../../../features/homepage";
 import { companyAdminStore } from "../../../use-selector";
 import Footer from "../../component/customer/footer/footer";
 import Header from "../../component/customer/header/header";
@@ -19,6 +20,7 @@ function LayoutCustomer() {
   useEffect(() => {
     dispatch(getAllCategoryTrees());
     dispatch(getCompany());
+    dispatch(getProductHomePage());
   }, []);
   const company = useAppSelector(companyAdminStore);
   return (

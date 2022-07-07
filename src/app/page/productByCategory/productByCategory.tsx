@@ -34,7 +34,7 @@ function ProductByCategory() {
 
             <div className="products mb-3">
               <div className="row">
-                <div className="col-12 col-md-6 col-xl-4 col-lg-6">
+                {/* <div className="col-12 col-md-6 col-xl-4 col-lg-6">
                   <Product />
                 </div>
                 <div className="col-12 col-md-6 col-xl-4 col-lg-6">
@@ -52,7 +52,7 @@ function ProductByCategory() {
 
                 <div className="col-12 col-md-6 col-xl-4 col-lg-6">
                   <Product />
-                </div>
+                </div> */}
                 {/* {props.value.products.slice(0, 8).map((value) => (
             <div className="col-6 col-md-4 col-xl-3">
               <ItemProduct value={value} />

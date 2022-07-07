@@ -20,4 +20,4 @@ export const orderAdminStore = (state: RootState) => state.orderAdmin; //order
 
 /* ---------------------------------------Home page-------------------------------------------------- */
 
-// export const productHomePageStore = (state: RootState) => state.ProductHomePage;
+export const productHomePageStore = (state: RootState) => state.ProductHomePage;

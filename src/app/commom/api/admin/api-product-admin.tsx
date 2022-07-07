@@ -32,7 +32,7 @@ const productAPIAdmin = {
   },
 
   getProductbyHomePage(): Promise<any> {
-    const url = "product/getproducthomepage";
+    const url = "homepage/getproducthomepage";
     return axiosClientAdmin.get(url);
   },
 
