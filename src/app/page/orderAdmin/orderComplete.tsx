@@ -141,7 +141,7 @@ function OrderCompalete() {
       dispatch(
         getSearchOrderAdmin({
           orderkey: valueSearch ? valueSearch : "",
-          type: "ĐÃ THANH TOÁN"
+          type: "ĐÃ HOÀN THÀNH"
         })
       );
     }
@@ -210,7 +210,7 @@ function OrderCompalete() {
                         dispatch(
                           getSearchOrderAdmin({
                             orderkey: valueSearch ? valueSearch : "",
-                            type: "ĐÃ THANH TOÁN"
+                            type: "ĐÃ HOÀN THÀNH"
                           })
                         );
                       }}
