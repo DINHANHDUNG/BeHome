@@ -139,7 +139,8 @@ const orderSliceAdmin = createSlice({
       })
       .addCase(postAddOrderByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Thêm thành công",
+          message:
+            "Đặt hàng thành công, chúng tôi sẽ liên hệ với bạn qua số điện thoại và email. Xin cảm ơn!",
           type: "success",
         });
         const { result } = action.payload;
@@ -151,7 +152,7 @@ const orderSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Thêm không thành công",
+          message: "Đặt hàng không thành công",
           type: "error",
         });
       });

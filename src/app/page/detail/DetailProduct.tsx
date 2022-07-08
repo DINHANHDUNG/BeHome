@@ -1,10 +1,11 @@
 import { Button } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getComboByIdAdmin } from "../../../features/Admin/comboAdnim";
 import { postAddCommentByIdAdmin } from "../../../features/Admin/commentAdnim";
 import { getProductByIdAdmin } from "../../../features/Admin/productAdnim";
+import { addCart } from "../../../features/cart/cart-slice";
 import { productAdminStore } from "../../../use-selector";
 import BoxComboProduct from "../../component/customer/box-combo-product/box-combo-product";
 import BoxPromotion from "../../component/customer/box-promotion/box-promotion";
@@ -24,6 +25,7 @@ import ComponentVideo from "./componentVideo/componentVideo";
 
 function DetailProduct() {
   const { ID } = useParams();
+  const history = useNavigate();
   const dispatch = useAppDispatch();
   console.log(ID);
   const products = useAppSelector(productAdminStore);
@@ -141,8 +143,14 @@ function DetailProduct() {
 
                 {/* <BoxComboProduct /> */}
 
-                <div className="product-details-action mt-3">
-                  <a href="#" className="btn-product btn-cart">
+                <div
+                  className="product-details-action mt-3"
+                  onClick={() => {
+                    dispatch(addCart(products?.listproduct[0]));
+                    history("/cart");
+                  }}
+                >
+                  <a className="btn-product btn-cart">
                     <span>Mua ngay</span>
                   </a>
                 </div>

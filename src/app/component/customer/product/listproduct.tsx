@@ -21,7 +21,14 @@ function Listproduct(props: propsProduct) {
         }}
       >
         <span>{props.product?.name}</span>
-        <Link to={`danhmuc/${props.product?.id}`} style={{ fontSize: "16px" }}>
+        <Link
+          to={
+            props.product.type === "PRODUCT"
+              ? `danhmucproduct/${props.product?.id}`
+              : `danhmuccombo/${props.product?.id}`
+          }
+          style={{ fontSize: "16px" }}
+        >
           Xem thêm
         </Link>
       </h2>

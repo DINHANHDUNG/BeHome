@@ -80,9 +80,9 @@ function ProductByCategory() {
                           })
                         );
                       }}
-                      value={sort}
+                      // value={sort}
                     >
-                      <option value={0}>Mới nhất</option>
+                      <option value={0} defaultChecked>Mới nhất</option>
                       <option value={2}>Giảm dần</option>
                       <option value={1}>Tăng dần</option>
                     </select>
@@ -93,8 +93,8 @@ function ProductByCategory() {
 
             <div className="products mb-3">
               <div className="row">
-                {product.listproduct?.map((val) => (
-                  <div className="col-12 col-md-6 col-xl-4 col-lg-6">
+                {product.listproduct?.map((val, idx) => (
+                  <div className="col-12 col-md-6 col-xl-4 col-lg-6" key={idx}>
                     <Product value={val} />
                   </div>
                 ))}

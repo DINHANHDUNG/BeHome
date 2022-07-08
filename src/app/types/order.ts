@@ -6,6 +6,7 @@ export interface AddOrder {
   addresscustomer: string;
   phonenumbercustomer: string;
   emailcustomer: string;
+  totalmoney: number;
   orderdetails: Array<OrderDetail>;
 }
 
@@ -16,6 +17,23 @@ export interface OrderDetail {
   id_combo: number;
   amount: number;
   order: Order;
+  product: Product;
+  combo: Combo;
+}
+
+export interface CustomerCart {
+  namecustomer: string;
+  addresscustomer: string;
+  phonenumbercustomer: string;
+  emailcustomer: string;
+  totalmoney: number;
+  orderdetails: Array<any>;
+}
+
+export interface CartDetail {
+  id_product: number;
+  id_combo: number;
+  amount: number;
   product: Product;
   combo: Combo;
 }

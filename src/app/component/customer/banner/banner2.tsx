@@ -18,8 +18,9 @@ function Banner2(props: { Company: Company }) {
   return (
     <div className="banner">
       <Slider {...settings}>
-        {props.Company.images?.map((val) => (
+        {props.Company.images?.map((val, idx) => (
           <img
+            key={idx}
             src={"http://103.173.155.138:5500/images/" + val.imagename}
             alt=""
             style={{ height: "100%", objectFit: "cover" }}

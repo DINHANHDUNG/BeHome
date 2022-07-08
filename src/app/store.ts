@@ -12,6 +12,7 @@ import commentAdminReducer from "../features/Admin/commentAdnim/comment-slice";
 import buildAdminReducer from "../features/Admin/buildAdmin/build-slice";
 import orderAdminReducer from "../features/Admin/orderAdnim/order-admin-slice";
 import ProductHomePageReducer from "../features/homepage/product-home-page-slice";
+import CartReducer from "../features/cart/cart-slice";
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
@@ -31,6 +32,7 @@ export const store = configureStore({
 
     /*--------------------------------Customer------------------------------ */
     ProductHomePage: ProductHomePageReducer,
+    CartCustomer: CartReducer,
   },
 });
 

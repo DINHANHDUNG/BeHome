@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { categoryAdminStore } from "../../../../use-selector";
+import { CartStore, categoryAdminStore } from "../../../../use-selector";
 // import logo from "../../../assets/images/logo/avtfb.png"
 import logo from "../../../assets/images/logo/biafb.png";
 import { useAppSelector } from "../../../hooks";
@@ -8,9 +8,18 @@ import { CustomesCompany } from "../../../types/company";
 
 function Header() {
   const categoryTrees = useAppSelector(categoryAdminStore);
+  const cart = useAppSelector(CartStore);
+  console.log(cart);
+
   const history = useNavigate();
-  console.log("categoryTrees", categoryTrees);
+  // console.log("categoryTrees", categoryTrees);
   const [productkey, setProductkey] = useState(null as any);
+
+  useEffect(() => {
+    
+    localStorage.setItem("InfoOrderCustomer", JSON.stringify(cart));
+    
+  }, [cart]);
   return (
     <header className="header header-10">
       <div className="header-middle">
@@ -67,23 +76,23 @@ function Header() {
           {/* Cart */}
           <div className="header-right">
             <div className="dropdown cart-dropdown">
-              <Link
-                to={"cart"}
-                className="dropdown-toggle"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                data-display="static"
-              >
-                <i className="icon-shopping-cart"></i>
+              <a className="dropdown-toggle">
+                <i
+                  className="icon-shopping-cart"
+                  onClick={() => {
+                    history("/cart");
+                  }}
+                ></i>
                 <span
                   className="cart-count"
                   style={{ position: "absolute", top: "-8px", right: "-8px" }}
+                  onClick={() => {
+                    history("/cart");
+                  }}
                 >
-                  2
+                  {cart.orderdetails?.length}
                 </span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -130,8 +139,8 @@ function Header() {
                                   <div className="col-md-12">
                                     <div className="menu-col">
                                       <div className="row">
-                                        {val.children?.map((val2) => (
-                                          <div className="col-md-4">
+                                        {val.children?.map((val2, idx) => (
+                                          <div className="col-md-4" key={idx}>
                                             <div className="menu-title ">
                                               <Link
                                                 to={`danhmucproduct/${val2.id}`}
@@ -141,16 +150,17 @@ function Header() {
                                             </div>
                                             {val2.children?.length > 0 ? (
                                               <ul>
-                                                {val2.children?.map((val3) => (
-                                                  // cap 4 thi them className="sf-with-ul" vaof li
-                                                  <li>
-                                                    <Link
-                                                      to={`danhmucproduct/${val3.id}`}
-                                                    >
-                                                      {val3.name}
-                                                    </Link>
-                                                    {/* cap 4 */}
-                                                    {/* {val2.children.length > 0 ? (
+                                                {val2.children?.map(
+                                                  (val3, idx) => (
+                                                    // cap 4 thi them className="sf-with-ul" vaof li
+                                                    <li key={idx}>
+                                                      <Link
+                                                        to={`danhmucproduct/${val3.id}`}
+                                                      >
+                                                        {val3.name}
+                                                      </Link>
+                                                      {/* cap 4 */}
+                                                      {/* {val2.children.length > 0 ? (
                                                     <ul>
                                                       {val2.children?.map(
                                                         (val3) => (
@@ -163,8 +173,9 @@ function Header() {
                                                       )}
                                                     </ul>
                                                   ) : null} */}
-                                                  </li>
-                                                ))}
+                                                    </li>
+                                                  )
+                                                )}
                                               </ul>
                                             ) : (
                                               <ul>
@@ -203,9 +214,9 @@ function Header() {
                         </div>
                       </li>
 
-                      {categoryTrees.listcategoryCombo?.map((val) =>
+                      {categoryTrees.listcategoryCombo?.map((val, idx) =>
                         val.children.length > 0 ? (
-                          <li className="megamenu-container">
+                          <li className="megamenu-container" key={idx}>
                             {/* <Link to={`danhmuc`} className="sf-with-ul">
                               {val.name}
                             </Link> */}
@@ -221,8 +232,8 @@ function Header() {
                                   <div className="col-md-12">
                                     <div className="menu-col">
                                       <div className="row">
-                                        {val.children?.map((val2) => (
-                                          <div className="col-md-4">
+                                        {val.children?.map((val2, idx) => (
+                                          <div className="col-md-4" key={idx}>
                                             <div className="menu-title ">
                                               <Link
                                                 to={`danhmuccombo/${val2.id}`}
@@ -232,16 +243,17 @@ function Header() {
                                             </div>
                                             {val2.children?.length > 0 ? (
                                               <ul>
-                                                {val2.children?.map((val3) => (
-                                                  // cap 4 thi them className="sf-with-ul" vaof DFli
-                                                  <li>
-                                                    <Link
-                                                      to={`danhmuccombo/${val3.id}`}
-                                                    >
-                                                      {val3.name}
-                                                    </Link>
-                                                    {/* cap 4 */}
-                                                    {/* {val2.children.length > 0 ? (
+                                                {val2.children?.map(
+                                                  (val3, idx) => (
+                                                    // cap 4 thi them className="sf-with-ul" vaof DFli
+                                                    <li key={idx}>
+                                                      <Link
+                                                        to={`danhmuccombo/${val3.id}`}
+                                                      >
+                                                        {val3.name}
+                                                      </Link>
+                                                      {/* cap 4 */}
+                                                      {/* {val2.children.length > 0 ? (
                                                     <ul>
                                                       {val2.children?.map(
                                                         (val3) => (
@@ -254,8 +266,9 @@ function Header() {
                                                       )}
                                                     </ul>
                                                   ) : null} */}
-                                                  </li>
-                                                ))}
+                                                    </li>
+                                                  )
+                                                )}
                                               </ul>
                                             ) : (
                                               <ul>
@@ -297,7 +310,7 @@ function Header() {
                   {/* active Thêm gạch chân */}
                   <li className="megamenu-container ">
                     {/* className="sf-with-ul" */}
-                    <a href="/">Trang chủ</a>
+                    <Link to={"/"}>Trang chủ</Link>
                   </li>
 
                   <li className="megamenu-container ">

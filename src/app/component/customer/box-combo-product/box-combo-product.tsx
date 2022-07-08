@@ -28,8 +28,8 @@ function BoxComboProduct(props: PropsComboProduct) {
             <span className="title-boxCombo">Danh sách sản phẩm</span>
             <br />
 
-            {props.combo?.combo_products?.map((val) => (
-              <div className="icon-boxCombo-info mt-2 mb-2">
+            {props.combo?.combo_products?.map((val, idx) => (
+              <div className="icon-boxCombo-info mt-2 mb-2" key={idx}>
                 <div className="icon-boxCombo-info-img">
                   {val.product.images?.length > 0 ? (
                     <img

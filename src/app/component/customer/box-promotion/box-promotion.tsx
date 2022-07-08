@@ -13,8 +13,8 @@ function BoxPromotion(props: propsBoxPromotion) {
             <br />
             {/* <p>✔ Tặng chuột foter V181 </p> <p>✔ Lót chuột</p>
             <p> ✔ Túi đựng laptop</p> */}
-            {props.value.promotiondetails?.map((val: any) => (
-              <p>✔ {val.name}</p>
+            {props.value.promotiondetails?.map((val: any, idx) => (
+              <p key={idx}>✔ {val.name}</p>
             ))}
           </div>
         </div>

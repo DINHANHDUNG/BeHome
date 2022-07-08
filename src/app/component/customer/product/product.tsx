@@ -1,14 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Numberformat, success } from "../../../hooks";
+import { addCart } from "../../../../features/cart/cart-slice";
+import {
+  Numberformat,
+  openNotification,
+  success,
+  useAppDispatch,
+} from "../../../hooks";
 import { Combo } from "../../../types/combo";
 import { Product as Product2 } from "../../../types/product";
 interface propsProduct {
   value: Product2 | Combo;
 }
 function Product(props: propsProduct) {
-  console.log("props", props.value.type);
-
+  console.log("props", props.value);
+  const dispatch = useAppDispatch();
   return (
     <div className="product">
       <figure className="product-media">
@@ -39,7 +45,13 @@ function Product(props: propsProduct) {
 
         <div className="product-action">
           <Link
-            onClick={() => success("Đã thêm vào giỏ hàng")}
+            onClick={() => {
+              openNotification({
+                message: "Đã thêm vào giỏ hàng",
+                type: "success",
+              });
+              dispatch(addCart(props.value));
+            }}
             to={"#"}
             className="btn-product btn-cart"
             title="Add to cart"

@@ -1,7 +1,26 @@
-import React from "react";
+import { InputNumber } from "antd";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import {
+  CalculateTotalMomney,
+  deleteCart,
+  toggleAmountProduct,
+} from "../../../features/cart/cart-slice";
+import { CartStore } from "../../../use-selector";
+import { Numberformat, useAppDispatch, useAppSelector } from "../../hooks";
 
 function CartShopping() {
+  const cart = useAppSelector(CartStore);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    var newTotal = 0;
+
+    cart.orderdetails?.map((val) => {
+      newTotal = val.price * val.amount + newTotal;
+    });
+
+    dispatch(CalculateTotalMomney(newTotal));
+  }, [cart]);
   return (
     <div className="page-content mt-3">
       <div className="cart">
@@ -20,84 +39,64 @@ function CartShopping() {
                 </thead>
 
                 <tbody>
-                  <tr>
-                    <td className="product-col">
-                      <div className="product">
-                        <figure className="product-media">
-                          <a href="#">
-                            <img
-                              src="assets/images/products/table/product-1.jpg"
-                              alt="Product image"
-                            />
-                          </a>
-                        </figure>
+                  {cart.orderdetails?.map((value, idx) => (
+                    <tr key={idx}>
+                      <td className="product-col">
+                        <div className="product">
+                          <figure className="product-media">
+                            <a href="#">
+                              <img
+                                src={
+                                  "http://103.173.155.138:5500/images/" +
+                                  value?.images[0]?.imagename
+                                }
+                                alt="Product image"
+                              />
+                            </a>
+                          </figure>
 
-                        <h3 className="product-title">
-                          <a href="#">Beige knitted elastic runner shoes</a>
-                        </h3>
-                      </div>
-                    </td>
-                    <td className="price-col">150.000.000</td>
-                    <td className="quantity-col">
-                      <div className="cart-product-quantity">
-                        <input
-                          type="number"
-                          className="form-control"
-                          value="1"
-                          min="1"
-                          max="10"
-                          step="1"
-                          data-decimals="0"
-                          required
-                        />
-                      </div>
-                    </td>
-                    <td className="total-col">300.000.000</td>
-                    <td className="remove-col">
-                      <button className="btn-remove">
-                        <i className="icon-close"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="product-col">
-                      <div className="product">
-                        <figure className="product-media">
-                          <a href="#">
-                            <img
-                              src="assets/images/products/table/product-2.jpg"
-                              alt="Product image"
-                            />
-                          </a>
-                        </figure>
-
-                        <h3 className="product-title">
-                          <a href="#">Blue utility pinafore denim dress</a>
-                        </h3>
-                      </div>
-                    </td>
-                    <td className="price-col">$76.00</td>
-                    <td className="quantity-col">
-                      <div className="cart-product-quantity">
-                        <input
-                          type="number"
-                          className="form-control"
-                          defaultValue={2}
-                          min="1"
-                          max="10"
-                          step="1"
-                          data-decimals="0"
-                          required
-                        />
-                      </div>
-                    </td>
-                    <td className="total-col">$76.00</td>
-                    <td className="remove-col">
-                      <button className="btn-remove">
-                        <i className="icon-close"></i>
-                      </button>
-                    </td>
-                  </tr>
+                          <h3 className="product-title">
+                            <a href="#">{value?.name}</a>
+                          </h3>
+                        </div>
+                      </td>
+                      <td className="price-col">
+                        {Numberformat(value?.price)}
+                      </td>
+                      <td className="quantity-col">
+                        <div className="cart-product-quantity">
+                          <InputNumber
+                            min={1}
+                            max={10}
+                            value={value?.amount}
+                            onChange={(val) => {
+                              console.log(val);
+                              console.log(value);
+                              dispatch(
+                                toggleAmountProduct({
+                                  amount: Number(val),
+                                  product: value,
+                                })
+                              );
+                            }}
+                          />
+                        </div>
+                      </td>
+                      <td className="total-col">
+                        {Numberformat(value?.price * value.amount)}
+                      </td>
+                      <td className="remove-col">
+                        <button
+                          className="btn-remove"
+                          onClick={() => {
+                            dispatch(deleteCart(value));
+                          }}
+                        >
+                          <i className="icon-close"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -109,7 +108,7 @@ function CartShopping() {
                   <tbody>
                     <tr className="summary-subtotal">
                       <td>Tạm tính:</td>
-                      <td>$160.00</td>
+                      <td>{Numberformat(cart.totalmoney)} VNĐ</td>
                     </tr>
                     <tr className="summary-shipping">
                       <td>Shipping:</td>
@@ -136,50 +135,10 @@ function CartShopping() {
                       </td>
                       <td>$0.00</td>
                     </tr>
-                    {/* 
-                    <tr className="summary-shipping-row">
-                      <td>
-                        <div className="custom-control custom-radio">
-                          <input
-                            type="radio"
-                            id="standart-shipping"
-                            name="shipping"
-                            className="custom-control-input"
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="standart-shipping"
-                          >
-                            Standart:
-                          </label>
-                        </div>
-                      </td>
-                      <td>$10.00</td>
-                    </tr> */}
-
-                    {/* <tr className="summary-shipping-row">
-                      <td>
-                        <div className="custom-control custom-radio">
-                          <input
-                            type="radio"
-                            id="express-shipping"
-                            name="shipping"
-                            className="custom-control-input"
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="express-shipping"
-                          >
-                            Express:
-                          </label>
-                        </div>
-                      </td>
-                      <td>$20.00</td>
-                    </tr> */}
 
                     <tr className="summary-total">
                       <td>Thành tiền:</td>
-                      <td>$160.00</td>
+                      <td>{Numberformat(cart.totalmoney)} VNĐ</td>
                     </tr>
                   </tbody>
                 </table>
