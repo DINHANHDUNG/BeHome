@@ -269,7 +269,6 @@ function Header() {
                                                 <li>
                                                   <Link
                                                     to={`danhmuccombo/${val2.id}`}
-                                                    className="sf-with-ul"
                                                   >
                                                     {val2.name}
                                                   </Link>
