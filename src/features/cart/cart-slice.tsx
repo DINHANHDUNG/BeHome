@@ -41,10 +41,12 @@ const cartSliceAdmin = createSlice({
             state.orderdetails[indexValue].amount + 1;
         } else {
           product = {
+            ...action.payload,
+            id: null,
             id_product: action.payload.id,
             id_combo: null,
             amount: 1,
-            ...action.payload,
+            
           };
           state.orderdetails = [...state.orderdetails, product];
         }
@@ -60,10 +62,12 @@ const cartSliceAdmin = createSlice({
             state.orderdetails[indexValue].amount + 1;
         } else {
           product = {
+            ...action.payload,
             id_product: null,
+            id: null,
             id_combo: action.payload.id,
             amount: 1,
-            ...action.payload,
+           
           };
           state.orderdetails = [...state.orderdetails, product];
         }
