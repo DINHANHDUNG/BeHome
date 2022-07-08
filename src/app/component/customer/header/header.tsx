@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { categoryAdminStore } from "../../../../use-selector";
 // import logo from "../../../assets/images/logo/avtfb.png"
 import logo from "../../../assets/images/logo/biafb.png";
@@ -8,9 +8,9 @@ import { CustomesCompany } from "../../../types/company";
 
 function Header() {
   const categoryTrees = useAppSelector(categoryAdminStore);
-
+  const history = useNavigate();
   console.log("categoryTrees", categoryTrees);
-
+  const [productkey, setProductkey] = useState(null as any);
   return (
     <header className="header header-10">
       <div className="header-middle">
@@ -33,17 +33,10 @@ function Header() {
                 <i className="fa-brands fa-searchengin"></i>
               </a>
               <form
-              // onSubmit={(e) => {
-              //   e.preventDefault();
-              //   history(
-              //     "/search/" +
-              //       `${productkey}` +
-              //       "/" +
-              //       `${null}` +
-              //       "/" +
-              //       `${null}`
-              //   );
-              // }}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  history("/searchproduct/" + `${productkey}`);
+                }}
               >
                 <div className="header-search-wrapper search-wrapper-wide">
                   {/* <div className="select-custom">
@@ -58,10 +51,10 @@ function Header() {
                     placeholder="Tìm kiếm sản phẩm ..."
                     name="search"
                     required
-                    // onChange={(e) => {
-                    //   console.log(e.target.value);
-                    //   setProductkey(e.target.value ? e.target.value : null);
-                    // }}
+                    onChange={(e) => {
+                      console.log(e.target.value);
+                      setProductkey(e.target.value ? e.target.value : null);
+                    }}
                   />
                   <button className="btn btn-primary" type="submit">
                     <i className="fa-solid fa-magnifying-glass"></i>

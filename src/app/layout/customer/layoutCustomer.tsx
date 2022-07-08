@@ -16,6 +16,7 @@ import DetailCombo from "../../page/detail/DetailCombo";
 import DetailProduct from "../../page/detail/DetailProduct";
 import Home from "../../page/home/home";
 import ProductByCategory from "../../page/productByCategory/productByCategory";
+import Searchproduct from "../../page/searchproduct/searchproduct";
 
 function LayoutCustomer() {
   const dispatch = useAppDispatch();
@@ -35,6 +36,7 @@ function LayoutCustomer() {
           <Route path="detailcombo/:ID" element={<DetailCombo />} />
           <Route path="danhmucproduct/:ID" element={<ProductByCategory />} />
           <Route path="danhmuccombo/:ID" element={<ComboByCategory />} />
+          <Route path="searchproduct/:KEY" element={<Searchproduct />} />
           <Route path="cart" element={<CartShopping />} />
           <Route path="checkout" element={<CheckOut />} />
           <Route path="build" element={<Build />} />
