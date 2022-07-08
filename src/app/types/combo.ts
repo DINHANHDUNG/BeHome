@@ -62,7 +62,7 @@ export interface CustomesCombo {
 
 export interface SearchCombo {
   id_category: number;
-  comboKey: string;
+  comboKey: string | null;
   minprice: number | null;
   maxprice: number | null;
   page: number;

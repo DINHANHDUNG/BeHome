@@ -8,6 +8,7 @@ export interface Category {
   children: Array<Category>;
   products: Array<any>;
   combos: Array<any>;
+  type: string;
 }
 
 export interface AddCategory {

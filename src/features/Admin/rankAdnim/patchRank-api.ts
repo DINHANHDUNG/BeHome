@@ -23,7 +23,7 @@ export const postEditRankByIdAdmin = createAsyncThunk(
 
 export const getAllRankAdmin = createAsyncThunk(
   "/Rankadmin/getallRank",
-  async (data: { id_category: number;}) => {
+  async (data: { id_category: number; id_manufacturer?: number }) => {
     const response = await RankAPIAdmin.getAllRankAdmin(data);
 
     return response;

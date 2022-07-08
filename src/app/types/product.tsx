@@ -128,12 +128,12 @@ export interface GetAllProductUpdate {
 }
 
 export interface GetSearchProduct {
-  id_category: number;
-  id_rank: number;
-  id_manufacturer: number;
+  id_category: number | null;
+  id_rank: number | null;
+  id_manufacturer: number | null;
   productKey: string | null;
   minprice: number | null;
   maxprice: number | null;
-  page: number;
+  page: number ;
   noitem: number;
 }

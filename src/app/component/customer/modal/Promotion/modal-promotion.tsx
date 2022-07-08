@@ -1,7 +1,11 @@
 import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { Button, Col, Form, Input, Modal, Row } from "antd";
 import React, { useEffect } from "react";
-import { getAllPromotionAdmin, postAddPromotionByIdAdmin, postEditPromotionByIdAdmin } from "../../../../../features/Admin/promotion";
+import {
+  getAllPromotionAdmin,
+  postAddPromotionByIdAdmin,
+  postEditPromotionByIdAdmin,
+} from "../../../../../features/Admin/promotion";
 import { useAppDispatch } from "../../../../hooks";
 import { EditPromotion } from "../../../../types/promotion";
 
@@ -15,6 +19,7 @@ interface propsModalCategory {
 function ModalPromotion(props: any) {
   const dispatch = useAppDispatch();
   const [form] = Form.useForm();
+  console.log(props);
 
   useEffect(() => {
     form.resetFields();
@@ -67,7 +72,7 @@ function ModalPromotion(props: any) {
         form={form}
         // wrapperCol={{ span: 16 }}
         initialValues={{
-          Promotion_name: props.value.Promotion_name,
+          name: props.value.name,
           promotiondetails: props.value.promotiondetails,
         }}
         onFinish={onFinish}

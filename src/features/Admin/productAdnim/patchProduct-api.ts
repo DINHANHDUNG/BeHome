@@ -48,6 +48,7 @@ export const getAllProductNeedUpdate = createAsyncThunk(
 export const getProductSearchAdmin = createAsyncThunk(
   "/productadmin/getproductsearch",
   async (data: GetSearchProduct) => {
+
     const response = await productAPIAdmin.getProductSearchAdmin(data);
 
     return response;

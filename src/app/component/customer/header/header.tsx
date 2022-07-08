@@ -125,7 +125,10 @@ function Header() {
                       {categoryTrees.listcategoryProduct?.map((val, idx) =>
                         val.children.length > 0 ? (
                           <li className="megamenu-container" key={idx}>
-                            <Link to={`danhmuc`} className="sf-with-ul">
+                            <Link
+                              to={`danhmucproduct/${val.id}`}
+                              className="sf-with-ul"
+                            >
                               {val.name}
                             </Link>
                             {val.children.length > 0 ? (
@@ -137,7 +140,9 @@ function Header() {
                                         {val.children?.map((val2) => (
                                           <div className="col-md-4">
                                             <div className="menu-title ">
-                                              <Link to={`danhmuc`}>
+                                              <Link
+                                                to={`danhmucproduct/${val2.id}`}
+                                              >
                                                 {val2.name}
                                               </Link>
                                             </div>
@@ -146,7 +151,11 @@ function Header() {
                                                 {val2.children?.map((val3) => (
                                                   // cap 4 thi them className="sf-with-ul" vaof li
                                                   <li>
-                                                    <a href="#">{val3.name}</a>
+                                                    <Link
+                                                      to={`danhmucproduct/${val3.id}`}
+                                                    >
+                                                      {val3.name}
+                                                    </Link>
                                                     {/* cap 4 */}
                                                     {/* {val2.children.length > 0 ? (
                                                     <ul>
@@ -167,7 +176,11 @@ function Header() {
                                             ) : (
                                               <ul>
                                                 <li>
-                                                  <a href="#">{val2.name}</a>
+                                                  <Link
+                                                    to={`danhmucproduct/${val2.id}`}
+                                                  >
+                                                    {val2.name}
+                                                  </Link>
                                                 </li>
                                               </ul>
                                             )}
@@ -182,7 +195,9 @@ function Header() {
                           </li>
                         ) : (
                           <li>
-                            <Link to={`danhmuc`}>{val.name}</Link>
+                            <Link to={`danhmucproduct/${val.id}`}>
+                              {val.name}
+                            </Link>
                           </li>
                         )
                       )}
@@ -198,7 +213,13 @@ function Header() {
                       {categoryTrees.listcategoryCombo?.map((val) =>
                         val.children.length > 0 ? (
                           <li className="megamenu-container">
-                            <Link to={`danhmuc`} className="sf-with-ul">
+                            {/* <Link to={`danhmuc`} className="sf-with-ul">
+                              {val.name}
+                            </Link> */}
+                            <Link
+                              to={`danhmuccombo/${val.id}`}
+                              className="sf-with-ul"
+                            >
                               {val.name}
                             </Link>
                             {val.children.length > 0 ? (
@@ -210,16 +231,22 @@ function Header() {
                                         {val.children?.map((val2) => (
                                           <div className="col-md-4">
                                             <div className="menu-title ">
-                                              <Link to={`danhmuc`}>
+                                              <Link
+                                                to={`danhmuccombo/${val2.id}`}
+                                              >
                                                 {val2.name}
                                               </Link>
                                             </div>
                                             {val2.children?.length > 0 ? (
                                               <ul>
                                                 {val2.children?.map((val3) => (
-                                                  // cap 4 thi them className="sf-with-ul" vaof li
+                                                  // cap 4 thi them className="sf-with-ul" vaof DFli
                                                   <li>
-                                                    <a href="#">{val3.name}</a>
+                                                    <Link
+                                                      to={`danhmuccombo/${val3.id}`}
+                                                    >
+                                                      {val3.name}
+                                                    </Link>
                                                     {/* cap 4 */}
                                                     {/* {val2.children.length > 0 ? (
                                                     <ul>
@@ -240,7 +267,12 @@ function Header() {
                                             ) : (
                                               <ul>
                                                 <li>
-                                                  <a href="#">{val2.name}</a>
+                                                  <Link
+                                                    to={`danhmuccombo/${val2.id}`}
+                                                    className="sf-with-ul"
+                                                  >
+                                                    {val2.name}
+                                                  </Link>
                                                 </li>
                                               </ul>
                                             )}
@@ -255,7 +287,9 @@ function Header() {
                           </li>
                         ) : (
                           <li>
-                            <Link to={`danhmuc`}>{val.name}</Link>
+                            <Link to={`danhmuccombo/${val.id}`}>
+                              {val.name}
+                            </Link>
                           </li>
                         )
                       )}

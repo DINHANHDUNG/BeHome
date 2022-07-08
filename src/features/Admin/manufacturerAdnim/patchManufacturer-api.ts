@@ -14,7 +14,6 @@ export const postAddManufacturerByIdAdmin = createAsyncThunk(
   }
 );
 
-
 export const postEditManufacturerByIdAdmin = createAsyncThunk(
   "/Manufactureradmin/editManufacturer",
   async (data: EditManufacturer) => {
@@ -26,7 +25,12 @@ export const postEditManufacturerByIdAdmin = createAsyncThunk(
 
 export const getAllManufacturerAdmin = createAsyncThunk(
   "/Manufactureradmin/getallManufacturer",
-  async (data: { id_category: number; page: number; noitem: number }) => {
+  async (data: {
+    id_category: number;
+    page: number;
+    noitem: number;
+    id_rank?: number;
+  }) => {
     const response = await ManufacturerAPIAdmin.getAllManufacturerAdmin(data);
 
     return response;
@@ -36,7 +40,6 @@ export const getAllManufacturerAdmin = createAsyncThunk(
 export const getManufacturerByIdAdmin = createAsyncThunk(
   "/Manufactureradmin/getbyidManufacturer",
   async (data: { id: number }) => {
-
     const response = await ManufacturerAPIAdmin.getManufacturerByIdADmin(data);
 
     return response;
@@ -46,7 +49,6 @@ export const getManufacturerByIdAdmin = createAsyncThunk(
 export const postDeleteManufacturerAdmin = createAsyncThunk(
   "/Manufactureradmin/deleteManufacturer",
   async (data: { id: [number] }) => {
-
     const response = await ManufacturerAPIAdmin.postDeleteManufacturerADmin(
       data
     );

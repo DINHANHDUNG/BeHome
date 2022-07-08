@@ -1,7 +1,12 @@
 import TextArea from "antd/lib/input/TextArea";
 import React from "react";
+import { Product } from "../../../types/product";
 
-function ComponentInfoDetail() {
+interface propsInfoDetail {
+  describe: string;
+  productdetails: any;
+}
+function ComponentInfoDetail(props: propsInfoDetail) {
   return (
     <div className="product-details-tab">
       <ul className="nav nav-pills justify-content-center" role="tablist">
@@ -32,7 +37,7 @@ function ComponentInfoDetail() {
           </a>
         </li>
 
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a
             className="nav-link"
             id="product-price-link"
@@ -44,7 +49,7 @@ function ComponentInfoDetail() {
           >
             Bảng giá nâng cấp
           </a>
-        </li>
+        </li> */}
       </ul>
       <div className="tab-content">
         <div
@@ -58,7 +63,7 @@ function ComponentInfoDetail() {
             <TextArea
               rows={20}
               style={{ width: "100%" }}
-              value={"test"}
+              value={props.describe}
               readOnly
             />
           </div>
@@ -70,42 +75,19 @@ function ComponentInfoDetail() {
           aria-labelledby="product-info-link"
         >
           <div className="product-desc-content">
-            {/* {products.listproduct[0]?.productdetails?.map((val: any) => (
-                  <p>
-                    <span style={{ color: "green", fontWeight: 600 }}>✔</span>{" "}
-                    <span style={{ color: "black", fontWeight: 600 }}>
-                      {val.title}{" "}
-                    </span>
-                    {val.specifications}
-                  </p>
-                ))} */}
-            <p>
-              <span style={{ color: "green", fontWeight: 600 }}>✔</span>{" "}
-              <span style={{ color: "black", fontWeight: 600 }}>
-                {"Tặng chuột foter V181"}{" "}
-              </span>
-              {"Tặng chuột foter V181"}
-            </p>
-
-            <p>
-              <span style={{ color: "green", fontWeight: 600 }}>✔</span>{" "}
-              <span style={{ color: "black", fontWeight: 600 }}>
-                {"Tặng chuột foter V181"}{" "}
-              </span>
-              {"Tặng chuột foter V181"}
-            </p>
-
-            <p>
-              <span style={{ color: "green", fontWeight: 600 }}>✔</span>{" "}
-              <span style={{ color: "black", fontWeight: 600 }}>
-                {"Tặng chuột foter V181"}{" "}
-              </span>
-              {"Tặng chuột foter V181"}
-            </p>
+            {props.productdetails?.map((val: any) => (
+              <p>
+                <span style={{ color: "green", fontWeight: 600 }}>✔</span>{" "}
+                <span style={{ color: "black", fontWeight: 600 }}>
+                  {val.title}{" "}
+                </span>
+                {val.specifications}
+              </p>
+            ))}
           </div>
         </div>
 
-        <div
+        {/* <div
           className="tab-pane fade"
           id="product-price-tab"
           role="tabpanel"
@@ -179,7 +161,7 @@ function ComponentInfoDetail() {
               mua máy.
             </h2>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

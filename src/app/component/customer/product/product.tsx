@@ -14,8 +14,8 @@ function Product(props: propsProduct) {
       <figure className="product-media">
         <Link
           to={
-            props.value.type === "PRODUCT"
-              ? "/detailproduct/"
+            props.value.category.type === "PRODUCT"
+              ? "/detailproduct/" + props.value.id
               : "/detailcombo/" + props.value.id
           }
         >

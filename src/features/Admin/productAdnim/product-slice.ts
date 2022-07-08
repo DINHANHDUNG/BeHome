@@ -36,11 +36,9 @@ const productSliceAdmin = createSlice({
     //     .sort(function (a: any, b: any) {
     //       console.log(a);
     //       console.log(b);
-
     //       return a.refund - b.refund;
     //     });
     // },
-
     // SortDecreaseState(state, action: PayloadAction<any>) {
     //   // state.value += action.payload
     //   console.log("Giảm", action);
@@ -49,7 +47,6 @@ const productSliceAdmin = createSlice({
     //     .sort(function (a: any, b: any) {
     //       console.log(a);
     //       console.log(b);
-
     //       return b.refund - a.refund;
     //     });
     // },
@@ -104,11 +101,12 @@ const productSliceAdmin = createSlice({
         state.loading = true;
       })
       .addCase(getProductSearchAdmin.fulfilled, (state, action) => {
-        const { result, total } = action.payload;
+        const { result, total, categoryname } = action.payload;
         state.listproduct = result;
         state.total = total;
         state.loading = false;
         state.error = false;
+        state.categoryname = categoryname;
       })
       .addCase(getProductSearchAdmin.rejected, (state) => {
         state.loading = false;

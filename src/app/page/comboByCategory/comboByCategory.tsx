@@ -1,33 +1,30 @@
 import { Col, DatePicker, Pagination, Row, Slider } from "antd";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { getComboSearchAdmin } from "../../../features/Admin/comboAdnim";
 import {
   getAllProductAdmin,
   getProductSearchAdmin,
 } from "../../../features/Admin/productAdnim";
-import { productAdminStore } from "../../../use-selector";
+import { comboAdminStore, productAdminStore } from "../../../use-selector";
 import Listproduct from "../../component/customer/product/listproduct";
 import Product from "../../component/customer/product/product";
 import { Numberformat, useAppDispatch, useAppSelector } from "../../hooks";
 import FilterProductCombo from "../admin/filterProductCombo/filterProductCombo";
 
-function ProductByCategory() {
+function ComboByCategory() {
   const { ID } = useParams();
 
   const dispatch = useAppDispatch();
   const [page, setPage] = useState(1);
   const [notitem, setNotitem] = useState(10);
   const [valueRangePrice, setValueRangePrice] = useState(null as any);
-  const [valueFirm, setValueFirm] = useState(null as any);
-  const [valueRank, setValueRank] = useState(null as any);
-  const product = useAppSelector(productAdminStore);
+  const combo = useAppSelector(comboAdminStore);
   useEffect(() => {
     dispatch(
-      getProductSearchAdmin({
+      getComboSearchAdmin({
         id_category: Number(ID),
-        id_rank: null,
-        id_manufacturer: null,
-        productKey: null,
+        comboKey: null,
         minprice: null,
         maxprice: null,
         page: 1,
@@ -43,7 +40,7 @@ function ProductByCategory() {
             <div className="toolbox">
               <div className="toolbox-left">
                 <div className="toolbox-info" style={{ fontWeight: 500 }}>
-                  {product.categoryname}
+                  {combo.categoryname}
                 </div>
               </div>
 
@@ -65,7 +62,7 @@ function ProductByCategory() {
 
             <div className="products mb-3">
               <div className="row">
-                {product.listproduct?.map((val) => (
+                {combo.listCombo?.map((val) => (
                   <div className="col-12 col-md-6 col-xl-4 col-lg-6">
                     <Product value={val} />
                   </div>
@@ -73,7 +70,7 @@ function ProductByCategory() {
               </div>
             </div>
 
-            {product.listproduct?.length > 0 ? (
+            {combo.listCombo?.length > 0 ? (
               <Row gutter={[24, 24]}>
                 <Col xl={24}>
                   <Pagination
@@ -86,11 +83,9 @@ function ProductByCategory() {
                       console.log(page, pageSizeNew);
                       setPage(page);
                       dispatch(
-                        getProductSearchAdmin({
+                        getComboSearchAdmin({
                           id_category: Number(ID),
-                          id_rank: valueRank,
-                          id_manufacturer: valueFirm,
-                          productKey: null,
+                          comboKey: null,
                           minprice: valueRangePrice ? valueRangePrice[0] : null,
                           maxprice: valueRangePrice ? valueRangePrice[1] : null,
                           page: page,
@@ -103,7 +98,7 @@ function ProductByCategory() {
                     }}
                     pageSize={notitem}
                     current={page}
-                    total={product.total}
+                    total={combo.total}
                   />
                 </Col>
               </Row>
@@ -112,15 +107,11 @@ function ProductByCategory() {
 
           <FilterProductCombo
             toggleCleanAll={() => {
-              setValueRank(null);
-              setValueFirm(null);
               setValueRangePrice(null);
               dispatch(
-                getProductSearchAdmin({
+                getComboSearchAdmin({
                   id_category: Number(ID),
-                  id_rank: null,
-                  id_manufacturer: null,
-                  productKey: null,
+                  comboKey: null,
                   minprice: null,
                   maxprice: null,
                   page: 1,
@@ -133,15 +124,12 @@ function ProductByCategory() {
             }}
             toggleFilter={(value) => {
               console.log(value);
-              setValueRank([value.rangePrice[0], value.rangePrice[1]]);
-              setValueFirm(value.rank);
+
               setValueRangePrice(value.manufacturer);
               dispatch(
-                getProductSearchAdmin({
+                getComboSearchAdmin({
                   id_category: Number(ID),
-                  id_rank: value.rank,
-                  id_manufacturer: value.manufacturer,
-                  productKey: null,
+                  comboKey: null,
                   minprice: value.rangePrice[0],
                   maxprice: value.rangePrice[1],
                   page: 1,
@@ -151,7 +139,7 @@ function ProductByCategory() {
               setPage(1);
               setNotitem(10);
             }}
-            type="PRODUCT"
+            type="COMBO"
             id_category={Number(ID)}
           />
         </div>
@@ -160,4 +148,4 @@ function ProductByCategory() {
   );
 }
 
-export default ProductByCategory;
+export default ComboByCategory;

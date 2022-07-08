@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Numberformat } from "../../../hooks";
 import { Combo } from "../../../types/combo";
 import "./styleBoxCombo.css";
@@ -8,7 +9,7 @@ interface PropsComboProduct {
 
 function BoxComboProduct(props: PropsComboProduct) {
   console.log("props", props.combo);
-
+  const history = useNavigate();
   const [total, setTotal] = useState(0);
   // useEffect(() => {
   //   var newtotal = 0;
@@ -48,7 +49,10 @@ function BoxComboProduct(props: PropsComboProduct) {
                 </div>
 
                 <div className="icon-boxCombo-info-product">
-                  <span style={{ color: "#d30808f7", cursor: "pointer" }}>
+                  <span
+                    style={{ color: "#d30808f7", cursor: "pointer" }}
+                    onClick={() => history("/detailproduct/" + val.id_product)}
+                  >
                     {val.product?.name}
                   </span>
                   <br />

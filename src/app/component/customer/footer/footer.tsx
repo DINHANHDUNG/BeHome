@@ -173,18 +173,30 @@ function Footer(props: typeProps) {
                       <span className="widget-about-title mb-2">
                         Mạng xã hội
                       </span>
-                      <a href="" className="mr-2">
+                      <a
+                        href="https://www.facebook.com/C%E1%BB%ADa-h%C3%A0ng-thi%E1%BA%BFt-b%E1%BB%8B-v%E1%BA%ADt-t%C6%B0-%C4%90i%E1%BB%87n-N%C6%B0%E1%BB%9Bc-Behome-Store-111073668305784/?ref=pages_you_manage"
+                        className="mr-2"
+                      >
                         <i className="icons fab fa-facebook-f"></i>
                       </a>
 
-                      <a href="" className="mr-2">
+                      <a
+                        href="https://www.youtube.com/channel/UCMmbSPuCXy_nClDcYLz4oLQ"
+                        className="mr-2"
+                      >
                         <i
                           className="icons fa-brands fa-youtube-square"
                           style={{ color: "red", fontSize: "40px" }}
                         ></i>
                       </a>
+                      <a href="" className="mr-2">
+                        <i
+                          className="icons fa-brands fa-instagram"
+                          style={{ color: "red", fontSize: "40px" }}
+                        ></i>
+                      </a>
 
-                      <a href="">
+                      <a href="" className="mr-2">
                         <i className="icons fab fa-facebook-messenger"></i>
                       </a>
                     </div>

@@ -480,7 +480,7 @@ function ModalProductUpdate(props: propsModalProduct) {
                       <Col md={11} xs={23}>
                         <Form.Item
                           name={[index, "specifications"]}
-                          label={`TSKD `}
+                          label={`Thông số kỹ thuật `}
                           rules={[
                             {
                               required: true,
