@@ -67,6 +67,7 @@ export interface SearchCombo {
   maxprice: number | null;
   page: number;
   noitem: number;
+  sort?: number;
 }
 
 export interface GetAllCombo {

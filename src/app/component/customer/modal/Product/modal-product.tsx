@@ -158,6 +158,7 @@ function ModalProduct(props: propsModalProduct) {
                 maxprice: null,
                 page: props.page,
                 noitem: props.pageSize,
+                sort: 0,
               })
             );
           } else {
@@ -195,6 +196,7 @@ function ModalProduct(props: propsModalProduct) {
                 maxprice: null,
                 page: props.page,
                 noitem: props.pageSize,
+                sort: 0,
               })
             );
           } else {

@@ -26,6 +26,7 @@ function Searchproduct() {
           maxprice: null,
           page: 1,
           noitem: 10,
+          sort: 0,
         })
       );
     }
@@ -44,10 +45,10 @@ function Searchproduct() {
               <div className="products mb-3">
                 <div className="row">
                   {product.listproduct?.map((val) => (
-                      <div className="col-12 col-md-6 col-xl-3 col-lg-6">
-                        <Product value={val} />
-                      </div>
-                    ))}
+                    <div className="col-12 col-md-6 col-xl-3 col-lg-6">
+                      <Product value={val} />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -74,6 +75,7 @@ function Searchproduct() {
                       maxprice: null,
                       page: page,
                       noitem: pageSizeNew,
+                      sort: 0,
                     })
                   );
                   if (pageSizeNew) {

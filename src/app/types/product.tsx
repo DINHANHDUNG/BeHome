@@ -136,4 +136,5 @@ export interface GetSearchProduct {
   maxprice: number | null;
   page: number ;
   noitem: number;
+  sort?: number;
 }

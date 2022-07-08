@@ -184,6 +184,7 @@ function Dashboard() {
           maxprice: null,
           page: page,
           noitem: pageSize,
+          sort: 0,
         })
       );
     }
@@ -305,6 +306,7 @@ function Dashboard() {
                                 maxprice: null,
                                 page: page,
                                 noitem: pageSize,
+                                sort: 0,
                               })
                             );
                           }}

@@ -19,6 +19,7 @@ function ComboByCategory() {
   const [page, setPage] = useState(1);
   const [notitem, setNotitem] = useState(10);
   const [valueRangePrice, setValueRangePrice] = useState(null as any);
+  const [sort, setSort] = useState(0);
   const combo = useAppSelector(comboAdminStore);
   useEffect(() => {
     dispatch(
@@ -29,6 +30,7 @@ function ComboByCategory() {
         maxprice: null,
         page: 1,
         noitem: 10,
+        sort: sort,
       })
     );
   }, [ID]);
@@ -48,12 +50,36 @@ function ComboByCategory() {
                 <div className="toolbox-sort">
                   <label htmlFor="sortby">Lọc:</label>
                   <div className="select-custom">
-                    <select name="sortby" id="sortby" className="form-control">
-                      <option value="popularity" selected={true}>
-                        Mới nhất
-                      </option>
-                      <option value="rating">Giảm dần</option>
-                      <option value="date">Tăng dần</option>
+                    <select
+                      name="sortby"
+                      id="sortby"
+                      className="form-control"
+                      onChange={(value) => {
+                        console.log(value.target.value);
+                        setSort(Number(value.target.value));
+                        setPage(1);
+                        setNotitem(10);
+                        dispatch(
+                          getComboSearchAdmin({
+                            id_category: Number(ID),
+                            comboKey: null,
+                            minprice: valueRangePrice
+                              ? valueRangePrice[0]
+                              : null,
+                            maxprice: valueRangePrice
+                              ? valueRangePrice[1]
+                              : null,
+                            page: 1,
+                            noitem: 10,
+                            sort: Number(value.target.value),
+                          })
+                        );
+                      }}
+                      value={sort}
+                    >
+                      <option value={0}>Mới nhất</option>
+                      <option value={2}>Giảm dần</option>
+                      <option value={1}>Tăng dần</option>
                     </select>
                   </div>
                 </div>
@@ -90,6 +116,7 @@ function ComboByCategory() {
                           maxprice: valueRangePrice ? valueRangePrice[1] : null,
                           page: page,
                           noitem: pageSizeNew,
+                          sort: sort,
                         })
                       );
                       if (pageSizeNew) {
@@ -108,6 +135,7 @@ function ComboByCategory() {
           <FilterProductCombo
             toggleCleanAll={() => {
               setValueRangePrice(null);
+              setSort(0);
               dispatch(
                 getComboSearchAdmin({
                   id_category: Number(ID),
@@ -116,6 +144,7 @@ function ComboByCategory() {
                   maxprice: null,
                   page: 1,
                   noitem: 10,
+                  sort: 0,
                 })
               );
 
@@ -132,6 +161,7 @@ function ComboByCategory() {
                   comboKey: null,
                   minprice: value.rangePrice[0],
                   maxprice: value.rangePrice[1],
+                  sort: sort,
                   page: 1,
                   noitem: 10,
                 })

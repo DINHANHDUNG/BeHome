@@ -20,6 +20,7 @@ function ProductByCategory() {
   const [valueRangePrice, setValueRangePrice] = useState(null as any);
   const [valueFirm, setValueFirm] = useState(null as any);
   const [valueRank, setValueRank] = useState(null as any);
+  const [sort, setSort] = useState(0);
   const product = useAppSelector(productAdminStore);
   useEffect(() => {
     dispatch(
@@ -32,6 +33,7 @@ function ProductByCategory() {
         maxprice: null,
         page: 1,
         noitem: 10,
+        sort: sort,
       })
     );
   }, [ID]);
@@ -51,12 +53,38 @@ function ProductByCategory() {
                 <div className="toolbox-sort">
                   <label htmlFor="sortby">Lọc:</label>
                   <div className="select-custom">
-                    <select name="sortby" id="sortby" className="form-control">
-                      <option value="popularity" selected={true}>
-                        Mới nhất
-                      </option>
-                      <option value="rating">Giảm dần</option>
-                      <option value="date">Tăng dần</option>
+                    <select
+                      name="sortby"
+                      id="sortby"
+                      className="form-control"
+                      onChange={(value) => {
+                        console.log(value.target.value);
+                        setSort(Number(value.target.value));
+                        setPage(1);
+                        setNotitem(10);
+                        dispatch(
+                          getProductSearchAdmin({
+                            id_category: Number(ID),
+                            id_rank: valueRank,
+                            id_manufacturer: valueFirm,
+                            productKey: null,
+                            minprice: valueRangePrice
+                              ? valueRangePrice[0]
+                              : null,
+                            maxprice: valueRangePrice
+                              ? valueRangePrice[1]
+                              : null,
+                            page: 1,
+                            noitem: 10,
+                            sort: Number(value.target.value),
+                          })
+                        );
+                      }}
+                      value={sort}
+                    >
+                      <option value={0}>Mới nhất</option>
+                      <option value={2}>Giảm dần</option>
+                      <option value={1}>Tăng dần</option>
                     </select>
                   </div>
                 </div>
@@ -95,6 +123,7 @@ function ProductByCategory() {
                           maxprice: valueRangePrice ? valueRangePrice[1] : null,
                           page: page,
                           noitem: pageSizeNew,
+                          sort: sort,
                         })
                       );
                       if (pageSizeNew) {
@@ -115,6 +144,7 @@ function ProductByCategory() {
               setValueRank(null);
               setValueFirm(null);
               setValueRangePrice(null);
+              setSort(0);
               dispatch(
                 getProductSearchAdmin({
                   id_category: Number(ID),
@@ -125,6 +155,7 @@ function ProductByCategory() {
                   maxprice: null,
                   page: 1,
                   noitem: 10,
+                  sort: 0,
                 })
               );
 
@@ -146,6 +177,7 @@ function ProductByCategory() {
                   maxprice: value.rangePrice[1],
                   page: 1,
                   noitem: 10,
+                  sort: sort,
                 })
               );
               setPage(1);
