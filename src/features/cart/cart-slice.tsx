@@ -6,7 +6,9 @@ import {
 } from "@reduxjs/toolkit";
 import { CustomerCart, OrderDetail } from "../../app/types/order";
 
-var info = JSON.parse(localStorage.getItem("InfoOrderCustomer") || "") as any;
+var info = localStorage.getItem("InfoOrderCustomer")
+  ? JSON.parse(localStorage.getItem("InfoOrderCustomer") || "")
+  : ({} as any);
 console.log(info);
 
 const initialStateCart: CustomerCart = {

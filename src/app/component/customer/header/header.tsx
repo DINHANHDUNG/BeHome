@@ -16,9 +16,7 @@ function Header() {
   const [productkey, setProductkey] = useState(null as any);
 
   useEffect(() => {
-    
     localStorage.setItem("InfoOrderCustomer", JSON.stringify(cart));
-    
   }, [cart]);
   return (
     <header className="header header-10">
@@ -412,6 +410,8 @@ function Header() {
                     </li> */}
                 </ul>
               </nav>
+
+              
             </div>
           </div>
         </div>
