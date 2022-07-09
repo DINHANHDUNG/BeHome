@@ -66,7 +66,15 @@ function Product(props: propsProduct) {
           <a href="#">{props.value.name}</a>
         </div> */}
         <h3 className="product-title">
-          <a href="product.html">{props.value.name?.toUpperCase()}</a>
+          <Link
+            to={
+              props.value.category.type === "PRODUCT"
+                ? "/detailproduct/" + props.value.id
+                : "/detailcombo/" + props.value.id
+            }
+          >
+            {props.value.name?.toUpperCase()}
+          </Link>
         </h3>
         <div className="product-price">
           {Numberformat(props.value.price)} VNĐ
