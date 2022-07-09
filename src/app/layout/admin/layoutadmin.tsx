@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { checkTokenAdmin } from "../../../features/Admin/accountAdmin";
 import { accountAdminStore } from "../../../use-selector";
 import { useAppDispatch, useAppSelector } from "../../hooks";
+import BuildDesignAdmin from "../../page/admin/build/build";
 import CategoryCombo from "../../page/admin/category/categoryCombo";
 import CategoryProduct from "../../page/admin/category/categoryProduct";
 import Combo from "../../page/admin/Combo/combo";
@@ -62,7 +63,7 @@ function LayoutAdmin() {
         <Route path="/company" element={<Company />} />
         <Route path="/combo" element={<Combo />} />
         <Route path="/comment" element={<CommentAdmin />} />
-        <Route path="/builddesign" element={<BuildDesign />} />
+        <Route path="/BuildDesignAdmin" element={<BuildDesignAdmin />} />
 
         {/* <Route path="/warehouse" element={<WareHouse />} /> */}
       </Route>
