@@ -533,7 +533,7 @@ blockquote.text-white cite span {
 }
 
 @media screen and (max-width: 500px) {
-  .logo{
+  .logo {
     width: 100px;
   }
 }
@@ -546,7 +546,6 @@ blockquote.text-white cite span {
   position: relative;
   display: flex;
   align-items: center;
-  
 }
 .header-left,
 .header-center,
@@ -1470,7 +1469,6 @@ blockquote.text-white cite span {
   .mobile-menu-toggler {
     display: none;
   }
-
 }
 @media screen and (min-width: 1600px) {
   .header .container-fluid .megamenu-container {
@@ -2099,8 +2097,8 @@ blockquote.text-white cite span {
 }
 .menu-vertical,
 .menu-vertical ul {
-  margin:  0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 .menu-vertical {
@@ -2145,8 +2143,9 @@ blockquote.text-white cite span {
   background-color: #fff;
   /* box-shadow: 5px 10px 16px rgba(51, 51, 51, 0.05),
     -5px 10px 16px rgba(51, 51, 51, 0.05); */
-box-shadow:  5px 11px 12px 9px rgb(51 51 51 / 5%), -5px 10px 16px rgb(51 51 51 / 49%);
-    padding: 10px;
+  box-shadow: 5px 11px 12px 9px rgb(51 51 51 / 5%),
+    -5px 10px 16px rgb(51 51 51 / 49%);
+  padding: 10px;
 }
 .menu-vertical ul:before,
 .menu-vertical .megamenu:before {
@@ -4282,7 +4281,6 @@ p {
   padding-left: 1.4rem;
 }
 
-
 .header-13 .cart-dropdown .dropdown-menu,
 .header-13 .compare-dropdown .dropdown-menu {
   margin-top: 0;
@@ -4673,7 +4671,6 @@ p {
   top: -0.3rem;
   right: -0.3rem;
 }
-
 
 .header-14 .cart-dropdown:hover .cart-txt,
 .header-14 .cart-dropdown:focus .cart-txt {
@@ -7824,7 +7821,6 @@ p {
 .banners-group {
   margin-bottom: 1.9rem;
 }
-
 
 /* .banner {
   display: block;
@@ -16451,7 +16447,6 @@ button:focus {
 .slick-prev {
   display: none;
 }
-
 
 .banner > .slick-initialized .slick-slide {
   max-height: 470px !important;
