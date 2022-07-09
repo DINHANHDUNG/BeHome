@@ -49,7 +49,7 @@ function Footer(props: typeProps) {
 
       <div className="footer-middle border-0">
         <div className="container">
-          <div className="row">
+          {/* <div className="row">
             <div className="col-sm-4 col-lg-3">
               <div className="widget">
                 <h4 className="widget-title">GIỚI THIỆU BEHOME</h4>
@@ -121,7 +121,7 @@ function Footer(props: typeProps) {
                 </ul>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="row">
             <div className="col-sm-12 col-lg-6">
               <div className="widget widget-about">

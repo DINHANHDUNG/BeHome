@@ -8,7 +8,7 @@ import Footer from "../../component/customer/footer/footer";
 import Header from "../../component/customer/header/header";
 import Mobilemenu from "../../component/customer/menu/mobile-menu/mobilemenu";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import Build from "../../page/build/build";
+import BuildDesign from "../../page/build/build";
 import CartShopping from "../../page/cartShopping/cartShopping";
 import CheckOut from "../../page/checkout/checkOut";
 import ComboByCategory from "../../page/comboByCategory/comboByCategory";
@@ -29,7 +29,7 @@ function LayoutCustomer() {
   return (
     <div style={{ position: "relative" }}>
       <div className="page-wrapper">
-        <Header />
+        <Header company={company}/>
         <Routes>
           <Route index element={<Home company={company} />} />
           <Route path="detailproduct/:ID" element={<DetailProduct />} />
@@ -39,7 +39,7 @@ function LayoutCustomer() {
           <Route path="searchproduct/:KEY" element={<Searchproduct />} />
           <Route path="cart" element={<CartShopping />} />
           <Route path="checkout" element={<CheckOut />} />
-          <Route path="build" element={<Build />} />
+          <Route path="buildcustomer" element={<BuildDesign />} />
         </Routes>
 
         <Footer company={company} />

@@ -5,8 +5,10 @@ import { CartStore, categoryAdminStore } from "../../../../use-selector";
 import logo from "../../../assets/images/logo/biafb.png";
 import { useAppSelector } from "../../../hooks";
 import { CustomesCompany } from "../../../types/company";
-
-function Header() {
+interface typeProps {
+  company: CustomesCompany;
+}
+function Header(props: typeProps) {
   const categoryTrees = useAppSelector(categoryAdminStore);
   const cart = useAppSelector(CartStore);
   console.log(cart);
@@ -302,7 +304,7 @@ function Header() {
               </div>
             </div>
 
-            <div className="col-lg-9">
+            <div className="col-lg-3">
               <nav className="main-nav">
                 <ul className="menu sf-arrows">
                   {/* active Thêm gạch chân */}
@@ -313,106 +315,56 @@ function Header() {
 
                   <li className="megamenu-container ">
                     {/* className="sf-with-ul" */}
-                    <Link to={"/build"}>Thiết kế xây dựng</Link>
+                    <Link to={"/buildcustomer"}>Thiết kế xây dựng</Link>
                   </li>
-
-                  <li className="megamenu-container ">
-                    {/* className="sf-with-ul" */}
-                    <a href="/">Hotline</a>
-                  </li>
-
-                  {/* <li>
-                      <a href="blog.html" className="sf-with-ul">
-                        Blog
-                      </a>
-
-                      <ul>
-                        <li>
-                          <a href="blog.html">Classic</a>
-                        </li>
-                        <li>
-                          <a href="blog-listing.html">Listing</a>
-                        </li>
-                        <li>
-                          <a href="#">Grid</a>
-                          <ul>
-                            <li>
-                              <a href="blog-grid-2cols.html">Grid 2 columns</a>
-                            </li>
-                            <li>
-                              <a href="blog-grid-3cols.html">Grid 3 columns</a>
-                            </li>
-                            <li>
-                              <a href="blog-grid-4cols.html">Grid 4 columns</a>
-                            </li>
-                            <li>
-                              <a href="blog-grid-sidebar.html">Grid sidebar</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="#">Masonry</a>
-                          <ul>
-                            <li>
-                              <a href="blog-masonry-2cols.html">
-                                Masonry 2 columns
-                              </a>
-                            </li>
-                            <li>
-                              <a href="blog-masonry-3cols.html">
-                                Masonry 3 columns
-                              </a>
-                            </li>
-                            <li>
-                              <a href="blog-masonry-4cols.html">
-                                Masonry 4 columns
-                              </a>
-                            </li>
-                            <li>
-                              <a href="blog-masonry-sidebar.html">
-                                Masonry sidebar
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="#">Mask</a>
-                          <ul>
-                            <li>
-                              <a href="blog-mask-grid.html">Blog mask grid</a>
-                            </li>
-                            <li>
-                              <a href="blog-mask-masonry.html">
-                                Blog mask masonry
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="#">Single Post</a>
-                          <ul>
-                            <li>
-                              <a href="single.html">Default with sidebar</a>
-                            </li>
-                            <li>
-                              <a href="single-fullwidth.html">
-                                Fullwidth no sidebar
-                              </a>
-                            </li>
-                            <li>
-                              <a href="single-fullwidth-sidebar.html">
-                                Fullwidth with sidebar
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li> */}
                 </ul>
-                
               </nav>
+            </div>
 
-              
+            <div
+              className="col-lg-6"
+              style={{ display: "flex", justifyContent: "flex-end" }}
+            >
+              <nav className="main-nav">
+                <ul className="menu sf-arrows">
+                  {/* active Thêm gạch chân */}
+                  <li
+                    className="megamenu-container "
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                    }}
+                  >
+                    {/* className="sf-with-ul" */}
+                    <i
+                      className="fa-solid fa-envelope"
+                      style={{ color: "white" }}
+                    ></i>
+                    <a href={"mailto:" + props.company.Company.email}>
+                      {props.company.Company.email}
+                    </a>
+                  </li>
+
+                  <li
+                    className="megamenu-container "
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                    }}
+                  >
+                    {/* className="sf-with-ul" */}
+                    <i
+                      className="fa-solid fa-phone"
+                      style={{ color: "white" }}
+                    ></i>
+                    <a href={"tel:" + props.company.Company.phonenumber}>
+                      {props.company.Company.phonenumber}
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>

@@ -38,8 +38,8 @@ function BoxComboProduct(props: PropsComboProduct) {
                         val.product?.images[0]?.imagename
                       }
                       style={{
-                        height: "70px",
-                        width: "70px",
+                        height: "50px",
+                        width: "50px",
                         objectFit: "cover",
                         cursor: "pointer",
                       }}
@@ -55,8 +55,8 @@ function BoxComboProduct(props: PropsComboProduct) {
                   >
                     {val.product?.name}
                   </span>
-                  <br />
-                  <span>{Numberformat(val.product?.price)} VNĐ </span>
+                  {/* <br />
+                  <span>{Numberformat(val.product?.price)} VNĐ </span> */}
                   <br />
                   <span>Số lượng: {Numberformat(val?.amountproduct)}</span>
                 </div>

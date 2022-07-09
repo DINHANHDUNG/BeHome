@@ -62,11 +62,11 @@ function Product(props: propsProduct) {
       </figure>
 
       <div className="product-body">
-        <div className="product-cat">
+        {/* <div className="product-cat">
           <a href="#">{props.value.name}</a>
-        </div>
+        </div> */}
         <h3 className="product-title">
-          <a href="product.html">{props.value.describe}</a>
+          <a href="product.html">{props.value.name?.toUpperCase()}</a>
         </h3>
         <div className="product-price">
           {Numberformat(props.value.price)} VNĐ
