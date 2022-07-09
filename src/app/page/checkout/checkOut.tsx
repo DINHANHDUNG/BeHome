@@ -217,13 +217,15 @@ function CheckOut() {
                     </tbody>
                   </table>
 
-                  <button
-                    type="submit"
-                    className="btn btn-outline-primary-2 btn-order btn-block"
-                  >
-                    <span className="btn-text">Đặt hàng</span>
-                    <span className="btn-hover-text">Đặt hàng</span>
-                  </button>
+                  {cart.orderdetails?.length > 0 ? (
+                    <button
+                      type="submit"
+                      className="btn btn-outline-primary-2 btn-order btn-block"
+                    >
+                      <span className="btn-text">Đặt hàng</span>
+                      <span className="btn-hover-text">Đặt hàng</span>
+                    </button>
+                  ) : null}
                 </div>
               </aside>
             </div>

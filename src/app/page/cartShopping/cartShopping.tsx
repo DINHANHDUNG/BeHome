@@ -143,12 +143,14 @@ function CartShopping() {
                   </tbody>
                 </table>
 
-                <Link
-                  to={"/checkout"}
-                  className="btn btn-outline-primary-2 btn-order btn-block"
-                >
-                  Tiến hành đặt hàng
-                </Link>
+                {cart.orderdetails?.length > 0 ? (
+                  <Link
+                    to={"/checkout"}
+                    className="btn btn-outline-primary-2 btn-order btn-block"
+                  >
+                    Tiến hành đặt hàng
+                  </Link>
+                ) : null}
               </div>
 
               <Link to={"/"} className="btn btn-outline-dark-2 btn-block mb-3">
