@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  categoryAdminStore,
+  companyAdminStore,
+} from "../../../../../use-selector";
+import { useAppSelector } from "../../../../hooks";
 
 function Mobilemenu() {
   const [productkey, setProductkey] = useState("" as string | null);
   const dispatch = useDispatch();
   const history = useNavigate();
+  const categoryTrees = useAppSelector(categoryAdminStore);
+  const company = useAppSelector(companyAdminStore);
   useEffect(() => {
     // dispatch(getAllCategoryAdmin());
   }, []);
@@ -22,9 +29,7 @@ function Mobilemenu() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              history(
-                "/search/" + `${productkey}` + "/" + `${null}` + "/" + `${null}`
-              );
+              history("/searchproduct/" + `${productkey}`);
             }}
             className="mobile-search"
           >
@@ -62,6 +67,19 @@ function Mobilemenu() {
                 Menu
               </a>
             </li>
+            {/* <li className="nav-item">
+              <a
+                className="nav-link"
+                id="mobile-cats-link"
+                data-toggle="tab"
+                href="#mobile-cats-tab"
+                role="tab"
+                aria-controls="mobile-cats-tab"
+                aria-selected="false"
+              >
+                Danh mục
+              </a>
+            </li> */}
           </ul>
 
           <div className="tab-content">
@@ -76,6 +94,118 @@ function Mobilemenu() {
                   <li className="active">
                     <a href="/">Trang chủ</a>
                   </li>
+                  <li className="active">
+                    <Link to={"/buildcustomer"}>Thiết kế xây dựng</Link>
+                  </li>
+
+                  <li className="active">
+                    <a href={"tel:" + company.Company.phonenumber}>
+                      {company.Company.phonenumber}
+                    </a>
+                  </li>
+
+                  <li className="active">
+                    <a href={"mailto:" + company.Company.email}>
+                      {company.Company.email}
+                    </a>
+                  </li>
+                  <li style={{ fontWeight: 500, cursor: "none" }}>
+                    <a>Danh mục bán lẻ</a>
+                  </li>
+
+                  {categoryTrees.listcategoryProduct?.map((val, idx) =>
+                    val.children.length > 0 ? (
+                      <li className="close-menu-mobile ">
+                        <Link
+                          to={`danhmucproduct/${val.id}`}
+                          className="sf-with-ul"
+                        >
+                          {val.name}
+                        </Link>
+                        {val.children.length > 0
+                          ? val.children?.map((val2, idx) => (
+                              <ul style={{ display: "block" }}>
+                                {/* <li>
+                                  <Link to={`danhmucproduct/${val2.id}`}>
+                                    {val2.name}
+                                  </Link>
+                                </li> */}
+                                <li className="close-menu-mobile">
+                                  <Link to={`danhmucproduct/${val2.id}`}>
+                                    {val2.name}
+                                  </Link>
+                                  {val2.children?.length > 0 ? (
+                                    <ul style={{ display: "block" }}>
+                                      {val2.children?.map((val3, idx) => (
+                                        <li className="close-menu-mobile">
+                                          <Link
+                                            to={`danhmucproduct/${val3.id}`}
+                                          >
+                                            {val3.name}
+                                          </Link>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  ) : null}
+                                </li>
+                              </ul>
+                            ))
+                          : null}
+                      </li>
+                    ) : (
+                      <li>
+                        <Link to={`danhmucproduct/${val.id}`}>{val.name}</Link>
+                      </li>
+                    )
+                  )}
+
+                  <li style={{ fontWeight: 500, cursor: "none" }}>
+                    <a>Danh mục combo</a>
+                  </li>
+
+                  {categoryTrees.listcategoryCombo?.map((val, idx) =>
+                    val.children.length > 0 ? (
+                      <li>
+                        <Link
+                          to={`danhmuccombo/${val.id}`}
+                          className="sf-with-ul"
+                        >
+                          {val.name}
+                        </Link>
+                        {val.children.length > 0
+                          ? val.children?.map((val2, idx) => (
+                              <ul style={{ display: "block" }}>
+                                {/* <li>
+                                  <Link to={`danhmuccombo/${val2.id}`}>
+                                    {val2.name}
+                                  </Link>
+                                </li> */}
+                                <li>
+                                  <Link to={`danhmuccombo/${val2.id}`}>
+                                    {val2.name}
+                                  </Link>
+                                  {val2.children?.length > 0 ? (
+                                    <ul style={{ display: "block" }}>
+                                      {val2.children?.map((val3, idx) => (
+                                        <li>
+                                          <Link to={`danhmuccombo/${val3.id}`}>
+                                            {val3.name}
+                                          </Link>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  ) : null}
+                                </li>
+                              </ul>
+                            ))
+                          : null}
+                      </li>
+                    ) : (
+                      <li>
+                        <Link to={`danhmuccombo/${val.id}`}>{val.name}</Link>
+                      </li>
+                    )
+                  )}
                   {/* 
                   {category.listcategory.map((val) => (
                     <li className="mobile-menu-close">
@@ -149,6 +279,97 @@ function Mobilemenu() {
             >
               <nav className="mobile-cats-nav">
                 <ul className="mobile-cats-menu">
+                  <li style={{ fontWeight: 500, cursor: "none" }}>
+                    <a href="/">Danh mục bán lẻ</a>
+                  </li>
+
+                  <li>
+                    <a href="blog.html" className="sf-with-ul">
+                      Blog
+                    </a>
+
+                    <ul>
+                      <li>
+                        <a href="blog.html">Classic</a>
+                      </li>
+                      <li>
+                        <a href="blog-listing.html">Listing</a>
+                      </li>
+                      <li>
+                        <a href="#">Grid</a>
+                        <ul>
+                          <li>
+                            <a href="blog-grid-2cols.html">Grid 2 columns</a>
+                          </li>
+                          <li>
+                            <a href="blog-grid-3cols.html">Grid 3 columns</a>
+                          </li>
+                          <li>
+                            <a href="blog-grid-4cols.html">Grid 4 columns</a>
+                          </li>
+                          <li>
+                            <a href="blog-grid-sidebar.html">Grid sidebar</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#">Masonry</a>
+                        <ul>
+                          <li>
+                            <a href="blog-masonry-2cols.html">
+                              Masonry 2 columns
+                            </a>
+                          </li>
+                          <li>
+                            <a href="blog-masonry-3cols.html">
+                              Masonry 3 columns
+                            </a>
+                          </li>
+                          <li>
+                            <a href="blog-masonry-4cols.html">
+                              Masonry 4 columns
+                            </a>
+                          </li>
+                          <li>
+                            <a href="blog-masonry-sidebar.html">
+                              Masonry sidebar
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#">Mask</a>
+                        <ul>
+                          <li>
+                            <a href="blog-mask-grid.html">Blog mask grid</a>
+                          </li>
+                          <li>
+                            <a href="blog-mask-masonry.html">
+                              Blog mask masonry
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#">Single Post</a>
+                        <ul>
+                          <li>
+                            <a href="single.html">Default with sidebar</a>
+                          </li>
+                          <li>
+                            <a href="single-fullwidth.html">
+                              Fullwidth no sidebar
+                            </a>
+                          </li>
+                          <li>
+                            <a href="single-fullwidth-sidebar.html">
+                              Fullwidth with sidebar
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
                   <li>
                     <a className="mobile-cats-lead" href="#">
                       Daily offers

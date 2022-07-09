@@ -352,6 +352,10 @@ $(document).ready(function () {
     });
   }
 
+  $('.navbar-collapse a').click(function() {
+    $(".navbar-collapse").collapse('hide');
+  });
+
   // Product Gallery - product-gallery.html
   if ($.fn.owlCarousel && $.fn.elevateZoom) {
     var owlProductGallery = $(".product-gallery-carousel");

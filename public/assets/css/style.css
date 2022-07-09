@@ -531,6 +531,12 @@ blockquote.text-white cite span {
     margin-right: auto;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .logo{
+    width: 100px;
+  }
+}
 .header {
   width: 100%;
   background-color: #fff;
@@ -540,6 +546,7 @@ blockquote.text-white cite span {
   position: relative;
   display: flex;
   align-items: center;
+  
 }
 .header-left,
 .header-center,
