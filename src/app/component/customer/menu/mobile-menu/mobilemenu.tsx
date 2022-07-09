@@ -91,20 +91,24 @@ function Mobilemenu() {
             >
               <nav className="mobile-nav">
                 <ul className="mobile-menu">
-                  <li className="active">
-                    <a href="/">Trang chủ</a>
+                  <li className="active close-menu-mobile">
+                    <a className="close-menu-mobile" href="/">
+                      Trang chủ
+                    </a>
                   </li>
                   <li className="active">
-                    <Link to={"/buildcustomer"}>Thiết kế xây dựng</Link>
+                    <Link className="close-menu-mobile" to={"/buildcustomer"}>
+                      Thiết kế xây dựng
+                    </Link>
                   </li>
 
-                  <li className="active">
+                  <li>
                     <a href={"tel:" + company.Company.phonenumber}>
                       {company.Company.phonenumber}
                     </a>
                   </li>
 
-                  <li className="active">
+                  <li>
                     <a href={"mailto:" + company.Company.email}>
                       {company.Company.email}
                     </a>
@@ -115,10 +119,10 @@ function Mobilemenu() {
 
                   {categoryTrees.listcategoryProduct?.map((val, idx) =>
                     val.children.length > 0 ? (
-                      <li className="close-menu-mobile ">
+                      <li className="close-menu-mobile">
                         <Link
+                          className="sf-with-ul close-menu-mobile"
                           to={`danhmucproduct/${val.id}`}
-                          className="sf-with-ul"
                         >
                           {val.name}
                         </Link>
@@ -131,7 +135,10 @@ function Mobilemenu() {
                                   </Link>
                                 </li> */}
                                 <li className="close-menu-mobile">
-                                  <Link to={`danhmucproduct/${val2.id}`}>
+                                  <Link
+                                    to={`danhmucproduct/${val2.id}`}
+                                    className="close-menu-mobile"
+                                  >
                                     {val2.name}
                                   </Link>
                                   {val2.children?.length > 0 ? (
@@ -139,6 +146,7 @@ function Mobilemenu() {
                                       {val2.children?.map((val3, idx) => (
                                         <li className="close-menu-mobile">
                                           <Link
+                                            className="close-menu-mobile"
                                             to={`danhmucproduct/${val3.id}`}
                                           >
                                             {val3.name}
@@ -154,7 +162,12 @@ function Mobilemenu() {
                       </li>
                     ) : (
                       <li>
-                        <Link to={`danhmucproduct/${val.id}`}>{val.name}</Link>
+                        <Link
+                          className="close-menu-mobile"
+                          to={`danhmucproduct/${val.id}`}
+                        >
+                          {val.name}
+                        </Link>
                       </li>
                     )
                   )}
@@ -168,7 +181,7 @@ function Mobilemenu() {
                       <li>
                         <Link
                           to={`danhmuccombo/${val.id}`}
-                          className="sf-with-ul"
+                          className="sf-with-ul close-menu-mobile"
                         >
                           {val.name}
                         </Link>
@@ -181,14 +194,20 @@ function Mobilemenu() {
                                   </Link>
                                 </li> */}
                                 <li>
-                                  <Link to={`danhmuccombo/${val2.id}`}>
+                                  <Link
+                                    className="close-menu-mobile"
+                                    to={`danhmuccombo/${val2.id}`}
+                                  >
                                     {val2.name}
                                   </Link>
                                   {val2.children?.length > 0 ? (
                                     <ul style={{ display: "block" }}>
                                       {val2.children?.map((val3, idx) => (
                                         <li>
-                                          <Link to={`danhmuccombo/${val3.id}`}>
+                                          <Link
+                                            className="close-menu-mobile"
+                                            to={`danhmuccombo/${val3.id}`}
+                                          >
                                             {val3.name}
                                           </Link>
                                         </li>
@@ -202,7 +221,12 @@ function Mobilemenu() {
                       </li>
                     ) : (
                       <li>
-                        <Link to={`danhmuccombo/${val.id}`}>{val.name}</Link>
+                        <Link
+                          className="close-menu-mobile"
+                          to={`danhmuccombo/${val.id}`}
+                        >
+                          {val.name}
+                        </Link>
                       </li>
                     )
                   )}
