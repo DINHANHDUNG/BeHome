@@ -10,7 +10,10 @@ import {
 } from "antd";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
-import { getAllBuildAdmin, postDeleteBuildAdmin } from "../../../../features/Admin/buildAdmin";
+import {
+  getAllBuildAdmin,
+  postDeleteBuildAdmin,
+} from "../../../../features/Admin/buildAdmin";
 import { buildAdminStore } from "../../../../use-selector";
 import ModalBuildDesign from "../../../component/customer/modal/modalBuildDesign/modal-buildDesign";
 import { useAppDispatch, useAppSelector } from "../../../hooks";
@@ -71,7 +74,7 @@ function BuildDesignAdmin() {
           <Card
             bordered={false}
             className="criclebox tablespace mb-24"
-            title="Quản lý xây dựng thiết kế"
+            title="Quản lý thiết kế nội thất"
             extra={
               <>
                 <Button

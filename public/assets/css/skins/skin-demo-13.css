@@ -896,7 +896,7 @@ a:focus {
   border-color: #39f;
 }
 .header-10 .category-dropdown .dropdown-toggle {
-  background-color: rgb(19 123 158);;
+  background-color: rgb(19 123 158);
 }
 .header-10 .menu-vertical .menu-title {
   color: #39f;
@@ -1087,10 +1087,12 @@ a:focus {
   border-color: #39f;
 }
 .product-details-action .btn-cart:hover,
-.product-details-action .btn-cart:focus {
+.product-details-action .btn-cart:focus,
+.product-details-action .active {
   border-color: #39f;
   background-color: #39f;
 }
+
 .product-details-tab .nav.nav-pills .nav-link:hover,
 .product-details-tab .nav.nav-pills .nav-link:focus {
   color: #39f;

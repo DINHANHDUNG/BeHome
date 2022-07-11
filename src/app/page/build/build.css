@@ -1,0 +1,28 @@
+.item-build-product {
+  margin-right: 20px;
+  display: flex;
+  max-width: 50%;
+}
+
+.item-build-product img {
+  width: 150px;
+}
+.item-build {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 576px) {
+  .item-build-product {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .item-build-product img {
+    width: 300px;
+  }
+
+  .item-build-product .product-title {
+    padding-top: 0 !important;
+  }
+}

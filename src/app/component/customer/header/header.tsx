@@ -315,7 +315,7 @@ function Header(props: typeProps) {
 
                   <li className="megamenu-container ">
                     {/* className="sf-with-ul" */}
-                    <Link to={"/buildcustomer"}>Thiết kế xây dựng</Link>
+                    <Link to={"/buildcustomer"}>Thiết kế nội thất</Link>
                   </li>
                 </ul>
               </nav>

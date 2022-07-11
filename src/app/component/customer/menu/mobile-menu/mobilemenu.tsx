@@ -97,9 +97,7 @@ function Mobilemenu() {
                     </a>
                   </li>
                   <li className="active">
-                    <Link className="close-menu-mobile" to={"/buildcustomer"}>
-                      Thiết kế xây dựng
-                    </Link>
+                    <Link to={"/buildcustomer"}>Thiết kế nội thất</Link>
                   </li>
 
                   <li>
