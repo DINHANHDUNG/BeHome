@@ -205,9 +205,9 @@ function Footer(props: typeProps) {
                   <p></p>
                   <div className="row">
                     <div className="col-sm-6 col-md-4" id="icon-fixed-right">
-                      <span className="widget-about-title mb-2">
+                      {/* <span className="widget-about-title mb-2">
                         Mạng xã hội
-                      </span>
+                      </span> */}
                       <a
                         href="https://www.facebook.com/C%E1%BB%ADa-h%C3%A0ng-thi%E1%BA%BFt-b%E1%BB%8B-v%E1%BA%ADt-t%C6%B0-%C4%90i%E1%BB%87n-N%C6%B0%E1%BB%9Bc-Behome-Store-111073668305784/?ref=pages_you_manage"
                         className="mr-2"

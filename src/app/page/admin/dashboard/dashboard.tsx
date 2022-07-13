@@ -117,7 +117,12 @@ function Dashboard() {
       title: "Ngày tạo",
       dataIndex: "created_date",
       key: "created_date",
-      render: (created_date: any) => <>{getParsedDate(created_date)}</>,
+      render: (created_date: any) => (
+        <>
+          {getParsedDate(created_date)}
+          {/* {moment(created_date).format("DD-MM-YYYY").toString()} */}
+        </>
+      ),
       sorter: (a: any, b: any) => {
         if (moment(a.created_date).isBefore(moment(b.created_date))) {
           return -1;

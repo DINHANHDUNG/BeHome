@@ -92,6 +92,14 @@ function OrderWaitForPay() {
     },
 
     {
+      title: "Tổng tiền",
+      dataIndex: "totalmoney",
+      key: "totalmoney",
+      // render: (text: any, row: any, index: any) => row.manufacturer?.name,
+      sorter: (a: any, b: any) => a.totalmoney.localeCompare(b.totalmoney),
+    },
+
+    {
       title: "Tên khách hàng",
       dataIndex: "namecustomer",
       key: "namecustomer",

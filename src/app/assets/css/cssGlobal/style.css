@@ -148,3 +148,9 @@
 .ant-notification {
   z-index: 999999 !important;
 }
+
+.tablespace .ant-card-head-title {
+  font-size: 18px !important;
+  font-weight: 600;
+}
+

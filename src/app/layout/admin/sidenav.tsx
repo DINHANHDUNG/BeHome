@@ -194,19 +194,21 @@ function Sidenav({ color }: any) {
             <span className="label">Sản phẩm cập nhật</span>
           </NavLink>
         </Menu.Item> */}
-        <Menu.Item key="10">
-          <NavLink to="/admin/builddesignadmin">
+
+        <Menu.Item key="8">
+          <NavLink to="/admin/combo">
             <span
               className="icon"
               style={{
-                background: page === "admin/builddesignadmin" ? color : "",
+                background: page === "admin/combo" ? color : "",
               }}
             >
-              {dashboard}
+              {Category}
             </span>
-            <span className="label">Xây dựng thiết kế</span>
+            <span className="label">Combo</span>
           </NavLink>
         </Menu.Item>
+
         <Menu.Item key="2">
           <NavLink to="/admin/categoryproduct">
             <span
@@ -245,7 +247,7 @@ function Sidenav({ color }: any) {
             >
               {Category}
             </span>
-            <span className="label">Rank</span>
+            <span className="label">Phân khúc</span>
           </NavLink>
         </Menu.Item>
 
@@ -262,17 +264,17 @@ function Sidenav({ color }: any) {
             <span className="label">Hãng sản xuất</span>
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="5">
-          <NavLink to="/admin/promotion">
+        <Menu.Item key="9">
+          <NavLink to="/admin/comment">
             <span
               className="icon"
               style={{
-                background: page === "admin/promotion" ? color : "",
+                background: page === "admin/comment" ? color : "",
               }}
             >
               {Category}
             </span>
-            <span className="label">Khuyến mại</span>
+            <span className="label">Quản lý Comment</span>
           </NavLink>
         </Menu.Item>
 
@@ -289,32 +291,31 @@ function Sidenav({ color }: any) {
             <span className="label">Công ty</span>
           </NavLink>
         </Menu.Item>
-
-        <Menu.Item key="8">
-          <NavLink to="/admin/combo">
+        <Menu.Item key="10">
+          <NavLink to="/admin/builddesignadmin">
             <span
               className="icon"
               style={{
-                background: page === "admin/combo" ? color : "",
+                background: page === "admin/builddesignadmin" ? color : "",
               }}
             >
-              {Category}
+              {dashboard}
             </span>
-            <span className="label">Combo</span>
+            <span className="label">Xây dựng thiết kế</span>
           </NavLink>
         </Menu.Item>
 
-        <Menu.Item key="9">
-          <NavLink to="/admin/comment">
+        <Menu.Item key="5">
+          <NavLink to="/admin/promotion">
             <span
               className="icon"
               style={{
-                background: page === "admin/comment" ? color : "",
+                background: page === "admin/promotion" ? color : "",
               }}
             >
               {Category}
             </span>
-            <span className="label">Comment</span>
+            <span className="label">Khuyến mại</span>
           </NavLink>
         </Menu.Item>
 

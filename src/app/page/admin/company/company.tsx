@@ -174,7 +174,7 @@ function Company() {
                   </Form.Item>
                 </Col>
               </Row>
-
+              <h5>Danh sách banner</h5>
               <Row gutter={[0, 0]}>
                 {fileIMG?.map((value: any, idx: any) => {
                   return (
@@ -204,7 +204,7 @@ function Company() {
                 })}
               </Row>
 
-              <Form.Item label="Thêm ảnh">
+              <Form.Item>
                 <input
                   type="file"
                   accept="image/*"
