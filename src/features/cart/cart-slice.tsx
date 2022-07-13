@@ -46,7 +46,6 @@ const cartSliceAdmin = createSlice({
             id_product: action.payload.id,
             id_combo: null,
             amount: 1,
-            
           };
           state.orderdetails = [...state.orderdetails, product];
         }
@@ -67,7 +66,6 @@ const cartSliceAdmin = createSlice({
             id: null,
             id_combo: action.payload.id,
             amount: 1,
-           
           };
           state.orderdetails = [...state.orderdetails, product];
         }
@@ -128,6 +126,33 @@ const cartSliceAdmin = createSlice({
       state.orderdetails = [];
       state.totalmoney = 0;
     },
+
+    addCartBuild: (state, action: PayloadAction<any>) => {
+      //   state.value += 1;
+      console.log("action add Build", action.payload);
+
+      var product = {} as any;
+
+      const indexValue = state.orderdetails?.findIndex(
+        (val, idx) => val.id_product === action.payload.id
+      );
+
+      console.log(indexValue);
+
+      if (indexValue >= 0) {
+        state.orderdetails[indexValue].amount =
+          state.orderdetails[indexValue].amount + action.payload.amount;
+      } else {
+        product = {
+          ...action.payload,
+          id: null,
+          id_product: action.payload.id,
+          id_combo: null,
+          amount: action.payload.amount,
+        };
+        state.orderdetails = [...state.orderdetails, product];
+      }
+    },
   },
   extraReducers: (builder: ActionReducerMapBuilder<any>) => {},
 });
@@ -137,6 +162,7 @@ export const {
   CalculateTotalMomney,
   toggleAmountProduct,
   orderSuccsess,
+  addCartBuild,
 } = cartSliceAdmin.actions;
 const { reducer } = cartSliceAdmin;
 export default reducer;

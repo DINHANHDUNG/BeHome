@@ -26,14 +26,20 @@ function ComponentVideo(props: PropsVideo) {
           marginLeft: "0px",
         }}
       />
-      <iframe
-        width="100%"
-        height="400"
-        src={"https://www.youtube.com/embed/" + linkVideo}
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
+
+      {props.link ? (
+        <iframe
+          width="100%"
+          height="400"
+          src={"https://www.youtube.com/embed/" + linkVideo}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      ) : (
+        "Chưa có video"
+      )}
+
       <hr
         style={{
           marginTop: "10px",

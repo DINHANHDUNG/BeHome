@@ -382,7 +382,9 @@ function ModalProduct(props: propsModalProduct) {
           linkvideo: props.value.linkvideo,
           describe: props.value.describe,
           price: props.value.price,
-          productdetails: props.value.productdetails,
+          productdetails: props.value.productdetails
+            ? props.value.productdetails
+            : [{}],
         }}
         onFinish={onFinish}
         autoComplete="off"
@@ -430,7 +432,7 @@ function ModalProduct(props: propsModalProduct) {
             <Form.Item
               label="Khuyến mại"
               name="id_promotion"
-              rules={[{ required: true, message: "Chọn khuyến mại!" }]}
+              // rules={[{ required: true, message: "Chọn khuyến mại!" }]}
             >
               <Select
                 showSearch

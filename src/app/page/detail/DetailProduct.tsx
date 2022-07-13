@@ -161,7 +161,7 @@ function DetailProduct() {
           <div className="row">
             <div className="col-md-12">
               <h4>Video</h4>
-              <ComponentVideo link={"abc"} />
+              <ComponentVideo link={products.listproduct[0]?.linkvideo} />
             </div>
           </div>
 
