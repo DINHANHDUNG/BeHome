@@ -48,7 +48,10 @@ function CartShopping() {
                               <img
                                 src={
                                   "http://103.173.155.138:5500/images/" +
-                                  value?.images[0]?.imagename
+                                  value?.images.find(
+                                    (x: any) =>
+                                      x.type === "1" || x.type === "MAIN"
+                                  )?.imagename
                                 }
                                 alt="Product image"
                               />

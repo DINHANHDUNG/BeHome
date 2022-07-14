@@ -286,7 +286,9 @@ function BuildDesign() {
                               )[0]
                               ?.listProduct.filter(
                                 (v: any) => v.id_category === value.id_category
-                              )[0]?.images[0]?.imagename
+                              )[0]?.images.find(
+                                (x: any) => x.type === "1" || x.type === "MAIN"
+                              )?.imagename
                           }
                           alt="Product image"
                         />

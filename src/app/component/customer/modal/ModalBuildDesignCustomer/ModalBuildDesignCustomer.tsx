@@ -159,7 +159,9 @@ function ModalBuildDesignCustomer(props: propsModalBuildDesignCustomer) {
                           style={{ width: "80px", height: "80px" }}
                           src={
                             "http://103.173.155.138:5500/images/" +
-                            val.images[0]?.imagename
+                            val.images.find(
+                              (x: any) => x.type === "1" || x.type === "MAIN"
+                            ).imagename
                           }
                           alt="Product image"
                         />
