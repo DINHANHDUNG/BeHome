@@ -286,7 +286,8 @@ function BuildDesign() {
                               )[0]
                               ?.listProduct.filter(
                                 (v: any) => v.id_category === value.id_category
-                              )[0]?.images.find(
+                              )[0]
+                              ?.images.find(
                                 (x: any) => x.type === "1" || x.type === "MAIN"
                               )?.imagename
                           }
@@ -325,8 +326,42 @@ function BuildDesign() {
                       <InputNumber
                         min={1}
                         max={10}
-                        value={1}
-                        onChange={(val) => {}}
+                        value={
+                          selectedProduct
+                            .filter(
+                              (val: any) => val.idBuild === value.id_builddesign
+                            )[0]
+                            ?.listProduct.filter(
+                              (v: any) => v.id_category === value.id_category
+                            )[0]?.amount
+                        }
+                        onChange={(val) => {
+                          console.log(val);
+
+                          console.log(
+                            value.category?.id,
+                            value.id_builddesign,
+                            selectedProduct
+                          );
+
+                          console.log(
+                            "listproduct còn lại sau khi xóa",
+                            selectedProduct
+                              ?.filter(
+                                (val: any) =>
+                                  val.idBuild === value.id_builddesign
+                              )[0]
+                              .listProduct.filter(
+                                (v: any) => v.id_category != value.category?.id
+                              )
+                          );
+
+                          console.log(
+                            selectedProduct?.filter(
+                              (val: any) => val.idBuild != value.id_builddesign
+                            )
+                          );
+                        }}
                       />{" "}
                       ={" "}
                       <span className="mr-3" style={{ color: "red" }}>
@@ -359,6 +394,27 @@ function BuildDesign() {
                       <i
                         className="fa-solid fa-trash-can"
                         style={{ cursor: "pointer", color: "red" }}
+                        onClick={() => {
+                          setSelectedProduct([
+                            {
+                              listProduct: selectedProduct
+                                ?.filter(
+                                  (val: any) =>
+                                    val.idBuild === value.id_builddesign
+                                )[0]
+                                .listProduct.filter(
+                                  (v: any) =>
+                                    v.id_category != value.category?.id
+                                ),
+
+                              idBuild: value.id_builddesign,
+                            },
+
+                            ...selectedProduct?.filter(
+                              (val: any) => val.idBuild != value.id_builddesign
+                            ),
+                          ]);
+                        }}
                       ></i>
                     </span>
                   </div>
