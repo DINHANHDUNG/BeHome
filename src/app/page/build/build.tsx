@@ -338,23 +338,38 @@ function BuildDesign() {
                         onChange={(val) => {
                           console.log(val);
 
-                          console.log(
-                            value.category?.id,
-                            value.id_builddesign,
-                            selectedProduct
-                          );
+                          setSelectedProduct([
+                            {
+                              idBuild: value.id_builddesign,
+                              listProduct: [
+                                ...selectedProduct
+                                  ?.filter(
+                                    (val: any) =>
+                                      val.idBuild === value.id_builddesign
+                                  )[0]
+                                  .listProduct.filter(
+                                    (v: any) =>
+                                      v.id_category != value.category?.id
+                                  ),
+                                {
+                                  ...selectedProduct
+                                    ?.filter(
+                                      (val: any) =>
+                                        val.idBuild === value.id_builddesign
+                                    )[0]
+                                    .listProduct.filter(
+                                      (v: any) =>
+                                        v.id_category === value.category?.id
+                                    )[0],
+                                  amount: val,
+                                },
+                              ],
+                            },
 
-                          console.log(
-                            "listproduct còn lại sau khi xóa",
-                            selectedProduct
-                              ?.filter(
-                                (val: any) =>
-                                  val.idBuild === value.id_builddesign
-                              )[0]
-                              .listProduct.filter(
-                                (v: any) => v.id_category != value.category?.id
-                              )
-                          );
+                            ...selectedProduct?.filter(
+                              (val: any) => val.idBuild != value.id_builddesign
+                            ),
+                          ]);
 
                           console.log(
                             selectedProduct?.filter(
