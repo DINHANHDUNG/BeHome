@@ -52,7 +52,7 @@ function ModalBuildDesignCustomer(props: propsModalBuildDesignCustomer) {
   }, [props.value.idCategory]);
   return (
     <Modal
-      title={"Chọn linh kiện"}
+      title={<span style={{ color: "#258cae" }}>Chọn linh kiện</span>}
       centered
       visible={props.visible}
       onOk={() => props.toggle()}

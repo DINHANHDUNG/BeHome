@@ -119,8 +119,8 @@ function Dashboard() {
       key: "created_date",
       render: (created_date: any) => (
         <>
-          {getParsedDate(created_date)}
-          {/* {moment(created_date).format("DD-MM-YYYY").toString()} */}
+          {/* {getParsedDate(created_date)} */}
+          {moment(created_date).utc().format("DD-MM-YYYY").toString()}
         </>
       ),
       sorter: (a: any, b: any) => {
@@ -134,7 +134,10 @@ function Dashboard() {
       title: "Ngày cập nhật",
       dataIndex: "updated_date",
       key: "updated_date",
-      render: (updated_date: any) => <>{getParsedDate(updated_date)}</>,
+
+      render: (updated_date: any) => (
+        <>{moment(updated_date).utc().format("DD-MM-YYYY").toString()}</>
+      ),
       sorter: (a: any, b: any) => {
         if (moment(a.updated_date).isBefore(moment(b.updated_date))) {
           return -1;

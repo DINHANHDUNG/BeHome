@@ -29,7 +29,9 @@ function Product(props: propsProduct) {
             <img
               src={
                 "http://103.173.155.138:5500/images/" +
-                props.value?.images[0]?.imagename
+                props.value?.images?.find(
+                  (x: any) => x.type === "1" || x.type === "MAIN"
+                )?.imagename
               }
               alt="Product image"
               className="product-image"

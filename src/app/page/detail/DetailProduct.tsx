@@ -36,7 +36,11 @@ function DetailProduct() {
     setIMG(products?.listproduct[0]?.images);
 
     if (products?.listproduct[0]?.images?.length > 0) {
-      setDisplayIMG(products?.listproduct[0]?.images[0]);
+      setDisplayIMG(
+        products.listproduct[0].images?.find(
+          (x: any) => x.type === "1" || x.type === "MAIN"
+        )
+      );
     }
   }, [products]);
 

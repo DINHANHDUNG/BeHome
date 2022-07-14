@@ -119,25 +119,35 @@ function ModalProductUpdate(props: propsModalProduct) {
   function onFinish(value: any) {
     console.log(value);
 
-    let arrIMG = [] as any;
+    let arrIMG = fileIMG;
 
-    fileIMG.map((val: any, idx: any) => {
-      console.log(idx);
-      if (idx === 0) {
-        arrIMG.push({
-          imagename: val.imagename,
-          type: "1",
-        });
-      } else {
-        arrIMG.push({
-          imagename: val.imagename,
-          type: "2",
-        });
+    // fileIMG.map((val: any, idx: any) => {
+    //   console.log(idx);
+    //   if (idx === 0) {
+    //     arrIMG.push({
+    //       imagename: val.imagename,
+    //       type: "1",
+    //     });
+    //   } else {
+    //     arrIMG.push({
+    //       imagename: val.imagename,
+    //       type: "2",
+    //     });
+    //   }
+    // });
+    
+    arrIMG.slice().sort(function (a: any, b: any) {
+      if (a.type.toLowerCase() < b.type.toLowerCase()) {
+        return -1;
       }
+      if (a.type.toLowerCase() > b.type.toLowerCase()) {
+        return 1;
+      }
+      return 0;
     });
 
     console.log(arrIMG);
-    if (arrIMG.length >= 3) {
+    if (arrIMG?.find((x: any) => x.type === "1" || x.type === "MAIN")) {
       dispatch(
         postEditProductByIdAdmin({
           ...value,
@@ -160,7 +170,7 @@ function ModalProductUpdate(props: propsModalProduct) {
       });
     } else {
       openNotification({
-        message: "Bạn đang chọn ít hơn 3 ảnh",
+        message: "Bạn chưa chọn ảnh chính",
         type: "warning",
       });
     }
@@ -210,17 +220,17 @@ function ModalProductUpdate(props: propsModalProduct) {
     });
   }
 
-  function onchangeIMG(e: any) {
+  function onchangeIMG(e: any, key: string) {
     console.log(e.target.files);
 
     console.log(e.target.files[0]);
 
     for (let index = 0; index < e.target.files.length; index++) {
-      uploadImage(e.target.files[index]);
+      uploadImage(e.target.files[index], key);
     }
   }
 
-  function uploadImage(e: any) {
+  function uploadImage(e: any, key: string) {
     const data = new FormData();
     data.append("image", e);
     setUploading(true);
@@ -232,7 +242,7 @@ function ModalProductUpdate(props: propsModalProduct) {
         console.log(res.data.data.imageUrl);
         setFileIMG((pre: any) => [
           ...pre,
-          { imagename: res.data.data.imageName },
+          { imagename: res.data.data.imageName, type: key },
         ]);
         setUploading(false);
       })
@@ -564,33 +574,87 @@ function ModalProductUpdate(props: propsModalProduct) {
           )}
         </Form.Item> */}
 
+        <h5>Ảnh chính</h5>
+
+        <Row gutter={[0, 0]}>
+          {fileIMG?.map((value: any, idx: any) => {
+            if (value.type === "MAIN" || value.type === "1") {
+              return (
+                <Col span={6}>
+                  <div className="info_image">
+                    <Image
+                      key={idx}
+                      width={150}
+                      height={150}
+                      src={
+                        // value.split(".").length > 1
+                        //   ? "http://103.173.155.138:5500/images/" + value
+                        //   : "https://cf.shopee.vn/file/" + value
+                        "http://103.173.155.138:5500/images/" + value.imagename
+                      }
+                    />
+                    <span
+                      className="icon_delete"
+                      onClick={() => deleteIMG(value)}
+                    >
+                      x
+                    </span>
+                  </div>
+                </Col>
+              );
+            }
+
+            return;
+          })}
+        </Row>
+
+        {fileIMG?.find(
+          (x: any) => x.type === "1" || x.type === "MAIN"
+        ) ? null : (
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            // style={{ display: "none" }}
+            onChange={(val) => onchangeIMG(val, "MAIN")}
+            // ref={inputRef}
+          />
+        )}
+
+        <br />
+
+        <h5>Ảnh phụ</h5>
+
         <Row gutter={[0, 0]}>
           {fileIMG?.map((value: any, idx: any) => {
             console.log(value);
+            if (value.type != "MAIN" && value.type != "1") {
+              return (
+                <Col span={6}>
+                  <div className="info_image">
+                    <Image
+                      key={idx}
+                      width={150}
+                      height={150}
+                      src={
+                        // value.split(".").length > 1
+                        //   ? "http://103.173.155.138:5500/images/" + value
+                        //   : "https://cf.shopee.vn/file/" + value
+                        "http://103.173.155.138:5500/images/" + value.imagename
+                      }
+                    />
+                    <span
+                      className="icon_delete"
+                      onClick={() => deleteIMG(value)}
+                    >
+                      x
+                    </span>
+                  </div>
+                </Col>
+              );
+            }
 
-            return (
-              <Col span={6}>
-                <div className="info_image">
-                  <Image
-                    key={idx}
-                    width={150}
-                    height={150}
-                    src={
-                      // value.split(".").length > 1
-                      //   ? "http://103.173.155.138:5500/images/" + value
-                      //   : "https://cf.shopee.vn/file/" + value
-                      "http://103.173.155.138:5500/images/" + value.imagename
-                    }
-                  />
-                  <span
-                    className="icon_delete"
-                    onClick={() => deleteIMG(value)}
-                  >
-                    x
-                  </span>
-                </div>
-              </Col>
-            );
+            return;
           })}
         </Row>
 
@@ -599,7 +663,7 @@ function ModalProductUpdate(props: propsModalProduct) {
           accept="image/*"
           multiple
           // style={{ display: "none" }}
-          onChange={onchangeIMG}
+          onChange={(val) => onchangeIMG(val, "SUB")}
           // ref={inputRef}
         />
 

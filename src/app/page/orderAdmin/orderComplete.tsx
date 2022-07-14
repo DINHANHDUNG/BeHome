@@ -115,7 +115,7 @@ function OrderCompalete() {
       title: "Ngày tạo",
       dataIndex: "created_date",
       key: "created_date",
-      render: (created_date: any) => <>{getParsedDateTime(created_date)}</>,
+      render: (created_date: any) => <>{moment(created_date).utc().format("DD-MM-YYYY").toString()}</>,
       sorter: (a: any, b: any) => {
         if (moment(a.created_date).isBefore(moment(b.created_date))) {
           return -1;

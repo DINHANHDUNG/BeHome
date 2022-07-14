@@ -100,7 +100,9 @@ function Combo() {
       title: "Ngày tạo",
       dataIndex: "created_date",
       key: "created_date",
-      render: (created_date: any) => <>{getParsedDate(created_date)}</>,
+      render: (created_date: any) => (
+        <>{moment(created_date).utc().format("DD-MM-YYYY").toString()}</>
+      ),
       sorter: (a: any, b: any) => {
         if (moment(a.created_date).isBefore(moment(b.created_date))) {
           return -1;
@@ -112,7 +114,9 @@ function Combo() {
       title: "Ngày cập nhật",
       dataIndex: "updated_date",
       key: "updated_date",
-      render: (updated_date: any) => <>{getParsedDate(updated_date)}</>,
+      render: (updated_date: any) => (
+        <>{moment(updated_date).utc().format("DD-MM-YYYY").toString()}</>
+      ),
       sorter: (a: any, b: any) => {
         if (moment(a.updated_date).isBefore(moment(b.updated_date))) {
           return -1;

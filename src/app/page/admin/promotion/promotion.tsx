@@ -47,8 +47,7 @@ function Promotion() {
       title: "Tên KM",
       dataIndex: "name",
       key: "name",
-      sorter: (a: any, b: any) =>
-        a.name.localeCompare(b.name),
+      sorter: (a: any, b: any) => a.name.localeCompare(b.name),
     },
 
     {
@@ -57,7 +56,7 @@ function Promotion() {
       key: "created_date",
       render: (created_date: any) => (
         <div style={{ whiteSpace: "nowrap" }}>
-          {getParsedDate(created_date)}
+          {moment(created_date).utc().format("DD-MM-YYYY").toString()}
         </div>
       ),
       sorter: (a: any, b: any) => {
@@ -69,12 +68,12 @@ function Promotion() {
     },
 
     {
-      title: "Ngày tạo",
+      title: "Ngày cập nhật",
       dataIndex: "updated_date",
       key: "updated_date",
       render: (updated_date: any) => (
         <div style={{ whiteSpace: "nowrap" }}>
-          {getParsedDate(updated_date)}
+          {moment(updated_date).utc().format("DD-MM-YYYY").toString()}
         </div>
       ),
       sorter: (a: any, b: any) => {
