@@ -19,6 +19,7 @@ import {
 import { orderAdminStore } from "../../../use-selector";
 import ModalDetailoOderDdmin from "../../component/customer/modal/order/modal-detailorder-admin";
 import {
+  currency,
   getParsedDate,
   getParsedDateTime,
   useAppDispatch,
@@ -73,7 +74,7 @@ function OrderCompalete() {
       title: "Tổng tiền",
       dataIndex: "totalmoney",
       key: "totalmoney",
-      // render: (text: any, row: any, index: any) => row.manufacturer?.name,
+      render: (text: any, row: any, index: any) => currency(row.totalmoney),
       sorter: (a: any, b: any) => a.totalmoney.localeCompare(b.totalmoney),
     },
 
