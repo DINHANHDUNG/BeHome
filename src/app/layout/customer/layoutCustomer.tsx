@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import { Modal } from "antd";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { getAllCategoryTrees } from "../../../features/Admin/categoryAdnim";
 import { getCompany } from "../../../features/Admin/company";
@@ -20,16 +21,42 @@ import Searchproduct from "../../page/searchproduct/searchproduct";
 
 function LayoutCustomer() {
   const dispatch = useAppDispatch();
+  const config = {
+    title: "Thông báo!",
+    content: (
+      <>
+        PHẦN MỀM ĐANG TRONG QUÁ TRÌNH XÂY DỰNG. DỮ LIỆU TRÊN LÀ TESTTKHOONG PHẢI
+        CHÍNH THỨC
+        <br />
+        XIN CẢM ƠN
+      </>
+    ),
+  };
+
+  const [visible, setVisible] = useState(false);
   useEffect(() => {
     dispatch(getAllCategoryTrees());
     dispatch(getCompany());
     dispatch(getProductHomePage());
+    setVisible(true);
   }, []);
   const company = useAppSelector(companyAdminStore);
   return (
     <div style={{ position: "relative" }}>
       <div className="page-wrapper">
-        <Header company={company}/>
+        <Modal
+          title="Thông báo!"
+          visible={visible}
+          onOk={() => setVisible(false)}
+          onCancel={() => setVisible(false)}
+          okText="OK"
+          cancelText={null}
+        >
+          <p>
+            PHẦN MỀM ĐANG XÂY DỰNG. DỮ LIỆU KHÔNG PHẢI CHÍNH THỨC. <br /> XIN CẢM ƠN!
+          </p>
+        </Modal>
+        <Header company={company} />
         <Routes>
           <Route index element={<Home company={company} />} />
           <Route path="detailproduct/:ID" element={<DetailProduct />} />
