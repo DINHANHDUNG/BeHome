@@ -138,3 +138,15 @@ export interface GetSearchProduct {
   noitem: number;
   sort?: number;
 }
+
+export interface GetSearchProduct2 {
+  id_category: number | null;
+  id_rank: number | null;
+  id_manufacturer: number | null;
+  productkey: string | null;
+  minprice: number | null;
+  maxprice: number | null;
+  page: number ;
+  noitem: number;
+  sort?: number;
+}

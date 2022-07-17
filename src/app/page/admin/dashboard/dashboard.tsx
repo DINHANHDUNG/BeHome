@@ -14,6 +14,7 @@ import React, { useEffect, useState } from "react";
 import { getAllCategoryProductAdmin } from "../../../../features/Admin/categoryAdnim";
 import {
   getAllProductAdmin,
+  getProductSearch2Admin,
   getProductSearchAdmin,
   postDeleteProductAdmin,
 } from "../../../../features/Admin/productAdnim";
@@ -184,9 +185,9 @@ function Dashboard() {
     if (event.key === "Enter") {
       dispatch(
         getProductSearchAdmin({
-          id_category: 0,
-          id_rank: 0,
-          id_manufacturer: 0,
+          id_category: null,
+          id_rank: null,
+          id_manufacturer: null,
           productKey: valueSearch ? valueSearch : "",
           minprice: null,
           maxprice: null,
@@ -306,9 +307,9 @@ function Dashboard() {
                           onClick={() => {
                             dispatch(
                               getProductSearchAdmin({
-                                id_category: 0,
-                                id_rank: 0,
-                                id_manufacturer: 0,
+                                id_category: null,
+                                id_rank: null,
+                                id_manufacturer: null,
                                 productKey: valueSearch ? valueSearch : "",
                                 minprice: null,
                                 maxprice: null,

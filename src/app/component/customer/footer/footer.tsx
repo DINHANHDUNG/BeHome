@@ -123,7 +123,7 @@ function Footer(props: typeProps) {
             </div>
           </div> */}
           <div className="row">
-            <div className="col-sm-12 col-lg-6">
+            <div className="col-sm-12 col-lg-8">
               <div className="widget widget-about">
                 {/* <img
                   src={logo2}
@@ -251,12 +251,12 @@ function Footer(props: typeProps) {
               </div>
             </div>
 
-            <div className="col-sm-12 col-lg-6">
+            <div className="col-sm-12 col-lg-4">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.135277983257!2d105.5011677!3d21.226483599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x156a68cc13e2c209!2zQ-G7rWEgSMOgbmcgxJBp4buHbiAtIE7GsOG7m2MgQkVIT01F!5e0!3m2!1svi!2s!4v1657469735132!5m2!1svi!2s"
-                width="100%"
+                width="400"
                 height="300"
-                style={{ border: "0" }}
+                style={{ border: "0",  }}
                 loading="lazy"
               ></iframe>
             </div>

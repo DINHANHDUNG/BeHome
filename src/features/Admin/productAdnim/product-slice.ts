@@ -14,6 +14,7 @@ import { openNotification } from "../../../app/hooks";
 import { CustomesProduct, Product } from "../../../app/types/product";
 import {
   getAllProductNeedUpdate,
+  getProductSearch2Admin,
   getProductSearchAdmin,
 } from "./patchProduct-api";
 const initialState: CustomesProduct = {
@@ -109,6 +110,28 @@ const productSliceAdmin = createSlice({
         state.categoryname = categoryname;
       })
       .addCase(getProductSearchAdmin.rejected, (state) => {
+        state.loading = false;
+        state.error = true; //Show lỗi
+        openNotification({
+          message: "Lấy dữ liệu thất bại",
+          type: "error",
+        });
+      });
+
+    // search 2
+    builder
+      .addCase(getProductSearch2Admin.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getProductSearch2Admin.fulfilled, (state, action) => {
+        const { result, total, categoryname } = action.payload;
+        state.listproduct = result;
+        state.total = total;
+        state.loading = false;
+        state.error = false;
+        state.categoryname = categoryname;
+      })
+      .addCase(getProductSearch2Admin.rejected, (state) => {
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({

@@ -23,7 +23,7 @@ function Header(props: typeProps) {
   return (
     <header className="header header-10">
       <div className="header-middle">
-        <div className="container-fluid" >
+        <div className="container-fluid">
           <div className="header-left">
             <button className="mobile-menu-toggler">
               <span className="sr-only">Toggle mobile menu</span>
@@ -76,30 +76,30 @@ function Header(props: typeProps) {
           {/* Cart */}
           <div className="header-right">
             <div className="dropdown cart-dropdown">
-              <a className="dropdown-toggle">
+              <Link to={"/cart"} className="dropdown-toggle">
                 <i
                   className="icon-shopping-cart"
                   onClick={() => {
-                    history("/cart");
+                    // history("/cart");
                   }}
                 ></i>
                 <span
                   className="cart-count"
                   style={{ position: "absolute", top: "-8px", right: "-8px" }}
                   onClick={() => {
-                    history("/cart");
+                    // history("/cart");
                   }}
                 >
                   {cart.orderdetails?.length}
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       </div>
 
       <div className="header-bottom sticky-header">
-        <div className="container-fluid d-block" >
+        <div className="container-fluid d-block">
           <div className="row">
             <div className="col-lg-3">
               <div className="dropdown category-dropdown">
@@ -120,9 +120,7 @@ function Header(props: typeProps) {
                   <nav className="side-nav">
                     <ul className="menu-vertical sf-arrows">
                       <li className="megamenu-container">
-                        <div className="menu-title pl-4 mt-1">
-                          Sản phẩm
-                        </div>
+                        <div className="menu-title pl-4 mt-1">Sản phẩm</div>
                       </li>
                       {categoryTrees.listcategoryProduct?.map((val, idx) =>
                         val.children.length > 0 ? (
@@ -209,9 +207,7 @@ function Header(props: typeProps) {
 
                     <ul className="menu-vertical sf-arrows">
                       <li className="megamenu-container">
-                        <div className="menu-title pl-4 mt-1">
-                          Combo
-                        </div>
+                        <div className="menu-title pl-4 mt-1">Combo</div>
                       </li>
 
                       {categoryTrees.listcategoryCombo?.map((val, idx) =>

@@ -29,8 +29,8 @@ function ComponentVideo(props: PropsVideo) {
 
       {props.link ? (
         <iframe
-          width="100%"
-          height="400"
+          width="640"
+          height="360"
           src={"https://www.youtube.com/embed/" + linkVideo}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
