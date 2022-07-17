@@ -53,7 +53,8 @@ function LayoutCustomer() {
           cancelText={null}
         >
           <p>
-            PHẦN MỀM ĐANG XÂY DỰNG. DỮ LIỆU KHÔNG PHẢI CHÍNH THỨC. <br /> XIN CẢM ƠN!
+            PHẦN MỀM ĐANG XÂY DỰNG. DỮ LIỆU KHÔNG PHẢI CHÍNH THỨC. <br /> XIN
+            CẢM ƠN!
           </p>
         </Modal>
         <Header company={company} />
@@ -78,6 +79,7 @@ function LayoutCustomer() {
       <div className="box-bottom-button">
         {/* <a href="https://www.facebook.com/messages/t/775541669472633"> */}
         <a
+          className="mb-1"
           // href="#"
           onClick={() => {
             window.open("https://www.facebook.com/messages/t/775541669472633");
@@ -91,6 +93,7 @@ function LayoutCustomer() {
 
         <a
           // href="#"
+          className="mb-1"
           onClick={() => {
             window.open("https://zalo.me/0355515599");
           }}

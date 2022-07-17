@@ -237,7 +237,7 @@ function Sidenav({ color }: any) {
           </NavLink>
         </Menu.Item>
 
-        <Menu.Item key="3">
+        {/* <Menu.Item key="3">
           <NavLink to="/admin/rank">
             <span
               className="icon"
@@ -249,9 +249,9 @@ function Sidenav({ color }: any) {
             </span>
             <span className="label">Phân khúc</span>
           </NavLink>
-        </Menu.Item>
+        </Menu.Item> */}
 
-        <Menu.Item key="4">
+        {/* <Menu.Item key="4">
           <NavLink to="/admin/manufacturer">
             <span
               className="icon"
@@ -263,7 +263,7 @@ function Sidenav({ color }: any) {
             </span>
             <span className="label">Hãng sản xuất</span>
           </NavLink>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item key="9">
           <NavLink to="/admin/comment">
             <span
@@ -305,7 +305,7 @@ function Sidenav({ color }: any) {
           </NavLink>
         </Menu.Item>
 
-        <Menu.Item key="5">
+        {/* <Menu.Item key="5">
           <NavLink to="/admin/promotion">
             <span
               className="icon"
@@ -317,9 +317,23 @@ function Sidenav({ color }: any) {
             </span>
             <span className="label">Khuyến mại</span>
           </NavLink>
+        </Menu.Item> */}
+
+        <Menu.Item key="12">
+          <NavLink to="/admin/ConfigurationAdmin">
+            <span
+              className="icon"
+              style={{
+                background: page === "admin/ConfigurationAdmin" ? color : "",
+              }}
+            >
+              {Category}
+            </span>
+            <span className="label">Cấu hình</span>
+          </NavLink>
         </Menu.Item>
 
-        {/* 11 */}
+        {/* 12 */}
       </Menu>
     </>
   );

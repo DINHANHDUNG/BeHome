@@ -9,6 +9,7 @@ import CategoryProduct from "../../page/admin/category/categoryProduct";
 import Combo from "../../page/admin/Combo/combo";
 import CommentAdmin from "../../page/admin/comment/comment";
 import Company from "../../page/admin/company/company";
+import Configuration from "../../page/admin/configurationAdmin/Configuration";
 import Dashboard from "../../page/admin/dashboard/dashboard";
 import Dashboard2 from "../../page/admin/dashboard/dashboard2";
 import ProductUpdateAdmin from "../../page/admin/dashboard/listProductUpdate";
@@ -64,6 +65,7 @@ function LayoutAdmin() {
         <Route path="/combo" element={<Combo />} />
         <Route path="/comment" element={<CommentAdmin />} />
         <Route path="/BuildDesignAdmin" element={<BuildDesignAdmin />} />
+        <Route path="/ConfigurationAdmin" element={<Configuration />} />
 
         {/* <Route path="/warehouse" element={<WareHouse />} /> */}
       </Route>
