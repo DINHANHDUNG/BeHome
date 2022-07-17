@@ -3,6 +3,8 @@ export interface Company {
   phonenumber: string;
   address: string;
   email: string;
+  csdt: string;
+  csbh: string;
   images: Array<image>;
 }
 
@@ -16,6 +18,8 @@ export interface UpdateCompany {
   phonenumber: string;
   address: string;
   email: string;
+  csdt: string;
+  csbh: string;
   images: Array<image>;
 }
 

@@ -1,4 +1,5 @@
 import { Button, Card, Col, Form, Image, Input, Row } from "antd";
+import TextArea from "antd/lib/input/TextArea";
 import React, { useEffect, useState } from "react";
 import { getCompany, updateCompany } from "../../../../features/Admin/company";
 import { companyAdminStore } from "../../../../use-selector";
@@ -126,6 +127,8 @@ function Company() {
                 address: company.Company.address,
                 phonenumber: company.Company.phonenumber,
                 email: company.Company.email,
+                csdt: company.Company.csdt,
+                csbh: company.Company.csbh,
               }}
               onFinish={onFinish}
               autoComplete="off"
@@ -171,6 +174,30 @@ function Company() {
                     ]}
                   >
                     <Input />
+                  </Form.Item>
+                </Col>
+              </Row>
+
+              <Row gutter={[24, 0]}>
+                <Col xs={24} xl={12}>
+                  <Form.Item
+                    label="Chính sách bảo hành"
+                    name="csbh"
+                    rules={[{ required: true, message: "Nhập chính sách bảo hành!" }]}
+                  >
+                    <TextArea rows={6} />
+                  </Form.Item>
+                </Col>
+                <Col xs={24} xl={12}>
+                  <Form.Item
+                    label="Chính sách đổi trả"
+                    name="csdt"
+                    rules={[
+                      { required: true, message: "Nhập chính sách đổi trả!" },
+                      
+                    ]}
+                  >
+                    <TextArea rows={6} />
                   </Form.Item>
                 </Col>
               </Row>
