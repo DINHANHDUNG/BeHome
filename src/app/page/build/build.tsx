@@ -11,6 +11,7 @@ import {
 } from "antd";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import {
   getAllBuildAdmin,
@@ -57,7 +58,7 @@ function BuildDesign() {
   }, [buildDesign]);
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
         <div className="col-12" style={{ display: "flex", flexWrap: "wrap" }}>
           {buildDesign.listBuild?.map((value, idx) => (
@@ -100,7 +101,6 @@ function BuildDesign() {
               {idx + 1} . {value.category?.name}
             </div>
 
-
             {selectedProduct
               .filter((val: any) => val.idBuild === value.id_builddesign)[0]
               ?.listProduct.filter(
@@ -110,7 +110,18 @@ function BuildDesign() {
                 <div className="item-build">
                   <div className="item-build-product">
                     <figure className="item-build-product-media mr-2">
-                      <a href="#">
+                      <Link
+                        to={
+                          "/detailproduct/" +
+                          selectedProduct
+                            .filter(
+                              (val: any) => val.idBuild === value.id_builddesign
+                            )[0]
+                            ?.listProduct.filter(
+                              (v: any) => v.id_category === value.id_category
+                            )[0].id
+                        }
+                      >
                         <img
                           src={
                             "http://103.173.155.138:5500/images/" +
@@ -128,11 +139,20 @@ function BuildDesign() {
                           }
                           alt="Product image"
                         />
-                      </a>
+                      </Link>
                     </figure>
 
                     <h3 className="product-title" style={{ paddingTop: "7px" }}>
-                      <a href="#" style={{ fontWeight: 500 }}>
+                      <Link to={
+                          "/detailproduct/" +
+                          selectedProduct
+                            .filter(
+                              (val: any) => val.idBuild === value.id_builddesign
+                            )[0]
+                            ?.listProduct.filter(
+                              (v: any) => v.id_category === value.id_category
+                            )[0].id
+                        } style={{ fontWeight: 500 }}>
                         {
                           selectedProduct
                             .filter(
@@ -142,7 +162,7 @@ function BuildDesign() {
                               (v: any) => v.id_category === value.id_category
                             )[0]?.name
                         }
-                      </a>
+                      </Link>
                     </h3>
                   </div>
 

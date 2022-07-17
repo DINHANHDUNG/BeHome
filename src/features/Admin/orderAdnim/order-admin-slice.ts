@@ -9,6 +9,7 @@ import {
   getSearchOrderAdmin,
   OrderCanceledADmin,
   OrderCompletedADmin,
+  OrderWaitdADmin,
   postAddOrderByIdAdmin,
   postDeleteOrderAdmin,
 } from "./patchOrder-api";
@@ -204,6 +205,32 @@ const orderSliceAdmin = createSlice({
         state.error = true; //Show lỗi
         openNotification({
           message: "Hủy thất bại",
+          type: "error",
+        });
+        // console.log("Get orderAdmin không thành công");
+      });
+
+    // Chuyển trạng thái đơn sang chờ thanh toán
+    builder
+      .addCase(OrderWaitdADmin.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(OrderWaitdADmin.fulfilled, (state, action) => {
+        // const { result } = action.payload;
+        // state.listorderAdmin = result;
+        state.loading = false;
+        state.error = false;
+        openNotification({
+          message: "Chuyển sang chờ thanh toán thành công",
+          type: "success",
+        });
+        // console.log("Get all orderAdmin thành công");
+      })
+      .addCase(OrderWaitdADmin.rejected, (state) => {
+        state.loading = false;
+        state.error = true; //Show lỗi
+        openNotification({
+          message: "Chuyển sang chờ thanh toán thất bại",
           type: "error",
         });
         // console.log("Get orderAdmin không thành công");

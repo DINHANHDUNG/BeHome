@@ -14,7 +14,7 @@ function Home(props: typeProps) {
   console.log("productHomePageStore", products);
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Banner2 Company={props.company.Company} />
       {products.listproducthomepage.map((val) => (
         <Listproduct product={val} />

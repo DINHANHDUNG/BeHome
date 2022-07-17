@@ -12,7 +12,7 @@ function Footer(props: typeProps) {
         className="cta cta-horizontal cta-horizontal-box"
         style={{ backgroundColor: "#258cae" }}
       >
-        <div className="container">
+        <div className="container-fluid">
           <div className="row align-items-center">
             <div className="col-2xl-5col">
               {/* <h3 className="cta-title text-white">Tham gia nhận thông tin</h3>
@@ -48,7 +48,7 @@ function Footer(props: typeProps) {
       </div>
 
       <div className="footer-middle border-0">
-        <div className="container">
+        <div className="container-fluid">
           {/* <div className="row">
             <div className="col-sm-4 col-lg-3">
               <div className="widget">

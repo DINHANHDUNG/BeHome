@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { addCart } from "../../../../features/cart/cart-slice";
 import {
+  currency,
   Numberformat,
   openNotification,
   success,
@@ -77,9 +78,9 @@ function Product(props: propsProduct) {
           >
             {props.value.name?.toUpperCase()}
           </Link>
-        </h3>
+        </h3> 
         <div className="product-price">
-          {Numberformat(props.value.price)} VNĐ
+          {props.value.price ? currency(props.value.price) : "Liên hệ"}
         </div>
       </div>
     </div>

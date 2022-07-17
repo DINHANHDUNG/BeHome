@@ -160,10 +160,10 @@ function Company() {
                     label="Số điện thoại"
                     name="phonenumber"
                     rules={[
-                      {
-                        pattern: /^(?:\d*)$/,
-                        message: "Nhập số",
-                      },
+                      // {
+                      //   pattern: /^(?:\d*)$/,
+                      //   message: "Nhập số",
+                      // },
                       {
                         required: true,
                         message: "Nhập số điện thoại",

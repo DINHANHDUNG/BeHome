@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Numberformat } from "../../../hooks";
 import { Combo } from "../../../types/combo";
@@ -35,7 +36,9 @@ function BoxComboProduct(props: PropsComboProduct) {
                     <img
                       src={
                         "http://103.173.155.138:5500/images/" +
-                        val.product?.images[0]?.imagename
+                        val.product?.images?.find(
+                          (x: any) => x.type === "1" || x.type === "MAIN"
+                        ).imagename
                       }
                       style={{
                         height: "50px",
@@ -49,12 +52,10 @@ function BoxComboProduct(props: PropsComboProduct) {
                 </div>
 
                 <div className="icon-boxCombo-info-product">
-                  <span
-                    style={{ color: "#d30808f7", cursor: "pointer" }}
-                    onClick={() => history("/detailproduct/" + val.id_product)}
-                  >
+                  <Link to={"/detailproduct/" + val.id_product} style={{ color: "#d30808f7", cursor: "pointer" }}>
                     {val.product?.name}
-                  </span>
+                  </Link>
+
                   {/* <br />
                   <span>{Numberformat(val.product?.price)} VNĐ </span> */}
                   <br />

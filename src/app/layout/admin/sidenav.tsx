@@ -178,7 +178,7 @@ function Sidenav({ color }: any) {
             >
               {dashboard}
             </span>
-            <span className="label">Sản phẩm</span>
+            <span className="label">Quản lý sản phẩm</span>
           </NavLink>
         </Menu.Item>
         {/* <Menu.Item key="10">
@@ -205,7 +205,7 @@ function Sidenav({ color }: any) {
             >
               {Category}
             </span>
-            <span className="label">Combo</span>
+            <span className="label">Quản lý combo</span>
           </NavLink>
         </Menu.Item>
 

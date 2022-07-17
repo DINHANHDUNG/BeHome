@@ -55,6 +55,14 @@ export const OrderCanceledADmin = createAsyncThunk(
     return response;
   }
 );
+export const OrderWaitdADmin = createAsyncThunk(
+  "/Orderadmin/OrderWaitdADmin",
+  async (data: { id: number }) => {
+    const response = await orderAPIAdmin.OrderWaitADmin(data);
+
+    return response;
+  }
+);
 
 export const OrderCompletedADmin = createAsyncThunk(
   "/Orderadmin/OrderCompletedADmin",

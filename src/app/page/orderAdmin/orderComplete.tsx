@@ -6,6 +6,7 @@ import {
   Pagination,
   Popconfirm,
   Row,
+  Space,
   Table,
   Typography,
 } from "antd";
@@ -14,6 +15,7 @@ import React, { useEffect, useState } from "react";
 import {
   getAllOrderCompletedAdmin,
   getSearchOrderAdmin,
+  OrderWaitdADmin,
   postDeleteOrderAdmin,
 } from "../../../features/Admin/orderAdnim";
 import { orderAdminStore } from "../../../use-selector";
@@ -116,13 +118,39 @@ function OrderCompalete() {
       title: "Ngày tạo",
       dataIndex: "created_date",
       key: "created_date",
-      render: (created_date: any) => <>{moment(created_date).utc().format("DD-MM-YYYY").toString()}</>,
+      render: (created_date: any) => (
+        <>{moment(created_date).utc().format("DD-MM-YYYY").toString()}</>
+      ),
       sorter: (a: any, b: any) => {
         if (moment(a.created_date).isBefore(moment(b.created_date))) {
           return -1;
         }
         return 1;
       },
+    },
+
+    {
+      title: "Hành động",
+      dataIndex: "action",
+      key: "action",
+      render: (text: any, row: any, index: any) => (
+        <Space size="middle">
+          <Button
+            onClick={() => {
+              dispatch(OrderWaitdADmin({ id: row.id })).then(() =>
+                dispatch(
+                  getAllOrderCompletedAdmin({
+                    page: page,
+                    noitem: pageSize,
+                  })
+                )
+              );
+            }}
+          >
+            Chuyển sang chờ thanh toán
+          </Button>
+        </Space>
+      ),
     },
   ];
 
@@ -150,7 +178,7 @@ function OrderCompalete() {
       dispatch(
         getSearchOrderAdmin({
           orderkey: valueSearch ? valueSearch : "",
-          type: "ĐÃ HOÀN THÀNH"
+          type: "ĐÃ HOÀN THÀNH",
         })
       );
     }
@@ -219,7 +247,7 @@ function OrderCompalete() {
                         dispatch(
                           getSearchOrderAdmin({
                             orderkey: valueSearch ? valueSearch : "",
-                            type: "ĐÃ HOÀN THÀNH"
+                            type: "ĐÃ HOÀN THÀNH",
                           })
                         );
                       }}

@@ -36,7 +36,7 @@ function ComboByCategory() {
   }, [ID]);
   return (
     <div className="page-content  mt-3">
-      <div className="container">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-lg-9">
             <div className="toolbox">
@@ -89,7 +89,7 @@ function ComboByCategory() {
             <div className="products mb-3">
               <div className="row">
                 {combo.listCombo?.map((val) => (
-                  <div className="col-12 col-md-6 col-xl-4 col-lg-6">
+                  <div className="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-3">
                     <Product value={val} />
                   </div>
                 ))}

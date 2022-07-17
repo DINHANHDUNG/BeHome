@@ -104,7 +104,7 @@ function ProductUpdateAdmin() {
       title: "Giá",
       dataIndex: "price",
       key: "price",
-      render: (price: any) => <>{currency(price)}</>,
+      render: (price: any) => <>{price ? currency(price) : "Liên hệ"}</>,
       sorter: (a: any, b: any) => Number(a.price) - Number(b.price),
     },
 

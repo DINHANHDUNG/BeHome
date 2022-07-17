@@ -23,7 +23,7 @@ function Header(props: typeProps) {
   return (
     <header className="header header-10">
       <div className="header-middle">
-        <div className="container">
+        <div className="container-fluid" >
           <div className="header-left">
             <button className="mobile-menu-toggler">
               <span className="sr-only">Toggle mobile menu</span>
@@ -99,7 +99,7 @@ function Header(props: typeProps) {
       </div>
 
       <div className="header-bottom sticky-header">
-        <div className="container">
+        <div className="container-fluid d-block" >
           <div className="row">
             <div className="col-lg-3">
               <div className="dropdown category-dropdown">
@@ -113,7 +113,7 @@ function Header(props: typeProps) {
                   data-display="static"
                   title="Br owse Categories"
                 >
-                  Danh mục
+                  Danh mục sản phẩm
                 </a>
 
                 <div className="dropdown-menu">
@@ -121,7 +121,7 @@ function Header(props: typeProps) {
                     <ul className="menu-vertical sf-arrows">
                       <li className="megamenu-container">
                         <div className="menu-title pl-4 mt-1">
-                          Danh mục bán lẻ
+                          Sản phẩm
                         </div>
                       </li>
                       {categoryTrees.listcategoryProduct?.map((val, idx) =>
@@ -210,7 +210,7 @@ function Header(props: typeProps) {
                     <ul className="menu-vertical sf-arrows">
                       <li className="megamenu-container">
                         <div className="menu-title pl-4 mt-1">
-                          Danh mục combo
+                          Combo
                         </div>
                       </li>
 

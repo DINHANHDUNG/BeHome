@@ -20,7 +20,7 @@ import {
   postAddRankByIdAdmin,
   postEditRankByIdAdmin,
 } from "../../../../../features/Admin/rankAdnim";
-import { Numberformat, useAppDispatch } from "../../../../hooks";
+import { currency, Numberformat, useAppDispatch } from "../../../../hooks";
 import { Order } from "../../../../types/order";
 import { Product } from "../../../../types/product";
 
@@ -169,7 +169,7 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
                       <Title level={5}>Tổng tiền:</Title>
                     </div>
                     <div>
-                      <Title level={5}>{Numberformat(totalOrder)} VNĐ</Title>
+                      <Title level={5}>{currency(totalOrder)}</Title>
                     </div>
                   </div>
                 </Col>

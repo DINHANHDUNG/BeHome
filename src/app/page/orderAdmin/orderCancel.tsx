@@ -6,6 +6,7 @@ import {
   Pagination,
   Popconfirm,
   Row,
+  Space,
   Table,
   Typography,
 } from "antd";
@@ -14,6 +15,7 @@ import React, { useEffect, useState } from "react";
 import {
   getAllOrderCancelAdmin,
   getSearchOrderAdmin,
+  OrderWaitdADmin,
   postDeleteOrderAdmin,
 } from "../../../features/Admin/orderAdnim";
 import { orderAdminStore } from "../../../use-selector";
@@ -124,6 +126,30 @@ function OrderCancel() {
         }
         return 1;
       },
+    },
+
+    {
+      title: "Hành động",
+      dataIndex: "action",
+      key: "action",
+      render: (text: any, row: any, index: any) => (
+        <Space size="middle">
+          <Button
+            onClick={() => {
+              dispatch(OrderWaitdADmin({ id: row.id })).then(() =>
+                dispatch(
+                  getAllOrderCancelAdmin({
+                    page: page,
+                    noitem: pageSize,
+                  })
+                )
+              );
+            }}
+          >
+            Chuyển sang chờ thanh toán
+          </Button>
+        </Space>
+      ),
     },
   ];
 

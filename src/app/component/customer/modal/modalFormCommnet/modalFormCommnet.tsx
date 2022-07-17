@@ -67,7 +67,7 @@ function ModalFormComment(props: propsModalFormComment) {
         </Form.Item>
 
         <Form.Item
-          label="addresscustomer"
+          label="Địa chỉ"
           name="addresscustomer"
           rules={[{ required: true, message: "Nhập địa chỉ!" }]}
         >

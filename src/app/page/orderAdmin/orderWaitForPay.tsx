@@ -181,7 +181,7 @@ function OrderWaitForPay() {
               );
             }}
           >
-            Hủy
+            Hủy đơn
           </Button>
         </Space>
       ),

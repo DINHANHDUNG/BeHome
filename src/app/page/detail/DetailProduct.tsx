@@ -15,6 +15,7 @@ import SingleComment from "../../component/customer/comments/singleComment";
 import ModalFormComment from "../../component/customer/modal/modalFormCommnet/modalFormCommnet";
 import ModalNextIMG from "../../component/customer/modal/modalNextImg/modalNextIMG";
 import {
+  currency,
   Numberformat,
   openNotificationWithIcon,
   useAppDispatch,
@@ -55,10 +56,9 @@ function DetailProduct() {
   const [visibleRepLyComment, setVisibleRepLyComment] = useState(false);
   const [valueComment, setValueComment] = useState("");
 
-  console.log(dispayIMG);
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       {products?.listproduct[0]?.id ? (
         <div className="product-details-top mb-2 mt-3">
           <div className="row">
@@ -119,7 +119,7 @@ function DetailProduct() {
                   style={{ justifyContent: "left" }}
                 >
                   <span>
-                    {Numberformat(products?.listproduct[0]?.price)} VNĐ
+                    {currency(products?.listproduct[0]?.price)}
                   </span>
                   &nbsp;
                   {/* <del style={{ fontSize: "13px", opacity: "0.4" }}>

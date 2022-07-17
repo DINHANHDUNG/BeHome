@@ -15,6 +15,7 @@ import SingleComment from "../../component/customer/comments/singleComment";
 import ModalFormComment from "../../component/customer/modal/modalFormCommnet/modalFormCommnet";
 import ModalNextIMG from "../../component/customer/modal/modalNextImg/modalNextIMG";
 import {
+  currency,
   Numberformat,
   openNotificationWithIcon,
   useAppDispatch,
@@ -58,7 +59,7 @@ function DetailCombo() {
   const [total, setTotal] = useState(0);
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       {combo?.listCombo[0]?.id ? (
         <div className="product-details-top mb-2 mt-3">
           <div className="row">
@@ -116,13 +117,13 @@ function DetailCombo() {
                   className="product-price"
                   style={{ justifyContent: "left" }}
                 >
-                  <span>{Numberformat(combo.listCombo[0]?.price)} VNĐ</span>
+                  <span>{currency(combo.listCombo[0]?.price)} </span>
                   &nbsp;
                   <del
                     style={{ fontSize: "13px", opacity: "0.4" }}
                     className="ml-2"
                   >
-                    {Numberformat(total)} VNĐ
+                    {currency(total)} 
                   </del>{" "}
                 </div>
 

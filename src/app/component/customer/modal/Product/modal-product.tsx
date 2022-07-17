@@ -119,20 +119,20 @@ function ModalProduct(props: propsModalProduct) {
 
     let arrIMG = fileIMG;
 
-    fileIMG.map((val: any, idx: any) => {
-      console.log(idx);
-      if (idx === 0) {
-        arrIMG.push({
-          imagename: val.imagename,
-          type: "1",
-        });
-      } else {
-        arrIMG.push({
-          imagename: val.imagename,
-          type: "2",
-        });
-      }
-    });
+    // fileIMG.map((val: any, idx: any) => {
+    //   console.log(idx);
+    //   if (idx === 0) {
+    //     arrIMG.push({
+    //       imagename: val.imagename,
+    //       type: "1",
+    //     });
+    //   } else {
+    //     arrIMG.push({
+    //       imagename: val.imagename,
+    //       type: "2",
+    //     });
+    //   }
+    // });
     console.log(arrIMG);
     arrIMG?.slice().sort(function (a: any, b: any) {
       if (a.type.toLowerCase() > b.type.toLowerCase()) {
@@ -153,7 +153,7 @@ function ModalProduct(props: propsModalProduct) {
           postEditProductByIdAdmin({
             ...value,
             id: props.value.id,
-            price: Number(value.price),
+            price: value.price ?  Number(value.price) : null,
             images: arrIMG,
           })
         ).then((res) => {
@@ -191,7 +191,7 @@ function ModalProduct(props: propsModalProduct) {
         dispatch(
           postAddProductByIdAdmin({
             ...value,
-            price: Number(value.price),
+            price: value.price ?  Number(value.price) : null,
             images: arrIMG,
           })
         ).then(() => {
@@ -340,7 +340,7 @@ function ModalProduct(props: propsModalProduct) {
           name: props.value.name,
           linkvideo: props.value.linkvideo,
           describe: props.value.describe,
-          price: props.value.price,
+          price: props.value.price ? props.value.price : null,
           productdetails: props.value.productdetails
             ? props.value.productdetails
             : [{}],
@@ -424,9 +424,9 @@ function ModalProduct(props: propsModalProduct) {
         <Row gutter={[8, 0]}>
           <Col md={12} xs={24}>
             <Form.Item
-              label="Rank"
+              label="Phân khúc"
               name="id_rank"
-              rules={[{ required: true, message: "Chọn rank!" }]}
+              rules={[{ required: true, message: "Chọn phân khúc!" }]}
             >
               <Select
                 showSearch
@@ -504,7 +504,7 @@ function ModalProduct(props: propsModalProduct) {
             <Form.Item
               label="Giá bán"
               name="price"
-              rules={[{ required: true, message: "Nhập giá!" }]}
+              // rules={[{ required: true, message: "Nhập giá!" }]}
             >
               <InputNumber
                 maxLength={25}

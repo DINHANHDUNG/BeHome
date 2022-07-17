@@ -39,7 +39,7 @@ function ProductByCategory() {
   }, [ID]);
   return (
     <div className="page-content  mt-3">
-      <div className="container">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-lg-9">
             <div className="toolbox">
@@ -94,7 +94,7 @@ function ProductByCategory() {
             <div className="products mb-3">
               <div className="row">
                 {product.listproduct?.map((val, idx) => (
-                  <div className="col-12 col-md-6 col-xl-4 col-lg-6" key={idx}>
+                  <div className="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-3" key={idx}>
                     <Product value={val} />
                   </div>
                 ))}

@@ -33,19 +33,19 @@ function Searchproduct() {
   }, [KEY]);
   return (
     <div className="page-content  mt-3">
-      <div className="container">
+      <div className="container-fluid">
         <h5 style={{ textAlign: "left", color: "red" }}>
           Tìm kiếm sản phẩm với {KEY}
         </h5>
       </div>
       {product.listproduct?.length > 0 ? (
-        <div className="container mt-3">
+        <div className="container-fluid mt-3">
           <div className="row">
             <div className="col-lg-12">
               <div className="products mb-3">
                 <div className="row">
                   {product.listproduct?.map((val) => (
-                    <div className="col-12 col-md-6 col-xl-3 col-lg-6">
+                    <div className="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
                       <Product value={val} />
                     </div>
                   ))}

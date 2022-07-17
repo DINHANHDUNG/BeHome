@@ -29,6 +29,11 @@ const orderAPIAdmin = {
     const url = "order/ordercanceled";
     return axiosClientAdmin.post(url, data);
   },
+  // Chuyển sang chờ thanh toán
+  OrderWaitADmin(data: { id: number }): Promise<any> {
+    const url = "order/orderwait";
+    return axiosClientAdmin.post(url, data);
+  },
 
   // Hoàn thành đơn
   OrderCompletedADmin(data: { id: number }): Promise<any> {

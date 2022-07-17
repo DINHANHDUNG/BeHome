@@ -7,7 +7,7 @@ import {
   toggleAmountProduct,
 } from "../../../features/cart/cart-slice";
 import { CartStore } from "../../../use-selector";
-import { Numberformat, useAppDispatch, useAppSelector } from "../../hooks";
+import { currency, Numberformat, useAppDispatch, useAppSelector } from "../../hooks";
 
 function CartShopping() {
   const cart = useAppSelector(CartStore);
@@ -24,7 +24,7 @@ function CartShopping() {
   return (
     <div className="page-content mt-3">
       <div className="cart">
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-lg-9">
               <table className="table table-cart table-mobile">
@@ -111,7 +111,7 @@ function CartShopping() {
                   <tbody>
                     <tr className="summary-subtotal">
                       <td>Tạm tính:</td>
-                      <td>{Numberformat(cart.totalmoney)} VNĐ</td>
+                      <td>{currency(cart.totalmoney)}</td>
                     </tr>
                     <tr className="summary-shipping">
                       <td>Shipping:</td>
@@ -141,7 +141,7 @@ function CartShopping() {
 
                     <tr className="summary-total">
                       <td>Thành tiền:</td>
-                      <td>{Numberformat(cart.totalmoney)} VNĐ</td>
+                      <td>{currency(cart.totalmoney)}</td>
                     </tr>
                   </tbody>
                 </table>

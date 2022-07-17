@@ -361,9 +361,9 @@ function ModalProductUpdate(props: propsModalProduct) {
         <Row gutter={[8, 0]}>
           <Col md={12} xs={24}>
             <Form.Item
-              label="Rank"
+              label="Phân khúc"
               name="id_rank"
-              rules={[{ required: true, message: "Chọn rank!" }]}
+              rules={[{ required: true, message: "Chọn phân khúc!" }]}
             >
               <Select
                 showSearch
