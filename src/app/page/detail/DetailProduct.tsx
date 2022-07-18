@@ -86,7 +86,10 @@ function DetailProduct() {
 
                 {/*thêm className active thêm viền xanh */}
                 {img?.length > 4 ? (
-                  <SlickCarousel value={img} toggle={(value: any)=>setDisplayIMG(value)}/>
+                  <SlickCarousel
+                    value={img}
+                    toggle={(value: any) => setDisplayIMG(value)}
+                  />
                 ) : (
                   <div
                     id="product-zoom-gallery"
@@ -167,7 +170,23 @@ function DetailProduct() {
           <div className="row">
             <div className="col-md-12">
               <h4>Video</h4>
+              <hr
+                style={{
+                  marginTop: "10px",
+                  marginRight: "0px",
+                  marginBottom: "10px",
+                  marginLeft: "0px",
+                }}
+              />
               <ComponentVideo link={products.listproduct[0]?.linkvideo} />
+              <hr
+                style={{
+                  marginTop: "10px",
+                  marginRight: "0px",
+                  marginBottom: "10px",
+                  marginLeft: "0px",
+                }}
+              />
             </div>
           </div>
 

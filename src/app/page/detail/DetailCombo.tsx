@@ -9,6 +9,7 @@ import { addCart } from "../../../features/cart/cart-slice";
 import { comboAdminStore, productAdminStore } from "../../../use-selector";
 import BoxComboProduct from "../../component/customer/box-combo-product/box-combo-product";
 import BoxPromotion from "../../component/customer/box-promotion/box-promotion";
+import SlickCarousel from "../../component/customer/carousel/slideSlick/slickCarouselFirm";
 import Comment from "../../component/customer/comment/comment";
 import ReplyComment from "../../component/customer/comments/replyComment";
 import SingleComment from "../../component/customer/comments/singleComment";
@@ -90,21 +91,33 @@ function DetailCombo() {
                   id="product-zoom-gallery"
                   className="product-image-gallery"
                 >
-                  {img?.map((value: any) => (
-                    <a
-                      key={value.id}
-                      className="product-gallery-item "
-                      onClick={() => setDisplayIMG(value)}
+                  {img?.length > 4 ? (
+                    <SlickCarousel
+                      value={img}
+                      toggle={(value: any) => setDisplayIMG(value)}
+                    />
+                  ) : (
+                    <div
+                      id="product-zoom-gallery"
+                      className="product-image-gallery"
                     >
-                      <img
-                        src={
-                          "http://103.173.155.138:5500/images/" +
-                          value?.imagename
-                        }
-                        alt="product side"
-                      />
-                    </a>
-                  ))}
+                      {img?.map((value: any) => (
+                        <a
+                          key={value.id}
+                          className="product-gallery-item"
+                          onClick={() => setDisplayIMG(value)}
+                        >
+                          <img
+                            src={
+                              "http://103.173.155.138:5500/images/" +
+                              value?.imagename
+                            }
+                            alt="product side"
+                          />
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -123,7 +136,7 @@ function DetailCombo() {
                     style={{ fontSize: "13px", opacity: "0.4" }}
                     className="ml-2"
                   >
-                    {currency(total)} 
+                    {currency(total)}
                   </del>{" "}
                 </div>
 
@@ -158,7 +171,23 @@ function DetailCombo() {
           <div className="row">
             <div className="col-md-12">
               <h4>Video</h4>
+              <hr
+                style={{
+                  marginTop: "10px",
+                  marginRight: "0px",
+                  marginBottom: "10px",
+                  marginLeft: "0px",
+                }}
+              />
               <ComponentVideo link={combo.listCombo[0]?.linkvideo} />
+              <hr
+                style={{
+                  marginTop: "10px",
+                  marginRight: "0px",
+                  marginBottom: "10px",
+                  marginLeft: "0px",
+                }}
+              />
             </div>
           </div>
 

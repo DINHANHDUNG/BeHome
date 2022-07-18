@@ -18,14 +18,7 @@ function ComponentVideo(props: PropsVideo) {
   }
   return (
     <div style={{ maxWidth: "640px" }}>
-      <hr
-        style={{
-          marginTop: "10px",
-          marginRight: "0px",
-          marginBottom: "10px",
-          marginLeft: "0px",
-        }}
-      />
+      
 
       {props.link ? (
         <iframe
@@ -40,14 +33,7 @@ function ComponentVideo(props: PropsVideo) {
         "Chưa có video"
       )}
 
-      <hr
-        style={{
-          marginTop: "10px",
-          marginRight: "0px",
-          marginBottom: "10px",
-          marginLeft: "0px",
-        }}
-      />
+      
     </div>
   );
 }

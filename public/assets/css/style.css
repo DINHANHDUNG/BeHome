@@ -1472,7 +1472,7 @@ blockquote.text-white cite span {
 }
 @media screen and (min-width: 1600px) {
   .header .container-fluid .megamenu-container {
-    position: relative;
+    /* position: relative; */
   }
   .header .container-fluid .megamenu-container .megamenu {
     right: auto;

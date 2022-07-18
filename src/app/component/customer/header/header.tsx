@@ -119,9 +119,26 @@ function Header(props: typeProps) {
                 <div className="dropdown-menu">
                   <nav className="side-nav">
                     <ul className="menu-vertical sf-arrows">
-                      <li className="megamenu-container">
+                      <span
+                        style={{
+                          textAlign: "left",
+                          paddingBottom: "10px",
+                          paddingTop: "10px",
+                          paddingLeft: "15px",
+                          backgroundColor: "rgb(37, 140, 174)",
+                          width: "100%",
+                          fontSize: "14px",
+                          color: "#fff",
+                          fontWeight: 600
+                        }}
+                      >
+                        SẢN PHẨM
+                      </span>
+                      {/* <li
+                        className="megamenu-container"
+                      >
                         <div className="menu-title pl-4 mt-1">Sản phẩm</div>
-                      </li>
+                      </li> */}
                       {categoryTrees.listcategoryProduct?.map((val, idx) =>
                         val.children.length > 0 ? (
                           <li className="megamenu-container" key={idx}>
@@ -206,9 +223,24 @@ function Header(props: typeProps) {
                     </ul>
 
                     <ul className="menu-vertical sf-arrows">
-                      <li className="megamenu-container">
+                      <span
+                        style={{
+                          textAlign: "left",
+                          paddingBottom: "10px",
+                          paddingTop: "10px",
+                          paddingLeft: "15px",
+                          backgroundColor: "rgb(37, 140, 174)",
+                          width: "100%",
+                          fontSize: "14px",
+                          color: "#fff",
+                          fontWeight: 600
+                        }}
+                      >
+                        COMBO
+                      </span>
+                      {/* <li className="megamenu-container">
                         <div className="menu-title pl-4 mt-1">Combo</div>
-                      </li>
+                      </li> */}
 
                       {categoryTrees.listcategoryCombo?.map((val, idx) =>
                         val.children.length > 0 ? (
