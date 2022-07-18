@@ -2,11 +2,11 @@ import { Image } from "antd";
 import React, { useState } from "react";
 import Slider from "react-slick";
 
-function SlickCarousel(props: { value: any }) {
+function SlickCarousel(props: { value: any; toggle: any }) {
   const [autoPlay, setAutoPlay] = useState(true);
 
   console.log(autoPlay);
-  
+
   const settings = {
     dots: false,
     infinite: true,
@@ -15,7 +15,7 @@ function SlickCarousel(props: { value: any }) {
     pauseOnHover: true,
     autoplay: true,
     speed: 500,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1500,
     draggable: false,
     // cssEase: "linear",
     // nextArrow: <SampleNextArrow />,
@@ -26,11 +26,12 @@ function SlickCarousel(props: { value: any }) {
     <div className="slide-detailproduct mt-3">
       <Slider {...settings}>
         {props.value?.map((v: any) => (
-          <div>
+          <div style={{ cursor: "pointer" }}>
             <img
               onMouseEnter={() => {
                 setAutoPlay(false);
               }}
+              onClick={() => props.toggle(v)}
               onMouseLeave={() => setAutoPlay(true)}
               width={"100%"}
               src={"http://103.173.155.138:5500/images/" + v?.imagename}

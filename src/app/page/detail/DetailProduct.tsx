@@ -85,8 +85,8 @@ function DetailProduct() {
                 </figure>
 
                 {/*thêm className active thêm viền xanh */}
-                {img?.length >= 4 ? (
-                  <SlickCarousel value={img} />
+                {img?.length > 4 ? (
+                  <SlickCarousel value={img} toggle={(value: any)=>setDisplayIMG(value)}/>
                 ) : (
                   <div
                     id="product-zoom-gallery"
@@ -96,7 +96,7 @@ function DetailProduct() {
                       <a
                         key={value.id}
                         className="product-gallery-item"
-                        // onClick={() => setDisplayIMG(value)}
+                        onClick={() => setDisplayIMG(value)}
                       >
                         <img
                           src={
