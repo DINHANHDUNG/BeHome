@@ -16,6 +16,7 @@ function SlickCarousel(props: { value: any }) {
     autoplay: true,
     speed: 500,
     autoplaySpeed: 2000,
+    draggable: false,
     // cssEase: "linear",
     // nextArrow: <SampleNextArrow />,
     // prevArrow: <SamplePrevArrow />,

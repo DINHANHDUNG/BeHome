@@ -20,6 +20,7 @@ function SlickCarouselHomePage(props: propsSlide) {
     pauseOnHover: true,
     autoplay: true,
     speed: 500,
+    draggable: false,
     responsive: [
 
       {
