@@ -40,7 +40,7 @@ function FilterProductCombo(props: propsFilter) {
         })
       );
     }
-  }, [valueRank, valueFirm]);
+  }, [valueRank, valueFirm, props.id_category]);
   return (
     <aside className="col-lg-3 order-lg-first">
       <div className="sidebar sidebar-shop">

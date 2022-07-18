@@ -129,7 +129,7 @@ function Header(props: typeProps) {
                           width: "100%",
                           fontSize: "14px",
                           color: "#fff",
-                          fontWeight: 600
+                          fontWeight: 600,
                         }}
                       >
                         SẢN PHẨM
@@ -233,7 +233,7 @@ function Header(props: typeProps) {
                           width: "100%",
                           fontSize: "14px",
                           color: "#fff",
-                          fontWeight: 600
+                          fontWeight: 600,
                         }}
                       >
                         COMBO
@@ -332,7 +332,7 @@ function Header(props: typeProps) {
               </div>
             </div>
 
-            <div className="col-lg-3">
+            <div className="col-lg-9">
               <nav className="main-nav">
                 <ul className="menu sf-arrows">
                   {/* active Thêm gạch chân */}
@@ -343,57 +343,20 @@ function Header(props: typeProps) {
 
                   <li className="megamenu-container ">
                     {/* className="sf-with-ul" */}
-                    <Link to={"/buildcustomer"}>Thiết kế nội thất</Link>
+                    <Link to={"/"}>Giới thiệu</Link>
+                  </li>
+
+                  <li className="megamenu-container ">
+                    {/* className="sf-with-ul" */}
+                    <Link to={"/buildcustomer"}>
+                      Xây dựng sản phẩm 
+                    </Link>
                   </li>
                 </ul>
               </nav>
             </div>
 
-            <div
-              className="col-lg-6"
-              style={{ display: "flex", justifyContent: "flex-end" }}
-            >
-              <nav className="main-nav">
-                <ul className="menu sf-arrows">
-                  {/* active Thêm gạch chân */}
-                  <li
-                    className="megamenu-container "
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "center",
-                    }}
-                  >
-                    {/* className="sf-with-ul" */}
-                    <i
-                      className="fa-solid fa-envelope"
-                      style={{ color: "white" }}
-                    ></i>
-                    <a href={"mailto:" + props.company.Company.email}>
-                      {props.company.Company.email}
-                    </a>
-                  </li>
-
-                  <li
-                    className="megamenu-container "
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "center",
-                    }}
-                  >
-                    {/* className="sf-with-ul" */}
-                    <i
-                      className="fa-solid fa-phone"
-                      style={{ color: "white" }}
-                    ></i>
-                    <a href={"tel:" + props.company.Company.phonenumber}>
-                      {props.company.Company.phonenumber}
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+            
           </div>
         </div>
       </div>

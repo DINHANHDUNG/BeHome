@@ -428,8 +428,8 @@ blockquote.text-white cite span {
 }
 @media screen and (min-width: 1600px) {
   .container-fluid {
-    padding-left: 70px;
-    padding-right: 70px;
+    padding-left: 140px;
+    padding-right: 140px;
   }
   .col-xxl {
     -ms-flex-preferred-size: 0;
