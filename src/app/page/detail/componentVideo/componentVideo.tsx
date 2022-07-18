@@ -17,7 +17,7 @@ function ComponentVideo(props: PropsVideo) {
     return match && match[2].length === 11 ? match[2] : null;
   }
   return (
-    <>
+    <div style={{ maxWidth: "640px" }}>
       <hr
         style={{
           marginTop: "10px",
@@ -29,7 +29,7 @@ function ComponentVideo(props: PropsVideo) {
 
       {props.link ? (
         <iframe
-          width="640"
+          width="100%"
           height="360"
           src={"https://www.youtube.com/embed/" + linkVideo}
           title="YouTube video player"
@@ -48,7 +48,7 @@ function ComponentVideo(props: PropsVideo) {
           marginLeft: "0px",
         }}
       />
-    </>
+    </div>
   );
 }
 

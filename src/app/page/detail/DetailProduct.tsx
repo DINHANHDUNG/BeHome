@@ -9,6 +9,7 @@ import { addCart } from "../../../features/cart/cart-slice";
 import { productAdminStore } from "../../../use-selector";
 import BoxComboProduct from "../../component/customer/box-combo-product/box-combo-product";
 import BoxPromotion from "../../component/customer/box-promotion/box-promotion";
+import SlickCarousel from "../../component/customer/carousel/slideSlick/slickCarouselFirm";
 import Comment from "../../component/customer/comment/comment";
 import ReplyComment from "../../component/customer/comments/replyComment";
 import SingleComment from "../../component/customer/comments/singleComment";
@@ -56,7 +57,6 @@ function DetailProduct() {
   const [visibleRepLyComment, setVisibleRepLyComment] = useState(false);
   const [valueComment, setValueComment] = useState("");
 
-
   return (
     <div className="container-fluid">
       {products?.listproduct[0]?.id ? (
@@ -72,6 +72,7 @@ function DetailProduct() {
                       dispayIMG?.imagename
                     }
                     alt="product image"
+                    style={{ maxHeight: "500px", objectFit: "cover" }}
                   />
 
                   <a
@@ -84,27 +85,30 @@ function DetailProduct() {
                 </figure>
 
                 {/*thêm className active thêm viền xanh */}
-
-                <div
-                  id="product-zoom-gallery"
-                  className="product-image-gallery"
-                >
-                  {img?.map((value: any) => (
-                    <a
-                      key={value.id}
-                      className="product-gallery-item "
-                      onClick={() => setDisplayIMG(value)}
-                    >
-                      <img
-                        src={
-                          "http://103.173.155.138:5500/images/" +
-                          value?.imagename
-                        }
-                        alt="product side"
-                      />
-                    </a>
-                  ))}
-                </div>
+                {img?.length >= 4 ? (
+                  <SlickCarousel value={img} />
+                ) : (
+                  <div
+                    id="product-zoom-gallery"
+                    className="product-image-gallery"
+                  >
+                    {img?.map((value: any) => (
+                      <a
+                        key={value.id}
+                        className="product-gallery-item"
+                        // onClick={() => setDisplayIMG(value)}
+                      >
+                        <img
+                          src={
+                            "http://103.173.155.138:5500/images/" +
+                            value?.imagename
+                          }
+                          alt="product side"
+                        />
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -118,9 +122,7 @@ function DetailProduct() {
                   className="product-price"
                   style={{ justifyContent: "left" }}
                 >
-                  <span>
-                    {currency(products?.listproduct[0]?.price)}
-                  </span>
+                  <span>{currency(products?.listproduct[0]?.price)}</span>
                   &nbsp;
                   {/* <del style={{ fontSize: "13px", opacity: "0.4" }}>
                     {Numberformat(3000000000)} VNĐ

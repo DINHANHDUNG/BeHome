@@ -45,7 +45,7 @@ function CarouselProduct(props: propsProduct) {
                             }'
         >
           {props.product.products?.length > 0
-            ? props.product.products.slice(0, 8).map((value, idx) => (
+            ? props.product.products.map((value, idx) => (
                 <div
                   className="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2"
                   key={idx}
@@ -53,7 +53,7 @@ function CarouselProduct(props: propsProduct) {
                   <Product value={value} />
                 </div>
               ))
-            : props.product.combos.slice(0, 8).map((value, idx) => (
+            : props.product.combos.map((value, idx) => (
                 <div
                   className="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2"
                   key={idx}

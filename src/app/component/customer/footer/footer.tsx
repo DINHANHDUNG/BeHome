@@ -52,7 +52,9 @@ function Footer(props: typeProps) {
           <div className="row">
             <div className="col-sm-4 col-lg-3">
               <div className="widget">
-                <h4 className="widget-title" style={{fontWeight: 600}}>GIỚI THIỆU BEHOME</h4>
+                <h4 className="widget-title" style={{ fontWeight: 600 }}>
+                  GIỚI THIỆU BEHOME
+                </h4>
 
                 <div className="widget widget-about">
                   {/* <img
@@ -145,7 +147,9 @@ function Footer(props: typeProps) {
 
             <div className="col-sm-4 col-lg-3">
               <div className="widget">
-                <h4 className="widget-title" style={{fontWeight: 600}}>CHÍNH SÁCH BẢO HÀNG</h4>
+                <h4 className="widget-title" style={{ fontWeight: 600 }}>
+                  CHÍNH SÁCH BẢO HÀNG
+                </h4>
 
                 <p>{props.company.Company.csbh}</p>
               </div>
@@ -153,16 +157,18 @@ function Footer(props: typeProps) {
 
             <div className="col-sm-4 col-lg-3">
               <div className="widget">
-                <h4 className="widget-title" style={{fontWeight: 600}}>CHÍNH SÁCH ĐỔI TRẢ</h4>
+                <h4 className="widget-title" style={{ fontWeight: 600 }}>
+                  CHÍNH SÁCH ĐỔI TRẢ
+                </h4>
                 <p>{props.company.Company.csdt}</p>
               </div>
             </div>
 
             <div className="col-sm-4 col-lg-3">
-              <div className="widget">
+              <div className="widget" style={{ maxWidth: "400px" }}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.135277983257!2d105.5011677!3d21.226483599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x156a68cc13e2c209!2zQ-G7rWEgSMOgbmcgxJBp4buHbiAtIE7GsOG7m2MgQkVIT01F!5e0!3m2!1svi!2s!4v1657469735132!5m2!1svi!2s"
-                  width="400"
+                  width="100%"
                   height="300"
                   style={{ border: "0" }}
                   loading="lazy"

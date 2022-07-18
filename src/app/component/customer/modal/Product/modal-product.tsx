@@ -676,7 +676,7 @@ function ModalProduct(props: propsModalProduct) {
           <input
             type="file"
             accept="image/*"
-            multiple
+            // multiple
             // style={{ display: "none" }}
             onChange={(val) => onchangeIMG(val, "MAIN")}
             // ref={inputRef}

@@ -21,7 +21,7 @@ function Listproduct(props: propsProduct) {
         }}
       >
         <span>{props.product?.name}</span>
-        <Link
+        {/* <Link
           to={
             props.product.type === "PRODUCT"
               ? `danhmucproduct/${props.product?.id}`
@@ -30,11 +30,11 @@ function Listproduct(props: propsProduct) {
           style={{ fontSize: "16px" }}
         >
           Xem thêm
-        </Link>
+        </Link> */}
       </h2>
 
       <div className="products mb-3">
-        <div className="row">
+        <div className="row" >
           {/* <div className="col-6 col-md-4 col-xl-3">
             <Product />
           </div> */}

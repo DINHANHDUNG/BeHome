@@ -72,7 +72,7 @@ function ModalNextIMG(props: propsModalNextIMG) {
           pre
         </p> */}
         <img
-          style={{ width: "800px" }}
+          style={{ width: "800px" , maxHeight: '500px', objectFit: "contain"}}
           src={"http://103.173.155.138:5500/images/" + IMGDISPLAY?.imagename}
           alt=""
         />
