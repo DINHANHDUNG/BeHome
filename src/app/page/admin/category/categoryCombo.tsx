@@ -97,38 +97,38 @@ function CategoryCombo() {
       ),
     },
 
-    {
-      title: "Show",
-      dataIndex: "show",
-      key: "show",
-      render: (text: any, row: any, index: any) => (
-        <Space size="middle">
-          {!row.homepage ? (
-            <Button
-              onClick={() => {
-                // setVisible2(true);
-                dispatch(showCategoryByIdAdmin({ id: row.id })).then(() => {
-                  dispatch(getAllCategoryTrees());
-                });
-              }}
-            >
-              Hiện trên trang chủ
-            </Button>
-          ) : (
-            <Button
-              onClick={() => {
-                // setVisible2(true);
-                dispatch(hiddenCategoryByIdAdmin({ id: row.id })).then(() => {
-                  dispatch(getAllCategoryTrees());
-                });
-              }}
-            >
-              Ẩn khỏi trang chủ
-            </Button>
-          )}
-        </Space>
-      ),
-    },
+    // {
+    //   title: "Show",
+    //   dataIndex: "show",
+    //   key: "show",
+    //   render: (text: any, row: any, index: any) => (
+    //     <Space size="middle">
+    //       {!row.homepage ? (
+    //         <Button
+    //           onClick={() => {
+    //             // setVisible2(true);
+    //             dispatch(showCategoryByIdAdmin({ id: row.id })).then(() => {
+    //               dispatch(getAllCategoryTrees());
+    //             });
+    //           }}
+    //         >
+    //           Hiện trên trang chủ
+    //         </Button>
+    //       ) : (
+    //         <Button
+    //           onClick={() => {
+    //             // setVisible2(true);
+    //             dispatch(hiddenCategoryByIdAdmin({ id: row.id })).then(() => {
+    //               dispatch(getAllCategoryTrees());
+    //             });
+    //           }}
+    //         >
+    //           Ẩn khỏi trang chủ
+    //         </Button>
+    //       )}
+    //     </Space>
+    //   ),
+    // },
   ];
 
   // rowSelection object indicates the need for row selection
