@@ -9,6 +9,7 @@ export interface Category {
   products: Array<any>;
   combos: Array<any>;
   type: string;
+  homepage: boolean
 }
 
 export interface AddCategory {

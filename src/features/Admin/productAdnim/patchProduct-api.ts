@@ -72,6 +72,24 @@ export const getProductByIdAdmin = createAsyncThunk(
   }
 );
 
+export const showProductByIdAdmin = createAsyncThunk(
+  "/productadmin/showbyid",
+  async (data: { id: number }) => {
+    const response = await productAPIAdmin.showProductByIdADmin(data);
+
+    return response;
+  }
+);
+
+export const hiddenProductByIdAdmin = createAsyncThunk(
+  "/productadmin/hiddenbyid",
+  async (data: { id: number }) => {
+    const response = await productAPIAdmin.hiddenProductByIdADmin(data);
+
+    return response;
+  }
+);
+
 export const postDeleteProductAdmin = createAsyncThunk(
   "/productadmin/deleteproduct",
   async (data: { id: [number] }) => {

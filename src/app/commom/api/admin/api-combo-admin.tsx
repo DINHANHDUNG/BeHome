@@ -23,6 +23,16 @@ const comboAPIAdmin = {
     return axiosClientAdmin.post(url, data);
   },
 
+  showComboByIdADmin(data: { id: number }): Promise<any> {
+    const url = "combo/comboshowhomepage";
+    return axiosClientAdmin.post(url, data);
+  },
+
+  hiddenComboByIdADmin(data: { id: number }): Promise<any> {
+    const url = "combo/combohiddenhomepage";
+    return axiosClientAdmin.post(url, data);
+  },
+
   getComboSearchAdmin(data: SearchCombo): Promise<any> {
     const url = "combo/searchcombo";
     return axiosClientAdmin.post(url, data);

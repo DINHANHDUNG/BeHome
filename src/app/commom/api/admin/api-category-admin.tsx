@@ -21,6 +21,18 @@ const categoryAPIAdmin = {
     return axiosClientAdmin.post(url, data);
   },
 
+  // show
+  showCategoryByIdADmin(data: { id: number }): Promise<any> {
+    const url = "category/categoryshowhomepage";
+    return axiosClientAdmin.post(url, data);
+  },
+
+  // hidden
+  hiddenCategoryByIdADmin(data: { id: number }): Promise<any> {
+    const url = "category/categoryhiddenhomepage";
+    return axiosClientAdmin.post(url, data);
+  },
+
   postAddCategoryADmin(data: AddCategory): Promise<any> {
     const url = "category/createcategory";
     return axiosClientAdmin.post(url, data);

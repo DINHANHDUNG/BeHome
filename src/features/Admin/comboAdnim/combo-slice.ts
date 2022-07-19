@@ -10,9 +10,11 @@ import {
   getAllComboNeedUpdateAdmin,
   getComboByIdAdmin,
   getComboSearchAdmin,
+  hiddenComboByIdAdmin,
   postAddComboByIdAdmin,
   postDeleteComboAdmin,
   postEditComboByIdAdmin,
+  showComboByIdAdmin,
 } from "./patchCombo-api";
 const initialState: CustomesCombo = {
   listCombo: [],
@@ -45,6 +47,50 @@ const comboSliceAdmin = createSlice({
         state.error = true; //Show lỗi
         openNotification({
           message: "Lấy dữ liệu thất bại",
+          type: "error",
+        });
+      });
+
+    // show
+    builder
+      .addCase(showComboByIdAdmin.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(showComboByIdAdmin.fulfilled, (state, action) => {
+        openNotification({
+          message: "Thao tác thành công",
+          type: "success",
+        });
+        state.loading = false;
+        state.error = false;
+      })
+      .addCase(showComboByIdAdmin.rejected, (state) => {
+        state.loading = false;
+        state.error = true; //Show lỗi
+        openNotification({
+          message: "Thao tác không thành công",
+          type: "error",
+        });
+      });
+
+    // hidden
+    builder
+      .addCase(hiddenComboByIdAdmin.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(hiddenComboByIdAdmin.fulfilled, (state, action) => {
+        openNotification({
+          message: "Thao tác thành công",
+          type: "success",
+        });
+        state.loading = false;
+        state.error = false;
+      })
+      .addCase(hiddenComboByIdAdmin.rejected, (state) => {
+        state.loading = false;
+        state.error = true; //Show lỗi
+        openNotification({
+          message: "Thao tác không thành công",
           type: "error",
         });
       });

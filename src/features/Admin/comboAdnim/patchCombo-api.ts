@@ -1,12 +1,16 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import comboAPIAdmin from "../../../app/commom/api/admin/api-combo-admin";
-import { AddCombo, EditCombo, GetAllCombo, SearchCombo } from "../../../app/types/combo";
+import {
+  AddCombo,
+  EditCombo,
+  GetAllCombo,
+  SearchCombo,
+} from "../../../app/types/combo";
 import { GetAllProductUpdate } from "../../../app/types/product";
 
 export const postAddComboByIdAdmin = createAsyncThunk(
   "/Comboadmin/addCombo",
   async (data: AddCombo) => {
-
     const response = await comboAPIAdmin.postAddComboADmin(data);
 
     return response;
@@ -31,7 +35,6 @@ export const getAllComboAdmin = createAsyncThunk(
   }
 );
 
-
 export const getAllComboNeedUpdateAdmin = createAsyncThunk(
   "/Comboadmin/getAllComboNeedUpdateAdmin",
   async (data: GetAllProductUpdate) => {
@@ -54,6 +57,23 @@ export const getComboByIdAdmin = createAsyncThunk(
   "/Comboadmin/getbyid",
   async (data: { id: number }) => {
     const response = await comboAPIAdmin.getComboByIdADmin(data);
+
+    return response;
+  }
+);
+export const showComboByIdAdmin = createAsyncThunk(
+  "/Comboadmin/showbyid",
+  async (data: { id: number }) => {
+    const response = await comboAPIAdmin.showComboByIdADmin(data);
+
+    return response;
+  }
+);
+
+export const hiddenComboByIdAdmin = createAsyncThunk(
+  "/Comboadmin/hiddenbyid",
+  async (data: { id: number }) => {
+    const response = await comboAPIAdmin.hiddenComboByIdADmin(data);
 
     return response;
   }

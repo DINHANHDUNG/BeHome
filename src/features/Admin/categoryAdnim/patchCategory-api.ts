@@ -67,6 +67,30 @@ export const getCategoryByIdAdmin = createAsyncThunk(
   }
 );
 
+export const showCategoryByIdAdmin = createAsyncThunk(
+  "/categoryadmin/showbyid",
+  async (data: { id: number }) => {
+    // console.log("data truyền vào", data);
+
+    const response = await categoryAPIAdmin.showCategoryByIdADmin(data);
+    // console.log("getbyid", response);
+
+    return response;
+  }
+);
+
+export const hiddenCategoryByIdAdmin = createAsyncThunk(
+  "/categoryadmin/hiddenbyid",
+  async (data: { id: number }) => {
+    // console.log("data truyền vào", data);
+
+    const response = await categoryAPIAdmin.hiddenCategoryByIdADmin(data);
+    // console.log("getbyid", response);
+
+    return response;
+  }
+);
+
 export const postDeleteCategoryAdmin = createAsyncThunk(
   "/categoryadmin/deletecategory",
   async (data: { id: [number] }) => {

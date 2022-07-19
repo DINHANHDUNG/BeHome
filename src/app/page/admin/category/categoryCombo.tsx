@@ -11,7 +11,9 @@ import {
 import React, { useEffect, useState } from "react";
 import {
   getAllCategoryTrees,
+  hiddenCategoryByIdAdmin,
   postDeleteCategoryAdmin,
+  showCategoryByIdAdmin,
 } from "../../../../features/Admin/categoryAdnim";
 import { categoryAdminStore } from "../../../../use-selector";
 import ModalCategory from "../../../component/customer/modal/Category/modal-category";
@@ -23,7 +25,6 @@ function CategoryCombo() {
 
   const dispatch = useAppDispatch();
   const categorytrees = useAppSelector(categoryAdminStore);
-
 
   const [listCategory, setListCategory] = useState(
     () => categorytrees.listcategoryCombo
@@ -70,7 +71,7 @@ function CategoryCombo() {
       key: "action",
       render: (text: any, row: any, index: any) => (
         <Space size="middle">
-          {row.action ??(
+          {row.action ?? (
             <Button
               onClick={() => {
                 setVisible2(true);
@@ -96,12 +97,38 @@ function CategoryCombo() {
       ),
     },
 
-    // {
-    //   title: "Show",
-    //   dataIndex: "show",
-    //   key: "show",
-    //   render: (show: any) => <>{show ? "Hiện" : "Ẩn"}</>,
-    // },
+    {
+      title: "Show",
+      dataIndex: "show",
+      key: "show",
+      render: (text: any, row: any, index: any) => (
+        <Space size="middle">
+          {!row.homepage ? (
+            <Button
+              onClick={() => {
+                // setVisible2(true);
+                dispatch(showCategoryByIdAdmin({ id: row.id })).then(() => {
+                  dispatch(getAllCategoryTrees());
+                });
+              }}
+            >
+              Hiện trên trang chủ
+            </Button>
+          ) : (
+            <Button
+              onClick={() => {
+                // setVisible2(true);
+                dispatch(hiddenCategoryByIdAdmin({ id: row.id })).then(() => {
+                  dispatch(getAllCategoryTrees());
+                });
+              }}
+            >
+              Ẩn khỏi trang chủ
+            </Button>
+          )}
+        </Space>
+      ),
+    },
   ];
 
   // rowSelection object indicates the need for row selection

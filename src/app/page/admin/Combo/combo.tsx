@@ -1,34 +1,40 @@
 import {
-    Button,
-    Card,
-    Col,
-    Input,
-    Pagination,
-    Popconfirm,
-    Row,
-    Select,
-    Table
+  Button,
+  Card,
+  Col,
+  Input,
+  Pagination,
+  Popconfirm,
+  Row,
+  Select,
+  Space,
+  Table,
 } from "antd";
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { getAllCategoryComboAdmin, getAllCategoryProductAdmin } from "../../../../features/Admin/categoryAdnim";
 import {
-    getAllComboAdmin,
-    getComboSearchAdmin,
-    postDeleteComboAdmin
+  getAllCategoryComboAdmin,
+  getAllCategoryProductAdmin,
+} from "../../../../features/Admin/categoryAdnim";
+import {
+  getAllComboAdmin,
+  getComboSearchAdmin,
+  hiddenComboByIdAdmin,
+  postDeleteComboAdmin,
+  showComboByIdAdmin,
 } from "../../../../features/Admin/comboAdnim";
 import {
-    accountAdminStore,
-    categoryAdminStore,
-    comboAdminStore
+  accountAdminStore,
+  categoryAdminStore,
+  comboAdminStore,
 } from "../../../../use-selector";
 import ModalCombo from "../../../component/customer/modal/Combo/modal-combo";
 import {
-    currency,
-    getParsedDate,
-    openNotification,
-    useAppDispatch,
-    useAppSelector
+  currency,
+  getParsedDate,
+  openNotification,
+  useAppDispatch,
+  useAppSelector,
 } from "../../../hooks";
 import { Product } from "../../../types/product";
 
@@ -80,7 +86,6 @@ function Combo() {
         a.category.name.localeCompare(b.category.name),
     },
 
-    
     {
       title: "Tên combo",
       dataIndex: "name",
@@ -123,6 +128,81 @@ function Combo() {
         }
         return 1;
       },
+    },
+
+    {
+      title: "Show",
+      dataIndex: "show",
+      key: "show",
+      render: (text: any, row: any, index: any) => (
+        <Space size="middle">
+          {!row.homepage ? (
+            <Button
+              onClick={() => {
+                // setVisible2(true);
+                dispatch(showComboByIdAdmin({ id: row.id })).then(() => {
+                  if (visibleSearch) {
+                    dispatch(
+                      getComboSearchAdmin({
+                        id_category: 0,
+                        comboKey: valueSearch ? valueSearch : "",
+                        minprice: null,
+                        maxprice: null,
+                        page: page,
+                        noitem: pageSize,
+                        sort: 0,
+                      })
+                    );
+                  } else {
+                    dispatch(
+                      getAllComboAdmin({
+                        id_category: valueInputSelect,
+                        sort: 0,
+                        page: page,
+                        noitem: pageSize,
+                      })
+                    );
+                  }
+                });
+              }}
+            >
+              Hiện trên trang chủ
+            </Button>
+          ) : (
+            <Button
+              onClick={() => {
+                // setVisible2(true);
+                dispatch(hiddenComboByIdAdmin({ id: row.id })).then(() => {
+                  if (visibleSearch) {
+                    dispatch(
+                      getComboSearchAdmin({
+                        id_category: 0,
+                        comboKey: valueSearch ? valueSearch : "",
+                        minprice: null,
+                        maxprice: null,
+                        page: page,
+                        noitem: pageSize,
+                        sort: 0,
+                      })
+                    );
+                  } else {
+                    dispatch(
+                      getAllComboAdmin({
+                        id_category: valueInputSelect,
+                        sort: 0,
+                        page: page,
+                        noitem: pageSize,
+                      })
+                    );
+                  }
+                });
+              }}
+            >
+              Ẩn khỏi trang chủ
+            </Button>
+          )}
+        </Space>
+      ),
     },
   ];
 
@@ -173,6 +253,9 @@ function Combo() {
       );
     }
   };
+
+  // showComboByIdAdmin
+  // hiddenComboByIdAdmin
 
   return (
     <div className="tabled" style={{ marginBottom: "20px" }}>

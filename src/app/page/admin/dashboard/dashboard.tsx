@@ -7,6 +7,7 @@ import {
   Popconfirm,
   Row,
   Select,
+  Space,
   Table,
 } from "antd";
 import moment from "moment";
@@ -16,7 +17,9 @@ import {
   getAllProductAdmin,
   getProductSearch2Admin,
   getProductSearchAdmin,
+  hiddenProductByIdAdmin,
   postDeleteProductAdmin,
+  showProductByIdAdmin,
 } from "../../../../features/Admin/productAdnim";
 import {
   accountAdminStore,
@@ -146,7 +149,89 @@ function Dashboard() {
         return 1;
       },
     },
+
+    {
+      title: "Show",
+      dataIndex: "show",
+      key: "show",
+      render: (text: any, row: any, index: any) => (
+        <Space size="middle">
+          {!row.homepage ? (
+            <Button
+              onClick={() => {
+                // setVisible2(true);
+                dispatch(showProductByIdAdmin({ id: row.id })).then(() => {
+                  if (visibleSearch) {
+                    dispatch(
+                      getProductSearchAdmin({
+                        id_category: 0,
+                        id_rank: 0,
+                        id_manufacturer: 0,
+                        productKey: valueSearch ? valueSearch : "",
+                        minprice: null,
+                        maxprice: null,
+                        page: page,
+                        noitem: pageSize,
+                        sort: 0,
+                      })
+                    );
+                  } else {
+                    dispatch(
+                      getAllProductAdmin({
+                        id_category: valueInputSelect,
+                        sort: 0,
+                        page: page,
+                        noitem: pageSize,
+                      })
+                    );
+                  }
+                });
+              }}
+            >
+              Hiện trên trang chủ
+            </Button>
+          ) : (
+            <Button
+              onClick={() => {
+                // setVisible2(true);
+                dispatch(hiddenProductByIdAdmin({ id: row.id })).then(() => {
+                  if (visibleSearch) {
+                    dispatch(
+                      getProductSearchAdmin({
+                        id_category: 0,
+                        id_rank: 0,
+                        id_manufacturer: 0,
+                        productKey: valueSearch ? valueSearch : "",
+                        minprice: null,
+                        maxprice: null,
+                        page: page,
+                        noitem: pageSize,
+                        sort: 0,
+                      })
+                    );
+                  } else {
+                    dispatch(
+                      getAllProductAdmin({
+                        id_category: valueInputSelect,
+                        sort: 0,
+                        page: page,
+                        noitem: pageSize,
+                      })
+                    );
+                  }
+                });
+              }}
+            >
+              Ẩn khỏi trang chủ
+            </Button>
+          )}
+        </Space>
+      ),
+    },
   ];
+
+  // showProductByIdAdmin
+  // hiddenProductByIdAdmin
 
   // rowSelection object indicates the need for row selection
   const rowSelection = {

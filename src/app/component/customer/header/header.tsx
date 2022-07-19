@@ -143,7 +143,7 @@ function Header(props: typeProps) {
                         <div className="menu-title pl-4 mt-1">Sản phẩm</div>
                       </li> */}
                       {categoryTrees.listcategoryProduct?.map((val, idx) =>
-                        val.children.length > 0 ? (
+                        val.children?.length > 0 ? (
                           <li className="megamenu-container" key={idx}>
                             <Link
                               to={`danhmucproduct/${val.id}`}
@@ -151,7 +151,7 @@ function Header(props: typeProps) {
                             >
                               {val.name}
                             </Link>
-                            {val.children.length > 0 ? (
+                            {val.children?.length > 0 ? (
                               <div className="megamenu">
                                 <div className="row no-gutters">
                                   <div className="col-md-12">
@@ -246,7 +246,7 @@ function Header(props: typeProps) {
                       </li> */}
 
                       {categoryTrees.listcategoryCombo?.map((val, idx) =>
-                        val.children.length > 0 ? (
+                        val.children?.length > 0 ? (
                           <li className="megamenu-container" key={idx}>
                             {/* <Link to={`danhmuc`} className="sf-with-ul">
                               {val.name}
@@ -257,7 +257,7 @@ function Header(props: typeProps) {
                             >
                               {val.name}
                             </Link>
-                            {val.children.length > 0 ? (
+                            {val.children?.length > 0 ? (
                               <div className="megamenu">
                                 <div className="row no-gutters">
                                   <div className="col-md-12">

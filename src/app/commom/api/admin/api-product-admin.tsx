@@ -27,6 +27,16 @@ const productAPIAdmin = {
     return axiosClientAdmin.post(url, data);
   },
 
+  showProductByIdADmin(data: { id: number }): Promise<any> {
+    const url = "product/productshowhomepage";
+    return axiosClientAdmin.post(url, data);
+  },
+
+  hiddenProductByIdADmin(data: { id: number }): Promise<any> {
+    const url = "product/producthiddenhomepage";
+    return axiosClientAdmin.post(url, data);
+  },
+
   getProductSearchAdmin(data: GetSearchProduct): Promise<any> {
     const url = "product/searchproduct";
     return axiosClientAdmin.post(url, data);

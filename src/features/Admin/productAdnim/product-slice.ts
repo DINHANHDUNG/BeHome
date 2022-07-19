@@ -16,6 +16,8 @@ import {
   getAllProductNeedUpdate,
   getProductSearch2Admin,
   getProductSearchAdmin,
+  hiddenProductByIdAdmin,
+  showProductByIdAdmin,
 } from "./patchProduct-api";
 const initialState: CustomesProduct = {
   listproduct: [] as Array<Product>,
@@ -92,6 +94,50 @@ const productSliceAdmin = createSlice({
         state.error = true; //Show lỗi
         openNotification({
           message: "Lấy dữ liệu thất bại",
+          type: "error",
+        });
+      });
+
+    // Show
+    builder
+      .addCase(showProductByIdAdmin.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(showProductByIdAdmin.fulfilled, (state, action) => {
+        openNotification({
+          message: "Thao tác thành công",
+          type: "success",
+        });
+        state.loading = false;
+        state.error = false;
+      })
+      .addCase(showProductByIdAdmin.rejected, (state) => {
+        state.loading = false;
+        state.error = true; //Show lỗi
+        openNotification({
+          message: "Thao tác không thành công",
+          type: "error",
+        });
+      });
+
+    // hidden
+    builder
+      .addCase(hiddenProductByIdAdmin.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(hiddenProductByIdAdmin.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = false;
+        openNotification({
+          message: "Thao tác thành công",
+          type: "success",
+        });
+      })
+      .addCase(hiddenProductByIdAdmin.rejected, (state) => {
+        state.loading = false;
+        state.error = true; //Show lỗi
+        openNotification({
+          message: "Thao tác không thành công",
           type: "error",
         });
       });

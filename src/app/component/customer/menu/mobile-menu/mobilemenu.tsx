@@ -116,7 +116,7 @@ function Mobilemenu() {
                   </li>
 
                   {categoryTrees.listcategoryProduct?.map((val, idx) =>
-                    val.children.length > 0 ? (
+                    val.children?.length > 0 ? (
                       <li className="close-menu-mobile">
                         <Link
                           className="sf-with-ul close-menu-mobile"
@@ -124,7 +124,7 @@ function Mobilemenu() {
                         >
                           {val.name}
                         </Link>
-                        {val.children.length > 0
+                        {val.children?.length > 0
                           ? val.children?.map((val2, idx) => (
                               <ul style={{ display: "block" }}>
                                 {/* <li>
@@ -175,7 +175,7 @@ function Mobilemenu() {
                   </li>
 
                   {categoryTrees.listcategoryCombo?.map((val, idx) =>
-                    val.children.length > 0 ? (
+                    val.children?.length > 0 ? (
                       <li>
                         <Link
                           to={`danhmuccombo/${val.id}`}
@@ -183,7 +183,7 @@ function Mobilemenu() {
                         >
                           {val.name}
                         </Link>
-                        {val.children.length > 0
+                        {val.children?.length > 0
                           ? val.children?.map((val2, idx) => (
                               <ul style={{ display: "block" }}>
                                 {/* <li>

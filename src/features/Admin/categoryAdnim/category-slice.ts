@@ -12,6 +12,8 @@ import {
   getAllCategoryComboAdmin,
   getAllCategoryProductAdmin,
   getAllCategoryTrees,
+  hiddenCategoryByIdAdmin,
+  showCategoryByIdAdmin,
 } from "./patchCategory-api";
 const initialStateCategory: CustomesCategory = {
   listcategoryProduct: [] as Array<Category>,
@@ -69,6 +71,50 @@ const categorySliceAdmin = createSlice({
         });
       });
 
+    // show
+    builder
+      .addCase(showCategoryByIdAdmin.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(showCategoryByIdAdmin.fulfilled, (state, action) => {
+        openNotification({
+          message: "Thao tác thành công",
+          type: "success",
+        });
+        state.loading = false;
+        state.error = false;
+      })
+      .addCase(showCategoryByIdAdmin.rejected, (state) => {
+        state.loading = false;
+        state.error = true; //Show lỗi
+        openNotification({
+          message: "Thao tác không thành công",
+          type: "error",
+        });
+      });
+
+    // hidden
+    builder
+      .addCase(hiddenCategoryByIdAdmin.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(hiddenCategoryByIdAdmin.fulfilled, (state, action) => {
+        openNotification({
+          message: "Thao tác thành công",
+          type: "success",
+        });
+        state.loading = false;
+        state.error = false;
+      })
+      .addCase(hiddenCategoryByIdAdmin.rejected, (state) => {
+        state.loading = false;
+        state.error = true; //Show lỗi
+        openNotification({
+          message: "Thao tác không thành công",
+          type: "error",
+        });
+      });
+
     // getAll trees
     builder
       .addCase(getAllCategoryTrees.pending, (state) => {
@@ -89,7 +135,7 @@ const categorySliceAdmin = createSlice({
               name: val.name,
               name_parent: val.name_parent,
               show: val.show,
-              children: val.categorytrees? val.categorytrees : null,
+              children: val.categorytrees ? val.categorytrees : null,
             });
           });
 
