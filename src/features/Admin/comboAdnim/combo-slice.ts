@@ -7,6 +7,7 @@ import { openNotification } from "../../../app/hooks";
 import { CustomesCombo } from "../../../app/types/combo";
 import {
   getAllComboAdmin,
+  getAllComboNeedUpdateAdmin,
   getComboByIdAdmin,
   getComboSearchAdmin,
   postAddComboByIdAdmin,
@@ -48,6 +49,27 @@ const comboSliceAdmin = createSlice({
         });
       });
 
+    // need update
+    builder
+      .addCase(getAllComboNeedUpdateAdmin.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getAllComboNeedUpdateAdmin.fulfilled, (state, action) => {
+        const { result, categoryname, total } = action.payload;
+        state.listCombo = result;
+        state.categoryname = categoryname;
+        state.total = total;
+        state.loading = false;
+        state.error = false;
+      })
+      .addCase(getAllComboNeedUpdateAdmin.rejected, (state) => {
+        state.loading = false;
+        state.error = true; //Show lỗi
+        openNotification({
+          message: "Lấy dữ liệu thất bại",
+          type: "error",
+        });
+      });
     // search
     builder
       .addCase(getComboSearchAdmin.pending, (state) => {

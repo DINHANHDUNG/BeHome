@@ -4,11 +4,17 @@ import {
   GetAllCombo,
   SearchCombo,
 } from "../../../types/combo";
+import { GetAllProductUpdate } from "../../../types/product";
 import axiosClientAdmin from "./axios-clientAdmin";
 
 const comboAPIAdmin = {
   getAllComboByCategoryAdmin(data: GetAllCombo): Promise<any> {
     const url = "combo/getallcombobycategory";
+    return axiosClientAdmin.post(url, data);
+  },
+
+  getAllComboNeedUpdateAdmin(data: GetAllProductUpdate): Promise<any> {
+    const url = "combo/getallcomboneedupdate";
     return axiosClientAdmin.post(url, data);
   },
 

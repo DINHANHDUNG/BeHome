@@ -7,6 +7,7 @@ import BuildDesignAdmin from "../../page/admin/build/build";
 import CategoryCombo from "../../page/admin/category/categoryCombo";
 import CategoryProduct from "../../page/admin/category/categoryProduct";
 import Combo from "../../page/admin/Combo/combo";
+import ComboTab from "../../page/admin/Combo/comboTab";
 import CommentAdmin from "../../page/admin/comment/comment";
 import Company from "../../page/admin/company/company";
 import Configuration from "../../page/admin/configurationAdmin/Configuration";
@@ -62,7 +63,7 @@ function LayoutAdmin() {
         <Route path="/manufacturer" element={<Manufacturer />} />
         <Route path="/rank" element={<Rank />} />
         <Route path="/company" element={<Company />} />
-        <Route path="/combo" element={<Combo />} />
+        <Route path="/combo" element={<ComboTab />} />
         <Route path="/comment" element={<CommentAdmin />} />
         <Route path="/BuildDesignAdmin" element={<BuildDesignAdmin />} />
         <Route path="/ConfigurationAdmin" element={<Configuration />} />

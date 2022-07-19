@@ -77,7 +77,7 @@ function ProductUpdateAdmin() {
     },
 
     {
-      title: "Hạng",
+      title: "Phân khúc",
       dataIndex: "rank",
       key: "rank",
       render: (text: any, row: any, index: any) => row.rank.name,
@@ -85,7 +85,7 @@ function ProductUpdateAdmin() {
     },
 
     {
-      title: "Phân khúc",
+      title: "Hãng",
       dataIndex: "manufacturer",
       key: "manufacturer",
       render: (text: any, row: any, index: any) => row.manufacturer.name,

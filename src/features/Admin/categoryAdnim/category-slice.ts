@@ -89,7 +89,7 @@ const categorySliceAdmin = createSlice({
               name: val.name,
               name_parent: val.name_parent,
               show: val.show,
-              children: val.categorytrees,
+              children: val.categorytrees? val.categorytrees : null,
             });
           });
 
@@ -99,7 +99,7 @@ const categorySliceAdmin = createSlice({
             name: value.name,
             name_parent: value.name_parent,
             show: value.show,
-            children: newArrChildren,
+            children: newArrChildren.length > 0 ? newArrChildren : null,
           });
         });
 
@@ -113,7 +113,7 @@ const categorySliceAdmin = createSlice({
               name: val.name,
               name_parent: val.name_parent,
               show: val.show,
-              children: val.categorytrees,
+              children: val.categorytrees ? val.categorytrees : null,
             });
           });
 
@@ -123,7 +123,7 @@ const categorySliceAdmin = createSlice({
             name: value.name,
             name_parent: value.name_parent,
             show: value.show,
-            children: newArrChildren,
+            children: newArrChildren.length > 0 ? newArrChildren : null,
           });
         });
 

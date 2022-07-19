@@ -41,6 +41,7 @@ function Header(props: typeProps) {
                 {/* <i className="fa-light fa-magnifying-glass"></i> */}
                 <i className="fa-brands fa-searchengin"></i>
               </a>
+
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -71,6 +72,8 @@ function Header(props: typeProps) {
                 </div>
               </form>
             </div>
+
+            <div className="header-center-hotline ">Hotline: 0943333333</div>
           </div>
 
           {/* Cart */}
@@ -348,15 +351,11 @@ function Header(props: typeProps) {
 
                   <li className="megamenu-container ">
                     {/* className="sf-with-ul" */}
-                    <Link to={"/buildcustomer"}>
-                      Xây dựng sản phẩm 
-                    </Link>
+                    <Link to={"/buildcustomer"}>Xây dựng sản phẩm</Link>
                   </li>
                 </ul>
               </nav>
             </div>
-
-            
           </div>
         </div>
       </div>

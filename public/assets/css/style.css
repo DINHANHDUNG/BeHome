@@ -567,7 +567,20 @@ blockquote.text-white cite span {
 .header-center {
   margin-left: auto;
   margin-right: auto;
+  justify-content: space-around;
+    width: 100%;
 }
+
+
+.header-center-hotline {
+  border: 1px solid #39f;
+  border-radius: 30px;
+  padding: 10px 30px;
+  font-size: 14px;
+  font-weight: 600;
+  color: orange;
+}
+
 .logo {
   display: block;
   margin-top: 1.55rem;
@@ -1078,7 +1091,7 @@ blockquote.text-white cite span {
   display: flex;
 }
 .header-search .search-wrapper-wide {
-  width: 570px;
+  width: 750px;
 }
 .header-search form {
   margin: 0;
@@ -1479,10 +1492,41 @@ blockquote.text-white cite span {
     width: 1170px;
   }
 }
+
+@media screen and (max-width: 1400px) {
+  .header-search .search-wrapper-wide {
+    width: 600px;
+  }
+
+  .header-search-extended {
+    margin-right: 10rem;
+  }
+  .header-search-extended .btn {
+    flex: 0 0 50px;
+    max-width: 50px;
+  }
+}
+
+@media screen and (max-width: 1319px) {
+  .header-search .search-wrapper-wide {
+    width: 570px;
+  }
+
+  .header-search-extended {
+    margin-right: 10rem;
+  }
+  .header-search-extended .btn {
+    flex: 0 0 50px;
+    max-width: 50px;
+  }
+}
+
 @media screen and (max-width: 1199px) {
   .header-search .search-wrapper-wide {
     width: 480px;
   }
+
+
   .header-search-extended {
     margin-right: 10rem;
   }
@@ -2214,7 +2258,7 @@ blockquote.text-white cite span {
 }
 .menu-vertical li > a {
   color: #666;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 1.3rem;
   letter-spacing: 0;
   padding-top: 0.6rem;
@@ -2234,7 +2278,7 @@ blockquote.text-white cite span {
 .menu-vertical > li > a {
   display: block;
   color: #666;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 1.4rem;
   line-height: 1.5;
   letter-spacing: -0.01em;
@@ -16490,3 +16534,25 @@ button:focus {
     max-height: 128px !important;
   }
 }
+
+
+/* fb */
+._2p3a{
+  width: auto !important;
+}
+.fb-page,
+.fb-page span,
+.fb-page span iframe[style] {
+    max-width: 100% !important;
+}
+
+.fb-page, .fb-page iframe[style], .fb-page span {
+  width: 100% !important;
+}
+.fb-comments, .fb-comments iframe[style], .fb-comments span {
+ width: 100% !important;
+}
+
+.iframe-fb {
+  width: 100%;
+  } 

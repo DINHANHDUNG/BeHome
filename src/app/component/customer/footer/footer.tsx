@@ -150,8 +150,21 @@ function Footer(props: typeProps) {
                 <h4 className="widget-title" style={{ fontWeight: 600 }}>
                   CHÍNH SÁCH BẢO HÀNG
                 </h4>
-
-                <p>{props.company.Company.csbh}</p>
+                <ul className="widget-list">
+                  <li>
+                    <a href="#">Sò Lap</a>
+                  </li>
+                  <li>
+                    <a href="#">Làm thế nào để mua sắm </a>
+                  </li>
+                  <li>
+                    <a href="#">FAQ</a>
+                  </li>
+                  <li>
+                    <a href="#">Liên hệ với chúng tôi</a>
+                  </li>
+                </ul>
+                {/* <p>{props.company.Company.csbh}</p> */}
               </div>
             </div>
 
@@ -160,12 +173,38 @@ function Footer(props: typeProps) {
                 <h4 className="widget-title" style={{ fontWeight: 600 }}>
                   CHÍNH SÁCH ĐỔI TRẢ
                 </h4>
-                <p>{props.company.Company.csdt}</p>
+                <ul className="widget-list">
+                  <li>
+                    <a href="#">Sò Lap</a>
+                  </li>
+                  <li>
+                    <a href="#">Làm thế nào để mua sắm </a>
+                  </li>
+                  <li>
+                    <a href="#">FAQ</a>
+                  </li>
+                  <li>
+                    <a href="#">Liên hệ với chúng tôi</a>
+                  </li>
+                </ul>
+                {/* <p>{props.company.Company.csdt}</p>
+                 */}
               </div>
             </div>
 
             <div className="col-sm-4 col-lg-3">
               <div className="widget" style={{ maxWidth: "400px" }}>
+                <iframe
+                  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FC%25E1%25BB%25ADa-h%25C3%25A0ng-thi%25E1%25BA%25BFt-b%25E1%25BB%258B-v%25E1%25BA%25ADt-t%25C6%25B0-%25C4%2590i%25E1%25BB%2587n-N%25C6%25B0%25E1%25BB%259Bc-Behome-Store-111073668305784%2F%3Fref%3Dpages_you_manage&tabs=none&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
+                  width="100%"
+                  height="130"
+                  data-adapt-container-width="true"
+                  data-width="100%"
+                  style={{ border: "none", overflow: "hidden", width: '100%' }}
+                  scrolling="no"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                ></iframe>
+
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.135277983257!2d105.5011677!3d21.226483599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x156a68cc13e2c209!2zQ-G7rWEgSMOgbmcgxJBp4buHbiAtIE7GsOG7m2MgQkVIT01F!5e0!3m2!1svi!2s!4v1657469735132!5m2!1svi!2s"
                   width="100%"
