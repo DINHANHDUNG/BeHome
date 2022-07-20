@@ -98,7 +98,7 @@ function CategoryProduct() {
     },
 
     {
-      title: "Show",
+      title: "Quản lý trang chủ",
       dataIndex: "show",
       key: "show",
       render: (text: any, row: any, index: any) => (
@@ -106,11 +106,13 @@ function CategoryProduct() {
           {!row.homepage ? (
             <Button
               onClick={() => {
+                
                 // setVisible2(true);
                 dispatch(showCategoryByIdAdmin({ id: row.id })).then(() => {
                   dispatch(getAllCategoryTrees());
                 });
               }}
+              style={{color: "#0a9f15"}}
             >
               Hiện trên trang chủ
             </Button>
@@ -122,6 +124,7 @@ function CategoryProduct() {
                   dispatch(getAllCategoryTrees());
                 });
               }}
+              style={{color: "red"}}
             >
               Ẩn khỏi trang chủ
             </Button>

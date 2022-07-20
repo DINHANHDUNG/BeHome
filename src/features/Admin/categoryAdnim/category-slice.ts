@@ -34,6 +34,7 @@ const categorySliceAdmin = createSlice({
       })
       .addCase(getAllCategoryComboAdmin.fulfilled, (state, action) => {
         const { result } = action.payload;
+        
 
         state.listcategoryCombo = result;
 
@@ -56,7 +57,6 @@ const categorySliceAdmin = createSlice({
       })
       .addCase(getAllCategoryProductAdmin.fulfilled, (state, action) => {
         const { result } = action.payload;
-
         state.listcategoryProduct = result;
 
         state.loading = false;
@@ -135,6 +135,7 @@ const categorySliceAdmin = createSlice({
               name: val.name,
               name_parent: val.name_parent,
               show: val.show,
+              homepage: val.homepage,
               children: val.categorytrees ? val.categorytrees : null,
             });
           });
@@ -145,6 +146,7 @@ const categorySliceAdmin = createSlice({
             name: value.name,
             name_parent: value.name_parent,
             show: value.show,
+            homepage: value.homepage,
             children: newArrChildren.length > 0 ? newArrChildren : null,
           });
         });
@@ -159,6 +161,7 @@ const categorySliceAdmin = createSlice({
               name: val.name,
               name_parent: val.name_parent,
               show: val.show,
+              homepage: val.homepage,
               children: val.categorytrees ? val.categorytrees : null,
             });
           });
@@ -169,6 +172,7 @@ const categorySliceAdmin = createSlice({
             name: value.name,
             name_parent: value.name_parent,
             show: value.show,
+            homepage: value.homepage,
             children: newArrChildren.length > 0 ? newArrChildren : null,
           });
         });

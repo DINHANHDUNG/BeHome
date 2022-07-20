@@ -2,14 +2,14 @@ import { Image } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import { Combo } from "../../../../types/combo";
 import { ProductHomePage } from "../../../../types/product-home-page";
 import Product from "../../product/product";
 import "./slick.css";
 interface propsSlide {
-  product: ProductHomePage;
-  idx?: number;
+  combo: Array<Combo>;
 }
-function SlickCarouselHomePage(props: propsSlide) {
+function SlickComBoCarouselHomePage(props: propsSlide) {
   console.log("props", props);
 
   const settings = {
@@ -23,7 +23,6 @@ function SlickCarouselHomePage(props: propsSlide) {
     speed: 500,
     draggable: false,
     responsive: [
-
       {
         breakpoint: 1280,
         settings: {
@@ -76,11 +75,11 @@ function SlickCarouselHomePage(props: propsSlide) {
           justifyContent: "space-between",
         }}
       >
-        {props.idx === 0 ? "COMBO KHUYẾN MẠI" : props.product.name}
+        {"COMBO KHUYẾN MẠI"}
       </h2>
 
       <Slider {...settings}>
-        {props.product.products.map((e) => (
+        {props.combo.map((e) => (
           <div
             className="slide-home-page"
             style={{ margin: "10px", padding: "10px" }}
@@ -93,7 +92,7 @@ function SlickCarouselHomePage(props: propsSlide) {
   );
 }
 
-export default SlickCarouselHomePage;
+export default SlickComBoCarouselHomePage;
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;

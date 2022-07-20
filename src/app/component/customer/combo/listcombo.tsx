@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Combo } from "../../../types/combo";
 import { ProductHomePage } from "../../../types/product-home-page";
-import Product from "./product";
-interface propsProduct {
-  product: ProductHomePage;
-  idx?: number;
+import Product from "./combo";
+interface propsCombo {
+  combo: Array<Combo>;
 }
-function Listproduct(props: propsProduct) {
+function Listcombo(props: propsCombo) {
   console.log("props", props);
 
   return (
@@ -21,7 +21,7 @@ function Listproduct(props: propsProduct) {
           justifyContent: "space-between",
         }}
       >
-        <span>{props.product?.name}</span>
+        <span>COMBO KHUYẾN MẠI</span>
         {/* <Link
           to={
             props.product.type === "PRODUCT"
@@ -35,19 +35,25 @@ function Listproduct(props: propsProduct) {
       </h2>
 
       <div className="products mb-3">
-        <div className="row" >
+        <div className="row">
           {/* <div className="col-6 col-md-4 col-xl-3">
             <Product />
           </div> */}
 
-          {props.product.products?.length > 0
-            ? props.product.products?.map((value, idx) => (
-                <div className="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2" key={idx}>
+          {props.combo?.length > 0
+            ? props.combo?.map((value, idx) => (
+                <div
+                  className="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2"
+                  key={idx}
+                >
                   <Product value={value} />
                 </div>
               ))
-            : props.product.combos?.map((value, idx) => (
-                <div className="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2" key={idx}>
+            : props.combo?.map((value, idx) => (
+                <div
+                  className="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2"
+                  key={idx}
+                >
                   <Product value={value} />
                 </div>
               ))}
@@ -57,4 +63,4 @@ function Listproduct(props: propsProduct) {
   );
 }
 
-export default Listproduct;
+export default Listcombo;

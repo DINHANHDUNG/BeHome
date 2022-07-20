@@ -131,15 +131,17 @@ function Combo() {
     },
 
     {
-      title: "Show",
+      title: "Quản lý trang chủ",
       dataIndex: "show",
       key: "show",
       render: (text: any, row: any, index: any) => (
         <Space size="middle">
           {!row.homepage ? (
             <Button
+            style={{color: "#0a9f15"}}
               onClick={() => {
                 // setVisible2(true);
+                
                 dispatch(showComboByIdAdmin({ id: row.id })).then(() => {
                   if (visibleSearch) {
                     dispatch(
@@ -170,6 +172,7 @@ function Combo() {
             </Button>
           ) : (
             <Button
+            style={{color: "red"}}
               onClick={() => {
                 // setVisible2(true);
                 dispatch(hiddenComboByIdAdmin({ id: row.id })).then(() => {

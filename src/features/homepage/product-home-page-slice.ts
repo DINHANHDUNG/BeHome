@@ -1,5 +1,6 @@
 import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
 import { openNotification } from "../../app/hooks";
+import { Combo } from "../../app/types/combo";
 import {
   CustomesProductHomePage,
   ProductHomePage,
@@ -7,6 +8,7 @@ import {
 import { getProductHomePage } from "./patchAdmin-api";
 const initialStateAccount: CustomesProductHomePage = {
   listproducthomepage: [] as Array<ProductHomePage>,
+  listcombohomepage: [] as Array<Combo>,
   loading: false,
   error: false,
 };
@@ -26,9 +28,9 @@ const ProductHomePageSlice = createSlice({
         state.loading = true;
       })
       .addCase(getProductHomePage.fulfilled, (state, action) => {
-        const { result } = action.payload;
+        const { result ,combo} = action.payload;
         console.log("result", result);
-
+        state.listcombohomepage = combo;
         state.listproducthomepage = result;
         state.loading = false;
         state.error = false;

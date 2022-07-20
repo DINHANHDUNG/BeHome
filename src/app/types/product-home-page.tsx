@@ -10,10 +10,13 @@ export interface ProductHomePage {
   show: true;
   products: Array<Product>;
   combos: Array<Combo>;
+  combo_products: Array<Combo>;
 }
+
 
 export interface CustomesProductHomePage {
   listproducthomepage: Array<ProductHomePage>;
+  listcombohomepage: Array<Combo>;
   loading: boolean;
   error: boolean;
 }

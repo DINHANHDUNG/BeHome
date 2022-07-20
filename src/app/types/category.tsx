@@ -39,6 +39,7 @@ export interface Category3 {
       name_parent: "";
       name: "Test combo";
       categorytrees: null;
+      homepage: boolean
     }
   ];
   product: [
@@ -47,6 +48,7 @@ export interface Category3 {
       id_parent: null;
       name_parent: "";
       name: "test";
+      homepage: boolean
       categorytrees: [
         {
           id: 4;
@@ -54,6 +56,7 @@ export interface Category3 {
           name_parent: "test";
           name: "Test poduct con";
           categorytrees: null;
+          homepage: boolean
         }
       ];
     }
