@@ -133,7 +133,7 @@ function DetailCombo() {
                   <span>{currency(combo.listCombo[0]?.price)} </span>
                   &nbsp;
                   <del
-                    style={{ fontSize: "13px", opacity: "0.4" }}
+                    style={{ fontSize: "15px", opacity: "0.8" , color: "black"}}
                     className="ml-2"
                   >
                     {currency(total)}
