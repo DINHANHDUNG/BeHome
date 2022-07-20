@@ -614,7 +614,7 @@
   font-weight: 600;
 }
 .footer .widget-about p {
-  max-width: 540px;
+  max-width: 100%;
 }
 .footer .widget-about-info a {
   color: #39f;

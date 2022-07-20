@@ -32,10 +32,10 @@ function Footer(props: typeProps) {
 
                 <ul className="widget-list">
                   <li>
-                    <a href="#">Giới thiệu</a>
+                    <a href="#">Giới thiệu về BeHome</a>
                   </li>
                   <li>
-                    <a href="#">Liên hệ </a>
+                    <a href="#">Liên hệ với BeHome</a>
                   </li>
                 </ul>
               </div>
@@ -132,89 +132,34 @@ function Footer(props: typeProps) {
                   scrolling="no"
                   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                 ></iframe>
-
-                
               </div>
             </div>
           </div>
 
-          <div className="row">
+          <div className="row ">
             <div className="col-sm-8 col-lg-9">
               <div className="widget widget-about">
                 <h4>Showroom BeHome</h4>
-                <p>
+                <p className="mb-0">
                   <span style={{ fontWeight: 600 }}>Địa chỉ</span>:{" "}
                   {props.company.Company.address}
                 </p>
-                <p>
+                <p className="mb-0" >
                   <span style={{ fontWeight: 600 }}>Email</span>:{" "}
-                  {props.company.Company.email}
+                  <a style={{textDecoration: 'underline', color: "#0080ed"}} href={"mailto:" + props.company.Company.email}>
+                    {props.company.Company.email}
+                  </a>
                 </p>
-
-                <div className="widget-about-info">
-                  <div className="row">
-                    <div className="col-sm-6 col-md-4">
-                      <span className="widget-about-title">
-                        Hỗ trợ khách hàng 24/7
-                      </span>
-                      <a href={"tel:" + props.company.Company.phonenumber}>
-                        {props.company.Company.phonenumber}
-                      </a>
-                    </div>
-                    <div
-                      className="col-sm-6 col-md-8"
-                      id="icon-fixed-right"
-                    ></div>
-                  </div>
-                  <p></p>
-                  <div className="row">
-                    <div className="col-sm-12 col-md-12" id="icon-fixed-right">
-                      {/* <span className="widget-about-title mb-2">
-                        Mạng xã hội
-                      </span> */}
-                      <a
-                        href="https://www.facebook.com/C%E1%BB%ADa-h%C3%A0ng-thi%E1%BA%BFt-b%E1%BB%8B-v%E1%BA%ADt-t%C6%B0-%C4%90i%E1%BB%87n-N%C6%B0%E1%BB%9Bc-Behome-Store-111073668305784/?ref=pages_you_manage"
-                        className="mr-3"
-                      >
-                        <i className="icons fab fa-facebook-f"></i>
-                      </a>
-
-                      <a
-                        href="https://www.youtube.com/channel/UCMmbSPuCXy_nClDcYLz4oLQ"
-                        className="mr-3"
-                      >
-                        <i
-                          className="icons fa-brands fa-youtube-square"
-                          style={{ color: "red", fontSize: "40px" }}
-                        ></i>
-                      </a>
-                      <a href="" className="mr-3">
-                        <i
-                          className="icons fa-brands fa-instagram"
-                          style={{ color: "red", fontSize: "40px" }}
-                        ></i>
-                      </a>
-
-                      <a
-                        href="https://www.facebook.com/messages/t/111073668305784"
-                        className="mr-3"
-                      >
-                        <i className="icons fab fa-facebook-messenger"></i>
-                      </a>
-                    </div>
-                    <div className="col-sm-6 col-md-8 ">
-                      {/* <span className="widget-about-title">Thanh toán</span>
-                      <figure className="footer-payments">
-                        <img
-                          src="assets/images/payments.png"
-                          alt="Payment methods"
-                          width="272"
-                          height="20"
-                        />
-                      </figure> */}
-                    </div>
-                  </div>
-                </div>
+                <p className="mb-0">
+                  <span style={{ fontWeight: 600 }}>Số điện thoại</span>:{" "}
+                  <a href={"tel:" + props.company.Company.phonenumber}>
+                    {props.company.Company.phonenumber}
+                  </a>
+                </p>
+                <p className="mb-0">
+                  <span style={{ fontWeight: 600 }}>Giờ mở cửa</span>: Giờ mở
+                  cửa :7h00-18h00 Từ: T2-CN
+                </p>
               </div>
             </div>
 
@@ -223,12 +168,21 @@ function Footer(props: typeProps) {
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.135277983257!2d105.5011677!3d21.226483599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x156a68cc13e2c209!2zQ-G7rWEgSMOgbmcgxJBp4buHbiAtIE7GsOG7m2MgQkVIT01F!5e0!3m2!1svi!2s!4v1657469735132!5m2!1svi!2s"
                   width="100%"
-                  height="300"
+                  height="200"
                   style={{ border: "0" }}
                   loading="lazy"
                 ></iframe>
               </div>
             </div>
+          </div>
+
+          <div
+            className="row"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <p style={{ fontWeight: 600 }}>
+              © Copyright Công Ty TNHH Thương Mại Và Dịch Vụ Behome
+            </p>
           </div>
         </div>
       </div>
