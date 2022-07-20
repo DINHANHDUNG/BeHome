@@ -73,7 +73,9 @@ function Header(props: typeProps) {
               </form>
             </div>
 
-            <div className="header-center-hotline ">Hotline: 0943333333</div>
+            <div className="header-center-hotline ">
+              Hotline: {props.company.Company.phonenumber?.split("-")[0]}
+            </div>
           </div>
 
           {/* Cart */}
