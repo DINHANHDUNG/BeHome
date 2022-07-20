@@ -72,11 +72,22 @@ function SlickCarouselHomePage(props: propsSlide) {
           marginTop: "30px",
           display: "flex",
           flexDirection: "row",
-          alignItems: "center",
+          alignItems: "flex-end",
           justifyContent: "space-between",
         }}
       >
         {props.idx === 0 ? "COMBO KHUYẾN MẠI" : props.product.name}
+        
+        <Link
+          to={
+            props.product.type === "PRODUCT"
+              ? `danhmucproduct/${props.product?.id}`
+              : `danhmuccombo/${props.product?.id}`
+          }
+          style={{ fontSize: "16px", marginRight: '70px'}}
+        >
+          Xem thêm
+        </Link>
       </h2>
 
       <Slider {...settings}>

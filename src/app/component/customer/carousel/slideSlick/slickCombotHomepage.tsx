@@ -76,6 +76,17 @@ function SlickComBoCarouselHomePage(props: propsSlide) {
         }}
       >
         {"COMBO KHUYẾN MẠI"}
+
+        {/* <Link
+          to={
+            props.combo.type === "PRODUCT"
+              ? `danhmucproduct/${props.combo?.id}`
+              : `danhmuccombo/${props.combo?.id}`
+          }
+          style={{ fontSize: "16px" }}
+        >
+          Xem thêm
+        </Link> */}
       </h2>
 
       <Slider {...settings}>
