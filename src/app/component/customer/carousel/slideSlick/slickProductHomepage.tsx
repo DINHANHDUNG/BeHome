@@ -84,9 +84,9 @@ function SlickCarouselHomePage(props: propsSlide) {
               ? `danhmucproduct/${props.product?.id}`
               : `danhmuccombo/${props.product?.id}`
           }
-          style={{ fontSize: "16px", marginRight: '70px'}}
+          style={{ fontSize: "16px", marginRight: '70px',  fontWeight: 400}}
         >
-          Xem thêm
+          Xem tất cả
         </Link>
       </h2>
 

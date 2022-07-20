@@ -80,7 +80,7 @@ function SlickComBoCarouselHomePage(props: propsSlide) {
           to={`danhmuccombo/${0}`}
           style={{ fontSize: "16px", marginRight: "70px" , fontWeight: 400}}
         >
-          Xem thêm tất cả
+          Xem tất cả
         </Link>
         {/* <Link
           to={

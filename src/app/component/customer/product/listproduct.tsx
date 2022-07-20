@@ -28,9 +28,9 @@ function Listproduct(props: propsProduct) {
               ? `danhmucproduct/${props.product?.id}`
               : `danhmuccombo/${props.product?.id}`
           }
-          style={{ fontSize: "16px",}}
+          style={{ fontSize: "16px", fontWeight: 400}}
         >
-          Xem thêm
+          Xem tất cả
         </Link>
         {/* <Link
           to={
