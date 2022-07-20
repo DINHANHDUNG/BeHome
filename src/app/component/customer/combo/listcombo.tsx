@@ -23,7 +23,7 @@ function Listcombo(props: propsCombo) {
       >
         <span>COMBO KHUYẾN MẠI</span>
         <Link to={`danhmuccombo/${0}`} style={{ fontSize: "16px" }}>
-          Xem thêm
+          Xem thêm tất cả
         </Link>
         {/* <Link
           to={

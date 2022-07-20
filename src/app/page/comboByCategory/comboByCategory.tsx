@@ -42,7 +42,7 @@ function ComboByCategory() {
             <div className="toolbox">
               <div className="toolbox-left">
                 <div className="toolbox-info" style={{ fontWeight: 500 }}>
-                  {combo.categoryname}
+                  {Number(ID) === 0 ? "TẤT CẢ COMBO" : combo.categoryname}
                 </div>
               </div>
 
