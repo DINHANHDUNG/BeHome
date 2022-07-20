@@ -5,6 +5,8 @@ export interface Company {
   email: string;
   csdt: string;
   csbh: string;
+  qdtt: string;
+  csvc: string;
   images: Array<image>;
 }
 

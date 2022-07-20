@@ -129,6 +129,8 @@ function Company() {
                 email: company.Company.email,
                 csdt: company.Company.csdt,
                 csbh: company.Company.csbh,
+                csvc: company.Company.csvc,
+                qdtt: company.Company.qdtt,
               }}
               onFinish={onFinish}
               autoComplete="off"
@@ -183,7 +185,33 @@ function Company() {
                   <Form.Item
                     label="Chính sách bảo hành"
                     name="csbh"
-                    rules={[{ required: true, message: "Nhập chính sách bảo hành!" }]}
+                    rules={[
+                      { required: true, message: "Nhập chính sách bảo hành!" },
+                    ]}
+                  >
+                    <TextArea rows={6} />
+                  </Form.Item>
+                </Col>
+                <Col xs={24} xl={12}>
+                  <Form.Item
+                    label="Chính sách vận chuyển"
+                    name="csvc"
+                    rules={[
+                      { required: true, message: "Nhập chính sách vận chuyển!" },
+                    ]}
+                  >
+                    <TextArea rows={6} />
+                  </Form.Item>
+                </Col>
+              </Row>
+              <Row gutter={[24, 0]}>
+                <Col xs={24} xl={12}>
+                  <Form.Item
+                    label="Quy định thanh toán"
+                    name="qdtt"
+                    rules={[
+                      { required: true, message: "Nhập quy định thanh toán!" },
+                    ]}
                   >
                     <TextArea rows={6} />
                   </Form.Item>
@@ -194,13 +222,13 @@ function Company() {
                     name="csdt"
                     rules={[
                       { required: true, message: "Nhập chính sách đổi trả!" },
-                      
                     ]}
                   >
                     <TextArea rows={6} />
                   </Form.Item>
                 </Col>
               </Row>
+
               <h5>Danh sách banner</h5>
               <Row gutter={[0, 0]}>
                 {fileIMG?.map((value: any, idx: any) => {
