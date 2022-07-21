@@ -186,10 +186,10 @@ function CheckOut() {
                         <td>Tạm tính:</td>
                         <td>{currency(cart.totalmoney)}</td>
                       </tr>
-                      <tr>
+                      {/* <tr>
                         <td>Shipping:</td>
                         <td>Free shipping</td>
-                      </tr>
+                      </tr> */}
                       <tr className="summary-total">
                         <td>Thành tiền:</td>
                         <td>{currency(cart.totalmoney)}</td>
@@ -201,6 +201,7 @@ function CheckOut() {
                     <button
                       type="submit"
                       className="btn btn-outline-primary-2 btn-order btn-block"
+                      style={{fontSize: "16px", fontWeight: "500"}}
                     >
                       <span className="btn-text">Đặt hàng</span>
                       <span className="btn-hover-text">Đặt hàng</span>

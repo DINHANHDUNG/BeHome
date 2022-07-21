@@ -113,12 +113,12 @@ function CartShopping() {
                       <td>Tạm tính:</td>
                       <td>{currency(cart.totalmoney)}</td>
                     </tr>
-                    <tr className="summary-shipping">
+                    {/* <tr className="summary-shipping">
                       <td>Shipping:</td>
                       <td>&nbsp;</td>
-                    </tr>
+                    </tr> */}
 
-                    <tr className="summary-shipping-row">
+                    {/* <tr className="summary-shipping-row">
                       <td>
                         <div className="custom-control custom-radio">
                           <input
@@ -137,7 +137,7 @@ function CartShopping() {
                         </div>
                       </td>
                       <td>$0.00</td>
-                    </tr>
+                    </tr> */}
 
                     <tr className="summary-total">
                       <td>Thành tiền:</td>

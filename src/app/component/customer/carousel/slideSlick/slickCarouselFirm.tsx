@@ -26,7 +26,7 @@ function SlickCarousel(props: { value: any; toggle: any }) {
     <div className="slide-detailproduct mt-3">
       <Slider {...settings}>
         {props.value?.map((v: any) => (
-          <div style={{ cursor: "pointer" }}>
+          <div className="slide-detailproduct-item" style={{ cursor: "pointer", }}>
             <img
               onMouseEnter={() => {
                 setAutoPlay(false);

@@ -75,7 +75,7 @@ function SlickComBoCarouselHomePage(props: propsSlide) {
           justifyContent: "space-between",
         }}
       >
-        {"COMBO KHUYẾN MẠI"}
+        {"Combo Sản Phẩm"}
         <Link
           to={`danhmuccombo/${0}`}
           style={{ fontSize: "16px", marginRight: "70px" , fontWeight: 400}}

@@ -124,20 +124,45 @@ function DetailCombo() {
 
             <div className="col-md-6">
               <div className="product-details">
-                <h1 className="product-title">{combo.listCombo[0]?.name}</h1>
+                <h1 className="product-title" style={{ fontWeight: "500" }}>
+                  {combo.listCombo[0]?.name}
+                </h1>
 
                 <div
                   className="product-price"
-                  style={{ justifyContent: "left" }}
+                  style={{ justifyContent: "left", fontWeight: "500" }}
                 >
-                  <span>{currency(combo.listCombo[0]?.price)} </span>
+                  <span>
+                    {combo.listCombo[0]?.price
+                      ? currency(combo.listCombo[0]?.price)
+                      : "Liên hệ"}
+                  </span>
                   &nbsp;
-                  <del
-                    style={{ fontSize: "15px", opacity: "0.8" , color: "black"}}
-                    className="ml-2"
-                  >
-                    {currency(total)}
-                  </del>{" "}
+                  {combo.listCombo[0]?.price ? (
+                    <del
+                      style={{
+                        fontSize: "15px",
+                        opacity: "0.8",
+                        color: "black",
+                      }}
+                      className="ml-2"
+                    >
+                      {currency(total)}
+                    </del>
+                  ) : null}
+                  &nbsp;
+                  {combo.listCombo[0]?.price ? (
+                    <span
+                      style={{
+                        fontSize: "15px",
+                        opacity: "0.8",
+                        color: "#d30808f7",
+                      }}
+                      className="ml-2"
+                    >
+                      tiết kiệm: {currency(total - combo.listCombo[0]?.price)}
+                    </span>
+                  ) : null}
                 </div>
 
                 <div className="product-content mb-3">
@@ -179,7 +204,17 @@ function DetailCombo() {
                   marginLeft: "0px",
                 }}
               />
-              <ComponentVideo link={combo.listCombo[0]?.linkvideo} />
+              <div
+                style={{
+                  width: "100%",
+                  // display: "flex",
+                  // justifyContent: "center",
+                  textAlign: "center",
+                }}
+              >
+                <ComponentVideo link={combo.listCombo[0]?.linkvideo} />
+              </div>
+
               <hr
                 style={{
                   marginTop: "10px",

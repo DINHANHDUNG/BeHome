@@ -68,7 +68,7 @@ function Product(props: propsProduct) {
         {/* <div className="product-cat">
           <a href="#">{props.value.name}</a>
         </div> */}
-        <h3 className="product-title">
+        <h3 className="product-title"style={{fontWeight: '500'}}>
           <Link
             to={
               props.value.category.type === "PRODUCT"
@@ -79,7 +79,7 @@ function Product(props: propsProduct) {
             {props.value.name?.toUpperCase()}
           </Link>
         </h3> 
-        <div className="product-price">
+        <div className="product-price" style={{fontWeight: '500'}}>
           {props.value.price ? currency(props.value.price) : "Liên hệ"}
         </div>
       </div>

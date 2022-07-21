@@ -21,7 +21,7 @@ function Listcombo(props: propsCombo) {
           justifyContent: "space-between",
         }}
       >
-        <span>COMBO KHUYẾN MẠI</span>
+        <span>Combo Sản Phẩm</span>
         <Link to={`danhmuccombo/${0}`} style={{ fontSize: "16px" , fontWeight: 400}}>
           Xem tất cả
         </Link>

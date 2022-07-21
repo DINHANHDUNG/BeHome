@@ -117,15 +117,19 @@ function DetailProduct() {
 
             <div className="col-md-6">
               <div className="product-details">
-                <h1 className="product-title">
+                <h1 className="product-title" style={{ fontWeight: "500" }}>
                   {products?.listproduct[0]?.name}
                 </h1>
 
                 <div
                   className="product-price"
-                  style={{ justifyContent: "left" }}
+                  style={{ justifyContent: "left", fontWeight: "500" }}
                 >
-                  <span>{currency(products?.listproduct[0]?.price)}</span>
+                  <span>
+                    {products?.listproduct[0]?.price
+                      ? currency(products?.listproduct[0]?.price)
+                      : "Liên hệ"}
+                  </span>
                   &nbsp;
                   {/* <del style={{ fontSize: "13px", opacity: "0.4" }}>
                     {Numberformat(3000000000)} VNĐ
@@ -166,7 +170,10 @@ function DetailProduct() {
               </div>
             </div>
           </div>
-
+          <ComponentInfoDetail
+            productdetails={products?.listproduct[0]?.productdetails}
+            describe={products?.listproduct[0]?.describe}
+          />
           <div className="row">
             <div className="col-md-12">
               <h4>Video</h4>
@@ -178,7 +185,16 @@ function DetailProduct() {
                   marginLeft: "0px",
                 }}
               />
-              <ComponentVideo link={products.listproduct[0]?.linkvideo} />
+              <div
+                style={{
+                  width: "100%",
+                  // display: "flex",
+                  // justifyContent: "center",
+                }}
+              >
+                <ComponentVideo link={products.listproduct[0]?.linkvideo} />
+              </div>
+
               <hr
                 style={{
                   marginTop: "10px",
@@ -189,11 +205,6 @@ function DetailProduct() {
               />
             </div>
           </div>
-
-          <ComponentInfoDetail
-            productdetails={products?.listproduct[0]?.productdetails}
-            describe={products?.listproduct[0]?.describe}
-          />
 
           <div className="row">
             <div className="col-md-12">

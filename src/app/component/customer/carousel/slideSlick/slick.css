@@ -1,8 +1,11 @@
 .slick-slide {
-    padding: 0px !important;
+  padding: 0px !important;
 }
 
-
 .slide-home-page {
-    padding: 10px !important;
+  padding: 10px !important;
+}
+
+.slide-detailproduct-item {
+  border: 1px solid #333 !important;
 }

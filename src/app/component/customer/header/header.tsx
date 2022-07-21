@@ -73,9 +73,12 @@ function Header(props: typeProps) {
               </form>
             </div>
 
-            <div className="header-center-hotline ">
-              Hotline: {props.company.Company.phonenumber?.split("-")[0]}
-            </div>
+            <a href={"tel:" + props.company.Company.phonenumber}>
+              <div className="header-center-hotline ">
+                <i className="fa-solid fa-phone"></i> Hotline:{" "}
+                {props.company.Company.phonenumber?.split("-")[0]}
+              </div>
+            </a>
           </div>
 
           {/* Cart */}
@@ -106,7 +109,7 @@ function Header(props: typeProps) {
       <div className="header-bottom sticky-header">
         <div className="container-fluid d-block">
           <div className="row">
-            <div className="col-lg-3">
+            <div className="col-lg-3 ">
               <div className="dropdown category-dropdown">
                 <a
                   href="#"
@@ -337,7 +340,7 @@ function Header(props: typeProps) {
               </div>
             </div>
 
-            <div className="col-lg-9">
+            <div className="col-lg-9 ">
               <nav className="main-nav">
                 <ul className="menu sf-arrows">
                   {/* active Thêm gạch chân */}

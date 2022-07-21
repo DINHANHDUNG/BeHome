@@ -52,7 +52,7 @@ function BoxComboProduct(props: PropsComboProduct) {
                 </div>
 
                 <div className="icon-boxCombo-info-product">
-                  <Link to={"/detailproduct/" + val.id_product} style={{ color: "#d30808f7", cursor: "pointer" }}>
+                  <Link to={"/detailproduct/" + val.id_product} style={{ color: "#d30808f7", cursor: "pointer", fontWeight: '500' }}>
                     {val.product?.name}
                   </Link>
 

@@ -68,7 +68,7 @@ function Product(props: propsProduct) {
         {/* <div className="product-cat">
           <a href="#">{props.value.name}</a>
         </div> */}
-        <h3 className="product-title">
+        <h3 className="product-title" style={{fontWeight: '500'}}>
           <Link
             to={
               props.value.category.type === "PRODUCT"
