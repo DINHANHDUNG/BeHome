@@ -13,11 +13,17 @@ import BuildDesign from "../../page/build/build";
 import CartShopping from "../../page/cartShopping/cartShopping";
 import CheckOut from "../../page/checkout/checkOut";
 import ComboByCategory from "../../page/comboByCategory/comboByCategory";
+import Contact from "../../page/contact/contact";
 import DetailCombo from "../../page/detail/DetailCombo";
 import DetailProduct from "../../page/detail/DetailProduct";
 import Home from "../../page/home/home";
+import Introduce from "../../page/introduce/introduce";
+import PaymentTerms from "../../page/paymentTerms/paymentTerms";
 import ProductByCategory from "../../page/productByCategory/productByCategory";
+import RefundPolicy from "../../page/refundPolicy/refundPolicy";
 import Searchproduct from "../../page/searchproduct/searchproduct";
+import ShippingPolicy from "../../page/shippingPolicy/shippingPolicy";
+import WarrantyPolicy from "../../page/warrantyPolicy/warrantyPolicy";
 
 function LayoutCustomer() {
   const dispatch = useAppDispatch();
@@ -68,6 +74,12 @@ function LayoutCustomer() {
           <Route path="cart" element={<CartShopping />} />
           <Route path="checkout" element={<CheckOut />} />
           <Route path="buildcustomer" element={<BuildDesign />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="introduce" element={<Introduce />} />
+          <Route path="warrantyPolicy" element={<WarrantyPolicy company={company}/>} />
+          <Route path="shippingPolicy" element={<ShippingPolicy company={company}/>} />
+          <Route path="refundPolicy" element={<RefundPolicy company={company}/>} />
+          <Route path="paymentTerms" element={<PaymentTerms company={company}/>} />
         </Routes>
 
         <Footer company={company} />

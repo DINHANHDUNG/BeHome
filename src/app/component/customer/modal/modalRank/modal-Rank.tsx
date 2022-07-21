@@ -68,7 +68,7 @@ function ModalRank(props: propsModalRank) {
 
   return (
     <Modal
-      title={props.value?.id > 0 ? "Sửa rank" : "Thêm rank"}
+      title={props.value?.id > 0 ? "Sửa phân khúc" : "Thêm phân khúc"}
       centered
       visible={props.visible}
       onOk={() => props.toggle()}

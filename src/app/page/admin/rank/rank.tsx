@@ -64,7 +64,7 @@ function Rank() {
     },
 
     {
-      title: "Rank",
+      title: "Phân khúc",
       dataIndex: "name",
       key: "name",
       // render: (text: any, row: any, index: any) => row.rank?.name,
@@ -93,7 +93,7 @@ function Rank() {
           <Card
             bordered={false}
             className="criclebox tablespace mb-24"
-            title="Quản lý rank"
+            title="Quản lý phân khúc"
             extra={
               <>
                 <Button

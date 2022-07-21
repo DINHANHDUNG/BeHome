@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { CustomesCompany } from "../../../types/company";
 // import logo2 from "../../../assets/images/logo/logo2.png";
 
@@ -6,6 +7,8 @@ interface typeProps {
   company: CustomesCompany;
 }
 function Footer(props: typeProps) {
+  console.log(props.company);
+  
   return (
     <footer className="footer footer-2">
       <div
@@ -32,10 +35,10 @@ function Footer(props: typeProps) {
 
                 <ul className="widget-list">
                   <li>
-                    <a href="#">Giới thiệu về BeHome</a>
+                    <Link to={"/introduce"}>Giới thiệu về BeHome</Link>
                   </li>
                   <li>
-                    <a href="#">Liên hệ với BeHome</a>
+                    <Link to={"/contact"}>Liên hệ với BeHome</Link>
                   </li>
                 </ul>
               </div>
@@ -48,16 +51,16 @@ function Footer(props: typeProps) {
                 </h4>
                 <ul className="widget-list">
                   <li>
-                    <a href="#">Chính sách đổi trả hàng</a>
+                    <Link to={"/refundPolicy"}>Chính sách đổi trả hàng</Link>
                   </li>
                   <li>
-                    <a href="#">Chính sách bảo hành</a>
+                    <Link to={"/warrantyPolicy"}>Chính sách bảo hành</Link>
                   </li>
                   <li>
-                    <a href="#">Chính sách vận chuyển</a>
+                    <Link to={"/shippingPolicy"}>Chính sách vận chuyển</Link>
                   </li>
                   <li>
-                    <a href="#">Quy định thanh toán</a>
+                    <Link to={"/paymentTerms"}>Quy định thanh toán</Link>
                   </li>
                 </ul>
                 {/* <p>{props.company.Company.csbh}</p> */}
@@ -144,9 +147,12 @@ function Footer(props: typeProps) {
                   <span style={{ fontWeight: 600 }}>Địa chỉ</span>:{" "}
                   {props.company.Company.address}
                 </p>
-                <p className="mb-0" >
+                <p className="mb-0">
                   <span style={{ fontWeight: 600 }}>Email</span>:{" "}
-                  <a style={{textDecoration: 'underline', color: "#0080ed"}} href={"mailto:" + props.company.Company.email}>
+                  <a
+                    style={{ textDecoration: "underline", color: "#0080ed" }}
+                    href={"mailto:" + props.company.Company.email}
+                  >
                     {props.company.Company.email}
                   </a>
                 </p>
