@@ -88,10 +88,10 @@ function DetailCombo() {
 
                 {/*thêm className active thêm viền xanh */}
 
-                <div
+                {/* <div
                   id="product-zoom-gallery"
                   className="product-image-gallery"
-                >
+                > */}
                   {img?.length > 4 ? (
                     <SlickCarousel
                       value={img}
@@ -101,7 +101,6 @@ function DetailCombo() {
                     <div
                       id="product-zoom-gallery"
                       className="product-image-gallery"
-                      style={{border: "1px"}}
                     >
                       {img?.map((value: any) => (
                         <a
@@ -122,7 +121,7 @@ function DetailCombo() {
                   )}
                 </div>
               </div>
-            </div>
+            {/* </div> */}
 
             <div className="col-md-6">
               <div className="product-details">

@@ -72,7 +72,7 @@ function DetailProduct() {
                       dispayIMG?.imagename
                     }
                     alt="product image"
-                    style={{ maxHeight: "500px", objectFit: "contain" }}
+                    style={{ maxHeight: "500px", objectFit: "contain", }}
                   />
 
                   <a

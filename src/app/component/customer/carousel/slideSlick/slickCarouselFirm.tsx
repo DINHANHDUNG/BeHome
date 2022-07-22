@@ -22,11 +22,17 @@ function SlickCarousel(props: { value: any; toggle: any }) {
     // prevArrow: <SamplePrevArrow />,
   };
 
+  console.log(props.value);
+  
+
   return (
     <div className="slide-detailproduct mt-3">
       <Slider {...settings}>
         {props.value?.map((v: any) => (
-          <div className="slide-detailproduct-item" style={{ cursor: "pointer", }}>
+          <div
+            className="slide-detailproduct-item"
+            style={{ cursor: "pointer", }}
+          >
             <img
               onMouseEnter={() => {
                 setAutoPlay(false);
@@ -39,7 +45,8 @@ function SlickCarousel(props: { value: any; toggle: any }) {
               style={{
                 maxHeight: "130px",
                 padding: "10px",
-                objectFit: "cover",
+                objectFit: "contain",
+                border: "1px solid #039",
               }}
             />
           </div>

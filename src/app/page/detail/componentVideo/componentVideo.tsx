@@ -2,8 +2,19 @@ import React, { useEffect, useState } from "react";
 interface PropsVideo {
   link: string;
 }
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height,
+  };
+}
+
 function ComponentVideo(props: PropsVideo) {
   const [linkVideo, setLinkVideo] = useState("");
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  );
   useEffect(() => {
     getId(props.link);
   }, [props.link]);
@@ -17,13 +28,11 @@ function ComponentVideo(props: PropsVideo) {
     return match && match[2].length === 11 ? match[2] : null;
   }
   return (
-    <div style={{ maxWidth: "60%", margin: "0 auto" }}>
-      
-
+    <div className="container-video">
       {props.link ? (
         <iframe
           width="100%"
-          height="589"
+          height="500"
           src={"https://www.youtube.com/embed/" + linkVideo}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -32,8 +41,6 @@ function ComponentVideo(props: PropsVideo) {
       ) : (
         "Chưa có video"
       )}
-
-      
     </div>
   );
 }
