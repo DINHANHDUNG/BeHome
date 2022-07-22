@@ -100,6 +100,7 @@ function DetailCombo() {
                     <div
                       id="product-zoom-gallery"
                       className="product-image-gallery"
+                      style={{border: "1px"}}
                     >
                       {img?.map((value: any) => (
                         <a

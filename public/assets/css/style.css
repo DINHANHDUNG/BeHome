@@ -10579,19 +10579,19 @@ button:focus {
 .product-image-gallery {
   display: flex;
   flex-flow: row wrap;
-  margin-left: -0.5rem;
+  /* margin-left: -0.5rem; */
   margin-right: -0.5rem;
 }
 .product-gallery-item {
   position: relative;
   display: block;
-  flex: 0 0 25%;
-  max-width: 25%;
+  flex: 0 0 23%;
+  max-width: 23%;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   margin-bottom: 1rem;
-  /* border: 1px solid #333;
-  margin: 6px; */
+  border: 1px solid #333;
+  margin: 1px;
 }
 .max-col-6 .product-gallery-item {
   flex: 0 0 16.66%;
