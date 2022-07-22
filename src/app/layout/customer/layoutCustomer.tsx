@@ -74,7 +74,7 @@ function LayoutCustomer() {
           <Route path="cart" element={<CartShopping />} />
           <Route path="checkout" element={<CheckOut />} />
           <Route path="buildcustomer" element={<BuildDesign />} />
-          <Route path="contact" element={<Contact />} />
+          <Route path="contact" element={<Contact company={company}/>} />
           <Route path="introduce" element={<Introduce />} />
           <Route path="warrantyPolicy" element={<WarrantyPolicy company={company}/>} />
           <Route path="shippingPolicy" element={<ShippingPolicy company={company}/>} />
