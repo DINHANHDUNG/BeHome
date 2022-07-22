@@ -45,7 +45,7 @@ function DetailCombo() {
     }
     var newtotal = 0;
     combo.listCombo[0]?.combo_products?.map((val) => {
-      newtotal = newtotal + val.product.price;
+      newtotal = newtotal + (val.product.price * val.amountproduct);
     });
 
     setTotal(newtotal);
