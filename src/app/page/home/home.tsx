@@ -21,14 +21,14 @@ function Home(props: typeProps) {
     <div className="container-fluid">
       <Banner2 Company={props.company.Company} />
 
-      {products.listcombohomepage.length > 6 ? (
+      {products.listcombohomepage?.length > 6 ? (
         <SlickComBoCarouselHomePage combo={products.listcombohomepage} />
       ) : (
         <Listcombo combo={products.listcombohomepage} />
       )}
 
       {products.listproducthomepage.map((val, idx) =>
-        val.products.length > 6 ? (
+        val.products?.length > 6 ? (
           <SlickCarouselHomePage product={val} />
         ) : (
           <Listproduct product={val} idx={idx} />
