@@ -72,7 +72,7 @@ function DetailProduct() {
                       dispayIMG?.imagename
                     }
                     alt="product image"
-                    style={{ maxHeight: "500px", objectFit: "cover" }}
+                    style={{ maxHeight: "500px", objectFit: "contain" }}
                   />
 
                   <a
@@ -98,7 +98,7 @@ function DetailProduct() {
                     {img?.map((value: any) => (
                       <a
                         key={value.id}
-                        className="product-gallery-item"
+                        className="product-gallery-item active"
                         onClick={() => setDisplayIMG(value)}
                       >
                         <img

@@ -23,7 +23,7 @@ function Banner2(props: { Company: Company }) {
             key={idx}
             src={"http://103.173.155.138:5500/images/" + val.imagename}
             alt=""
-            style={{ height: "100%", objectFit: "cover" }}
+            style={{ height: "100%", objectFit: "contain" }}
           />
         ))}
       </Slider>
