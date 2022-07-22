@@ -48,7 +48,7 @@ function Mobilemenu() {
               }}
               required
             />
-            <button className="btn btn-primary close-menu-mobile" type="submit">
+            <button className="btn btn-primary" type="submit">
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
           </form>
