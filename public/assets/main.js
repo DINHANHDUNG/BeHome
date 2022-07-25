@@ -36,20 +36,13 @@ jQuery(document).ready(function ($) {
   });
 
   // Mobile Menu Toggle - Show & Hide
-  if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
-    $('.mobile-menu-toggler, .close-menu-mobile').on('click', function(){
-         $('.body').removeAttr('style');
-         $(this).css("display", "none");
-            });
-     }
-
-  $(".mobile-menu-toggler, .close-menu-mobile").on("click", function (e) {
+  $(".mobile-menu-toggler").on("click", function (e) {
     $("body").toggleClass("mmenu-active");
     $(this).toggleClass("active");
     e.preventDefault();
   });
 
-  $(".mobile-menu-overlay, .mobile-menu-close, .close-menu-mobile").on(
+  $(".mobile-menu-overlay, .mobile-menu-close, close-menu-mobile").on(
     "click",
     function (e) {
       $("body").removeClass("mmenu-active");

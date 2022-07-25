@@ -73,13 +73,13 @@ $(document).ready(function () {
   }
 
   // Mobile Menu Toggle - Show & Hide
-  $(".mobile-menu-toggler, .close-menu-mobile").on("click", function (e) {
+  $(".mobile-menu-toggler").on("click", function (e) {
     $body.toggleClass("mmenu-active");
     $(this).toggleClass("active");
     e.preventDefault();
   });
 
-  $(".mobile-menu-overlay, .mobile-menu-close, .close-menu-mobile").on("click", function (e) {
+  $(".mobile-menu-overlay, .mobile-menu-close").on("click", function (e) {
     $body.removeClass("mmenu-active");
     $(".menu-toggler").removeClass("active");
     e.preventDefault();
@@ -351,10 +351,6 @@ $(document).ready(function () {
       }
     });
   }
-
-  $('.navbar-collapse a').click(function() {
-    $(".navbar-collapse").collapse('hide');
-  });
 
   // Product Gallery - product-gallery.html
   if ($.fn.owlCarousel && $.fn.elevateZoom) {
