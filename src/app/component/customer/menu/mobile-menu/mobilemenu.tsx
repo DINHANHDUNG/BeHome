@@ -22,7 +22,7 @@ function Mobilemenu() {
 
       <div className="mobile-menu-container mobile-menu-light">
         <div className="mobile-menu-wrapper">
-          <span className="mobile-menu-close">
+          <span className="mobile-menu-close" onClick={()=>document.body.classList.remove('mmenu-active')}>
             <i className="fa-solid fa-align-justify"></i>
           </span>
 
