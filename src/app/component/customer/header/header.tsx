@@ -25,7 +25,10 @@ function Header(props: typeProps) {
       <div className="header-middle">
         <div className="container-fluid">
           <div className="header-left">
-            <button className="mobile-menu-toggler">
+            <button
+              className="mobile-menu-toggler"
+              onClick={() => document.body.classList.add("mmenu-active")}
+            >
               <span className="sr-only">Toggle mobile menu</span>
               <i className="icon-bars"></i>
             </button>
