@@ -7,7 +7,12 @@ import {
   toggleAmountProduct,
 } from "../../../features/cart/cart-slice";
 import { CartStore } from "../../../use-selector";
-import { currency, Numberformat, useAppDispatch, useAppSelector } from "../../hooks";
+import {
+  currency,
+  Numberformat,
+  useAppDispatch,
+  useAppSelector,
+} from "../../hooks";
 
 function CartShopping() {
   const cart = useAppSelector(CartStore);
@@ -150,6 +155,11 @@ function CartShopping() {
                   <Link
                     to={"/checkout"}
                     className="btn btn-outline-primary-2 btn-order btn-block"
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: "500",
+                      textTransform: "uppercase",
+                    }}
                   >
                     Tiến hành đặt hàng
                   </Link>

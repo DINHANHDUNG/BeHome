@@ -201,7 +201,11 @@ function CheckOut() {
                     <button
                       type="submit"
                       className="btn btn-outline-primary-2 btn-order btn-block"
-                      style={{fontSize: "16px", fontWeight: "500"}}
+                      style={{
+                        fontSize: "13px",
+                        fontWeight: "500",
+                        textTransform: "uppercase",
+                      }}
                     >
                       <span className="btn-text">Đặt hàng</span>
                       <span className="btn-hover-text">Đặt hàng</span>
