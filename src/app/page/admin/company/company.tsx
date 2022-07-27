@@ -241,9 +241,9 @@ function Company() {
                           height={150}
                           src={
                             // value.split(".").length > 1
-                            //   ? "http://103.173.155.138:5500/images/" + value
+                            //   ? "http://103.137.184.193:5500/images/" + value
                             //   : "https://cf.shopee.vn/file/" + value
-                            "http://103.173.155.138:5500/images/" +
+                            "http://103.137.184.193:5500/images/" +
                             value.imagename
                           }
                         />

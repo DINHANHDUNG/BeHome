@@ -4852,6 +4852,33 @@ p {
   background: red;
   margin-top: 5px;
 }
+
+.footer .widget-title1::after {
+  display: block;
+  content: "";
+  height: 2px;
+  width: 94px;
+  background: red;
+  margin-top: 5px;
+}
+
+.footer .widget-title2::after {
+  display: block;
+  content: "";
+  height: 2px;
+  width: 275px;
+  background: red;
+  margin-top: 5px;
+}
+
+.footer .widget-title3::after {
+  display: block;
+  content: "";
+  height: 2px;
+  width: 260px;
+  background: red;
+  margin-top: 5px;
+}
 .footer-middle {
   padding: 6.7rem 0 2.2rem;
   border-top: 0.1rem solid #ebebeb;

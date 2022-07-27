@@ -70,7 +70,7 @@ function DetailCombo() {
                   <img
                     id="product-zoom"
                     src={
-                      "http://103.173.155.138:5500/images/" +
+                      "http://103.137.184.193:5500/images/" +
                       dispayIMG?.imagename
                     }
                     alt="product image"
@@ -110,7 +110,7 @@ function DetailCombo() {
                         >
                           <img
                             src={
-                              "http://103.173.155.138:5500/images/" +
+                              "http://103.137.184.193:5500/images/" +
                               value?.imagename
                             }
                             alt="product side"

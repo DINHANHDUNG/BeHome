@@ -40,7 +40,7 @@ function SlickCarousel(props: { value: any; toggle: any }) {
               onClick={() => props.toggle(v)}
               onMouseLeave={() => setAutoPlay(true)}
               width={"100%"}
-              src={"http://103.173.155.138:5500/images/" + v?.imagename}
+              src={"http://103.137.184.193:5500/images/" + v?.imagename}
               alt="product side"
               style={{
                 maxHeight: "130px",

@@ -35,7 +35,7 @@ function BoxComboProduct(props: PropsComboProduct) {
                   {val.product.images?.length > 0 ? (
                     <img
                       src={
-                        "http://103.173.155.138:5500/images/" +
+                        "http://103.137.184.193:5500/images/" +
                         val.product?.images?.find(
                           (x: any) => x.type === "1" || x.type === "MAIN"
                         ).imagename

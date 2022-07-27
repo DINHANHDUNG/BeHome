@@ -21,7 +21,7 @@ function Banner2(props: { Company: Company }) {
         {props.Company.images?.map((val, idx) => (
           <img
             key={idx}
-            src={"http://103.173.155.138:5500/images/" + val.imagename}
+            src={"http://103.137.184.193:5500/images/" + val.imagename}
             alt=""
             style={{ height: "100%", objectFit: "contain" }}
           />

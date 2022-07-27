@@ -226,7 +226,7 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
                                     <Image
                                       src={
                                         val.combo?.images
-                                          ? "http://103.173.155.138:5500/images/" +
+                                          ? "http://103.137.184.193:5500/images/" +
                                             val.combo?.images[0]?.imagename
                                           : ""
                                       }
@@ -271,7 +271,7 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
                                     <Image
                                       src={
                                         val.product?.images
-                                          ? "http://103.173.155.138:5500/images/" +
+                                          ? "http://103.137.184.193:5500/images/" +
                                             val.product?.images[0]?.imagename
                                           : ""
                                       }

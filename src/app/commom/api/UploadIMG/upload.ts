@@ -15,7 +15,7 @@ const uploadIMGAdminAPI = {
 export default uploadIMGAdminAPI;
 
 const axiosClientupload = axios.create({
-  baseURL: "http://103.173.155.138:5000/",
+  baseURL: "http://103.137.184.193:5000/",
   headers: {
     "content-type": "application/json",
   },

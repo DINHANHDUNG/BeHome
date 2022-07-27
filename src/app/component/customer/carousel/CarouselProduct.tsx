@@ -68,7 +68,7 @@ function CarouselProduct(props: propsProduct) {
               </span>
               <a href="product.html">
                 <img
-                  src="http://103.173.155.138:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
+                  src="http://103.137.184.193:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
                   alt="Product image"
                   className="product-image"
                 />
@@ -122,7 +122,7 @@ function CarouselProduct(props: propsProduct) {
               </span>
               <a href="product.html">
                 <img
-                  src="http://103.173.155.138:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
+                  src="http://103.137.184.193:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
                   alt="Product image"
                   className="product-image"
                 />
@@ -176,7 +176,7 @@ function CarouselProduct(props: propsProduct) {
               </span>
               <a href="product.html">
                 <img
-                  src="http://103.173.155.138:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
+                  src="http://103.137.184.193:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
                   alt="Product image"
                   className="product-image"
                 />
@@ -230,7 +230,7 @@ function CarouselProduct(props: propsProduct) {
               </span>
               <a href="product.html">
                 <img
-                  src="http://103.173.155.138:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
+                  src="http://103.137.184.193:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
                   alt="Product image"
                   className="product-image"
                 />
@@ -284,7 +284,7 @@ function CarouselProduct(props: propsProduct) {
               </span>
               <a href="product.html">
                 <img
-                  src="http://103.173.155.138:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
+                  src="http://103.137.184.193:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
                   alt="Product image"
                   className="product-image"
                 />
@@ -338,7 +338,7 @@ function CarouselProduct(props: propsProduct) {
               </span>
               <a href="product.html">
                 <img
-                  src="http://103.173.155.138:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
+                  src="http://103.137.184.193:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
                   alt="Product image"
                   className="product-image"
                 />
@@ -392,7 +392,7 @@ function CarouselProduct(props: propsProduct) {
               </span>
               <a href="product.html">
                 <img
-                  src="http://103.173.155.138:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
+                  src="http://103.137.184.193:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
                   alt="Product image"
                   className="product-image"
                 />
@@ -446,7 +446,7 @@ function CarouselProduct(props: propsProduct) {
               </span>
               <a href="product.html">
                 <img
-                  src="http://103.173.155.138:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
+                  src="http://103.137.184.193:5500/images/01ecbc32a1e3450fbf0fc4320469a21c.jpg"
                   alt="Product image"
                   className="product-image"
                 />

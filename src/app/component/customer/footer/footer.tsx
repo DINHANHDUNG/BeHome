@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { CustomesCompany } from "../../../types/company";
-// import logo2 from "../../../assets/images/logo/logo2.png";
+import logo2 from "../../../assets/images/logo-da-thong-bao-website-voi-bo-cong-thuong.png";
 
 interface typeProps {
   company: CustomesCompany;
 }
 function Footer(props: typeProps) {
   console.log(props.company);
-  
+
   return (
     <footer className="footer footer-2">
       <div
@@ -29,7 +29,7 @@ function Footer(props: typeProps) {
           <div className="row">
             <div className="col-sm-4 col-lg-3">
               <div className="widget">
-                <h4 className="widget-title" style={{ fontWeight: 600 }}>
+                <h4 className="widget-title1" style={{ fontWeight: 600 }}>
                   BEHOME
                 </h4>
 
@@ -46,7 +46,7 @@ function Footer(props: typeProps) {
 
             <div className="col-sm-4 col-lg-3">
               <div className="widget">
-                <h4 className="widget-title" style={{ fontWeight: 600 }}>
+                <h4 className="widget-title2" style={{ fontWeight: 600 }}>
                   CHÍNH SÁCH & QUY ĐỊNH
                 </h4>
                 <ul className="widget-list">
@@ -69,7 +69,7 @@ function Footer(props: typeProps) {
 
             <div className="col-sm-4 col-lg-3">
               <div className="widget">
-                <h4 className="widget-title" style={{ fontWeight: 600 }}>
+                <h4 className="widget-title3" style={{ fontWeight: 600 }}>
                   KẾT NỐI VỚI CHÚNG TỐI
                 </h4>
                 <div className="row">
@@ -110,9 +110,9 @@ function Footer(props: typeProps) {
                   <div className="col-sm-12 col-md-12 mt-1">
                     <figure className="footer-payments">
                       <img
-                        src="https://hacom.vn/media/lib/dathongbao.png"
+                        src={logo2}
                         alt="Payment methods"
-                        // width="272"
+                        width="190"
                         // height="20"
                       />
                     </figure>
@@ -158,9 +158,7 @@ function Footer(props: typeProps) {
                 </p>
                 <p className="mb-0">
                   <span style={{ fontWeight: 600 }}>Số điện thoại</span>:{" "}
-                  <a href={"#"}>
-                    {props.company.Company.phonenumber}
-                  </a>
+                  <a href={"#"}>{props.company.Company.phonenumber}</a>
                 </p>
                 <p className="mb-0">
                   <span style={{ fontWeight: 600 }}>Giờ mở cửa</span>: Giờ mở

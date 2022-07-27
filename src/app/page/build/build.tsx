@@ -124,7 +124,7 @@ function BuildDesign() {
                       >
                         <img
                           src={
-                            "http://103.173.155.138:5500/images/" +
+                            "http://103.137.184.193:5500/images/" +
                             selectedProduct
                               .filter(
                                 (val: any) =>

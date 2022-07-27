@@ -543,14 +543,14 @@ function ModalProductUpdate(props: propsModalProduct) {
           wrapperCol={{ offset: props.value?.id > 0 ? 3 : 3, span: 24 }}
         >
           {fileIMG ? (
-            // <Image width={100} height={100} src={`http://103.173.155.138:5500/images/${fileIMG}`}/>
+            // <Image width={100} height={100} src={`http://103.137.184.193:5500/images/${fileIMG}`}/>
             <div className="info_image">
               <Image
                 width={150}
                 height={150}
                 src={
                   fileIMG.split(".").length > 1
-                    ? "http://103.173.155.138:5500/images/" + fileIMG
+                    ? "http://103.137.184.193:5500/images/" + fileIMG
                     : "https://cf.shopee.vn/file/" + fileIMG
                 }
               />
@@ -588,9 +588,9 @@ function ModalProductUpdate(props: propsModalProduct) {
                       height={150}
                       src={
                         // value.split(".").length > 1
-                        //   ? "http://103.173.155.138:5500/images/" + value
+                        //   ? "http://103.137.184.193:5500/images/" + value
                         //   : "https://cf.shopee.vn/file/" + value
-                        "http://103.173.155.138:5500/images/" + value.imagename
+                        "http://103.137.184.193:5500/images/" + value.imagename
                       }
                     />
                     <span
@@ -638,9 +638,9 @@ function ModalProductUpdate(props: propsModalProduct) {
                       height={150}
                       src={
                         // value.split(".").length > 1
-                        //   ? "http://103.173.155.138:5500/images/" + value
+                        //   ? "http://103.137.184.193:5500/images/" + value
                         //   : "https://cf.shopee.vn/file/" + value
-                        "http://103.173.155.138:5500/images/" + value.imagename
+                        "http://103.137.184.193:5500/images/" + value.imagename
                       }
                     />
                     <span
