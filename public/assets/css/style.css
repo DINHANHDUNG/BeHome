@@ -4898,6 +4898,8 @@ p {
 }
 .widget-list {
   margin-bottom: 0;
+  list-style-type: disc;
+  list-style-position: inside
 }
 .widget-list li:not(:last-child) {
   margin-bottom: 0.4rem;
