@@ -70,7 +70,7 @@ function Footer(props: typeProps) {
             <div className="col-sm-4 col-lg-3">
               <div className="widget">
                 <h4 className="widget-title3" style={{ fontWeight: 600 }}>
-                  KẾT NỐI VỚI CHÚNG TỐI
+                  KẾT NỐI VỚI CHÚNG TÔI
                 </h4>
                 <div className="row">
                   <div className="col-sm-12 col-md-12" id="icon-fixed-right">
