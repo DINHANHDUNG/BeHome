@@ -27,7 +27,7 @@ function Footer(props: typeProps) {
       <div className="footer-middle border-0">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-sm-4 col-lg-3">
+            <div className="col-sm-4 col-lg-1">
               <div className="widget">
                 <h4 className="widget-title1" style={{ fontWeight: 600 }}>
                   BEHOME
@@ -60,7 +60,24 @@ function Footer(props: typeProps) {
                     <Link to={"/shippingPolicy"}>Chính sách vận chuyển</Link>
                   </li>
                   <li>
-                    <Link to={"/paymentTerms"}>Quy định thanh toán</Link>
+                    <Link to={"/security"}>Chính sách bảo mật</Link>
+                  </li>
+                </ul>
+                {/* <p>{props.company.Company.csbh}</p> */}
+              </div>
+            </div>
+
+            <div className="col-sm-4 col-lg-2">
+              <div className="widget">
+                <h4 className="widget-title4" style={{ fontWeight: 600 }}>
+                  HỖ TRỢ KHÁCH HÀNG
+                </h4>
+                <ul className="widget-list">
+                  <li>
+                    <Link to={"/paymentTerms"}>Hướng dẫn thanh toán</Link>
+                  </li>
+                  <li>
+                    <Link to={"/purchase"}>Hướng dẫn mua hàng</Link>
                   </li>
                 </ul>
                 {/* <p>{props.company.Company.csbh}</p> */}

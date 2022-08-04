@@ -131,6 +131,7 @@ function Company() {
                 csbh: company.Company.csbh,
                 csvc: company.Company.csvc,
                 qdtt: company.Company.qdtt,
+                csbm: company.Company.csbm,
               }}
               onFinish={onFinish}
               autoComplete="off"
@@ -227,6 +228,30 @@ function Company() {
                     <TextArea rows={6} />
                   </Form.Item>
                 </Col>
+              </Row>
+              <Row gutter={[24, 0]}>
+                <Col xs={24} xl={12}>
+                  <Form.Item
+                    label="Chính sách bảo mật"
+                    name="csbm"
+                    rules={[
+                      { required: true, message: "Nhập chính sách bảo mật!" },
+                    ]}
+                  >
+                    <TextArea rows={6} />
+                  </Form.Item>
+                </Col>
+                {/* <Col xs={24} xl={12}>
+                  <Form.Item
+                    label="Chính sách đổi trả"
+                    name="csdt"
+                    rules={[
+                      { required: true, message: "Nhập chính sách đổi trả!" },
+                    ]}
+                  >
+                    <TextArea rows={6} />
+                  </Form.Item>
+                </Col> */}
               </Row>
 
               <h5>Danh sách banner</h5>

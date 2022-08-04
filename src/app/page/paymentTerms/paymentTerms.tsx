@@ -1,7 +1,7 @@
 import TextArea from "antd/lib/input/TextArea";
 import React from "react";
 import { CustomesCompany } from "../../types/company";
-import banner from "../../assets/images/banners/bannerInfo/4.png"
+import banner from "../../assets/images/banners/bannerInfo/5.png"
 import { Image } from "antd";
 interface typeProps {
   company: CustomesCompany;

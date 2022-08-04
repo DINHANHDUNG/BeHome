@@ -7,6 +7,7 @@ export interface Company {
   csbh: string;
   qdtt: string;
   csvc: string;
+  csbm: string;
   images: Array<image>;
 }
 

@@ -20,8 +20,10 @@ import Home from "../../page/home/home";
 import Introduce from "../../page/introduce/introduce";
 import PaymentTerms from "../../page/paymentTerms/paymentTerms";
 import ProductByCategory from "../../page/productByCategory/productByCategory";
+import Purchase from "../../page/purchase/purchase";
 import RefundPolicy from "../../page/refundPolicy/refundPolicy";
 import Searchproduct from "../../page/searchproduct/searchproduct";
+import Security from "../../page/security/security";
 import ShippingPolicy from "../../page/shippingPolicy/shippingPolicy";
 import WarrantyPolicy from "../../page/warrantyPolicy/warrantyPolicy";
 
@@ -80,6 +82,8 @@ function LayoutCustomer() {
           <Route path="shippingPolicy" element={<ShippingPolicy company={company}/>} />
           <Route path="refundPolicy" element={<RefundPolicy company={company}/>} />
           <Route path="paymentTerms" element={<PaymentTerms company={company}/>} />
+          <Route path="security" element={<Security company={company}/>} />
+          <Route path="purchase" element={<Purchase company={company}/>} />
         </Routes>
 
         <Footer company={company} />

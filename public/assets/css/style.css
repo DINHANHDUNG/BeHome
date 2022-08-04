@@ -4838,10 +4838,26 @@ p {
 .footer .widget-title {
   color: #333333;
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   letter-spacing: -0.01em;
   margin-top: 0;
   margin-bottom: 1.9rem;
+}
+
+.footer .widget-title1 {
+  font-size: 1.8rem;
+}
+
+.footer .widget-title2 {
+  font-size: 1.8rem;
+}
+
+.footer .widget-title3 {
+  font-size: 1.8rem;
+}
+
+.footer .widget-title4 {
+  font-size: 1.8rem;
 }
 
 .footer .widget-title::after {
@@ -4853,11 +4869,12 @@ p {
   margin-top: 5px;
 }
 
+
 .footer .widget-title1::after {
   display: block;
   content: "";
   height: 2px;
-  width: 94px;
+  width: 70px;
   background: red;
   margin-top: 5px;
 }
@@ -4866,7 +4883,7 @@ p {
   display: block;
   content: "";
   height: 2px;
-  width: 275px;
+  width: 208px;
   background: red;
   margin-top: 5px;
 }
@@ -4875,7 +4892,16 @@ p {
   display: block;
   content: "";
   height: 2px;
-  width: 260px;
+  width: 195px;
+  background: red;
+  margin-top: 5px;
+}
+
+.footer .widget-title4::after {
+  display: block;
+  content: "";
+  height: 2px;
+  width: 180px;
   background: red;
   margin-top: 5px;
 }
@@ -16572,7 +16598,7 @@ button:focus {
 
 /* fb */
 ._2p3a{
-  width: auto !important;
+  width: '100%' !important;
 }
 .fb-page,
 .fb-page span,
