@@ -159,6 +159,12 @@ function Footer(props: typeProps) {
           <div className="row ">
             <div className="col-sm-8 col-lg-9">
               <div className="widget widget-about">
+                <img
+                  src={"http://103.137.184.193:5500/avtfb.png"}
+                  alt="Payment methods"
+                  width="190"
+                  // height="20"
+                />
                 <h4>CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ BEHOME</h4>
                 <p className="mb-0">
                   <span style={{ fontWeight: 600 }}>Địa chỉ</span>:{" "}
