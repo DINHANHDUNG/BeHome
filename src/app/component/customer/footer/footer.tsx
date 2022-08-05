@@ -35,10 +35,10 @@ function Footer(props: typeProps) {
 
                 <ul className="widget-list">
                   <li>
-                    <Link to={"/introduce"}>Giới thiệu</Link>
+                    <Link to={"/introduce"}>Giới thiệu công ty</Link>
                   </li>
                   <li>
-                    <Link to={"/contact"}>Liên hệ</Link>
+                    <Link to={"/contact"}>Thông tin liên hệ</Link>
                   </li>
                 </ul>
               </div>
