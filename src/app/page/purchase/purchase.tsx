@@ -17,7 +17,7 @@ function Purchase(props: typeProps) {
       <div className="row mb-3">
         <div className="container-fluid">
           {/* <p>{props.company.Company.qdtt}</p> */}
-          {/* <TextArea style={{border: "none"}} autoSize={{minRows: 2, maxRows: 10000}} value={props.company.Company.csbm}/> */}
+          <TextArea style={{border: "none"}} autoSize={{minRows: 2, maxRows: 10000}} value={props.company.Company.hdmh}/>
         </div>
       </div>
     </div>  

@@ -8,6 +8,7 @@ export interface Company {
   qdtt: string;
   csvc: string;
   csbm: string;
+  hdmh: string;
   images: Array<image>;
 }
 
