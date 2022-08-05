@@ -111,7 +111,7 @@ function LayoutCustomer() {
           // href="#"
           className="mb-1"
           onClick={() => {
-            window.open("https://zalo.me/0355515599");
+            window.open("https://zalo.me/3400142806706859418");
           }}
         >
           <img

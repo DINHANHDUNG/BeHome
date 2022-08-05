@@ -4874,7 +4874,7 @@ p {
   display: block;
   content: "";
   height: 2px;
-  width: 70px;
+  width: 160px;
   background: red;
   margin-top: 5px;
 }

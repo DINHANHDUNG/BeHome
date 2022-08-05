@@ -27,10 +27,10 @@ function Footer(props: typeProps) {
       <div className="footer-middle border-0">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-sm-4 col-lg-1">
+            <div className="col-sm-4 col-lg-2">
               <div className="widget">
                 <h4 className="widget-title1" style={{ fontWeight: 600 }}>
-                  BEHOME
+                  GIỚI THIỆU BEHOME
                 </h4>
 
                 <ul className="widget-list">
@@ -44,7 +44,7 @@ function Footer(props: typeProps) {
               </div>
             </div>
 
-            <div className="col-sm-4 col-lg-3">
+            <div className="col-sm-4 col-lg-2">
               <div className="widget">
                 <h4 className="widget-title2" style={{ fontWeight: 600 }}>
                   CHÍNH SÁCH & QUY ĐỊNH
@@ -159,7 +159,7 @@ function Footer(props: typeProps) {
           <div className="row ">
             <div className="col-sm-8 col-lg-9">
               <div className="widget widget-about">
-                <h4>Showroom BeHome</h4>
+                <h4>CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ BEHOME</h4>
                 <p className="mb-0">
                   <span style={{ fontWeight: 600 }}>Địa chỉ</span>:{" "}
                   {props.company.Company.address}
