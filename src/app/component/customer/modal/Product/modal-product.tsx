@@ -426,12 +426,12 @@ function ModalProduct(props: propsModalProduct) {
             <Form.Item
               label="Phân khúc"
               name="id_rank"
-              rules={[{ required: true, message: "Chọn phân khúc!" }]}
+              rules={[{ message: "Chọn phân khúc!" }]}
             >
               <Select
                 showSearch
                 size="large"
-                placeholder="Chọn rank"
+                placeholder="Chọn phân khúc"
                 optionFilterProp="children"
                 onChange={onChange}
                 onSearch={onSearch}
