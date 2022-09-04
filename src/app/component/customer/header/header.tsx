@@ -10,11 +10,10 @@ interface typeProps {
 }
 function Header(props: typeProps) {
   const categoryTrees = useAppSelector(categoryAdminStore);
-  const cart = useAppSelector(CartStore);
-  console.log(cart);
+  const cart = useAppSelector(CartStore); 
 
   const history = useNavigate();
-  // console.log("categoryTrees", categoryTrees);
+  console.log("categoryTrees", categoryTrees.listcategoryProduct);
   const [productkey, setProductkey] = useState(null as any);
 
   useEffect(() => {
@@ -159,7 +158,7 @@ function Header(props: typeProps) {
                             >
                               {val.name}
                             </Link>
-                            {val.children?.length > 0 ? (
+                            {val.children?.length  > 0 && val.children? (
                               <div className="megamenu">
                                 <div className="row no-gutters">
                                   <div className="col-md-12">
@@ -170,11 +169,12 @@ function Header(props: typeProps) {
                                             <div className="menu-title ">
                                               <Link
                                                 to={`danhmucproduct/${val2.id}`}
+                                                style={{color: val2.children?.length > 0 ? "" : "#000"  }}
                                               >
                                                 {val2.name}
                                               </Link>
                                             </div>
-                                            {val2.children?.length > 0 ? (
+                                            {val2.children && val2.children != null && val2.children.length > 0 ? (
                                               <ul>
                                                 {val2.children?.map(
                                                   (val3, idx) => (
@@ -183,7 +183,7 @@ function Header(props: typeProps) {
                                                       <Link
                                                         to={`danhmucproduct/${val3.id}`}
                                                       >
-                                                        {val3.name}
+                                                        {val3?.name}
                                                       </Link>
                                                       {/* cap 4 */}
                                                       {/* {val2.children.length > 0 ? (
@@ -204,15 +204,7 @@ function Header(props: typeProps) {
                                                 )}
                                               </ul>
                                             ) : (
-                                              <ul>
-                                                <li>
-                                                  <Link
-                                                    to={`danhmucproduct/${val2.id}`}
-                                                  >
-                                                    {val2.name}
-                                                  </Link>
-                                                </li>
-                                              </ul>
+                                              <></>
                                             )}
                                           </div>
                                         ))}
@@ -310,15 +302,16 @@ function Header(props: typeProps) {
                                                 )}
                                               </ul>
                                             ) : (
-                                              <ul>
-                                                <li>
-                                                  <Link
-                                                    to={`danhmuccombo/${val2.id}`}
-                                                  >
-                                                    {val2.name}
-                                                  </Link>
-                                                </li>
-                                              </ul>
+                                              // <ul>
+                                              //   <li>
+                                              //     <Link
+                                              //       to={`danhmuccombo/${val2.id}`}
+                                              //     >
+                                              //       {val2.name}
+                                              //     </Link>
+                                              //   </li>
+                                              // </ul>
+                                              <></>
                                             )}
                                           </div>
                                         ))}
