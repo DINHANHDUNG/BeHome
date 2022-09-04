@@ -13,7 +13,7 @@ function Banner2(props: { Company: Company }) {
     nav: false,
     autoplay: true,
     speed: 3000,
-    autoplaySpeed: 500,
+    autoplaySpeed: 2500,
   };
   return (
     <div className="banner">
