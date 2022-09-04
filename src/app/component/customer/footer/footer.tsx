@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CustomesCompany } from "../../../types/company";
 import logo2 from "../../../assets/images/logo-da-thong-bao-website-voi-bo-cong-thuong.png";
@@ -7,7 +7,18 @@ interface typeProps {
   company: CustomesCompany;
 }
 function Footer(props: typeProps) {
+  const [scroll, setScroll] = useState(0);
   console.log(props.company);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }, [scroll]);
+
+  const handleToTop = () => {
+    setScroll((pre) => pre + 1);
+  };
 
   return (
     <footer className="footer footer-2">
@@ -33,7 +44,7 @@ function Footer(props: typeProps) {
                   GIỚI THIỆU BEHOME
                 </h4>
 
-                <ul className="widget-list">
+                <ul className="widget-list" onClick={handleToTop}>
                   <li>
                     <Link to={"/introduce"}>Giới thiệu công ty</Link>
                   </li>
@@ -49,7 +60,7 @@ function Footer(props: typeProps) {
                 <h4 className="widget-title2" style={{ fontWeight: 600 }}>
                   CHÍNH SÁCH & QUY ĐỊNH
                 </h4>
-                <ul className="widget-list">
+                <ul className="widget-list" onClick={handleToTop}>
                   <li>
                     <Link to={"/refundPolicy"}>Chính sách đổi trả hàng</Link>
                   </li>
@@ -72,7 +83,7 @@ function Footer(props: typeProps) {
                 <h4 className="widget-title4" style={{ fontWeight: 600 }}>
                   HỖ TRỢ KHÁCH HÀNG
                 </h4>
-                <ul className="widget-list">
+                <ul className="widget-list" onClick={handleToTop}>
                   <li>
                     <Link to={"/paymentTerms"}>Hướng dẫn thanh toán</Link>
                   </li>
