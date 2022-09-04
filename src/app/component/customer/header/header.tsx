@@ -84,7 +84,7 @@ function Header(props: typeProps) {
           </div>
 
           {/* Cart */}
-          <div className="header-right">
+          <div className="header-right" style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
             <div className="dropdown cart-dropdown">
               <Link to={"/cart"} className="dropdown-toggle">
                 <i
@@ -102,8 +102,10 @@ function Header(props: typeProps) {
                 >
                   {cart.orderdetails?.length}
                 </span>
+                
               </Link>
             </div>
+            <span style={{whiteSpace: 'nowrap'}}>Giỏ hàng</span>
           </div>
         </div>
       </div>

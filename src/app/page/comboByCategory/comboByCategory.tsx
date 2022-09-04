@@ -48,7 +48,7 @@ function ComboByCategory() {
 
               <div className="toolbox-right">
                 <div className="toolbox-sort">
-                  <label htmlFor="sortby">Lọc:</label>
+                  <label htmlFor="sortby">Sắp xếp theo:</label>
                   <div className="select-custom">
                     <select
                       name="sortby"
@@ -77,9 +77,9 @@ function ComboByCategory() {
                       }}
                       value={sort}
                     >
-                      <option value={0}>Mới nhất</option>
-                      <option value={2}>Giảm dần</option>
-                      <option value={1}>Tăng dần</option>
+                      <option value={0}>Sản phẩm mới nhất</option>
+                      <option value={2}>Giá giảm dần</option>
+                      <option value={1}>Giá tăng dần</option>
                     </select>
                   </div>
                 </div>
