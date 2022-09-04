@@ -64,7 +64,7 @@ function Mobilemenu() {
                 aria-controls="mobile-menu-tab"
                 aria-selected="true"
               >
-                Menu
+                Danh mục sản phẩm
               </a>
             </li>
             {/* <li className="nav-item">
@@ -90,8 +90,8 @@ function Mobilemenu() {
               aria-labelledby="mobile-menu-link"
             >
               <nav className="mobile-nav">
-                <ul className="mobile-menu">
-                  <li className="active close-menu-mobile">
+                <ul className="mobile-menu" onClick={()=>document.body.classList.remove('mmenu-active')}>
+                  {/* <li className="active close-menu-mobile">
                     <a className="close-menu-mobile" href="/">
                       Trang chủ
                     </a>
@@ -110,7 +110,7 @@ function Mobilemenu() {
                     <a href={"mailto:" + company.Company.email}>
                       {company.Company.email}
                     </a>
-                  </li>
+                  </li> */}
                   <li style={{ fontWeight: 500, cursor: "none" }}>
                     <a>Danh mục bán lẻ</a>
                   </li>
