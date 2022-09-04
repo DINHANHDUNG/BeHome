@@ -18,7 +18,7 @@ function Mobilemenu() {
   }, []);
   return (
     <div>
-      <div className="mobile-menu-overlay"></div>
+      <div className="mobile-menu-overlay" onClick={()=>document.body.classList.remove('mmenu-active')}></div>
 
       <div className="mobile-menu-container mobile-menu-light">
         <div className="mobile-menu-wrapper">
