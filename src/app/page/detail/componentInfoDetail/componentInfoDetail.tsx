@@ -1,7 +1,6 @@
 import TextArea from "antd/lib/input/TextArea";
 import React from "react";
 import { Product } from "../../../types/product";
-
 interface propsInfoDetail {
   describe: string;
   productdetails: any;
@@ -62,9 +61,10 @@ function ComponentInfoDetail(props: propsInfoDetail) {
             {/* <p>{products.listproduct[0]?.describe}</p> */}
             <TextArea
               rows={20}
-              style={{ width: "100%" }}
+              style={{ width: "100%", outline: 'none', border: 'none' }}
               value={props.describe}
               readOnly
+              className="TextAreaAntd"
             />
           </div>
         </div>
