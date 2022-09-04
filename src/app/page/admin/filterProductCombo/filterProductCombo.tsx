@@ -77,7 +77,7 @@ function FilterProductCombo(props: propsFilter) {
               <div className="widget-body">
                 <div className="filter-items filter-items-count">
                   {manufacturer.listManufacturer?.map((value) => (
-                    <div className="filter-item">
+                    <div className="filter-item" style={{display: value.count > 0 ? "" : "none"}}>
                       <div className="custom-control custom-checkbox">
                         <input
                           type="checkbox"
@@ -135,7 +135,7 @@ function FilterProductCombo(props: propsFilter) {
               <div className="widget-body">
                 <div className="filter-items filter-items-count">
                   {rank.listRank?.map((value) => (
-                    <div className="filter-item">
+                    <div className="filter-item" style={{display: value.count > 0 ? "" : "none"}}>
                       <div className="custom-control custom-checkbox">
                         <input
                           type="checkbox"
