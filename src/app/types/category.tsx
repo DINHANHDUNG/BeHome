@@ -9,7 +9,8 @@ export interface Category {
   products: Array<any>;
   combos: Array<any>;
   type: string;
-  homepage: boolean
+  homepage: boolean,
+  stt: number
 }
 
 export interface AddCategory {

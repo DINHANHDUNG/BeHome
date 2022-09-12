@@ -135,7 +135,7 @@ function ModalProductUpdate(props: propsModalProduct) {
     //     });
     //   }
     // });
-    
+
     arrIMG.slice().sort(function (a: any, b: any) {
       if (a.type.toLowerCase() < b.type.toLowerCase()) {
         return -1;
@@ -281,6 +281,9 @@ function ModalProductUpdate(props: propsModalProduct) {
           productdetails: props.value.productdetails
             ? props.value.productdetails
             : [{}],
+          productpropertiess: props.value.productpropertiess
+            ? props.value.productpropertiess
+            : [],
         }}
         onFinish={onFinish}
         autoComplete="off"
@@ -501,6 +504,86 @@ function ModalProductUpdate(props: propsModalProduct) {
                           ]}
                         >
                           <Input placeholder="Thông số kỹ thuật" />
+                        </Form.Item>
+                      </Col>
+                      <Col
+                        md={1}
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        {fields.length > 1 ? (
+                          <MinusCircleOutlined
+                            style={{ fontSize: "20px" }}
+                            className="dynamic-delete-button"
+                            onClick={() => remove(field.name)}
+                          />
+                        ) : null}
+                      </Col>
+                    </Row>
+                    <hr />
+                  </div>
+                ))}
+                <Form.Item>
+                  <PlusCircleOutlined
+                    onClick={() => add()}
+                    style={{
+                      fontSize: "20px",
+                      float: "right",
+                      marginRight: "25px",
+                    }}
+                  />
+                </Form.Item>
+              </div>
+            );
+          }}
+        </Form.List>
+
+
+        <h5 style={{ textAlign: "center" }}>Thuộc tính</h5>
+
+        <Form.List name="productpropertiess">
+          {(fields, { add, remove }) => {
+            return (
+              <div>
+                {fields.map((field, index) => (
+                  <div key={field.key}>
+                    <Row gutter={[8, 0]}>
+                      <Col md={12} xs={24}>
+                        <Form.Item
+                          label={`Thuộc tính`}
+                          name={[index, "nameproperties"]}
+                          rules={[
+                            { required: true, message: "Nhập tên thuộc tính!" },
+                          ]}
+                        >
+                          <Input  />
+                        </Form.Item>
+                      </Col>
+                      <Col md={11} xs={23}>
+                        <Form.Item
+                          name={[index, "price"]}
+                          label={`Giá bán`}
+                          rules={[
+                            {
+                              required: true,
+                              message: "Nhập giá bán!",
+                            },
+                          ]}
+                        >
+                          <InputNumber
+                            maxLength={25}
+                            style={{ width: "100%" }}
+                            formatter={(value: any) =>
+                              `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            }
+                            size="large"
+                            parser={(value: any) =>
+                              Number(value.replace(/\$\s?|(,*)/g, ""))
+                            }
+                          />
                         </Form.Item>
                       </Col>
                       <Col

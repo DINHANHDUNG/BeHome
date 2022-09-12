@@ -34,9 +34,12 @@ function LayoutAdmin() {
   const dispatch = useAppDispatch();
   const history = useNavigate();
   useEffect(() => {
-    dispatch(checkTokenAdmin()).catch((err) => {
-      history("/loginadmin");
-    });
+    if (localStorage.getItem("tokenadmin")) {
+      dispatch(checkTokenAdmin()).catch((err) => {
+        history("/loginadmin");
+      });
+    }
+    
   }, []);
 
   const acc = useAppSelector(accountAdminStore);

@@ -18,6 +18,7 @@ import {
 import { categoryAdminStore } from "../../../../use-selector";
 import ModalCategory from "../../../component/customer/modal/Category/modal-category";
 import ModalCategory2 from "../../../component/customer/modal/Category/modal-category2";
+import ModalUpdateSttCategory from "../../../component/customer/modal/Category/modal-UpdateSttCategory";
 import { useAppDispatch, useAppSelector } from "../../../hooks";
 
 function CategoryProduct() {
@@ -34,10 +35,12 @@ function CategoryProduct() {
 
   const [visible, setVisible] = useState(false);
   const [visible2, setVisible2] = useState(false);
+  const [visible3, setVisible3] = useState(false);
   const [value, setValue] = useState({
     id: 0,
     id_parent: 0,
     name: "",
+    stt: 0,
   });
 
   useEffect(() => {
@@ -98,21 +101,35 @@ function CategoryProduct() {
     },
 
     {
+      title: "Số thứ tự hiển thị",
+      dataIndex: "stt",
+      key: "stt",
+      
+    },
+
+    {
       title: "Quản lý trang chủ",
       dataIndex: "show",
       key: "show",
       render: (text: any, row: any, index: any) => (
         <Space size="middle">
+            <Button
+              onClick={() => {
+                setVisible3(true);
+              }}
+              style={{ color: "" }}
+            >
+              Sửa số thứ tự
+            </Button>
           {!row.homepage ? (
             <Button
               onClick={() => {
-                
                 // setVisible2(true);
                 dispatch(showCategoryByIdAdmin({ id: row.id })).then(() => {
                   dispatch(getAllCategoryTrees());
                 });
               }}
-              style={{color: "#0a9f15"}}
+              style={{ color: "#0a9f15" }}
             >
               Hiện trên trang chủ
             </Button>
@@ -124,7 +141,7 @@ function CategoryProduct() {
                   dispatch(getAllCategoryTrees());
                 });
               }}
-              style={{color: "red"}}
+              style={{ color: "red" }}
             >
               Ẩn khỏi trang chủ
             </Button>
@@ -184,6 +201,7 @@ function CategoryProduct() {
                       id: 0,
                       id_parent: 0,
                       name: "",
+                      stt: 0,
                     });
                     setVisible(true);
                   }}
@@ -250,6 +268,16 @@ function CategoryProduct() {
           visible={visible2}
           toggle={() => {
             setVisible2(false);
+          }}
+          value={{ ...value, type: "PRODUCT" }}
+        />
+      )}
+
+      {visible3 && (
+        <ModalUpdateSttCategory
+          visible={visible3}
+          toggle={() => {
+            setVisible3(false);
           }}
           value={{ ...value, type: "PRODUCT" }}
         />

@@ -72,7 +72,7 @@ function DetailProduct() {
                       dispayIMG?.imagename
                     }
                     alt="product image"
-                    style={{ height: '400px', objectFit: "contain", }}
+                    style={{ height: "400px", objectFit: "contain" }}
                   />
 
                   <a
@@ -134,6 +134,62 @@ function DetailProduct() {
                   {/* <del style={{ fontSize: "13px", opacity: "0.4" }}>
                     {Numberformat(3000000000)} VNĐ
                   </del>{" "} */}
+                </div>
+
+                <div className="container-product-properties mt-2 mb-2">
+                  <div className="product-properties-action " >
+                    <a className="btn-properties" style={{borderColor: '#258cae', color: '#258cae'}}>
+                      <span style={{color: '#258cae'}}>Màu vàng</span>
+                    </a>
+                  </div>
+
+                  <div className="product-properties-action ">
+                    <a className="btn-properties">
+                      <span>Màu vàng</span>
+                    </a>
+                  </div>
+
+                  <div className="product-properties-action ">
+                    <a className="btn-properties">
+                      <span>Màu vàng</span>
+                    </a>
+                  </div>
+
+                  <div className="product-properties-action ">
+                    <a className="btn-properties">
+                      <span>Màu vàng</span>
+                    </a>
+                  </div>
+
+                  <div className="product-properties-action ">
+                    <a className="btn-properties">
+                      <span>Màu vàng</span>
+                    </a>
+                  </div>
+
+                  <div className="product-properties-action ">
+                    <a className="btn-properties">
+                      <span>Màu vàng</span>
+                    </a>
+                  </div>
+
+                  <div className="product-properties-action ">
+                    <a className="btn-properties">
+                      <span>Màu vàng</span>
+                    </a>
+                  </div>
+
+                  <div className="product-properties-action ">
+                    <a className="btn-properties">
+                      <span>Màu vàng</span>
+                    </a>
+                  </div>
+
+                  <div className="product-properties-action ">
+                    <a className="btn-properties">
+                      <span>Màu vàng</span>
+                    </a>
+                  </div>
                 </div>
 
                 <div className="product-content mb-3">

@@ -47,5 +47,10 @@ const categoryAPIAdmin = {
     const url = "category/deletecategory";
     return axiosClientAdmin.post(url, data);
   },
+
+  patchUpdateSttCategory(data:{id: number, stt: number }): Promise<any> {
+    const url = "category/" + data.id + "/stt/" + data.stt;
+    return axiosClientAdmin.patch(url);
+  }
 };
 export default categoryAPIAdmin;
