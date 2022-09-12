@@ -102,3 +102,16 @@ export const postDeleteCategoryAdmin = createAsyncThunk(
     return response;
   }
 );
+
+
+export const patchUpdateSttCategoryAdmin = createAsyncThunk(
+  "/categoryadmin/updatesttcategory",
+  async (data: { id: number, stt: number }) => {
+    
+
+    const response = await categoryAPIAdmin.patchUpdateSttCategory(data);
+    console.log("updatesttcategory", response);
+
+    return response;
+  }
+);

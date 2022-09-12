@@ -32,6 +32,15 @@ export interface Product {
   comments: any;
   products: Array<Product>;
   combos: Array<Combo>;
+  productpropertiess: Array<productpropertiess>;
+}
+
+interface productpropertiess {
+  id: number;
+  id_product: number;
+  nameproperties: string;
+  price: number;
+  product: string;
 }
 
 // export interface AddProduct {
@@ -58,6 +67,12 @@ export interface AddProduct {
     {
       title: string;
       specifications: string;
+    }
+  ];
+  productpropertiess: [
+    {
+      nameproperties: string;
+      price: number;
     }
   ];
   images: [
@@ -134,7 +149,7 @@ export interface GetSearchProduct {
   productKey: string | null;
   minprice: number | null;
   maxprice: number | null;
-  page: number ;
+  page: number;
   noitem: number;
   sort?: number;
 }
@@ -146,7 +161,7 @@ export interface GetSearchProduct2 {
   productkey: string | null;
   minprice: number | null;
   maxprice: number | null;
-  page: number ;
+  page: number;
   noitem: number;
   sort?: number;
 }

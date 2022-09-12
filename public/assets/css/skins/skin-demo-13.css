@@ -1082,6 +1082,12 @@ a:focus {
 .size-guide:focus {
   color: #39f;
 }
+
+.product-properties-action .btn-properties {
+  color: #000;
+  border-color: #000;
+}
+
 .product-details-action .btn-cart {
   color: #39f;
   border-color: #39f;
