@@ -9,7 +9,7 @@ import { CustomerCart, OrderDetail } from "../../app/types/order";
 var info = localStorage.getItem("InfoOrderCustomer")
   ? JSON.parse(localStorage.getItem("InfoOrderCustomer") || "")
   : ({} as any);
-console.log(info);
+console.log('info', info);
 
 const initialStateCart: CustomerCart = {
   namecustomer: info?.namecustomer,
@@ -34,7 +34,7 @@ const cartSliceAdmin = createSlice({
           (val, idx) => val.id_product === action.payload.id
         );
 
-        console.log(indexValue);
+        // console.log(indexValue);
 
         if (indexValue >= 0) {
           state.orderdetails[indexValue].amount =
@@ -44,6 +44,7 @@ const cartSliceAdmin = createSlice({
             ...action.payload,
             id: null,
             id_product: action.payload.id,
+            id_productproperties: action.payload.id_productproperties,
             id_combo: null,
             amount: 1,
           };

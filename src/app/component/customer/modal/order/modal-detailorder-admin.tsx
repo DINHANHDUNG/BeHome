@@ -169,7 +169,7 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
                       <Title level={5}>Tổng tiền:</Title>
                     </div>
                     <div>
-                      <Title level={5}>{currency(totalOrder)}</Title>
+                      <Title level={5}>{currency(props.value.totalmoney)}</Title>
                     </div>
                   </div>
                 </Col>
@@ -286,7 +286,12 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
                               </div>
                             </td>
                             <td className="price-col">
-                              {Numberformat(val.product.price)}
+                              {/* {Numberformat(val.product.price)} */}
+                              {val.id_productproperties
+                              ? Numberformat(
+                                  val.productproperties?.price
+                                )
+                              : Numberformat(val?.product?.price)}
                             </td>
                             <td className="quantity-col">
                               <div className="cart-product-quantity">
@@ -304,7 +309,12 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
                               </div>
                             </td>
                             <td className="total-col">
-                              {Numberformat(val.product.price * val.amount)}
+                              {/* {Numberformat(val.product.price * val.amount)} */}
+                              {val.id_productproperties
+                              ? Numberformat(
+                                  val.productproperties?.price * val.amount
+                                )
+                              : Numberformat(val?.product?.price * val.amount)}
                             </td>
                           </tr>
                         )

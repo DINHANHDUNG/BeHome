@@ -21,7 +21,15 @@ function CartShopping() {
     var newTotal = 0;
 
     cart.orderdetails?.map((val) => {
-      newTotal = val.price * val.amount + newTotal;
+      if (val.id_productproperties) {
+        return (newTotal =
+          val.productpropertiess.filter(
+            (b: any) => b.id == val?.id_productproperties
+          )[0]?.price *
+            val.amount +
+          newTotal);
+      }
+      return (newTotal = val.price * val.amount + newTotal);
     });
 
     dispatch(CalculateTotalMomney(newTotal));
@@ -69,7 +77,14 @@ function CartShopping() {
                         </div>
                       </td>
                       <td className="price-col">
-                        {Numberformat(value?.price)}
+                        {value?.id_productproperties
+                          ? Numberformat(
+                              value.productpropertiess.filter(
+                                (b: any) => b.id == value?.id_productproperties
+                              )[0]?.price
+                            )
+                          : Numberformat(value?.price)}
+                        {/* {Numberformat(value?.price)} */}
                       </td>
                       <td className="quantity-col">
                         <div className="cart-product-quantity">
@@ -91,7 +106,14 @@ function CartShopping() {
                         </div>
                       </td>
                       <td className="total-col">
-                        {Numberformat(value?.price * value.amount)}
+                        {value?.id_productproperties
+                          ? Numberformat(
+                              value.productpropertiess.filter(
+                                (b: any) => b.id == value?.id_productproperties
+                              )[0]?.price * value.amount
+                            )
+                          : Numberformat(value?.price * value.amount)}
+                        {/* {Numberformat(value?.price * value.amount)} */}
                       </td>
                       <td className="remove-col">
                         <button

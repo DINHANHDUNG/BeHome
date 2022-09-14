@@ -5,7 +5,7 @@ import Slider from "react-slick";
 function SlickCarousel(props: { value: any; toggle: any }) {
   const [autoPlay, setAutoPlay] = useState(true);
 
-  console.log(autoPlay);
+  // console.log(autoPlay);
 
   const settings = {
     dots: false,
@@ -22,7 +22,7 @@ function SlickCarousel(props: { value: any; toggle: any }) {
     // prevArrow: <SamplePrevArrow />,
   };
 
-  console.log(props.value);
+  // console.log(props.value);
   
 
   return (

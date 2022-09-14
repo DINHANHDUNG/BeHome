@@ -31,8 +31,16 @@ function DetailProduct() {
   const dispatch = useAppDispatch();
   console.log(ID);
   const products = useAppSelector(productAdminStore);
+  const [selectProperti, setSelectProperti] = useState(
+    null as {
+      id: number;
+      id_product: number;
+      nameproperties: string;
+      price: number;
+    } | null
+  );
 
-  console.log(products);
+  console.log("products->>>", products);
 
   useEffect(() => {
     setIMG(products?.listproduct[0]?.images);
@@ -43,6 +51,10 @@ function DetailProduct() {
           (x: any) => x.type === "1" || x.type === "MAIN"
         )
       );
+    }
+
+    if (products?.listproduct[0]?.productpropertiess?.length > 0) {
+      setSelectProperti(products.listproduct[0].productpropertiess[0]);
     }
   }, [products]);
 
@@ -126,7 +138,9 @@ function DetailProduct() {
                   style={{ justifyContent: "left", fontWeight: "500" }}
                 >
                   <span>
-                    {products?.listproduct[0]?.price
+                    {selectProperti != null
+                      ? currency(selectProperti?.price)
+                      : products?.listproduct[0]?.price
                       ? currency(products?.listproduct[0]?.price)
                       : "Liên hệ"}
                   </span>
@@ -137,59 +151,35 @@ function DetailProduct() {
                 </div>
 
                 <div className="container-product-properties mt-2 mb-2">
-                  <div className="product-properties-action " >
-                    <a className="btn-properties" style={{borderColor: '#258cae', color: '#258cae'}}>
-                      <span style={{color: '#258cae'}}>Màu vàng</span>
-                    </a>
-                  </div>
-
-                  <div className="product-properties-action ">
-                    <a className="btn-properties">
-                      <span>Màu vàng</span>
-                    </a>
-                  </div>
-
-                  <div className="product-properties-action ">
-                    <a className="btn-properties">
-                      <span>Màu vàng</span>
-                    </a>
-                  </div>
-
-                  <div className="product-properties-action ">
-                    <a className="btn-properties">
-                      <span>Màu vàng</span>
-                    </a>
-                  </div>
-
-                  <div className="product-properties-action ">
-                    <a className="btn-properties">
-                      <span>Màu vàng</span>
-                    </a>
-                  </div>
-
-                  <div className="product-properties-action ">
-                    <a className="btn-properties">
-                      <span>Màu vàng</span>
-                    </a>
-                  </div>
-
-                  <div className="product-properties-action ">
-                    <a className="btn-properties">
-                      <span>Màu vàng</span>
-                    </a>
-                  </div>
-
-                  <div className="product-properties-action ">
-                    <a className="btn-properties">
-                      <span>Màu vàng</span>
-                    </a>
-                  </div>
-
-                  <div className="product-properties-action ">
-                    <a className="btn-properties">
-                      <span>Màu vàng</span>
-                    </a>
-                  </div>
+                  {products.listproduct[0]?.productpropertiess?.map((value) => {
+                    return (
+                      <div
+                        className="product-properties-action "
+                        key={value?.id}
+                        onClick={() => setSelectProperti(value)}
+                      >
+                        <a
+                          className="btn-properties"
+                          style={
+                            selectProperti?.id === value.id
+                              ? { borderColor: "#258cae", color: "#258cae" }
+                              : {}
+                          }
+                        >
+                          <span
+                            style={{
+                              color:
+                                selectProperti?.id === value.id
+                                  ? "#258cae"
+                                  : "",
+                            }}
+                          >
+                            {value?.nameproperties}
+                          </span>
+                        </a>
+                      </div>
+                    );
+                  })}
                 </div>
 
                 <div className="product-content mb-3">
@@ -215,7 +205,12 @@ function DetailProduct() {
                 <div
                   className="product-details-action mt-3"
                   onClick={() => {
-                    dispatch(addCart(products?.listproduct[0]));
+                    dispatch(
+                      addCart({
+                        ...products?.listproduct[0],
+                        id_productproperties: selectProperti?.id,
+                      })
+                    );
                     history("/cart");
                   }}
                 >

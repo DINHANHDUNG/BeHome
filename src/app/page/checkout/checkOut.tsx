@@ -136,7 +136,15 @@ function CheckOut() {
                           </div>
                         </td>
                         <td className="price-col">
-                          {Numberformat(value?.price)}
+                          {/* {Numberformat(value?.price)} */}
+                          {value?.id_productproperties
+                            ? Numberformat(
+                                value.productpropertiess.filter(
+                                  (b: any) =>
+                                    b.id == value?.id_productproperties
+                                )[0]?.price
+                              )
+                            : Numberformat(value?.price)}
                         </td>
                         <td className="quantity-col">
                           <div className="cart-product-quantity">
@@ -153,7 +161,15 @@ function CheckOut() {
                           </div>
                         </td>
                         <td className="total-col">
-                          {Numberformat(value?.price * value.amount)}
+                          {value?.id_productproperties
+                            ? Numberformat(
+                                value.productpropertiess.filter(
+                                  (b: any) =>
+                                    b.id == value?.id_productproperties
+                                )[0]?.price * value.amount
+                              )
+                            : Numberformat(value?.price * value.amount)}
+                          {/* {Numberformat(value?.price * value.amount)} */}
                         </td>
                       </tr>
                     ))}
@@ -178,7 +194,17 @@ function CheckOut() {
                           <td>
                             <a href="#">{value?.name}</a>
                           </td>
-                          <td>{currency(value?.price)}</td>
+                          {/* <td>{currency(value?.price)}</td> */}
+                          <td>
+                            {value?.id_productproperties
+                              ? Numberformat(
+                                  value.productpropertiess.filter(
+                                    (b: any) =>
+                                      b.id == value?.id_productproperties
+                                  )[0]?.price
+                                )
+                              : Numberformat(value?.price)}
+                          </td>
                         </tr>
                       ))}
 

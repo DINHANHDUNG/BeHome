@@ -2,6 +2,7 @@ import {
   Button,
   Card,
   Col,
+  notification,
   Popconfirm,
   Row,
   Space,
@@ -19,7 +20,7 @@ import { categoryAdminStore } from "../../../../use-selector";
 import ModalCategory from "../../../component/customer/modal/Category/modal-category";
 import ModalCategory2 from "../../../component/customer/modal/Category/modal-category2";
 import ModalUpdateSttCategory from "../../../component/customer/modal/Category/modal-UpdateSttCategory";
-import { useAppDispatch, useAppSelector } from "../../../hooks";
+import { openNotification, useAppDispatch, useAppSelector } from "../../../hooks";
 
 function CategoryProduct() {
   const { Title, Text } = Typography;

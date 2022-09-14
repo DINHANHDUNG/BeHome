@@ -124,7 +124,6 @@ const categorySliceAdmin = createSlice({
         const { combo, product } = action.payload;
         let newArrProduct = [] as any;
         let newArrCombo = [] as any;
-
         product?.map((value: any) => {
           let newArrChildren = [] as any;
 
@@ -137,6 +136,7 @@ const categorySliceAdmin = createSlice({
               show: val.show,
               homepage: val.homepage,
               children: val.categorytrees ? val.categorytrees : null,
+              stt: val.stt,
             });
           });
 
@@ -148,6 +148,7 @@ const categorySliceAdmin = createSlice({
             show: value.show,
             homepage: value.homepage,
             children: newArrChildren.length > 0 ? newArrChildren : null,
+            stt: value.stt,
           });
         });
 
