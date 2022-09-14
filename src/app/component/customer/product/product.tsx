@@ -14,7 +14,7 @@ interface propsProduct {
   value: Product2 | Combo;
 }
 function Product(props: propsProduct) {
-  console.log("props", props.value);
+  console.log("props 1", props.value);
   const dispatch = useAppDispatch();
   return (
     <div className="product">
@@ -68,7 +68,7 @@ function Product(props: propsProduct) {
         {/* <div className="product-cat">
           <a href="#">{props.value.name}</a>
         </div> */}
-        <h3 className="product-title" style={{fontWeight: '500'}}>
+        <h3 className="product-title" style={{ fontWeight: "500" }}>
           <Link
             to={
               props.value.category.type === "PRODUCT"
@@ -78,9 +78,19 @@ function Product(props: propsProduct) {
           >
             {props.value.name?.toUpperCase()}
           </Link>
-        </h3> 
+        </h3>
         <div className="product-price">
-          {props.value.price ? currency(props.value.price) : "Liên hệ"}
+          {props.value.productpropertiess.length > 0
+            ? Numberformat(props.value.productpropertiess[0]?.price)
+            : props.value?.price ? Numberformat(props.value?.price) : "Liên hệ"}
+          {/* {props.value?.id_productproperties
+                          ? Numberformat(
+                              props.value.productpropertiess.filter(
+                                (b: any) => b.id == props.value?.id_productproperties
+                              )[0]?.price
+                            )
+                          : Numberformat(props.value?.price)} */}
+          {/* {props.value.price ? currency(props.value.price) : "Liên hệ"} */}
         </div>
       </div>
     </div>

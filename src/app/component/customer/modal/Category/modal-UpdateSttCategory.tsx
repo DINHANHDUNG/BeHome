@@ -1,4 +1,4 @@
-import { Button, Form, Input, Modal, Select,InputNumber } from "antd";
+import { Button, Form, Input, Modal, Select, InputNumber } from "antd";
 import React, { useEffect } from "react";
 import {
   getAllCategoryTrees,
@@ -7,7 +7,7 @@ import {
   postEditCategoryByIdAdmin,
 } from "../../../../../features/Admin/categoryAdnim";
 import { categoryAdminStore } from "../../../../../use-selector";
-import { useAppDispatch, useAppSelector } from "../../../../hooks";
+import { openNotification, useAppDispatch, useAppSelector } from "../../../../hooks";
 
 interface propsModalUpdateSttCategory {
   visible: boolean;
@@ -18,7 +18,7 @@ interface propsModalUpdateSttCategory {
     name: string;
     name_parent?: any;
     type: "PRODUCT" | "COMBO";
-    stt: number,
+    stt: number;
   };
 }
 function ModalUpdateSttCategory(props: propsModalUpdateSttCategory) {
@@ -43,9 +43,17 @@ function ModalUpdateSttCategory(props: propsModalUpdateSttCategory) {
           id: props.value.id,
           stt: value.stt,
         })
-      ).then(() => dispatch(getAllCategoryTrees()));
-    } 
-    return
+      ).then(() => {
+        dispatch(getAllCategoryTrees());
+        props.toggle()
+        openNotification({
+          message: "Thao tác thành công",
+          type: "success",
+        });
+      });
+    }
+    
+    return;
   }
 
   //Select
@@ -120,19 +128,17 @@ function ModalUpdateSttCategory(props: propsModalUpdateSttCategory) {
         <Form.Item
           label="Tên "
           name="name"
-          
           rules={[{ required: true, message: "Nhập tên danh mục!" }]}
         >
-          <Input disabled/>
+          <Input disabled />
         </Form.Item>
 
         <Form.Item
           label="Số thứ tự "
           name="stt"
-          
           rules={[{ required: true, message: "Nhập số thứ tự" }]}
         >
-          <InputNumber style={{width: "100%"}}/>
+          <InputNumber style={{ width: "100%" }} />
         </Form.Item>
 
         <Form.Item

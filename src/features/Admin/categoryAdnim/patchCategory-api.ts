@@ -29,7 +29,7 @@ export const getAllCategoryComboAdmin = createAsyncThunk(
   "/categoryadmin/getallcombo",
   async () => {
     const response = await categoryAPIAdmin.getAllCategoryComboAdmin();
-    console.log("getAllCategory", response);
+    console.log("getallcombo", response);
 
     return response;
   }
@@ -39,7 +39,7 @@ export const getAllCategoryProductAdmin = createAsyncThunk(
   "/categoryadmin/getallproduct",
   async () => {
     const response = await categoryAPIAdmin.getAllCategoryProductAdmin();
-    console.log("getAllCategory", response);
+    console.log("getallproduct", response);
 
     return response;
   }

@@ -1,25 +1,9 @@
-import {
-  Button,
-  Card,
-  Col,
-  InputNumber,
-  Pagination,
-  Popconfirm,
-  Row,
-  Table,
-  Typography,
-} from "antd";
-import moment from "moment";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import {
-  getAllBuildAdmin,
-  postDeleteBuildAdmin,
-} from "../../../features/Admin/buildAdmin";
+import { InputNumber, Typography } from "antd";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { getAllBuildAdmin } from "../../../features/Admin/buildAdmin";
 import { addCartBuild } from "../../../features/cart/cart-slice";
 import { buildAdminStore } from "../../../use-selector";
-import ModalBuildDesign from "../../component/customer/modal/modalBuildDesign/modal-buildDesign";
 import ModalBuildDesignCustomer from "../../component/customer/modal/ModalBuildDesignCustomer/ModalBuildDesignCustomer";
 import { Numberformat, useAppDispatch, useAppSelector } from "../../hooks";
 import "./build.css";
@@ -33,13 +17,13 @@ function BuildDesign() {
     { listProduct: [], idBuild: 0 },
   ] as any);
 
-  console.log(selectedProduct);
+  console.log("selectedProduct", selectedProduct);
 
   const [selectedID, setSelectedID] = useState(1);
   const [idCategory, setIdCategory] = useState(null as any);
   const [selectIndex, setSelectIndex] = useState(Number);
   const [visible, setVisible] = useState(false);
-  console.log(buildDesign);
+  console.log("buildDesign", buildDesign);
 
   useEffect(() => {
     dispatch(getAllBuildAdmin());
@@ -89,11 +73,19 @@ function BuildDesign() {
 
       {buildDesign.listBuild[selectIndex]?.builddesigns?.map((value, idx) => (
         <>
-          {console.log(
+          {console.log('danh sách',
             selectedProduct.filter((val: any) => {
               console.log(val, value);
               return val.idBuild === value.id_builddesign;
             })[0]?.listProduct
+          )}
+
+          {console.log('Sản phẩm đã chọn',
+            selectedProduct
+              .filter((val: any) => val.idBuild === value.id_builddesign)[0]
+              ?.listProduct.filter(
+                (v: any) => v.id_category === value.id_category
+              )
           )}
           <hr />
           <div className="row" key={value.id}>
@@ -143,7 +135,8 @@ function BuildDesign() {
                     </figure>
 
                     <h3 className="product-title" style={{ paddingTop: "7px" }}>
-                      <Link to={
+                      <Link
+                        to={
                           "/detailproduct/" +
                           selectedProduct
                             .filter(
@@ -152,7 +145,9 @@ function BuildDesign() {
                             ?.listProduct.filter(
                               (v: any) => v.id_category === value.id_category
                             )[0].id
-                        } style={{ fontWeight: 500 }}>
+                        }
+                        style={{ fontWeight: 500 }}
+                      >
                         {
                           selectedProduct
                             .filter(

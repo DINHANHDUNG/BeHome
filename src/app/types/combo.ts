@@ -50,6 +50,15 @@ export interface Combo {
   type: string;
   images: Array<any>;
   comments: Array<Comment>;
+  productpropertiess: Array<productpropertiess>;
+}
+
+interface productpropertiess {
+  id: number;
+  id_product: number;
+  nameproperties: string;
+  price: number;
+  product: string;
 }
 
 export interface CustomesCombo {

@@ -19,6 +19,16 @@ export interface OrderDetail {
   order: Order;
   product: Product;
   combo: Combo;
+  id_productproperties: number;
+  productproperties: ProductpropertiesType;
+}
+
+export interface ProductpropertiesType {
+  id: number;
+  id_product: number;
+  nameproperties: string;
+  price: number;
+  propduct: Product
 }
 
 export interface CustomerCart {
@@ -53,6 +63,7 @@ export interface Order {
   status: string;
   created_date: string;
   updated_date: string;
+  totalmoney: number;
   orderdetails: Array<OrderDetail>;
 }
 
