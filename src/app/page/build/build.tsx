@@ -73,14 +73,16 @@ function BuildDesign() {
 
       {buildDesign.listBuild[selectIndex]?.builddesigns?.map((value, idx) => (
         <>
-          {console.log('danh sách',
+          {console.log(
+            "danh sách",
             selectedProduct.filter((val: any) => {
-              console.log(val, value);
+              console.log("log", val, value);
               return val.idBuild === value.id_builddesign;
             })[0]?.listProduct
           )}
 
-          {console.log('Sản phẩm đã chọn',
+          {console.log(
+            "Sản phẩm đã chọn",
             selectedProduct
               .filter((val: any) => val.idBuild === value.id_builddesign)[0]
               ?.listProduct.filter(
@@ -321,9 +323,12 @@ function BuildDesign() {
           history("/cart");
         }}
       >
-        <a className="btn-product btn">
-          <span>Thêm vào giỏ hàng</span>
-        </a>
+        {selectedProduct?.filter((val: any) => val.idBuild === selectedID)[0]
+          ?.listProduct?.length > 0 ? (
+          <a className="btn-product btn">
+            <span>Thêm vào giỏ hàng</span>
+          </a>
+        ) : null}
       </div>
       {/* {visible ?? ( */}
       <ModalBuildDesignCustomer

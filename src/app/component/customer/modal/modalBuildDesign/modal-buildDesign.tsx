@@ -6,7 +6,7 @@ import {
   postAddBuildByIdAdmin,
   postEditBuildByIdAdmin,
 } from "../../../../../features/Admin/buildAdmin";
-import { getAllCategoryTrees } from "../../../../../features/Admin/categoryAdnim";
+import { getAllCategoryProductAdmin, getAllCategoryTrees } from "../../../../../features/Admin/categoryAdnim";
 import {
   getAllManufacturerAdmin,
   postAddManufacturerByIdAdmin,
@@ -29,7 +29,7 @@ function ModalBuildDesign(props: propsModalBuildDesign) {
 
   useEffect(() => {
     form.resetFields();
-    dispatch(getAllCategoryTrees());
+    dispatch(getAllCategoryProductAdmin());
   }, [props.value.id]);
 
   function onFinish(value: any) {

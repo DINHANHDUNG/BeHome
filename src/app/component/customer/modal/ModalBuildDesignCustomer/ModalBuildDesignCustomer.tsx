@@ -28,9 +28,11 @@ function ModalBuildDesignCustomer(props: propsModalBuildDesignCustomer) {
   const [valueRangePrice, setValueRangePrice] = useState(null as any);
   const [valueFirm, setValueFirm] = useState(null as any);
   const [valueRank, setValueRank] = useState(null as any);
-  console.log(product);
+  console.log("product search", product);
 
   useEffect(() => {
+    console.log("id category", props.value.idCategory);
+
     if (props.value.idCategory) {
       dispatch(
         getProductSearchAdmin({
@@ -150,7 +152,7 @@ function ModalBuildDesignCustomer(props: propsModalBuildDesignCustomer) {
 
           <div className="products mb-3">
             <div className="row">
-              {product.listproduct?.map((val, idx) => (
+              {product.listproduct.filter((v)=> v.productpropertiess?.length < 1)?.map((val, idx) => (
                 <div className="Modal-item-build" key={idx}>
                   <div className="Modal-item-build-product">
                     <figure className="Modal-item-build-product-media mr-2">
@@ -179,6 +181,11 @@ function ModalBuildDesignCustomer(props: propsModalBuildDesignCustomer) {
                       <a href="#" style={{ fontWeight: 500 }}>
                         {val.name}
                       </a>
+                      {/* {val.productpropertiess.length > 0
+                        ? Numberformat(val.productpropertiess[0]?.price)
+                        : val?.price
+                        ? Numberformat(val?.price) + "đ"
+                        : "Liên hệ"} */}
                       <span>{Numberformat(val.price)} đ</span>
                     </h3>
                   </div>

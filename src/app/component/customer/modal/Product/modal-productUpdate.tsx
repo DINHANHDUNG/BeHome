@@ -594,7 +594,7 @@ function ModalProductUpdate(props: propsModalProduct) {
                           alignItems: "center",
                         }}
                       >
-                        {fields.length > 1 ? (
+                        {fields.length > 0 ? (
                           <MinusCircleOutlined
                             style={{ fontSize: "20px" }}
                             className="dynamic-delete-button"

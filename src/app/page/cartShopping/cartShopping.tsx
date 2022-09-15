@@ -57,7 +57,13 @@ function CartShopping() {
                       <td className="product-col">
                         <div className="product">
                           <figure className="product-media">
-                            <a href="#">
+                            <Link
+                              to={
+                                value.category.type === "PRODUCT"
+                                  ? "/detailproduct/" + value.id_product
+                                  : "/detailcombo/" + value.id_combo
+                              }
+                            >
                               <img
                                 src={
                                   "http://103.137.184.193:5500/images/" +
@@ -68,11 +74,19 @@ function CartShopping() {
                                 }
                                 alt="Product image"
                               />
-                            </a>
+                            </Link>
                           </figure>
 
                           <h3 className="product-title">
-                            <a href="#">{value?.name}</a>
+                            <Link
+                              to={
+                                value.category.type === "PRODUCT"
+                                  ? "/detailproduct/" + value.id_product
+                                  : "/detailcombo/" + value.id_combo
+                              }
+                            >
+                              {value?.name}
+                            </Link>
                           </h3>
                         </div>
                       </td>

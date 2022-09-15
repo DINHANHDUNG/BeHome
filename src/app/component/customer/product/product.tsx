@@ -53,6 +53,14 @@ function Product(props: propsProduct) {
                 message: "Đã thêm vào giỏ hàng",
                 type: "success",
               });
+              if (props.value.productpropertiess.length > 0) {
+                return dispatch(
+                  addCart({
+                    ...props.value,
+                    id_productproperties: props.value.productpropertiess[0].id,
+                  })
+                );
+              }
               dispatch(addCart(props.value));
             }}
             to={"#"}
@@ -82,7 +90,9 @@ function Product(props: propsProduct) {
         <div className="product-price">
           {props.value.productpropertiess.length > 0
             ? Numberformat(props.value.productpropertiess[0]?.price)
-            : props.value?.price ? Numberformat(props.value?.price) : "Liên hệ"}
+            : props.value?.price
+            ? Numberformat(props.value?.price)
+            : "Liên hệ"}
           {/* {props.value?.id_productproperties
                           ? Numberformat(
                               props.value.productpropertiess.filter(

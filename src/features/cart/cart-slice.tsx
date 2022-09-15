@@ -150,6 +150,7 @@ const cartSliceAdmin = createSlice({
           id_product: action.payload.id,
           id_combo: null,
           amount: action.payload.amount,
+          id_productproperties: action.payload.id_productproperties,
         };
         state.orderdetails = [...state.orderdetails, product];
       }
