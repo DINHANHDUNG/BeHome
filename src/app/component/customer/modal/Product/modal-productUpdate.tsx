@@ -444,7 +444,7 @@ function ModalProductUpdate(props: propsModalProduct) {
             <Form.Item
               label="Giá bán"
               name="price"
-              rules={[{ required: true, message: "Nhập giá!" }]}
+              // rules={[{ required: true, message: "Nhập giá!" }]}
             >
               <InputNumber
                 maxLength={25}
@@ -566,12 +566,12 @@ function ModalProductUpdate(props: propsModalProduct) {
                         <Form.Item
                           name={[index, "price"]}
                           label={`Giá bán`}
-                          rules={[
-                            {
-                              required: true,
-                              message: "Nhập giá bán!",
-                            },
-                          ]}
+                          // rules={[
+                          //   {
+                          //     required: true,
+                          //     message: "Nhập giá bán!",
+                          //   },
+                          // ]}
                         >
                           <InputNumber
                             maxLength={25}
