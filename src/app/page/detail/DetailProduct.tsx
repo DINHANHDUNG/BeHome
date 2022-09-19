@@ -139,7 +139,9 @@ function DetailProduct() {
                 >
                   <span>
                     {selectProperti != null
-                      ? currency(selectProperti?.price)
+                      ? selectProperti?.price != null
+                        ? currency(selectProperti?.price)
+                        : "Liên hệ"
                       : products?.listproduct[0]?.price
                       ? currency(products?.listproduct[0]?.price)
                       : "Liên hệ"}

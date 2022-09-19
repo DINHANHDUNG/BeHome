@@ -89,7 +89,9 @@ function Product(props: propsProduct) {
         </h3>
         <div className="product-price">
           {props.value.productpropertiess.length > 0
-            ? Numberformat(props.value.productpropertiess[0]?.price)
+            ? props.value.productpropertiess[0]?.price != null
+              ? Numberformat(props.value.productpropertiess[0]?.price)
+              : "Liên hệ"
             : props.value?.price
             ? Numberformat(props.value?.price)
             : "Liên hệ"}
