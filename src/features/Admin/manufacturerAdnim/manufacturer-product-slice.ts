@@ -1,16 +1,16 @@
-import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
-import { openNotification } from "../../../app/hooks";
+import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
+import { openNotification } from '../../../app/hooks';
 import {
   CustomesManufacturer,
   Manufacturer,
-} from "../../../app/types/manufacturer";
+} from '../../../app/types/manufacturer';
 import {
   getAllManufacturerAdmin,
   getManufacturerByIdAdmin,
   postAddManufacturerByIdAdmin,
   postDeleteManufacturerAdmin,
   postEditManufacturerByIdAdmin,
-} from "./patchManufacturer-api";
+} from './patchManufacturer-api';
 const initialStateManufacturer: CustomesManufacturer = {
   listManufacturer: [] as Array<Manufacturer>,
   total: 0,
@@ -19,7 +19,7 @@ const initialStateManufacturer: CustomesManufacturer = {
 };
 
 const manufacturerSliceAdmin = createSlice({
-  name: "manufactureradmin",
+  name: 'manufactureradmin',
   initialState: initialStateManufacturer,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<CustomesManufacturer>) => {
@@ -41,8 +41,8 @@ const manufacturerSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -60,8 +60,8 @@ const manufacturerSliceAdmin = createSlice({
       .addCase(getManufacturerByIdAdmin.rejected, (state) => {
         state.loading = false;
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -72,8 +72,8 @@ const manufacturerSliceAdmin = createSlice({
       })
       .addCase(postAddManufacturerByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Thêm thành công",
-          type: "success",
+          message: 'Thêm thành công',
+          type: 'success',
         });
         const { result } = action.payload;
         state.listManufacturer = [...state.listManufacturer, result];
@@ -84,8 +84,8 @@ const manufacturerSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Thêm không thành công",
-          type: "error",
+          message: 'Thêm không thành công',
+          type: 'error',
         });
       });
 
@@ -96,8 +96,8 @@ const manufacturerSliceAdmin = createSlice({
       })
       .addCase(postEditManufacturerByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Sửa thành công",
-          type: "success",
+          message: 'Sửa thành công',
+          type: 'success',
         });
         state.loading = false;
         state.error = false;
@@ -106,8 +106,8 @@ const manufacturerSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Sửa không thành công",
-          type: "error",
+          message: 'Sửa không thành công',
+          type: 'error',
         });
       });
 
@@ -122,8 +122,8 @@ const manufacturerSliceAdmin = createSlice({
         state.loading = false;
         state.error = false;
         openNotification({
-          message: "Xóa thành công",
-          type: "success",
+          message: 'Xóa thành công',
+          type: 'success',
         });
         // console.log("Get all manufacturer thành công");
       })
@@ -131,8 +131,8 @@ const manufacturerSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Xóa thất bại",
-          type: "error",
+          message: 'Xóa thất bại',
+          type: 'error',
         });
         // console.log("Get manufacturer không thành công");
       });

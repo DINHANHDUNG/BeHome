@@ -1,9 +1,9 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import commentAPIAdmin from "../../../app/commom/api/admin/api-comment-admin";
-import { AddComment, AddReply, getAllComment } from "../../../app/types/comment";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import commentAPIAdmin from '../../../app/commom/api/admin/api-comment-admin';
+import { AddComment, AddReply, getAllComment } from '../../../app/types/comment';
 
 export const postAddCommentByIdAdmin = createAsyncThunk(
-  "/Commentadmin/addComment",
+  '/Commentadmin/addComment',
   async (data: AddComment) => {
     const response = await commentAPIAdmin.postAddComemntADmin(data);
 
@@ -21,7 +21,7 @@ export const postAddCommentByIdAdmin = createAsyncThunk(
 // );
 
 export const getAllCommentAdmin = createAsyncThunk(
-  "/Commentadmin/getallbycategory",
+  '/Commentadmin/getallbycategory',
   async (data: getAllComment) => {
     const response = await commentAPIAdmin.getAllComemntAdmin(data);
 
@@ -30,7 +30,7 @@ export const getAllCommentAdmin = createAsyncThunk(
 );
 
 export const getCommentByIdAdmin = createAsyncThunk(
-  "/Commentadmin/getbyid",
+  '/Commentadmin/getbyid',
   async (data: { id: number }) => {
     const response = await commentAPIAdmin.getComemntByIdADmin(data);
 
@@ -39,7 +39,7 @@ export const getCommentByIdAdmin = createAsyncThunk(
 );
 
 export const postDeleteCommentAdmin = createAsyncThunk(
-  "/Commentadmin/deleteComment",
+  '/Commentadmin/deleteComment',
   async (data: { id: [number] }) => {
     // console.log("data truyền vào", data);
 
@@ -51,7 +51,7 @@ export const postDeleteCommentAdmin = createAsyncThunk(
 );
 
 export const postDeleteReplyAdmin = createAsyncThunk(
-  "/Commentadmin/deleteReply",
+  '/Commentadmin/deleteReply',
   async (data: { id: [number] }) => {
     // console.log("data truyền vào", data);
 
@@ -63,7 +63,7 @@ export const postDeleteReplyAdmin = createAsyncThunk(
 );
 
 export const postAddReplyAdmin = createAsyncThunk(
-  "/Commentadmin/addReply",
+  '/Commentadmin/addReply',
   async (data: AddReply) => {
     const response = await commentAPIAdmin.postAddReplyADmin(data);
 

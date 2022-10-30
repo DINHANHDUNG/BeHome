@@ -1,5 +1,5 @@
-import { Combo } from "./combo";
-import { Product } from "./product";
+import { Combo } from './combo';
+import { Product } from './product';
 
 export interface Build {
   id: number;

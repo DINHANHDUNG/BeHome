@@ -21,7 +21,7 @@ export interface AddPromotion {
 export type EditPromotion = AddPromotion & { id: number };
 
 export interface DeletePromotion {
-  id: Array<Number>;
+  id: Array<number>;
 }
 export interface CustomesPromotion {
   listpromotion: Array<Promotion>;

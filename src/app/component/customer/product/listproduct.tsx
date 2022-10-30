@@ -1,34 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { ProductHomePage } from "../../../types/product-home-page";
-import Product from "./product";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ProductHomePage } from '../../../types/product-home-page';
+import Product from './product';
 interface propsProduct {
   product: ProductHomePage;
   idx?: number;
 }
 function Listproduct(props: propsProduct) {
-  console.log("props", props);
+  console.log('props', props);
 
   return (
     <div>
       <h2
         className="title title-border"
         style={{
-          marginTop: "30px",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
+          marginTop: '30px',
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
         }}
       >
         <span>{props.product?.name}</span>
         <Link
           to={
-            props.product.type === "PRODUCT"
+            props.product.type === 'PRODUCT'
               ? `danhmucproduct/${props.product?.id}`
               : `danhmuccombo/${props.product?.id}`
           }
-          style={{ fontSize: "16px", fontWeight: 400}}
+          style={{ fontSize: '16px', fontWeight: 400}}
         >
           Xem tất cả
         </Link>

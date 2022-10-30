@@ -1,12 +1,12 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import ManufacturerAPIAdmin from "../../../app/commom/api/admin/api-manufacturer";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import ManufacturerAPIAdmin from '../../../app/commom/api/admin/api-manufacturer';
 import {
   AddManufacturer,
   EditManufacturer,
-} from "../../../app/types/manufacturer";
+} from '../../../app/types/manufacturer';
 
 export const postAddManufacturerByIdAdmin = createAsyncThunk(
-  "/Manufacturer/addManufacturer",
+  '/Manufacturer/addManufacturer',
   async (data: AddManufacturer) => {
     const response = await ManufacturerAPIAdmin.postAddManufacturerADmin(data);
 
@@ -15,7 +15,7 @@ export const postAddManufacturerByIdAdmin = createAsyncThunk(
 );
 
 export const postEditManufacturerByIdAdmin = createAsyncThunk(
-  "/Manufactureradmin/editManufacturer",
+  '/Manufactureradmin/editManufacturer',
   async (data: EditManufacturer) => {
     const response = await ManufacturerAPIAdmin.postEditManufacturerADmin(data);
 
@@ -24,7 +24,7 @@ export const postEditManufacturerByIdAdmin = createAsyncThunk(
 );
 
 export const getAllManufacturerAdmin = createAsyncThunk(
-  "/Manufactureradmin/getallManufacturer",
+  '/Manufactureradmin/getallManufacturer',
   async (data: {
     id_category: number;
     page: number;
@@ -38,7 +38,7 @@ export const getAllManufacturerAdmin = createAsyncThunk(
 );
 
 export const getManufacturerByIdAdmin = createAsyncThunk(
-  "/Manufactureradmin/getbyidManufacturer",
+  '/Manufactureradmin/getbyidManufacturer',
   async (data: { id: number }) => {
     const response = await ManufacturerAPIAdmin.getManufacturerByIdADmin(data);
 
@@ -47,7 +47,7 @@ export const getManufacturerByIdAdmin = createAsyncThunk(
 );
 
 export const postDeleteManufacturerAdmin = createAsyncThunk(
-  "/Manufactureradmin/deleteManufacturer",
+  '/Manufactureradmin/deleteManufacturer',
   async (data: { id: [number] }) => {
     const response = await ManufacturerAPIAdmin.postDeleteManufacturerADmin(
       data

@@ -1,5 +1,5 @@
-import React from "react";
-import { Promotion } from "../../../types/promotion";
+import React from 'react';
+import { Promotion } from '../../../types/promotion';
 interface propsBoxPromotion {
   value: Promotion;
 }

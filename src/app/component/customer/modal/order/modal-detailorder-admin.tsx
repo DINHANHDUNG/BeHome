@@ -8,21 +8,21 @@ import {
   Modal,
   Row,
   Typography,
-} from "antd";
-import React, { useEffect, useState } from "react";
+} from 'antd';
+import React, { useEffect, useState } from 'react';
 import {
   getAllManufacturerAdmin,
   postAddManufacturerByIdAdmin,
   postEditManufacturerByIdAdmin,
-} from "../../../../../features/Admin/manufacturerAdnim";
+} from '../../../../../features/Admin/manufacturerAdnim';
 import {
   getAllRankAdmin,
   postAddRankByIdAdmin,
   postEditRankByIdAdmin,
-} from "../../../../../features/Admin/rankAdnim";
-import { currency, Numberformat, useAppDispatch } from "../../../../hooks";
-import { Order } from "../../../../types/order";
-import { Product } from "../../../../types/product";
+} from '../../../../../features/Admin/rankAdnim';
+import { currency, Numberformat, useAppDispatch } from '../../../../hooks';
+import { Order } from '../../../../types/order';
+import { Product } from '../../../../types/product';
 
 interface propsModalDetailoOderDdmin {
   visible: boolean;
@@ -32,7 +32,7 @@ interface propsModalDetailoOderDdmin {
   page: number;
 }
 function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
-  console.log("props.value", props.value);
+  console.log('props.value', props.value);
 
   const dispatch = useAppDispatch();
   const [totalOrder, setTotalOrder] = useState(0);
@@ -40,7 +40,7 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
   // console.log(props.value);
 
   useEffect(() => {
-    var total = 0;
+    let total = 0;
 
     props.value.orderdetails?.map((val) => {
       if (val.id_combo) {
@@ -57,16 +57,16 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
     <Modal
       title={
         props.value?.id > 0
-          ? "Thông tin chi tiết đơn hàng"
-          : "Thông tin chi tiết đơn hàng"
+          ? 'Thông tin chi tiết đơn hàng'
+          : 'Thông tin chi tiết đơn hàng'
       }
       centered
       visible={props.visible}
       onOk={() => props.toggle()}
       onCancel={() => props.toggle()}
-      okText={"Thêm"}
-      cancelText={"Hủy"}
-      width={"90%"}
+      okText={'Thêm'}
+      cancelText={'Hủy'}
+      width={'90%'}
       footer={null}
     >
       <Row className="rowgap-vbox" gutter={[24, 0]}>
@@ -83,8 +83,8 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
 
               <Row align="middle" gutter={[24, 0]}>
                 <Col xs={24}>
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <div style={{ marginRight: "10px" }}>
+                  <div style={{ display: 'flex', flexDirection: 'row' }}>
+                    <div style={{ marginRight: '10px' }}>
                       <Title level={5}>Tên khách hàng:</Title>
                     </div>
                     <div>
@@ -96,8 +96,8 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
 
               <Row align="middle" gutter={[24, 0]}>
                 <Col xs={24}>
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <div style={{ marginRight: "10px" }}>
+                  <div style={{ display: 'flex', flexDirection: 'row' }}>
+                    <div style={{ marginRight: '10px' }}>
                       <Title level={5}>Địa chỉ:</Title>
                     </div>
                     <div>
@@ -109,8 +109,8 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
 
               <Row align="middle" gutter={[24, 0]}>
                 <Col xs={24}>
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <div style={{ marginRight: "10px" }}>
+                  <div style={{ display: 'flex', flexDirection: 'row' }}>
+                    <div style={{ marginRight: '10px' }}>
                       <Title level={5}>Số điện thoại:</Title>
                     </div>
                     <div>
@@ -122,8 +122,8 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
 
               <Row align="middle" gutter={[24, 0]}>
                 <Col xs={24}>
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <div style={{ marginRight: "10px" }}>
+                  <div style={{ display: 'flex', flexDirection: 'row' }}>
+                    <div style={{ marginRight: '10px' }}>
                       <Title level={5}>Email:</Title>
                     </div>
                     <div>
@@ -148,8 +148,8 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
 
               <Row align="middle" gutter={[24, 0]}>
                 <Col xs={24}>
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <div style={{ marginRight: "10px" }}>
+                  <div style={{ display: 'flex', flexDirection: 'row' }}>
+                    <div style={{ marginRight: '10px' }}>
                       <Title level={5}>Mã:</Title>
                     </div>
                     <div>
@@ -164,8 +164,8 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
 
               <Row align="middle" gutter={[24, 0]}>
                 <Col xs={24}>
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <div style={{ marginRight: "10px" }}>
+                  <div style={{ display: 'flex', flexDirection: 'row' }}>
+                    <div style={{ marginRight: '10px' }}>
                       <Title level={5}>Tổng tiền:</Title>
                     </div>
                     <div>
@@ -177,8 +177,8 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
 
               <Row align="middle" gutter={[24, 0]}>
                 <Col xs={24}>
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <div style={{ marginRight: "10px" }}>
+                  <div style={{ display: 'flex', flexDirection: 'row' }}>
+                    <div style={{ marginRight: '10px' }}>
                       <Title level={5}>Tình trạng:</Title>
                     </div>
                     <div>
@@ -226,9 +226,9 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
                                     <Image
                                       src={
                                         val.combo?.images
-                                          ? "http://103.137.184.193:5500/images/" +
+                                          ? 'http://103.137.184.193:5500/images/' +
                                             val.combo?.images[0]?.imagename
-                                          : ""
+                                          : ''
                                       }
                                       alt="Product image"
                                     />
@@ -271,9 +271,9 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
                                     <Image
                                       src={
                                         val.product?.images
-                                          ? "http://103.137.184.193:5500/images/" +
+                                          ? 'http://103.137.184.193:5500/images/' +
                                             val.product?.images[0]?.imagename
-                                          : ""
+                                          : ''
                                       }
                                       alt="Product image"
                                     />

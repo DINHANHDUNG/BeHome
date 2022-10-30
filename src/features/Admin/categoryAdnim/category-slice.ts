@@ -1,20 +1,20 @@
-import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
-import queryString from "query-string";
+import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
+import queryString from 'query-string';
 import {
   getCategoryByIdAdmin,
   postAddCategoryByIdAdmin,
   postDeleteCategoryAdmin,
   postEditCategoryByIdAdmin,
-} from ".";
-import { openNotification } from "../../../app/hooks";
-import { Category, CustomesCategory } from "../../../app/types/category";
+} from '.';
+import { openNotification } from '../../../app/hooks';
+import { Category, CustomesCategory } from '../../../app/types/category';
 import {
   getAllCategoryComboAdmin,
   getAllCategoryProductAdmin,
   getAllCategoryTrees,
   hiddenCategoryByIdAdmin,
   showCategoryByIdAdmin,
-} from "./patchCategory-api";
+} from './patchCategory-api';
 const initialStateCategory: CustomesCategory = {
   listcategoryProduct: [] as Array<Category>,
   listcategoryCombo: [] as Array<Category>,
@@ -23,7 +23,7 @@ const initialStateCategory: CustomesCategory = {
 };
 
 const categorySliceAdmin = createSlice({
-  name: "categoryadmin",
+  name: 'categoryadmin',
   initialState: initialStateCategory,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<CustomesCategory>) => {
@@ -45,8 +45,8 @@ const categorySliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -66,8 +66,8 @@ const categorySliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -78,8 +78,8 @@ const categorySliceAdmin = createSlice({
       })
       .addCase(showCategoryByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Thao tác thành công",
-          type: "success",
+          message: 'Thao tác thành công',
+          type: 'success',
         });
         state.loading = false;
         state.error = false;
@@ -88,8 +88,8 @@ const categorySliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Thao tác không thành công",
-          type: "error",
+          message: 'Thao tác không thành công',
+          type: 'error',
         });
       });
 
@@ -100,8 +100,8 @@ const categorySliceAdmin = createSlice({
       })
       .addCase(hiddenCategoryByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Thao tác thành công",
-          type: "success",
+          message: 'Thao tác thành công',
+          type: 'success',
         });
         state.loading = false;
         state.error = false;
@@ -110,8 +110,8 @@ const categorySliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Thao tác không thành công",
-          type: "error",
+          message: 'Thao tác không thành công',
+          type: 'error',
         });
       });
 
@@ -122,10 +122,10 @@ const categorySliceAdmin = createSlice({
       })
       .addCase(getAllCategoryTrees.fulfilled, (state, action) => {
         const { combo, product } = action.payload;
-        let newArrProduct = [] as any;
-        let newArrCombo = [] as any;
+        const newArrProduct = [] as any;
+        const newArrCombo = [] as any;
         product?.map((value: any) => {
-          let newArrChildren = [] as any;
+          const newArrChildren = [] as any;
 
           value.categorytrees?.map((val: any) => {
             newArrChildren.push({
@@ -153,7 +153,7 @@ const categorySliceAdmin = createSlice({
         });
 
         combo?.map((value: any) => {
-          let newArrChildren = [] as any;
+          const newArrChildren = [] as any;
 
           value.categorytrees?.map((val: any) => {
             newArrChildren.push({
@@ -188,8 +188,8 @@ const categorySliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -207,8 +207,8 @@ const categorySliceAdmin = createSlice({
       .addCase(getCategoryByIdAdmin.rejected, (state) => {
         state.loading = false;
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -219,8 +219,8 @@ const categorySliceAdmin = createSlice({
       })
       .addCase(postAddCategoryByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Thêm thành công",
-          type: "success",
+          message: 'Thêm thành công',
+          type: 'success',
         });
         const { result } = action.payload;
         state.loading = false;
@@ -230,8 +230,8 @@ const categorySliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Thêm không thành công",
-          type: "error",
+          message: 'Thêm không thành công',
+          type: 'error',
         });
       });
 
@@ -242,8 +242,8 @@ const categorySliceAdmin = createSlice({
       })
       .addCase(postEditCategoryByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Sửa thành công",
-          type: "success",
+          message: 'Sửa thành công',
+          type: 'success',
         });
         state.loading = false;
         state.error = false;
@@ -252,8 +252,8 @@ const categorySliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Sửa không thành công",
-          type: "error",
+          message: 'Sửa không thành công',
+          type: 'error',
         });
       });
 
@@ -268,8 +268,8 @@ const categorySliceAdmin = createSlice({
         state.loading = false;
         state.error = false;
         openNotification({
-          message: "Xóa thành công",
-          type: "success",
+          message: 'Xóa thành công',
+          type: 'success',
         });
         // console.log("Get all category thành công");
       })
@@ -277,8 +277,8 @@ const categorySliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Xóa thất bại",
-          type: "error",
+          message: 'Xóa thất bại',
+          type: 'error',
         });
         // console.log("Get category không thành công");
       });

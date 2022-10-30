@@ -1,15 +1,15 @@
-import { Col, DatePicker, Pagination, Row, Slider } from "antd";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Col, DatePicker, Pagination, Row, Slider } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   getAllProductAdmin,
   getProductSearchAdmin,
-} from "../../../features/Admin/productAdnim";
-import { productAdminStore } from "../../../use-selector";
-import Listproduct from "../../component/customer/product/listproduct";
-import Product from "../../component/customer/product/product";
-import { Numberformat, useAppDispatch, useAppSelector } from "../../hooks";
-import FilterProductCombo from "../admin/filterProductCombo/filterProductCombo";
+} from '../../../features/Admin/productAdnim';
+import { productAdminStore } from '../../../use-selector';
+import Listproduct from '../../component/customer/product/listproduct';
+import Product from '../../component/customer/product/product';
+import { Numberformat, useAppDispatch, useAppSelector } from '../../hooks';
+import FilterProductCombo from '../admin/filterProductCombo/filterProductCombo';
 
 function ProductByCategory() {
   const { ID } = useParams();
@@ -106,9 +106,9 @@ function ProductByCategory() {
                 <Col xl={24}>
                   <Pagination
                     style={{
-                      marginTop: "10px",
-                      float: "right",
-                      marginBottom: "10px",
+                      marginTop: '10px',
+                      float: 'right',
+                      marginBottom: '10px',
                     }}
                     onChange={(page, pageSizeNew) => {
                       console.log(page, pageSizeNew);

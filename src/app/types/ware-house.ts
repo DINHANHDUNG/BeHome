@@ -16,7 +16,7 @@ export interface AddWareHouse {
 export type EditWareHouse = AddWareHouse & { id: number };
 
 export interface DeleteWareHouse {
-  id: Array<Number>;
+  id: Array<number>;
 }
 
 export interface CustomesWareHouse {

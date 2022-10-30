@@ -1,6 +1,6 @@
-import { Category } from "./category";
-import { Combo } from "./combo";
-import { Product } from "./product";
+import { Category } from './category';
+import { Combo } from './combo';
+import { Product } from './product';
 
 export interface ProductHomePage {
   id: 0;

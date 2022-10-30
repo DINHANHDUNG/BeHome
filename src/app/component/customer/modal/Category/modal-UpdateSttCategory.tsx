@@ -1,13 +1,13 @@
-import { Button, Form, Input, Modal, Select, InputNumber } from "antd";
-import React, { useEffect } from "react";
+import { Button, Form, Input, Modal, Select, InputNumber } from 'antd';
+import React, { useEffect } from 'react';
 import {
   getAllCategoryTrees,
   patchUpdateSttCategoryAdmin,
   postAddCategoryByIdAdmin,
   postEditCategoryByIdAdmin,
-} from "../../../../../features/Admin/categoryAdnim";
-import { categoryAdminStore } from "../../../../../use-selector";
-import { openNotification, useAppDispatch, useAppSelector } from "../../../../hooks";
+} from '../../../../../features/Admin/categoryAdnim';
+import { categoryAdminStore } from '../../../../../use-selector';
+import { openNotification, useAppDispatch, useAppSelector } from '../../../../hooks';
 
 interface propsModalUpdateSttCategory {
   visible: boolean;
@@ -17,7 +17,7 @@ interface propsModalUpdateSttCategory {
     id_parent: number;
     name: string;
     name_parent?: any;
-    type: "PRODUCT" | "COMBO";
+    type: 'PRODUCT' | 'COMBO';
     stt: number;
   };
 }
@@ -45,10 +45,10 @@ function ModalUpdateSttCategory(props: propsModalUpdateSttCategory) {
         })
       ).then(() => {
         dispatch(getAllCategoryTrees());
-        props.toggle()
+        props.toggle();
         openNotification({
-          message: "Thao tác thành công",
-          type: "success",
+          message: 'Thao tác thành công',
+          type: 'success',
         });
       });
     }
@@ -63,13 +63,13 @@ function ModalUpdateSttCategory(props: propsModalUpdateSttCategory) {
 
   return (
     <Modal
-      title={"Cập nhật số thứ tự hiển thị"}
+      title={'Cập nhật số thứ tự hiển thị'}
       centered
       visible={props.visible}
       onOk={() => props.toggle()}
       onCancel={() => props.toggle()}
-      okText={"Thêm"}
-      cancelText={"Hủy"}
+      okText={'Thêm'}
+      cancelText={'Hủy'}
       width={800}
       footer={null}
     >
@@ -106,7 +106,7 @@ function ModalUpdateSttCategory(props: propsModalUpdateSttCategory) {
               optionFilterProp="children"
               // onChange={onChange}
               // onSearch={onSearch}
-              style={{ minWidth: "60px", marginRight: "props.pageSizepx" }}
+              style={{ minWidth: '60px', marginRight: 'props.pageSizepx' }}
               filterOption={(input, option: any) =>
                 option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
               }
@@ -128,7 +128,7 @@ function ModalUpdateSttCategory(props: propsModalUpdateSttCategory) {
         <Form.Item
           label="Tên "
           name="name"
-          rules={[{ required: true, message: "Nhập tên danh mục!" }]}
+          rules={[{ required: true, message: 'Nhập tên danh mục!' }]}
         >
           <Input disabled />
         </Form.Item>
@@ -136,9 +136,9 @@ function ModalUpdateSttCategory(props: propsModalUpdateSttCategory) {
         <Form.Item
           label="Số thứ tự "
           name="stt"
-          rules={[{ required: true, message: "Nhập số thứ tự" }]}
+          rules={[{ required: true, message: 'Nhập số thứ tự' }]}
         >
-          <InputNumber style={{ width: "100%" }} />
+          <InputNumber style={{ width: '100%' }} />
         </Form.Item>
 
         <Form.Item

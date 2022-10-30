@@ -1,8 +1,8 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import productAPIAdmin from "../../app/commom/api/admin/api-product-admin";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import productAPIAdmin from '../../app/commom/api/admin/api-product-admin';
 
 export const getProductHomePage = createAsyncThunk(
-  "/homepage/getproduct",
+  '/homepage/getproduct',
   async () => {
     const response = await productAPIAdmin.getProductbyHomePage();
 

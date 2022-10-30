@@ -1,9 +1,9 @@
 // import logo from "./logo.svg";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
-import LayoutAdmin from "./app/layout/admin/layoutadmin";
-import LayoutCustomer from "./app/layout/customer/layoutCustomer";
-import { Helmet } from "react-helmet";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css';
+import LayoutAdmin from './app/layout/admin/layoutadmin';
+import LayoutCustomer from './app/layout/customer/layoutCustomer';
+import { Helmet } from 'react-helmet';
 function App() {
   return (
     <div className="application">

@@ -1,1 +1,1 @@
-export const REACT_APP_API_URL = "http://103.137.184.193:1003/";
+export const REACT_APP_API_URL = 'http://103.137.184.193:1003/';

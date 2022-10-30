@@ -1,13 +1,13 @@
-import { Button, Card, Col, Pagination, Popconfirm, Row, Table } from "antd";
-import moment from "moment";
-import React, { useEffect, useState } from "react";
+import { Button, Card, Col, Pagination, Popconfirm, Row, Table } from 'antd';
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
 import {
   getAllPromotionAdmin,
   postDeletePromotionAdmin,
-} from "../../../../features/Admin/promotion";
-import { promotionAdminStore } from "../../../../use-selector";
-import ModalPromotion from "../../../component/customer/modal/Promotion/modal-promotion";
-import { getParsedDate, useAppDispatch, useAppSelector } from "../../../hooks";
+} from '../../../../features/Admin/promotion';
+import { promotionAdminStore } from '../../../../use-selector';
+import ModalPromotion from '../../../component/customer/modal/Promotion/modal-promotion';
+import { getParsedDate, useAppDispatch, useAppSelector } from '../../../hooks';
 
 function Promotion() {
   const dispatch = useAppDispatch();
@@ -36,27 +36,27 @@ function Promotion() {
   // table code start
   const columns = [
     {
-      title: "STT",
-      dataIndex: "id",
-      key: "id",
-      width: "10%",
+      title: 'STT',
+      dataIndex: 'id',
+      key: 'id',
+      width: '10%',
       render: (text: any, row: any, index: any) => index + 1,
     },
 
     {
-      title: "Tên KM",
-      dataIndex: "name",
-      key: "name",
+      title: 'Tên KM',
+      dataIndex: 'name',
+      key: 'name',
       sorter: (a: any, b: any) => a.name.localeCompare(b.name),
     },
 
     {
-      title: "Ngày tạo",
-      dataIndex: "created_date",
-      key: "created_date",
+      title: 'Ngày tạo',
+      dataIndex: 'created_date',
+      key: 'created_date',
       render: (created_date: any) => (
-        <div style={{ whiteSpace: "nowrap" }}>
-          {moment(created_date).utc().format("DD-MM-YYYY").toString()}
+        <div style={{ whiteSpace: 'nowrap' }}>
+          {moment(created_date).utc().format('DD-MM-YYYY').toString()}
         </div>
       ),
       sorter: (a: any, b: any) => {
@@ -68,12 +68,12 @@ function Promotion() {
     },
 
     {
-      title: "Ngày cập nhật",
-      dataIndex: "updated_date",
-      key: "updated_date",
+      title: 'Ngày cập nhật',
+      dataIndex: 'updated_date',
+      key: 'updated_date',
       render: (updated_date: any) => (
-        <div style={{ whiteSpace: "nowrap" }}>
-          {moment(updated_date).utc().format("DD-MM-YYYY").toString()}
+        <div style={{ whiteSpace: 'nowrap' }}>
+          {moment(updated_date).utc().format('DD-MM-YYYY').toString()}
         </div>
       ),
       sorter: (a: any, b: any) => {
@@ -85,10 +85,10 @@ function Promotion() {
     },
 
     {
-      title: "Show",
-      dataIndex: "show",
-      key: "show",
-      render: (show: any) => <>{show ? "Hiện" : "Ẩn"}</>,
+      title: 'Show',
+      dataIndex: 'show',
+      key: 'show',
+      render: (show: any) => <>{show ? 'Hiện' : 'Ẩn'}</>,
     },
   ];
 
@@ -98,7 +98,7 @@ function Promotion() {
     onChange: (selectedRowKeys: any, selectedRows: any) => {
       console.log(
         `selectedRowKeys: ${selectedRowKeys}`,
-        "selectedRows: ",
+        'selectedRows: ',
         selectedRows
       );
       setSelectedID(selectedRowKeys);
@@ -107,7 +107,7 @@ function Promotion() {
   };
 
   return (
-    <div className="tabled" style={{ marginBottom: "20px" }}>
+    <div className="tabled" style={{ marginBottom: '20px' }}>
       <Row gutter={[24, 0]}>
         <Col xs={24} xl={24}>
           <Card
@@ -117,7 +117,7 @@ function Promotion() {
             extra={
               <>
                 <Button
-                  style={{ marginRight: "10px" }}
+                  style={{ marginRight: '10px' }}
                   onClick={() => {
                     setValue({
                       id: 0,
@@ -153,7 +153,7 @@ function Promotion() {
               <Table
                 columns={columns}
                 dataSource={promotion.listpromotion.filter(
-                  (item: any) => item.id != 0
+                  (item: any) => item.id !== 0
                 )}
                 pagination={false}
                 className="ant-border-space"
@@ -163,15 +163,18 @@ function Promotion() {
                 rowKey="id"
                 onRow={(record: any, rowIndex) => {
                   return {
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onClick: (event) => {}, // click row
                     onDoubleClick: (event) => {
                       setVisible(true);
                     }, // double click row
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onContextMenu: (event) => {}, // right button click row
                     onMouseEnter: (event) => {
                       // console.log(record);
                       setValue(record);
                     }, // mouse enter row
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onMouseLeave: (event) => {}, // mouse leave row
                   };
                 }}

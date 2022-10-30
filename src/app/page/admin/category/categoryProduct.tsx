@@ -8,19 +8,19 @@ import {
   Space,
   Table,
   Typography,
-} from "antd";
-import React, { useEffect, useState } from "react";
+} from 'antd';
+import React, { useEffect, useState } from 'react';
 import {
   getAllCategoryTrees,
   hiddenCategoryByIdAdmin,
   postDeleteCategoryAdmin,
   showCategoryByIdAdmin,
-} from "../../../../features/Admin/categoryAdnim";
-import { categoryAdminStore } from "../../../../use-selector";
-import ModalCategory from "../../../component/customer/modal/Category/modal-category";
-import ModalCategory2 from "../../../component/customer/modal/Category/modal-category2";
-import ModalUpdateSttCategory from "../../../component/customer/modal/Category/modal-UpdateSttCategory";
-import { openNotification, useAppDispatch, useAppSelector } from "../../../hooks";
+} from '../../../../features/Admin/categoryAdnim';
+import { categoryAdminStore } from '../../../../use-selector';
+import ModalCategory from '../../../component/customer/modal/Category/modal-category';
+import ModalCategory2 from '../../../component/customer/modal/Category/modal-category2';
+import ModalUpdateSttCategory from '../../../component/customer/modal/Category/modal-UpdateSttCategory';
+import { openNotification, useAppDispatch, useAppSelector } from '../../../hooks';
 
 function CategoryProduct() {
   const { Title, Text } = Typography;
@@ -40,7 +40,7 @@ function CategoryProduct() {
   const [value, setValue] = useState({
     id: 0,
     id_parent: 0,
-    name: "",
+    name: '',
     stt: 0,
   });
 
@@ -51,10 +51,10 @@ function CategoryProduct() {
   // table code start
   const columns = [
     {
-      title: "STT",
-      dataIndex: "id",
-      key: "id",
-      width: "10%",
+      title: 'STT',
+      dataIndex: 'id',
+      key: 'id',
+      width: '10%',
       render: (text: any, row: any, index: any) => index + 1,
       // render: (id: any ) => (
       //   <>
@@ -64,15 +64,15 @@ function CategoryProduct() {
     },
 
     {
-      title: "Tên danh mục",
-      dataIndex: "name",
-      key: "name",
+      title: 'Tên danh mục',
+      dataIndex: 'name',
+      key: 'name',
     },
 
     {
-      title: "Hành động",
-      dataIndex: "action",
-      key: "action",
+      title: 'Hành động',
+      dataIndex: 'action',
+      key: 'action',
       render: (text: any, row: any, index: any) => (
         <Space size="middle">
           {row.action ?? (
@@ -102,23 +102,23 @@ function CategoryProduct() {
     },
 
     {
-      title: "Số thứ tự hiển thị",
-      dataIndex: "stt",
-      key: "stt",
+      title: 'Số thứ tự hiển thị',
+      dataIndex: 'stt',
+      key: 'stt',
       
     },
 
     {
-      title: "Quản lý trang chủ",
-      dataIndex: "show",
-      key: "show",
+      title: 'Quản lý trang chủ',
+      dataIndex: 'show',
+      key: 'show',
       render: (text: any, row: any, index: any) => (
         <Space size="middle">
             <Button
               onClick={() => {
                 setVisible3(true);
               }}
-              style={{ color: "" }}
+              style={{ color: '' }}
             >
               Sửa số thứ tự
             </Button>
@@ -130,7 +130,7 @@ function CategoryProduct() {
                   dispatch(getAllCategoryTrees());
                 });
               }}
-              style={{ color: "#0a9f15" }}
+              style={{ color: '#0a9f15' }}
             >
               Hiện trên trang chủ
             </Button>
@@ -142,7 +142,7 @@ function CategoryProduct() {
                   dispatch(getAllCategoryTrees());
                 });
               }}
-              style={{ color: "red" }}
+              style={{ color: 'red' }}
             >
               Ẩn khỏi trang chủ
             </Button>
@@ -177,7 +177,7 @@ function CategoryProduct() {
     onChange: (selectedRowKeys: any, selectedRows: any) => {
       console.log(
         `selectedRowKeys: ${selectedRowKeys}`,
-        "selectedRows: ",
+        'selectedRows: ',
         selectedRows
       );
       setSelectedID(selectedRowKeys);
@@ -186,7 +186,7 @@ function CategoryProduct() {
   };
 
   return (
-    <div className="tabled" style={{ marginBottom: "20px" }}>
+    <div className="tabled" style={{ marginBottom: '20px' }}>
       <Row gutter={[24, 0]}>
         <Col xs={24} xl={24}>
           <Card
@@ -196,12 +196,12 @@ function CategoryProduct() {
             extra={
               <>
                 <Button
-                  style={{ marginRight: "10px" }}
+                  style={{ marginRight: '10px' }}
                   onClick={() => {
                     setValue({
                       id: 0,
                       id_parent: 0,
-                      name: "",
+                      name: '',
                       stt: 0,
                     });
                     setVisible(true);
@@ -237,15 +237,18 @@ function CategoryProduct() {
                 rowKey="id"
                 onRow={(record, rowIndex) => {
                   return {
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onClick: (event) => {}, // click row
                     onDoubleClick: (event) => {
                       setVisible(true);
                     }, // double click row
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onContextMenu: (event) => {}, // right button click row
                     onMouseEnter: (event) => {
                       // console.log(record);
                       setValue(record);
                     }, // mouse enter row
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onMouseLeave: (event) => {}, // mouse leave row
                   };
                 }}
@@ -260,7 +263,7 @@ function CategoryProduct() {
           toggle={() => {
             setVisible(false);
           }}
-          value={{ ...value, type: "PRODUCT" }}
+          value={{ ...value, type: 'PRODUCT' }}
         />
       )}
 
@@ -270,7 +273,7 @@ function CategoryProduct() {
           toggle={() => {
             setVisible2(false);
           }}
-          value={{ ...value, type: "PRODUCT" }}
+          value={{ ...value, type: 'PRODUCT' }}
         />
       )}
 
@@ -280,7 +283,7 @@ function CategoryProduct() {
           toggle={() => {
             setVisible3(false);
           }}
-          value={{ ...value, type: "PRODUCT" }}
+          value={{ ...value, type: 'PRODUCT' }}
         />
       )}
     </div>

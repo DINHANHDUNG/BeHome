@@ -1,6 +1,6 @@
-import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
-import { openNotification } from "../../../app/hooks";
-import { CustomesOrderAdmin } from "../../../app/types/order";
+import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
+import { openNotification } from '../../../app/hooks';
+import { CustomesOrderAdmin } from '../../../app/types/order';
 import {
   getAllOrderCancelAdmin,
   getAllOrderCompletedAdmin,
@@ -12,7 +12,7 @@ import {
   OrderWaitdADmin,
   postAddOrderByIdAdmin,
   postDeleteOrderAdmin,
-} from "./patchOrder-api";
+} from './patchOrder-api';
 const initialStateorderAdmin: CustomesOrderAdmin = {
   listOrder: [],
   total: 0,
@@ -21,7 +21,7 @@ const initialStateorderAdmin: CustomesOrderAdmin = {
 };
 
 const orderSliceAdmin = createSlice({
-  name: "orderAdmin",
+  name: 'orderAdmin',
   initialState: initialStateorderAdmin,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<CustomesOrderAdmin>) => {
@@ -43,8 +43,8 @@ const orderSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -66,8 +66,8 @@ const orderSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
     // getAllOrderCancelAdmin
@@ -88,8 +88,8 @@ const orderSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -111,8 +111,8 @@ const orderSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -128,8 +128,8 @@ const orderSliceAdmin = createSlice({
       .addCase(getOrderByIdAdmin.rejected, (state) => {
         state.loading = false;
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -141,8 +141,8 @@ const orderSliceAdmin = createSlice({
       .addCase(postAddOrderByIdAdmin.fulfilled, (state, action) => {
         openNotification({
           message:
-            "Đặt hàng thành công, chúng tôi sẽ liên hệ với bạn qua số điện thoại và email. Xin cảm ơn!",
-          type: "success",
+            'Đặt hàng thành công, chúng tôi sẽ liên hệ với bạn qua số điện thoại và email. Xin cảm ơn!',
+          type: 'success',
         });
         const { result } = action.payload;
         // state.listOrder = [...state.listorderAdmin, result];
@@ -153,8 +153,8 @@ const orderSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Đặt hàng không thành công",
-          type: "error",
+          message: 'Đặt hàng không thành công',
+          type: 'error',
         });
       });
 
@@ -169,8 +169,8 @@ const orderSliceAdmin = createSlice({
         state.loading = false;
         state.error = false;
         openNotification({
-          message: "Xóa thành công",
-          type: "success",
+          message: 'Xóa thành công',
+          type: 'success',
         });
         // console.log("Get all orderAdmin thành công");
       })
@@ -178,8 +178,8 @@ const orderSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Xóa thất bại",
-          type: "error",
+          message: 'Xóa thất bại',
+          type: 'error',
         });
         // console.log("Get orderAdmin không thành công");
       });
@@ -195,8 +195,8 @@ const orderSliceAdmin = createSlice({
         state.loading = false;
         state.error = false;
         openNotification({
-          message: "Hủy thành công",
-          type: "success",
+          message: 'Hủy thành công',
+          type: 'success',
         });
         // console.log("Get all orderAdmin thành công");
       })
@@ -204,8 +204,8 @@ const orderSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Hủy thất bại",
-          type: "error",
+          message: 'Hủy thất bại',
+          type: 'error',
         });
         // console.log("Get orderAdmin không thành công");
       });
@@ -221,8 +221,8 @@ const orderSliceAdmin = createSlice({
         state.loading = false;
         state.error = false;
         openNotification({
-          message: "Chuyển sang chờ thanh toán thành công",
-          type: "success",
+          message: 'Chuyển sang chờ thanh toán thành công',
+          type: 'success',
         });
         // console.log("Get all orderAdmin thành công");
       })
@@ -230,8 +230,8 @@ const orderSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Chuyển sang chờ thanh toán thất bại",
-          type: "error",
+          message: 'Chuyển sang chờ thanh toán thất bại',
+          type: 'error',
         });
         // console.log("Get orderAdmin không thành công");
       });
@@ -247,8 +247,8 @@ const orderSliceAdmin = createSlice({
         state.loading = false;
         state.error = false;
         openNotification({
-          message: "Đơn đã hoàn thành",
-          type: "success",
+          message: 'Đơn đã hoàn thành',
+          type: 'success',
         });
         // console.log("Get all orderAdmin thành công");
       })
@@ -256,8 +256,8 @@ const orderSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Hoàn thành đơn thất bại",
-          type: "error",
+          message: 'Hoàn thành đơn thất bại',
+          type: 'error',
         });
         // console.log("Get orderAdmin không thành công");
       });

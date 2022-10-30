@@ -1,9 +1,9 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import buildAPIAdmin from "../../../app/commom/api/admin/api-build-admin";
-import { AddBuild, EditBuild } from "../../../app/types/build";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import buildAPIAdmin from '../../../app/commom/api/admin/api-build-admin';
+import { AddBuild, EditBuild } from '../../../app/types/build';
 
 export const postAddBuildByIdAdmin = createAsyncThunk(
-  "/Build/addBuild",
+  '/Build/addBuild',
   async (data: AddBuild) => {
     const response = await buildAPIAdmin.postAddbuildADmin(data);
 
@@ -12,7 +12,7 @@ export const postAddBuildByIdAdmin = createAsyncThunk(
 );
 
 export const postEditBuildByIdAdmin = createAsyncThunk(
-  "/Buildadmin/addBuild",
+  '/Buildadmin/addBuild',
   async (data: EditBuild) => {
     const response = await buildAPIAdmin.postEditbuildADmin(data);
 
@@ -21,7 +21,7 @@ export const postEditBuildByIdAdmin = createAsyncThunk(
 );
 
 export const getAllBuildAdmin = createAsyncThunk(
-  "/Buildadmin/getall",
+  '/Buildadmin/getall',
   async () => {
     const response = await buildAPIAdmin.getAllbuildAdmin();
 
@@ -30,7 +30,7 @@ export const getAllBuildAdmin = createAsyncThunk(
 );
 
 export const getBuildByIdAdmin = createAsyncThunk(
-  "/Buildadmin/getbyid",
+  '/Buildadmin/getbyid',
   async (data: { id: number }) => {
     const response = await buildAPIAdmin.getbuildByIdADmin(data);
 
@@ -39,7 +39,7 @@ export const getBuildByIdAdmin = createAsyncThunk(
 );
 
 export const postDeleteBuildAdmin = createAsyncThunk(
-  "/Buildadmin/deleteBuild",
+  '/Buildadmin/deleteBuild',
   async (data: { id: [number] }) => {
     const response = await buildAPIAdmin.postDeletebuildADmin(data);
 

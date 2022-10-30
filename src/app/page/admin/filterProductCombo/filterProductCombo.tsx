@@ -1,17 +1,17 @@
-import { Button, Slider } from "antd";
-import React, { useEffect, useState } from "react";
-import { getAllManufacturerAdmin } from "../../../../features/Admin/manufacturerAdnim";
-import { getAllRankAdmin } from "../../../../features/Admin/rankAdnim";
+import { Button, Slider } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { getAllManufacturerAdmin } from '../../../../features/Admin/manufacturerAdnim';
+import { getAllRankAdmin } from '../../../../features/Admin/rankAdnim';
 import {
   manufacturerAdminStore,
   rankAdminStore,
-} from "../../../../use-selector";
-import { Numberformat, useAppDispatch, useAppSelector } from "../../../hooks";
+} from '../../../../use-selector';
+import { Numberformat, useAppDispatch, useAppSelector } from '../../../hooks';
 
 interface propsFilter {
   toggleFilter: (value: any) => void;
   toggleCleanAll: () => void;
-  type: "PRODUCT" | "COMBO";
+  type: 'PRODUCT' | 'COMBO';
   id_category: number;
 }
 function FilterProductCombo(props: propsFilter) {
@@ -23,7 +23,7 @@ function FilterProductCombo(props: propsFilter) {
   const manufacturer = useAppSelector(manufacturerAdminStore);
   const rank = useAppSelector(rankAdminStore);
   useEffect(() => {
-    if (props.type === "PRODUCT") {
+    if (props.type === 'PRODUCT') {
       dispatch(
         getAllRankAdmin({
           id_manufacturer: valueFirm,
@@ -59,7 +59,7 @@ function FilterProductCombo(props: propsFilter) {
           </a>
         </div>
 
-        {props.type === "PRODUCT" ? (
+        {props.type === 'PRODUCT' ? (
           <div className="widget widget-collapsible">
             <h3 className="widget-title">
               <a
@@ -77,17 +77,17 @@ function FilterProductCombo(props: propsFilter) {
               <div className="widget-body">
                 <div className="filter-items filter-items-count">
                   {manufacturer.listManufacturer?.map((value) => (
-                    <div className="filter-item" style={{display: value.count > 0 ? "" : "none"}}>
+                    <div className="filter-item" style={{display: value.count > 0 ? '' : 'none'}}>
                       <div className="custom-control custom-checkbox">
                         <input
                           type="checkbox"
                           className="custom-control-input"
-                          id={"firm-" + value.manufacturer.id}
+                          id={'firm-' + value.manufacturer.id}
                           checked={value.manufacturer.id === valueFirm}
                         />
                         <label
                           className="custom-control-label"
-                          htmlFor={"firm-" + value.manufacturer.id}
+                          htmlFor={'firm-' + value.manufacturer.id}
                           onClick={() => {
                             if (value.manufacturer.id === valueFirm) {
                               setValueFirm(null);
@@ -118,7 +118,7 @@ function FilterProductCombo(props: propsFilter) {
           </div>
         ) : null}
 
-        {props.type === "PRODUCT" ? (
+        {props.type === 'PRODUCT' ? (
           <div className="widget widget-collapsible">
             <h3 className="widget-title">
               <a
@@ -135,17 +135,17 @@ function FilterProductCombo(props: propsFilter) {
               <div className="widget-body">
                 <div className="filter-items filter-items-count">
                   {rank.listRank?.map((value) => (
-                    <div className="filter-item" style={{display: value.count > 0 ? "" : "none"}}>
+                    <div className="filter-item" style={{display: value.count > 0 ? '' : 'none'}}>
                       <div className="custom-control custom-checkbox">
                         <input
                           type="checkbox"
                           className="custom-control-input"
-                          id={"rank-" + value.rank.id}
+                          id={'rank-' + value.rank.id}
                           checked={value.rank.id === valueRank}
                         />
                         <label
                           className="custom-control-label"
-                          htmlFor={"rank-" + value.rank.id}
+                          htmlFor={'rank-' + value.rank.id}
                           onClick={() => {
                             if (value.rank.id === valueRank) {
                               setValueRank(null);
@@ -217,8 +217,8 @@ function FilterProductCombo(props: propsFilter) {
                   {/* <span id="filter-price-range"></span> */}
                   {valueRangePrice ? (
                     <>
-                      {" "}
-                      Từ {Numberformat(valueRangePrice[0])} đến{" "}
+                      {' '}
+                      Từ {Numberformat(valueRangePrice[0])} đến{' '}
                       {Numberformat(valueRangePrice[1])}
                     </>
                   ) : null}

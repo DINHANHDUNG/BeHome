@@ -13,7 +13,7 @@ export interface AddManufacturer {
 export type EditManufacturer = AddManufacturer & { id: number };
 
 export interface DeleteManufacturer {
-  id: Array<Number>;
+  id: Array<number>;
 }
 export interface CustomesManufacturer {
   listManufacturer: Array<Manufacturer>;

@@ -8,35 +8,35 @@ import {
   Modal,
   Row,
   Select,
-} from "antd";
+} from 'antd';
 
-import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
-import { FormInstance } from "rc-field-form";
-import React, { useEffect, useRef, useState } from "react";
-import "../../../../assets/css/cssGlobal/style.css";
-import { Product } from "../../../../types/product";
+import { MinusCircleOutlined, PlusCircleOutlined } from '@ant-design/icons';
+import { FormInstance } from 'rc-field-form';
+import React, { useEffect, useRef, useState } from 'react';
+import '../../../../assets/css/cssGlobal/style.css';
+import { Product } from '../../../../types/product';
 import {
   openNotification,
   useAppDispatch,
   useAppSelector,
-} from "../../../../hooks";
+} from '../../../../hooks';
 import {
   categoryAdminStore,
   manufacturerAdminStore,
   promotionAdminStore,
   rankAdminStore,
-} from "../../../../../use-selector";
-import { getAllPromotionAdmin } from "../../../../../features/Admin/promotion";
+} from '../../../../../use-selector';
+import { getAllPromotionAdmin } from '../../../../../features/Admin/promotion';
 import {
   getAllProductAdmin,
   getAllProductNeedUpdate,
   getProductSearchAdmin,
   postAddProductByIdAdmin,
   postEditProductByIdAdmin,
-} from "../../../../../features/Admin/productAdnim";
-import uploadIMGAdminAPI from "../../../../commom/api/UploadIMG/upload";
-import { getAllRankAdmin } from "../../../../../features/Admin/rankAdnim";
-import { getAllManufacturerAdmin } from "../../../../../features/Admin/manufacturerAdnim";
+} from '../../../../../features/Admin/productAdnim';
+import uploadIMGAdminAPI from '../../../../commom/api/UploadIMG/upload';
+import { getAllRankAdmin } from '../../../../../features/Admin/rankAdnim';
+import { getAllManufacturerAdmin } from '../../../../../features/Admin/manufacturerAdnim';
 
 interface propsModalProduct {
   visible: boolean;
@@ -59,7 +59,7 @@ function ModalProductUpdate(props: propsModalProduct) {
     [] as any
   );
   const valueSelect = categorys.listcategoryProduct.filter(
-    (item) => item.id != 0
+    (item) => item.id !== 0
   );
   console.log(valueSelect);
 
@@ -119,7 +119,7 @@ function ModalProductUpdate(props: propsModalProduct) {
   function onFinish(value: any) {
     console.log(value);
 
-    let arrIMG = fileIMG;
+    const arrIMG = fileIMG;
 
     // fileIMG.map((val: any, idx: any) => {
     //   console.log(idx);
@@ -147,7 +147,7 @@ function ModalProductUpdate(props: propsModalProduct) {
     });
 
     console.log(arrIMG);
-    if (arrIMG?.find((x: any) => x.type === "1" || x.type === "MAIN")) {
+    if (arrIMG?.find((x: any) => x.type === '1' || x.type === 'MAIN')) {
       dispatch(
         postEditProductByIdAdmin({
           ...value,
@@ -170,20 +170,20 @@ function ModalProductUpdate(props: propsModalProduct) {
       });
     } else {
       openNotification({
-        message: "Bạn chưa chọn ảnh chính",
-        type: "warning",
+        message: 'Bạn chưa chọn ảnh chính',
+        type: 'warning',
       });
     }
   }
 
   function deleteImgArr(value: any) {
-    if (value.imagename.split(".").length > 1) {
+    if (value.imagename.split('.').length > 1) {
       uploadIMGAdminAPI
         .postDeleteIMG({
           imageName: value.imagename,
         })
         .then((res) => {
-          console.log("Thành công");
+          console.log('Thành công');
         });
     }
   }
@@ -193,7 +193,7 @@ function ModalProductUpdate(props: propsModalProduct) {
   }
 
   function onSearch(val: any) {
-    console.log("search:", val);
+    console.log('search:', val);
   }
 
   //Xử lý ảnh
@@ -205,7 +205,7 @@ function ModalProductUpdate(props: propsModalProduct) {
   console.log(arrImgDelete);
 
   function deleteIMG(value: any) {
-    console.log("Đang xóa", value);
+    console.log('Đang xóa', value);
 
     setArrImgDelete((pre: any) => {
       console.log(pre);
@@ -216,7 +216,7 @@ function ModalProductUpdate(props: propsModalProduct) {
     setFileIMG((pre: any) => {
       console.log(pre);
 
-      return pre.filter((values: any) => values.imagename != value.imagename);
+      return pre.filter((values: any) => values.imagename !== value.imagename);
     });
   }
 
@@ -232,7 +232,7 @@ function ModalProductUpdate(props: propsModalProduct) {
 
   function uploadImage(e: any, key: string) {
     const data = new FormData();
-    data.append("image", e);
+    data.append('image', e);
     setUploading(true);
     uploadIMGAdminAPI
       .postUploadIMG(data)
@@ -247,19 +247,19 @@ function ModalProductUpdate(props: propsModalProduct) {
         setUploading(false);
       })
       .catch((err) => {
-        console.log("Lỗi upload");
+        console.log('Lỗi upload');
         setUploading(false);
       });
   }
 
   return (
     <Modal
-      title={props.value?.id > 0 ? "Sửa sản phẩm" : "Thêm sản phẩm"}
+      title={props.value?.id > 0 ? 'Sửa sản phẩm' : 'Thêm sản phẩm'}
       centered
       visible={props.visible}
       onOk={() => props.toggle()}
       onCancel={() => props.toggle()}
-      width={"80%"}
+      width={'80%'}
       footer={null}
     >
       <Form
@@ -293,7 +293,7 @@ function ModalProductUpdate(props: propsModalProduct) {
             <Form.Item
               label="Danh mục"
               name="id_category"
-              rules={[{ required: true, message: "Chọn danh mục!" }]}
+              rules={[{ required: true, message: 'Chọn danh mục!' }]}
             >
               <Select
                 showSearch
@@ -302,7 +302,7 @@ function ModalProductUpdate(props: propsModalProduct) {
                 optionFilterProp="children"
                 onChange={onChange}
                 onSearch={onSearch}
-                style={{ minWidth: "60px", marginRight: "props.pageSizepx" }}
+                style={{ minWidth: '60px', marginRight: 'props.pageSizepx' }}
                 filterOption={(input, option: any) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
                   0
@@ -340,7 +340,7 @@ function ModalProductUpdate(props: propsModalProduct) {
                 optionFilterProp="children"
                 onChange={onChange}
                 onSearch={onSearch}
-                style={{ minWidth: "60px", marginRight: "props.pageSizepx" }}
+                style={{ minWidth: '60px', marginRight: 'props.pageSizepx' }}
                 filterOption={(input, option: any) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
                   0
@@ -366,7 +366,7 @@ function ModalProductUpdate(props: propsModalProduct) {
             <Form.Item
               label="Phân khúc"
               name="id_rank"
-              rules={[{ message: "Chọn phân khúc!" }]}
+              rules={[{ message: 'Chọn phân khúc!' }]}
             >
               <Select
                 showSearch
@@ -375,7 +375,7 @@ function ModalProductUpdate(props: propsModalProduct) {
                 optionFilterProp="children"
                 onChange={onChange}
                 onSearch={onSearch}
-                style={{ minWidth: "60px", marginRight: "props.pageSizepx" }}
+                style={{ minWidth: '60px', marginRight: 'props.pageSizepx' }}
                 filterOption={(input, option: any) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
                   0
@@ -399,7 +399,7 @@ function ModalProductUpdate(props: propsModalProduct) {
             <Form.Item
               label="Hãng"
               name="id_manufacturer"
-              rules={[{ required: true, message: "Chọn hãng!" }]}
+              rules={[{ required: true, message: 'Chọn hãng!' }]}
             >
               <Select
                 showSearch
@@ -408,7 +408,7 @@ function ModalProductUpdate(props: propsModalProduct) {
                 optionFilterProp="children"
                 onChange={onChange}
                 onSearch={onSearch}
-                style={{ minWidth: "60px", marginRight: "props.pageSizepx" }}
+                style={{ minWidth: '60px', marginRight: 'props.pageSizepx' }}
                 filterOption={(input, option: any) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
                   0
@@ -434,7 +434,7 @@ function ModalProductUpdate(props: propsModalProduct) {
             <Form.Item
               label="Tên "
               name="name"
-              rules={[{ required: true, message: "Nhập tên sản phẩm!" }]}
+              rules={[{ required: true, message: 'Nhập tên sản phẩm!' }]}
             >
               <Input />
             </Form.Item>
@@ -448,12 +448,12 @@ function ModalProductUpdate(props: propsModalProduct) {
             >
               <InputNumber
                 maxLength={25}
-                style={{ width: "100%" }}
+                style={{ width: '100%' }}
                 formatter={(value: any) =>
-                  `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                  `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                 }
                 size="large"
-                parser={(value: any) => value.replace(/\$\s?|(,*)/g, "")}
+                parser={(value: any) => value.replace(/\$\s?|(,*)/g, '')}
               />
             </Form.Item>
           </Col>
@@ -474,7 +474,7 @@ function ModalProductUpdate(props: propsModalProduct) {
         >
           <Input />
         </Form.Item>
-        <h5 style={{ textAlign: "center" }}>Chi tiết sản phẩm</h5>
+        <h5 style={{ textAlign: 'center' }}>Chi tiết sản phẩm</h5>
 
         <Form.List name="productdetails">
           {(fields, { add, remove }) => {
@@ -485,21 +485,21 @@ function ModalProductUpdate(props: propsModalProduct) {
                     <Row gutter={[8, 0]}>
                       <Col md={12} xs={24}>
                         <Form.Item
-                          name={[index, "title"]}
+                          name={[index, 'title']}
                           label="Tiêu đề"
-                          rules={[{ required: true, message: "Nhập tiêu đề!" }]}
+                          rules={[{ required: true, message: 'Nhập tiêu đề!' }]}
                         >
                           <Input placeholder="Tiêu đề" />
                         </Form.Item>
                       </Col>
                       <Col md={11} xs={23}>
                         <Form.Item
-                          name={[index, "specifications"]}
-                          label={`Thông số kỹ thuật `}
+                          name={[index, 'specifications']}
+                          label={'Thông số kỹ thuật '}
                           rules={[
                             {
                               required: true,
-                              message: "Nhập thông số kỹ thuật!",
+                              message: 'Nhập thông số kỹ thuật!',
                             },
                           ]}
                         >
@@ -509,14 +509,14 @@ function ModalProductUpdate(props: propsModalProduct) {
                       <Col
                         md={1}
                         style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
                         }}
                       >
                         {fields.length > 1 ? (
                           <MinusCircleOutlined
-                            style={{ fontSize: "20px" }}
+                            style={{ fontSize: '20px' }}
                             className="dynamic-delete-button"
                             onClick={() => remove(field.name)}
                           />
@@ -530,9 +530,9 @@ function ModalProductUpdate(props: propsModalProduct) {
                   <PlusCircleOutlined
                     onClick={() => add()}
                     style={{
-                      fontSize: "20px",
-                      float: "right",
-                      marginRight: "25px",
+                      fontSize: '20px',
+                      float: 'right',
+                      marginRight: '25px',
                     }}
                   />
                 </Form.Item>
@@ -542,7 +542,7 @@ function ModalProductUpdate(props: propsModalProduct) {
         </Form.List>
 
 
-        <h5 style={{ textAlign: "center" }}>Thuộc tính</h5>
+        <h5 style={{ textAlign: 'center' }}>Thuộc tính</h5>
 
         <Form.List name="productpropertiess">
           {(fields, { add, remove }) => {
@@ -553,10 +553,10 @@ function ModalProductUpdate(props: propsModalProduct) {
                     <Row gutter={[8, 0]}>
                       <Col md={12} xs={24}>
                         <Form.Item
-                          label={`Thuộc tính`}
-                          name={[index, "nameproperties"]}
+                          label={'Thuộc tính'}
+                          name={[index, 'nameproperties']}
                           rules={[
-                            { required: true, message: "Nhập tên thuộc tính!" },
+                            { required: true, message: 'Nhập tên thuộc tính!' },
                           ]}
                         >
                           <Input  />
@@ -564,8 +564,8 @@ function ModalProductUpdate(props: propsModalProduct) {
                       </Col>
                       <Col md={11} xs={23}>
                         <Form.Item
-                          name={[index, "price"]}
-                          label={`Giá bán`}
+                          name={[index, 'price']}
+                          label={'Giá bán'}
                           // rules={[
                           //   {
                           //     required: true,
@@ -575,13 +575,13 @@ function ModalProductUpdate(props: propsModalProduct) {
                         >
                           <InputNumber
                             maxLength={25}
-                            style={{ width: "100%" }}
+                            style={{ width: '100%' }}
                             formatter={(value: any) =>
-                              `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                              `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                             }
                             size="large"
                             parser={(value: any) =>
-                              Number(value.replace(/\$\s?|(,*)/g, ""))
+                              Number(value.replace(/\$\s?|(,*)/g, ''))
                             }
                           />
                         </Form.Item>
@@ -589,14 +589,14 @@ function ModalProductUpdate(props: propsModalProduct) {
                       <Col
                         md={1}
                         style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
                         }}
                       >
                         {fields.length > 0 ? (
                           <MinusCircleOutlined
-                            style={{ fontSize: "20px" }}
+                            style={{ fontSize: '20px' }}
                             className="dynamic-delete-button"
                             onClick={() => remove(field.name)}
                           />
@@ -610,9 +610,9 @@ function ModalProductUpdate(props: propsModalProduct) {
                   <PlusCircleOutlined
                     onClick={() => add()}
                     style={{
-                      fontSize: "20px",
-                      float: "right",
-                      marginRight: "25px",
+                      fontSize: '20px',
+                      float: 'right',
+                      marginRight: '25px',
                     }}
                   />
                 </Form.Item>
@@ -661,7 +661,7 @@ function ModalProductUpdate(props: propsModalProduct) {
 
         <Row gutter={[0, 0]}>
           {fileIMG?.map((value: any, idx: any) => {
-            if (value.type === "MAIN" || value.type === "1") {
+            if (value.type === 'MAIN' || value.type === '1') {
               return (
                 <Col span={6}>
                   <div className="info_image">
@@ -673,7 +673,7 @@ function ModalProductUpdate(props: propsModalProduct) {
                         // value.split(".").length > 1
                         //   ? "http://103.137.184.193:5500/images/" + value
                         //   : "https://cf.shopee.vn/file/" + value
-                        "http://103.137.184.193:5500/images/" + value.imagename
+                        'http://103.137.184.193:5500/images/' + value.imagename
                       }
                     />
                     <span
@@ -692,14 +692,14 @@ function ModalProductUpdate(props: propsModalProduct) {
         </Row>
 
         {fileIMG?.find(
-          (x: any) => x.type === "1" || x.type === "MAIN"
+          (x: any) => x.type === '1' || x.type === 'MAIN'
         ) ? null : (
           <input
             type="file"
             accept="image/*"
             // multiple
             // style={{ display: "none" }}
-            onChange={(val) => onchangeIMG(val, "MAIN")}
+            onChange={(val) => onchangeIMG(val, 'MAIN')}
             // ref={inputRef}
           />
         )}
@@ -711,7 +711,7 @@ function ModalProductUpdate(props: propsModalProduct) {
         <Row gutter={[0, 0]}>
           {fileIMG?.map((value: any, idx: any) => {
             console.log(value);
-            if (value.type != "MAIN" && value.type != "1") {
+            if (value.type !== 'MAIN' && value.type !== '1') {
               return (
                 <Col span={6}>
                   <div className="info_image">
@@ -723,7 +723,7 @@ function ModalProductUpdate(props: propsModalProduct) {
                         // value.split(".").length > 1
                         //   ? "http://103.137.184.193:5500/images/" + value
                         //   : "https://cf.shopee.vn/file/" + value
-                        "http://103.137.184.193:5500/images/" + value.imagename
+                        'http://103.137.184.193:5500/images/' + value.imagename
                       }
                     />
                     <span
@@ -746,7 +746,7 @@ function ModalProductUpdate(props: propsModalProduct) {
           accept="image/*"
           multiple
           // style={{ display: "none" }}
-          onChange={(val) => onchangeIMG(val, "SUB")}
+          onChange={(val) => onchangeIMG(val, 'SUB')}
           // ref={inputRef}
         />
 
@@ -754,7 +754,7 @@ function ModalProductUpdate(props: propsModalProduct) {
           wrapperCol={{ offset: props.value?.id > 0 ? 22 : 21, span: 24 }}
         >
           <Button type="primary" htmlType="submit">
-            {props.value?.id > 0 ? "Sửa" : "Thêm"}
+            {props.value?.id > 0 ? 'Sửa' : 'Thêm'}
           </Button>
         </Form.Item>
       </Form>

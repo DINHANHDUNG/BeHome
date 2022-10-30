@@ -1,42 +1,42 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import promotionAPIAdmin from "../../../app/commom/api/admin/api-promotion-admin";
-import { AddPromotion, EditPromotion } from "../../../app/types/promotion";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import promotionAPIAdmin from '../../../app/commom/api/admin/api-promotion-admin';
+import { AddPromotion, EditPromotion } from '../../../app/types/promotion';
 
 export const postAddPromotionByIdAdmin = createAsyncThunk(
-  "/promotion/addpromotion",
+  '/promotion/addpromotion',
   async (data: AddPromotion) => {
-    console.log("data truyền vào", data);
+    console.log('data truyền vào', data);
 
     const response = await promotionAPIAdmin.postAddPromotionADmin(data);
-    console.log("response Thêm", response);
+    console.log('response Thêm', response);
 
     return response;
   }
 );
 
 export const postEditPromotionByIdAdmin = createAsyncThunk(
-  "/promotionadmin/addpromotion",
+  '/promotionadmin/addpromotion',
   async (data: EditPromotion) => {
-    console.log("data truyền vào", data);
+    console.log('data truyền vào', data);
     const response = await promotionAPIAdmin.postEditPromotionADmin(data);
-    console.log("response sửa", response);
+    console.log('response sửa', response);
 
     return response;
   }
 );
 
 export const getAllPromotionAdmin = createAsyncThunk(
-  "/promotionadmin/getall",
+  '/promotionadmin/getall',
   async (data: { page: number; noitem: number }) => {
     const response = await promotionAPIAdmin.getAllPromotionAdmin(data);
-    console.log("getAllpromotion", response);
+    console.log('getAllpromotion', response);
 
     return response;
   }
 );
 
 export const getPromotionByIdAdmin = createAsyncThunk(
-  "/promotionadmin/getbyid",
+  '/promotionadmin/getbyid',
   async (data: { id: number }) => {
     // console.log("data truyền vào", data);F
 
@@ -48,12 +48,12 @@ export const getPromotionByIdAdmin = createAsyncThunk(
 );
 
 export const postDeletePromotionAdmin = createAsyncThunk(
-  "/promotionadmin/deletepromotion",
+  '/promotionadmin/deletepromotion',
   async (data: { id: [number] }) => {
-    console.log("data truyền vào", data);
+    console.log('data truyền vào', data);
 
     const response = await promotionAPIAdmin.postDeletePromotionADmin(data);
-    console.log("deletepromotion", response);
+    console.log('deletepromotion', response);
 
     return response;
   }

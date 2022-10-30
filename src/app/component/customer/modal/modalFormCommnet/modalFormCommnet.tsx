@@ -1,6 +1,6 @@
-import { Button, Form, Input, InputNumber, Modal } from "antd";
-import React, { useEffect, useState } from "react";
-import { useAppDispatch } from "../../../../hooks";
+import { Button, Form, Input, InputNumber, Modal } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { useAppDispatch } from '../../../../hooks';
 
 interface propsModalFormComment {
   visible: boolean;
@@ -20,8 +20,8 @@ function ModalFormComment(props: propsModalFormComment) {
   const [form] = Form.useForm();
   useEffect(() => {
     form.resetFields();
-    if (localStorage.getItem("InfoCustomer")) {
-      setInfoCus(JSON.parse(localStorage.getItem("InfoCustomer") || "{}"));
+    if (localStorage.getItem('InfoCustomer')) {
+      setInfoCus(JSON.parse(localStorage.getItem('InfoCustomer') || '{}'));
     }
   }, [props.visible]);
 
@@ -30,18 +30,18 @@ function ModalFormComment(props: propsModalFormComment) {
   function onFinish(value: any) {
     props.toggle();
     props.toggleValue(value);
-    localStorage.setItem("InfoCustomer", JSON.stringify(value));
+    localStorage.setItem('InfoCustomer', JSON.stringify(value));
   }
 
   return (
     <Modal
-      title={"Nhập thông tin"}
+      title={'Nhập thông tin'}
       centered
       visible={props.visible}
       onOk={() => props.toggle()}
       onCancel={() => props.toggle()}
-      okText={"Thêm"}
-      cancelText={"Hủy"}
+      okText={'Thêm'}
+      cancelText={'Hủy'}
       width={1000}
       footer={null}
     >
@@ -61,7 +61,7 @@ function ModalFormComment(props: propsModalFormComment) {
         <Form.Item
           label="Họ tên "
           name="namecustomer"
-          rules={[{ required: true, message: "Nhập họ tên!" }]}
+          rules={[{ required: true, message: 'Nhập họ tên!' }]}
         >
           <Input />
         </Form.Item>
@@ -69,7 +69,7 @@ function ModalFormComment(props: propsModalFormComment) {
         <Form.Item
           label="Địa chỉ"
           name="addresscustomer"
-          rules={[{ required: true, message: "Nhập địa chỉ!" }]}
+          rules={[{ required: true, message: 'Nhập địa chỉ!' }]}
         >
           <Input />
         </Form.Item>
@@ -80,11 +80,11 @@ function ModalFormComment(props: propsModalFormComment) {
           rules={[
             {
               pattern: /^(?:\d*)$/,
-              message: "Nhập số",
+              message: 'Nhập số',
             },
             {
               required: true,
-              message: "Nhập số điện thoại",
+              message: 'Nhập số điện thoại',
             },
           ]}
         >

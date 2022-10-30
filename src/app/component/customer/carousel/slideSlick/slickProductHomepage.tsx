@@ -1,16 +1,16 @@
-import { Image } from "antd";
-import React from "react";
-import { Link } from "react-router-dom";
-import Slider from "react-slick";
-import { ProductHomePage } from "../../../../types/product-home-page";
-import Product from "../../product/product";
-import "./slick.css";
+import { Image } from 'antd';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
+import { ProductHomePage } from '../../../../types/product-home-page';
+import Product from '../../product/product';
+import './slick.css';
 interface propsSlide {
   product: ProductHomePage;
   idx?: number;
 }
 function SlickCarouselHomePage(props: propsSlide) {
-  console.log("props", props);
+  console.log('props', props);
 
   const settings = {
     dots: false,
@@ -69,22 +69,22 @@ function SlickCarouselHomePage(props: propsSlide) {
       <h2
         className="title title-border"
         style={{
-          marginTop: "30px",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "flex-end",
-          justifyContent: "space-between",
+          marginTop: '30px',
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'flex-end',
+          justifyContent: 'space-between',
         }}
       >
-        {props.idx === 0 ? "COMBO KHUYẾN MẠI" : props.product.name}
+        {props.idx === 0 ? 'COMBO KHUYẾN MẠI' : props.product.name}
         
         <Link
           to={
-            props.product.type === "PRODUCT"
+            props.product.type === 'PRODUCT'
               ? `danhmucproduct/${props.product?.id}`
               : `danhmuccombo/${props.product?.id}`
           }
-          style={{ fontSize: "16px", marginRight: '70px',  fontWeight: 400}}
+          style={{ fontSize: '16px', marginRight: '70px',  fontWeight: 400}}
         >
           Xem tất cả
         </Link>
@@ -94,7 +94,7 @@ function SlickCarouselHomePage(props: propsSlide) {
         {props.product.products.map((e) => (
           <div
             className="slide-home-page"
-            style={{ margin: "10px", padding: "10px" }}
+            style={{ margin: '10px', padding: '10px' }}
           >
             <Product value={e} />
           </div>
@@ -111,7 +111,7 @@ function SampleNextArrow(props: any) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block" }}
+      style={{ ...style, display: 'block' }}
       onClick={onClick}
     />
   );
@@ -122,7 +122,7 @@ function SamplePrevArrow(props: any) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block" }}
+      style={{ ...style, display: 'block' }}
       onClick={onClick}
     />
   );

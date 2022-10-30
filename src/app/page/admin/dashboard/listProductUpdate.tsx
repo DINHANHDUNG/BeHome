@@ -8,31 +8,31 @@ import {
   Row,
   Select,
   Table,
-} from "antd";
-import moment from "moment";
-import React, { useEffect, useState } from "react";
-import { getAllCategoryProductAdmin } from "../../../../features/Admin/categoryAdnim";
+} from 'antd';
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
+import { getAllCategoryProductAdmin } from '../../../../features/Admin/categoryAdnim';
 import {
   getAllProductAdmin,
   getAllProductNeedUpdate,
   getProductSearchAdmin,
   postDeleteProductAdmin,
-} from "../../../../features/Admin/productAdnim";
+} from '../../../../features/Admin/productAdnim';
 import {
   accountAdminStore,
   categoryAdminStore,
   productAdminStore,
-} from "../../../../use-selector";
-import ModalProduct from "../../../component/customer/modal/Product/modal-product";
-import ModalProductUpdate from "../../../component/customer/modal/Product/modal-productUpdate";
+} from '../../../../use-selector';
+import ModalProduct from '../../../component/customer/modal/Product/modal-product';
+import ModalProductUpdate from '../../../component/customer/modal/Product/modal-productUpdate';
 import {
   currency,
   getParsedDate,
   openNotification,
   useAppDispatch,
   useAppSelector,
-} from "../../../hooks";
-import { Product } from "../../../types/product";
+} from '../../../hooks';
+import { Product } from '../../../types/product';
 
 function ProductUpdateAdmin() {
   const { Option } = Select;
@@ -48,7 +48,7 @@ function ProductUpdateAdmin() {
   const [visibleSearch, setVisibleSearch] = useState(false);
 
   useEffect(() => {
-    dispatch(getAllCategoryProductAdmin()).then((res: any) => {});
+    dispatch(getAllCategoryProductAdmin());
 
     dispatch(
       getAllProductNeedUpdate({
@@ -61,59 +61,59 @@ function ProductUpdateAdmin() {
 
   const columns = [
     {
-      title: "STT",
-      dataIndex: "id",
-      key: "id",
-      width: "10%",
+      title: 'STT',
+      dataIndex: 'id',
+      key: 'id',
+      width: '10%',
       render: (text: any, row: any, index: any) => index + 1,
     },
     {
-      title: "Danh mục",
-      dataIndex: "category",
-      key: "category",
+      title: 'Danh mục',
+      dataIndex: 'category',
+      key: 'category',
       render: (text: any, row: any, index: any) => row.category.name,
       sorter: (a: any, b: any) =>
         a.category.name.localeCompare(b.category.name),
     },
 
     {
-      title: "Phân khúc",
-      dataIndex: "rank",
-      key: "rank",
+      title: 'Phân khúc',
+      dataIndex: 'rank',
+      key: 'rank',
       render: (text: any, row: any, index: any) => row.rank.name,
       sorter: (a: any, b: any) => a.rank.name.localeCompare(b.rank.name),
     },
 
     {
-      title: "Hãng",
-      dataIndex: "manufacturer",
-      key: "manufacturer",
+      title: 'Hãng',
+      dataIndex: 'manufacturer',
+      key: 'manufacturer',
       render: (text: any, row: any, index: any) => row.manufacturer.name,
       sorter: (a: any, b: any) =>
         a.manufacturer.name.localeCompare(b.manufacturer.name),
     },
 
     {
-      title: "Tên sản phẩm",
-      dataIndex: "name",
-      key: "name",
+      title: 'Tên sản phẩm',
+      dataIndex: 'name',
+      key: 'name',
       sorter: (a: any, b: any) => a.name.localeCompare(b.name),
     },
 
     {
-      title: "Giá",
-      dataIndex: "price",
-      key: "price",
-      render: (price: any) => <>{price ? currency(price) : "Liên hệ"}</>,
+      title: 'Giá',
+      dataIndex: 'price',
+      key: 'price',
+      render: (price: any) => <>{price ? currency(price) : 'Liên hệ'}</>,
       sorter: (a: any, b: any) => Number(a.price) - Number(b.price),
     },
 
     {
-      title: "Ngày tạo",
-      dataIndex: "created_date",
-      key: "created_date",
+      title: 'Ngày tạo',
+      dataIndex: 'created_date',
+      key: 'created_date',
       render: (created_date: any) => (
-        <>{moment(created_date).utc().format("DD-MM-YYYY").toString()}</>
+        <>{moment(created_date).utc().format('DD-MM-YYYY').toString()}</>
       ),
       sorter: (a: any, b: any) => {
         if (moment(a.created_date).isBefore(moment(b.created_date))) {
@@ -123,11 +123,11 @@ function ProductUpdateAdmin() {
       },
     },
     {
-      title: "Ngày cập nhật",
-      dataIndex: "updated_date",
-      key: "updated_date",
+      title: 'Ngày cập nhật',
+      dataIndex: 'updated_date',
+      key: 'updated_date',
       render: (updated_date: any) => (
-        <>{moment(updated_date).utc().format("DD-MM-YYYY").toString()}</>
+        <>{moment(updated_date).utc().format('DD-MM-YYYY').toString()}</>
       ),
       sorter: (a: any, b: any) => {
         if (moment(a.updated_date).isBefore(moment(b.updated_date))) {
@@ -144,7 +144,7 @@ function ProductUpdateAdmin() {
     onChange: (selectedRowKeys: any, selectedRows: any) => {
       console.log(
         `selectedRowKeys: ${selectedRowKeys}`,
-        "selectedRows: ",
+        'selectedRows: ',
         selectedRows
       );
       setSelectedID(selectedRowKeys);
@@ -153,7 +153,7 @@ function ProductUpdateAdmin() {
   };
 
   return (
-    <div className="tabled" style={{ marginBottom: "20px" }}>
+    <div className="tabled" style={{ marginBottom: '20px' }}>
       <Row gutter={[24, 0]}>
         <Col xs={24} xl={24}>
           <Card
@@ -169,8 +169,8 @@ function ProductUpdateAdmin() {
                   onConfirm={() => {
                     if (selectedID.length < 1) {
                       openNotification({
-                        message: "Chưa chọn sản phẩm",
-                        type: "error",
+                        message: 'Chưa chọn sản phẩm',
+                        type: 'error',
                       });
                     } else {
                       dispatch(postDeleteProductAdmin({ id: selectedID })).then(
@@ -187,7 +187,7 @@ function ProductUpdateAdmin() {
                     }
                   }}
                 >
-                  <Button onClick={() => {}}>Xóa</Button>
+                  <Button>Xóa</Button>
                 </Popconfirm>
               </>
             }
@@ -196,7 +196,7 @@ function ProductUpdateAdmin() {
               <Col xl={24}>
                 {visibleSearch && (
                   <Row gutter={[24, 24]}>
-                    <Col md={10} xs={20} style={{ margin: "20px" }}></Col>
+                    <Col md={10} xs={20} style={{ margin: '20px' }}></Col>
                   </Row>
                 )}
                 <div className="table-responsive">
@@ -211,15 +211,18 @@ function ProductUpdateAdmin() {
                     rowKey="id"
                     onRow={(record, rowIndex) => {
                       return {
+                        // eslint-disable-next-line @typescript-eslint/no-empty-function
                         onClick: (event) => {}, // click row
                         onDoubleClick: (event) => {
                           setVisible(true);
                         }, // double click row
+                        // eslint-disable-next-line @typescript-eslint/no-empty-function
                         onContextMenu: (event) => {}, // right button click row
                         onMouseEnter: (event) => {
                           // console.log(record);
                           setValue(record);
                         }, // mouse enter row
+                        // eslint-disable-next-line @typescript-eslint/no-empty-function
                         onMouseLeave: (event) => {}, // mouse leave row
                       };
                     }}
@@ -232,9 +235,9 @@ function ProductUpdateAdmin() {
               <Col xl={24}>
                 <Pagination
                   style={{
-                    marginTop: "10px",
-                    float: "right",
-                    marginBottom: "10px",
+                    marginTop: '10px',
+                    float: 'right',
+                    marginBottom: '10px',
                   }}
                   onChange={(page, pageSizeNew) => {
                     console.log(page, pageSizeNew);

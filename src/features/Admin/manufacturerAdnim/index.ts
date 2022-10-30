@@ -1,2 +1,2 @@
-export * from "./patchManufacturer-api";
-export * from "./manufacturer-product-slice";
+export * from './patchManufacturer-api';
+export * from './manufacturer-product-slice';

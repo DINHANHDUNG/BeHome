@@ -1,13 +1,13 @@
-import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
-import { Button, Col, Form, Input, Modal, Row } from "antd";
-import React, { useEffect } from "react";
+import { MinusCircleOutlined, PlusCircleOutlined } from '@ant-design/icons';
+import { Button, Col, Form, Input, Modal, Row } from 'antd';
+import React, { useEffect } from 'react';
 import {
   getAllPromotionAdmin,
   postAddPromotionByIdAdmin,
   postEditPromotionByIdAdmin,
-} from "../../../../../features/Admin/promotion";
-import { useAppDispatch } from "../../../../hooks";
-import { EditPromotion } from "../../../../types/promotion";
+} from '../../../../../features/Admin/promotion';
+import { useAppDispatch } from '../../../../hooks';
+import { EditPromotion } from '../../../../types/promotion';
 
 interface propsModalCategory {
   visible: boolean;
@@ -56,13 +56,13 @@ function ModalPromotion(props: any) {
 
   return (
     <Modal
-      title={props.value?.id > 0 ? "Sửa khuyến mại" : "Thêm khuyến mại"}
+      title={props.value?.id > 0 ? 'Sửa khuyến mại' : 'Thêm khuyến mại'}
       centered
       visible={props.visible}
       onOk={() => props.toggle()}
       onCancel={() => props.toggle()}
-      okText={"Thêm"}
-      cancelText={"Hủy"}
+      okText={'Thêm'}
+      cancelText={'Hủy'}
       width={800}
       footer={null}
     >
@@ -83,7 +83,7 @@ function ModalPromotion(props: any) {
             <Form.Item
               label="Tên KM"
               name="name"
-              rules={[{ required: true, message: "Nhập tên khuyến mại!" }]}
+              rules={[{ required: true, message: 'Nhập tên khuyến mại!' }]}
             >
               <Input />
             </Form.Item>
@@ -97,9 +97,9 @@ function ModalPromotion(props: any) {
                 {fields.map((field, index) => (
                   <div key={field.key}>
                     <Form.Item
-                      name={[index, "id"]}
+                      name={[index, 'id']}
                       label="Chi tiết"
-                      style={{ display: "none" }}
+                      style={{ display: 'none' }}
                     >
                       <Input placeholder="field name" />
                     </Form.Item>
@@ -107,10 +107,10 @@ function ModalPromotion(props: any) {
                     <Row gutter={[8, 0]}>
                       <Col span={23}>
                         <Form.Item
-                          name={[index, "name"]}
+                          name={[index, 'name']}
                           label={`Chi tiết ${index}`}
                           rules={[
-                            { required: true, message: "Nhập tên chi tiết!" },
+                            { required: true, message: 'Nhập tên chi tiết!' },
                           ]}
                         >
                           <Input placeholder="Tên chi tiết" />
@@ -119,7 +119,7 @@ function ModalPromotion(props: any) {
                       <Col span={1}>
                         {fields.length > 0 ? (
                           <MinusCircleOutlined
-                            style={{ fontSize: "20px" }}
+                            style={{ fontSize: '20px' }}
                             className="dynamic-delete-button"
                             onClick={() => remove(field.name)}
                           />
@@ -132,9 +132,9 @@ function ModalPromotion(props: any) {
                   <PlusCircleOutlined
                     onClick={() => add()}
                     style={{
-                      fontSize: "20px",
-                      float: "right",
-                      marginRight: "25px",
+                      fontSize: '20px',
+                      float: 'right',
+                      marginRight: '25px',
                     }}
                   />
                 </Form.Item>
@@ -147,7 +147,7 @@ function ModalPromotion(props: any) {
           wrapperCol={{ offset: props.value?.id > 0 ? 21 : 20, span: 24 }}
         >
           <Button type="primary" htmlType="submit">
-            {props.value?.id > 0 ? "Sửa" : "Thêm"}
+            {props.value?.id > 0 ? 'Sửa' : 'Thêm'}
           </Button>
         </Form.Item>
       </Form>

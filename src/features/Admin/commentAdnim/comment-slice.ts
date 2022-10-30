@@ -2,9 +2,9 @@ import {
   ActionReducerMapBuilder,
   createSlice,
   PayloadAction,
-} from "@reduxjs/toolkit";
-import { openNotification } from "../../../app/hooks";
-import { CustomesComment } from "../../../app/types/comment";
+} from '@reduxjs/toolkit';
+import { openNotification } from '../../../app/hooks';
+import { CustomesComment } from '../../../app/types/comment';
 import {
   getAllCommentAdmin,
   getCommentByIdAdmin,
@@ -12,7 +12,7 @@ import {
   postAddReplyAdmin,
   postDeleteCommentAdmin,
   postDeleteReplyAdmin,
-} from "./patchComment-api";
+} from './patchComment-api';
 const initialState: CustomesComment = {
   listComment: [],
   loading: false,
@@ -21,7 +21,7 @@ const initialState: CustomesComment = {
 };
 
 const commentSliceAdmin = createSlice({
-  name: "commentadmin",
+  name: 'commentadmin',
   initialState: initialState,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<CustomesComment>) => {
@@ -32,7 +32,7 @@ const commentSliceAdmin = createSlice({
       })
       .addCase(getAllCommentAdmin.fulfilled, (state, action) => {
         const { result , total} = action.payload;
-        let newArr = [] as any;
+        const newArr = [] as any;
 
         result?.map((value: any) => {
           // if (value.replys.length > 0) {
@@ -59,8 +59,8 @@ const commentSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -78,8 +78,8 @@ const commentSliceAdmin = createSlice({
       .addCase(getCommentByIdAdmin.rejected, (state) => {
         state.loading = false;
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -90,8 +90,8 @@ const commentSliceAdmin = createSlice({
       })
       .addCase(postAddCommentByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Thêm thành công",
-          type: "success",
+          message: 'Thêm thành công',
+          type: 'success',
         });
         const { result } = action.payload;
         state.loading = false;
@@ -101,8 +101,8 @@ const commentSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Thêm không thành công",
-          type: "error",
+          message: 'Thêm không thành công',
+          type: 'error',
         });
       });
 
@@ -117,8 +117,8 @@ const commentSliceAdmin = createSlice({
         state.loading = false;
         state.error = false;
         openNotification({
-          message: "Xóa thành công",
-          type: "success",
+          message: 'Xóa thành công',
+          type: 'success',
         });
         // console.log("Get all category thành công");
       })
@@ -126,8 +126,8 @@ const commentSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Xóa thất bại",
-          type: "error",
+          message: 'Xóa thất bại',
+          type: 'error',
         });
         // console.log("Get category không thành công");
       });
@@ -143,8 +143,8 @@ const commentSliceAdmin = createSlice({
         state.loading = false;
         state.error = false;
         openNotification({
-          message: "Xóa thành công",
-          type: "success",
+          message: 'Xóa thành công',
+          type: 'success',
         });
         // console.log("Get all category thành công");
       })
@@ -152,8 +152,8 @@ const commentSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Xóa thất bại",
-          type: "error",
+          message: 'Xóa thất bại',
+          type: 'error',
         });
         // console.log("Get category không thành công");
       });
@@ -165,8 +165,8 @@ const commentSliceAdmin = createSlice({
       })
       .addCase(postAddReplyAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Trả lời thành công",
-          type: "success",
+          message: 'Trả lời thành công',
+          type: 'success',
         });
         const { result } = action.payload;
         state.loading = false;
@@ -176,8 +176,8 @@ const commentSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Trả lời thành công",
-          type: "error",
+          message: 'Trả lời thành công',
+          type: 'error',
         });
       });
   },

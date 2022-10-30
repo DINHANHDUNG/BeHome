@@ -1,5 +1,5 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import productAPIAdmin from "../../../app/commom/api/admin/api-product-admin";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import productAPIAdmin from '../../../app/commom/api/admin/api-product-admin';
 import {
   AddProduct,
   EditProduct,
@@ -8,10 +8,10 @@ import {
   GetAllProductUpdate,
   GetSearchProduct,
   GetSearchProduct2,
-} from "../../../app/types/product";
+} from '../../../app/types/product';
 
 export const postAddProductByIdAdmin = createAsyncThunk(
-  "/productadmin/addproduct",
+  '/productadmin/addproduct',
   async (data: AddProduct) => {
     const response = await productAPIAdmin.postAddProductADmin(data);
 
@@ -20,7 +20,7 @@ export const postAddProductByIdAdmin = createAsyncThunk(
 );
 
 export const postEditProductByIdAdmin = createAsyncThunk(
-  "/productadmin/editproduct",
+  '/productadmin/editproduct',
   async (data: EditProduct) => {
     const response = await productAPIAdmin.postEditProductADmin(data);
 
@@ -29,7 +29,7 @@ export const postEditProductByIdAdmin = createAsyncThunk(
 );
 
 export const getAllProductAdmin = createAsyncThunk(
-  "/productadmin/getallbycategory",
+  '/productadmin/getallbycategory',
   async (data: GetAllProductByCategory) => {
     const response = await productAPIAdmin.getAllProductByCategoryAdmin(data);
 
@@ -38,7 +38,7 @@ export const getAllProductAdmin = createAsyncThunk(
 );
 
 export const getAllProductNeedUpdate = createAsyncThunk(
-  "/productadmin/getallneedupdate",
+  '/productadmin/getallneedupdate',
   async (data: GetAllProductUpdate) => {
     const response = await productAPIAdmin.getAllProductNeedUpdateAdmin(data);
 
@@ -46,7 +46,7 @@ export const getAllProductNeedUpdate = createAsyncThunk(
   }
 );
 export const getProductSearchAdmin = createAsyncThunk(
-  "/productadmin/getproductsearch",
+  '/productadmin/getproductsearch',
   async (data: GetSearchProduct) => {
     const response = await productAPIAdmin.getProductSearchAdmin(data);
 
@@ -55,7 +55,7 @@ export const getProductSearchAdmin = createAsyncThunk(
 );
 
 export const getProductSearch2Admin = createAsyncThunk(
-  "/productadmin/getproductsearch2",
+  '/productadmin/getproductsearch2',
   async (data: GetSearchProduct2) => {
     const response = await productAPIAdmin.getProductSearch2Admin(data);
 
@@ -64,7 +64,7 @@ export const getProductSearch2Admin = createAsyncThunk(
 );
 
 export const getProductByIdAdmin = createAsyncThunk(
-  "/productadmin/getbyid",
+  '/productadmin/getbyid',
   async (data: { id: number }) => {
     const response = await productAPIAdmin.getProductByIdADmin(data);
 
@@ -73,7 +73,7 @@ export const getProductByIdAdmin = createAsyncThunk(
 );
 
 export const showProductByIdAdmin = createAsyncThunk(
-  "/productadmin/showbyid",
+  '/productadmin/showbyid',
   async (data: { id: number }) => {
     const response = await productAPIAdmin.showProductByIdADmin(data);
 
@@ -82,7 +82,7 @@ export const showProductByIdAdmin = createAsyncThunk(
 );
 
 export const hiddenProductByIdAdmin = createAsyncThunk(
-  "/productadmin/hiddenbyid",
+  '/productadmin/hiddenbyid',
   async (data: { id: number }) => {
     const response = await productAPIAdmin.hiddenProductByIdADmin(data);
 
@@ -91,7 +91,7 @@ export const hiddenProductByIdAdmin = createAsyncThunk(
 );
 
 export const postDeleteProductAdmin = createAsyncThunk(
-  "/productadmin/deleteproduct",
+  '/productadmin/deleteproduct',
   async (data: { id: [number] }) => {
     // console.log("data truyền vào", data);
 

@@ -7,16 +7,16 @@ import {
   Row,
   Table,
   Typography,
-} from "antd";
-import moment from "moment";
-import React, { useEffect, useState } from "react";
+} from 'antd';
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
 import {
   getAllManufacturerAdmin,
   postDeleteManufacturerAdmin,
-} from "../../../../features/Admin/manufacturerAdnim";
-import { manufacturerAdminStore } from "../../../../use-selector";
-import ModalManufacturer from "../../../component/customer/modal/modalManufacturer/modal-Manufacturer";
-import { getParsedDate, useAppDispatch, useAppSelector } from "../../../hooks";
+} from '../../../../features/Admin/manufacturerAdnim';
+import { manufacturerAdminStore } from '../../../../use-selector';
+import ModalManufacturer from '../../../component/customer/modal/modalManufacturer/modal-Manufacturer';
+import { getParsedDate, useAppDispatch, useAppSelector } from '../../../hooks';
 
 function Manufacturer() {
   const { Title, Text } = Typography;
@@ -28,7 +28,7 @@ function Manufacturer() {
   const [selectedID, setSelectedID] = useState([] as any);
   const [visible, setVisible] = useState(false);
   const [dataTable, setDataTable] = useState([] as any);
-  const [value, setValue] = useState({ id: 0, name: "" });
+  const [value, setValue] = useState({ id: 0, name: '' });
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(12);
 
@@ -57,17 +57,17 @@ function Manufacturer() {
   // table code start
   const columns = [
     {
-      title: "STT",
-      dataIndex: "id",
-      key: "id",
-      width: "10%",
+      title: 'STT',
+      dataIndex: 'id',
+      key: 'id',
+      width: '10%',
       render: (text: any, row: any, index: any) => index + 1,
     },
 
     {
-      title: "Tên hãng sản xuất",
-      dataIndex: "name",
-      key: "name",
+      title: 'Tên hãng sản xuất',
+      dataIndex: 'name',
+      key: 'name',
       // render: (text: any, row: any, index: any) => row.manufacturer?.name,
       sorter: (a: any, b: any) => a.name.localeCompare(b.name),
     },
@@ -79,7 +79,7 @@ function Manufacturer() {
     onChange: (selectedRowKeys: any, selectedRows: any) => {
       console.log(
         `selectedRowKeys: ${selectedRowKeys}`,
-        "selectedRows: ",
+        'selectedRows: ',
         selectedRows
       );
       setSelectedID(selectedRowKeys);
@@ -88,7 +88,7 @@ function Manufacturer() {
   };
 
   return (
-    <div className="tabled" style={{ marginBottom: "20px" }}>
+    <div className="tabled" style={{ marginBottom: '20px' }}>
       <Row gutter={[24, 0]}>
         <Col xs={24} xl={24}>
           <Card
@@ -98,9 +98,9 @@ function Manufacturer() {
             extra={
               <>
                 <Button
-                  style={{ marginRight: "10px" }}
+                  style={{ marginRight: '10px' }}
                   onClick={() => {
-                    setValue({ id: 0, name: "" });
+                    setValue({ id: 0, name: '' });
                     setVisible(true);
                   }}
                 >
@@ -142,15 +142,18 @@ function Manufacturer() {
                 rowKey="id"
                 onRow={(record: any, rowIndex) => {
                   return {
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onClick: (event) => {}, // click row
                     onDoubleClick: (event) => {
                       setVisible(true);
                     }, // double click row
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onContextMenu: (event) => {}, // right button click row
                     onMouseEnter: (event) => {
                       // console.log(record);
                       setValue(record);
                     }, // mouse enter row
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onMouseLeave: (event) => {}, // mouse leave row
                   };
                 }}
@@ -164,9 +167,9 @@ function Manufacturer() {
         <Col xl={24}>
           <Pagination
             style={{
-              marginTop: "10px",
-              float: "right",
-              marginBottom: "10px",
+              marginTop: '10px',
+              float: 'right',
+              marginBottom: '10px',
             }}
             onChange={(page: any, pageSizeNew: any) => {
               console.log(page, pageSizeNew);

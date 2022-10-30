@@ -1,10 +1,10 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import ManufacturerAPIAdmin from "../../../app/commom/api/admin/api-manufacturer";
-import RankAPIAdmin from "../../../app/commom/api/admin/api-rank";
-import { AddRank, EditRank } from "../../../app/types/rank";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import ManufacturerAPIAdmin from '../../../app/commom/api/admin/api-manufacturer';
+import RankAPIAdmin from '../../../app/commom/api/admin/api-rank';
+import { AddRank, EditRank } from '../../../app/types/rank';
 
 export const postAddRankByIdAdmin = createAsyncThunk(
-  "/Rank/addRank",
+  '/Rank/addRank',
   async (data: AddRank) => {
     const response = await RankAPIAdmin.postAddRankADmin(data);
 
@@ -13,7 +13,7 @@ export const postAddRankByIdAdmin = createAsyncThunk(
 );
 
 export const postEditRankByIdAdmin = createAsyncThunk(
-  "/Rankadmin/editRank",
+  '/Rankadmin/editRank',
   async (data: EditRank) => {
     const response = await RankAPIAdmin.postEditRankADmin(data);
 
@@ -22,7 +22,7 @@ export const postEditRankByIdAdmin = createAsyncThunk(
 );
 
 export const getAllRankAdmin = createAsyncThunk(
-  "/Rankadmin/getallRank",
+  '/Rankadmin/getallRank',
   async (data: { id_category: number; id_manufacturer?: number }) => {
     const response = await RankAPIAdmin.getAllRankAdmin(data);
 
@@ -31,7 +31,7 @@ export const getAllRankAdmin = createAsyncThunk(
 );
 
 export const getRankByIdAdmin = createAsyncThunk(
-  "/Rankadmin/getbyidRank",
+  '/Rankadmin/getbyidRank',
   async (data: { id: number }) => {
 
     const response = await RankAPIAdmin.getRankByIdADmin(data);
@@ -41,7 +41,7 @@ export const getRankByIdAdmin = createAsyncThunk(
 );
 
 export const postDeleteRankAdmin = createAsyncThunk(
-  "/Rankadmin/deleteRank",
+  '/Rankadmin/deleteRank',
   async (data: { id: [number] }) => {
 
     const response = await RankAPIAdmin.postDeleteRankADmin(

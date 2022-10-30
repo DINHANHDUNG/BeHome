@@ -8,37 +8,37 @@ import {
   Modal,
   Row,
   Select,
-} from "antd";
+} from 'antd';
 
-import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
-import { FormInstance } from "rc-field-form";
-import React, { useEffect, useRef, useState } from "react";
-import "../../../../assets/css/cssGlobal/style.css";
-import { Product } from "../../../../types/product";
+import { MinusCircleOutlined, PlusCircleOutlined } from '@ant-design/icons';
+import { FormInstance } from 'rc-field-form';
+import React, { useEffect, useRef, useState } from 'react';
+import '../../../../assets/css/cssGlobal/style.css';
+import { Product } from '../../../../types/product';
 import {
   openNotification,
   useAppDispatch,
   useAppSelector,
-} from "../../../../hooks";
+} from '../../../../hooks';
 import {
   categoryAdminStore,
   manufacturerAdminStore,
   productAdminStore,
   promotionAdminStore,
   rankAdminStore,
-} from "../../../../../use-selector";
-import { getAllPromotionAdmin } from "../../../../../features/Admin/promotion";
-import uploadIMGAdminAPI from "../../../../commom/api/UploadIMG/upload";
-import { getAllRankAdmin } from "../../../../../features/Admin/rankAdnim";
-import { getAllManufacturerAdmin } from "../../../../../features/Admin/manufacturerAdnim";
+} from '../../../../../use-selector';
+import { getAllPromotionAdmin } from '../../../../../features/Admin/promotion';
+import uploadIMGAdminAPI from '../../../../commom/api/UploadIMG/upload';
+import { getAllRankAdmin } from '../../../../../features/Admin/rankAdnim';
+import { getAllManufacturerAdmin } from '../../../../../features/Admin/manufacturerAdnim';
 import {
   getAllComboAdmin,
   getAllComboNeedUpdateAdmin,
   getComboSearchAdmin,
   postAddComboByIdAdmin,
   postEditComboByIdAdmin,
-} from "../../../../../features/Admin/comboAdnim";
-import { getAllProductAdmin } from "../../../../../features/Admin/productAdnim";
+} from '../../../../../features/Admin/comboAdnim';
+import { getAllProductAdmin } from '../../../../../features/Admin/productAdnim';
 
 interface propsModalProduct {
   visible: boolean;
@@ -65,7 +65,7 @@ function ModalComboUpdate(props: propsModalProduct) {
 
   const dispatch = useAppDispatch();
   const [form] = Form.useForm();
-  const listComboProduct = Form.useWatch("combo_products", form);
+  const listComboProduct = Form.useWatch('combo_products', form);
 
   useEffect(() => {
     setFileIMG(props.value.images ? props.value.images : []);
@@ -95,19 +95,19 @@ function ModalComboUpdate(props: propsModalProduct) {
   function onFinish(value: any) {
     console.log(value);
 
-    let arrIMG = [] as any;
+    const arrIMG = [] as any;
 
     fileIMG.map((val: any, idx: any) => {
       console.log(idx);
       if (idx === 0) {
         arrIMG.push({
           imagename: val.imagename,
-          type: "1",
+          type: '1',
         });
       } else {
         arrIMG.push({
           imagename: val.imagename,
-          type: "2",
+          type: '2',
         });
       }
     });
@@ -116,7 +116,7 @@ function ModalComboUpdate(props: propsModalProduct) {
     if (arrIMG.length >= 3) {
       if (props.value.id > 0) {
         // Sửa
-        console.log("Sửa", value);
+        console.log('Sửa', value);
         dispatch(
           postEditComboByIdAdmin({
             ...value,
@@ -129,7 +129,7 @@ function ModalComboUpdate(props: propsModalProduct) {
             dispatch(
               getComboSearchAdmin({
                 id_category: 0,
-                comboKey: props.comboKey ? props.comboKey : "",
+                comboKey: props.comboKey ? props.comboKey : '',
                 minprice: null,
                 maxprice: null,
                 page: props.page,
@@ -163,7 +163,7 @@ function ModalComboUpdate(props: propsModalProduct) {
             dispatch(
               getComboSearchAdmin({
                 id_category: 0,
-                comboKey: props.comboKey ? props.comboKey : "",
+                comboKey: props.comboKey ? props.comboKey : '',
                 minprice: null,
                 maxprice: null,
                 page: props.page,
@@ -188,7 +188,7 @@ function ModalComboUpdate(props: propsModalProduct) {
     } else {
       if (props.value.id > 0) {
         // Sửa
-        console.log("Sửa", value);
+        console.log('Sửa', value);
         dispatch(
           postEditComboByIdAdmin({
             ...value,
@@ -238,20 +238,20 @@ function ModalComboUpdate(props: propsModalProduct) {
       //   type: "error",
       // });
       openNotification({
-        message: "Bạn đang chọn ít hơn 3 ảnh",
-        type: "warning",
+        message: 'Bạn đang chọn ít hơn 3 ảnh',
+        type: 'warning',
       });
     }
   }
 
   function deleteImgArr(value: any) {
-    if (value.imagename.split(".").length > 1) {
+    if (value.imagename.split('.').length > 1) {
       uploadIMGAdminAPI
         .postDeleteIMG({
           imageName: value.imagename,
         })
         .then((res) => {
-          console.log("Thành công");
+          console.log('Thành công');
         });
     }
   }
@@ -261,12 +261,12 @@ function ModalComboUpdate(props: propsModalProduct) {
   }
 
   function onSearch(val: any) {
-    console.log("search:", val);
+    console.log('search:', val);
   }
 
   //Select
   const valueSelect = categorys.listcategoryCombo.filter(
-    (item) => item.id != 0
+    (item) => item.id !== 0
   );
   console.log(valueSelect);
 
@@ -279,7 +279,7 @@ function ModalComboUpdate(props: propsModalProduct) {
   console.log(arrImgDelete);
 
   function deleteIMG(value: any) {
-    console.log("Đang xóa", value);
+    console.log('Đang xóa', value);
 
     setArrImgDelete((pre: any) => {
       console.log(pre);
@@ -290,7 +290,7 @@ function ModalComboUpdate(props: propsModalProduct) {
     setFileIMG((pre: any) => {
       console.log(pre);
 
-      return pre.filter((values: any) => values.imagename != value.imagename);
+      return pre.filter((values: any) => values.imagename !== value.imagename);
     });
   }
 
@@ -306,7 +306,7 @@ function ModalComboUpdate(props: propsModalProduct) {
 
   function uploadImage(e: any) {
     const data = new FormData();
-    data.append("image", e);
+    data.append('image', e);
     setUploading(true);
     uploadIMGAdminAPI
       .postUploadIMG(data)
@@ -321,19 +321,19 @@ function ModalComboUpdate(props: propsModalProduct) {
         setUploading(false);
       })
       .catch((err) => {
-        console.log("Lỗi upload");
+        console.log('Lỗi upload');
         setUploading(false);
       });
   }
 
   return (
     <Modal
-      title={props.value?.id > 0 ? "Sửa combo" : "Thêm combo"}
+      title={props.value?.id > 0 ? 'Sửa combo' : 'Thêm combo'}
       centered
       visible={props.visible}
       onOk={() => props.toggle()}
       onCancel={() => props.toggle()}
-      width={"80%"}
+      width={'80%'}
       footer={null}
     >
       <Form
@@ -360,7 +360,7 @@ function ModalComboUpdate(props: propsModalProduct) {
             <Form.Item
               label="Danh mục"
               name="id_category"
-              rules={[{ required: true, message: "Chọn danh mục!" }]}
+              rules={[{ required: true, message: 'Chọn danh mục!' }]}
             >
               <Select
                 showSearch
@@ -369,7 +369,7 @@ function ModalComboUpdate(props: propsModalProduct) {
                 optionFilterProp="children"
                 onChange={onChange}
                 onSearch={onSearch}
-                style={{ minWidth: "60px", marginRight: "props.pageSizepx" }}
+                style={{ minWidth: '60px', marginRight: 'props.pageSizepx' }}
                 filterOption={(input, option: any) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
                   0
@@ -398,7 +398,7 @@ function ModalComboUpdate(props: propsModalProduct) {
             <Form.Item
               label="Khuyến mại"
               name="id_promotion"
-              rules={[{ required: true, message: "Chọn khuyến mại!" }]}
+              rules={[{ required: true, message: 'Chọn khuyến mại!' }]}
             >
               <Select
                 showSearch
@@ -407,7 +407,7 @@ function ModalComboUpdate(props: propsModalProduct) {
                 optionFilterProp="children"
                 onChange={onChange}
                 onSearch={onSearch}
-                style={{ minWidth: "60px", marginRight: "props.pageSizepx" }}
+                style={{ minWidth: '60px', marginRight: 'props.pageSizepx' }}
                 filterOption={(input, option: any) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
                   0
@@ -433,7 +433,7 @@ function ModalComboUpdate(props: propsModalProduct) {
             <Form.Item
               label="Tên "
               name="name"
-              rules={[{ required: true, message: "Nhập tên sản phẩm!" }]}
+              rules={[{ required: true, message: 'Nhập tên sản phẩm!' }]}
             >
               <Input />
             </Form.Item>
@@ -443,16 +443,16 @@ function ModalComboUpdate(props: propsModalProduct) {
             <Form.Item
               label="Giá bán"
               name="price"
-              rules={[{ required: true, message: "Nhập giá!" }]}
+              rules={[{ required: true, message: 'Nhập giá!' }]}
             >
               <InputNumber
                 maxLength={25}
-                style={{ width: "100%" }}
+                style={{ width: '100%' }}
                 formatter={(value: any) =>
-                  `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                  `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                 }
                 size="large"
-                parser={(value: any) => value.replace(/\$\s?|(,*)/g, "")}
+                parser={(value: any) => value.replace(/\$\s?|(,*)/g, '')}
               />
             </Form.Item>
           </Col>
@@ -473,7 +473,7 @@ function ModalComboUpdate(props: propsModalProduct) {
         >
           <Input />
         </Form.Item>
-        <h5 style={{ textAlign: "center" }}>Chọn sản phẩm trong combo</h5>
+        <h5 style={{ textAlign: 'center' }}>Chọn sản phẩm trong combo</h5>
 
         <Form.List name="combo_products">
           {(fields, { add, remove }) => {
@@ -485,9 +485,9 @@ function ModalComboUpdate(props: propsModalProduct) {
                       <Col md={8} xs={24}>
                         <Form.Item
                           label="Sản phẩm"
-                          name={[index, "id_product"]}
+                          name={[index, 'id_product']}
                           rules={[
-                            { required: true, message: "Chọn sản phẩm!" },
+                            { required: true, message: 'Chọn sản phẩm!' },
                           ]}
                         >
                           <Select
@@ -498,8 +498,8 @@ function ModalComboUpdate(props: propsModalProduct) {
                             onChange={onChange}
                             onSearch={onSearch}
                             style={{
-                              minWidth: "60px",
-                              marginRight: "props.pageSizepx",
+                              minWidth: '60px',
+                              marginRight: 'props.pageSizepx',
                             }}
                             filterOption={(input, option: any) =>
                               option.children
@@ -529,19 +529,19 @@ function ModalComboUpdate(props: propsModalProduct) {
                       </Col>
                       <Col md={8} xs={12}>
                         <Form.Item
-                          name={[index, "amountproduct"]}
-                          label={`Số lượng `}
+                          name={[index, 'amountproduct']}
+                          label={'Số lượng '}
                           rules={[
                             {
                               required: true,
-                              message: "Nhập thông số lượng!",
+                              message: 'Nhập thông số lượng!',
                             },
                           ]}
                         >
                           <InputNumber
                             placeholder="Thông số lượng"
                             size="large"
-                            style={{ width: "100%" }}
+                            style={{ width: '100%' }}
                           />
                         </Form.Item>
                       </Col>
@@ -569,7 +569,7 @@ function ModalComboUpdate(props: propsModalProduct) {
                               width={200}
                               height={200}
                               src={
-                                "http://103.137.184.193:5500/images/" +
+                                'http://103.137.184.193:5500/images/' +
                                 products?.listproduct?.filter(
                                   (value) =>
                                     value.id ===
@@ -578,21 +578,21 @@ function ModalComboUpdate(props: propsModalProduct) {
                               }
                             />
                           ) : (
-                            "Chưa có ảnh"
+                            'Chưa có ảnh'
                           )}
                         </Form.Item>
                       </Col>
                       <Col
                         md={1}
                         style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
                         }}
                       >
                         {fields.length > 1 ? (
                           <MinusCircleOutlined
-                            style={{ fontSize: "20px" }}
+                            style={{ fontSize: '20px' }}
                             className="dynamic-delete-button"
                             onClick={() => remove(field.name)}
                           />
@@ -606,9 +606,9 @@ function ModalComboUpdate(props: propsModalProduct) {
                   <PlusCircleOutlined
                     onClick={() => add()}
                     style={{
-                      fontSize: "20px",
-                      float: "right",
-                      marginRight: "25px",
+                      fontSize: '20px',
+                      float: 'right',
+                      marginRight: '25px',
                     }}
                   />
                 </Form.Item>
@@ -632,7 +632,7 @@ function ModalComboUpdate(props: propsModalProduct) {
                       // value.split(".").length > 1
                       //   ? "http://103.137.184.193:5500/images/" + value
                       //   : "https://cf.shopee.vn/file/" + value
-                      "http://103.137.184.193:5500/images/" + value.imagename
+                      'http://103.137.184.193:5500/images/' + value.imagename
                     }
                   />
                   <span
@@ -660,7 +660,7 @@ function ModalComboUpdate(props: propsModalProduct) {
           wrapperCol={{ offset: props.value?.id > 0 ? 22 : 21, span: 24 }}
         >
           <Button type="primary" htmlType="submit">
-            {props.value?.id > 0 ? "Sửa" : "Thêm"}
+            {props.value?.id > 0 ? 'Sửa' : 'Thêm'}
           </Button>
         </Form.Item>
       </Form>

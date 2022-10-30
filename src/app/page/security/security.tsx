@@ -1,8 +1,8 @@
-import TextArea from "antd/lib/input/TextArea";
-import React from "react";
-import { CustomesCompany } from "../../types/company";
-import banner from "../../assets/images/banners/bannerInfo/4.png"
-import { Image } from "antd";
+import TextArea from 'antd/lib/input/TextArea';
+import React from 'react';
+import { CustomesCompany } from '../../types/company';
+import banner from '../../assets/images/banners/bannerInfo/4.png';
+import { Image } from 'antd';
 interface typeProps {
     company: CustomesCompany;
   }
@@ -17,7 +17,7 @@ function Security(props: typeProps) {
       <div className="row mb-3">
         <div className="container-fluid">
           {/* <p>{props.company.Company.qdtt}</p> */}
-          <TextArea style={{border: "none"}} autoSize={{minRows: 2, maxRows: 10000}} value={props.company.Company.csbm}/>
+          <TextArea style={{border: 'none'}} autoSize={{minRows: 2, maxRows: 10000}} value={props.company.Company.csbm}/>
         </div>
       </div>
     </div>  

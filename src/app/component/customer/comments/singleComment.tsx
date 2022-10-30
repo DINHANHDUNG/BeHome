@@ -1,13 +1,13 @@
-import { UserOutlined } from "@ant-design/icons";
-import { Avatar, Button } from "antd";
-import React, { useState } from "react";
-import "./styleComment.css";
-import { Input } from "antd";
-import ModalFormComment from "../modal/modalFormCommnet/modalFormCommnet";
-import { openNotificationWithIcon, useAppDispatch } from "../../../hooks";
-import { Comment, Reply } from "../../../types/comment";
-import { postAddReplyAdmin } from "../../../../features/Admin/commentAdnim";
-import logo1 from "../../../assets/images/logo/avtzalo.png";
+import { UserOutlined } from '@ant-design/icons';
+import { Avatar, Button } from 'antd';
+import React, { useState } from 'react';
+import './styleComment.css';
+import { Input } from 'antd';
+import ModalFormComment from '../modal/modalFormCommnet/modalFormCommnet';
+import { openNotificationWithIcon, useAppDispatch } from '../../../hooks';
+import { Comment, Reply } from '../../../types/comment';
+import { postAddReplyAdmin } from '../../../../features/Admin/commentAdnim';
+import logo1 from '../../../assets/images/logo/avtzalo.png';
 
 interface propsSingleComment {
   reply?: boolean;
@@ -18,7 +18,7 @@ const { TextArea } = Input;
 function SingleComment(props: propsSingleComment) {
   const dispatch = useAppDispatch();
   const [reply, setReply] = useState(false);
-  const [valueReply, setValueReply] = useState("");
+  const [valueReply, setValueReply] = useState('');
   console.log(valueReply, props.value);
   const [visibleRepLyComment, setVisibleRepLyComment] = useState(false);
   return (
@@ -27,19 +27,19 @@ function SingleComment(props: propsSingleComment) {
         {/* <Avatar icon={<UserOutlined />} className="mr-3" />{" "} */}
         {props.value.namecustomer.length > 0 ? (
           <Avatar
-            style={{ color: "#f56a00", backgroundColor: "#fde3cf" }}
+            style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
             className="mr-3"
           >
             {props.value.namecustomer.charAt(0)}
           </Avatar>
         ) : (
-          <Avatar style={{ color: "#f56a00" }} className="mr-3" src={logo1}>
+          <Avatar style={{ color: '#f56a00' }} className="mr-3" src={logo1}>
             {/* {props.value.namecustomer.charAt(0)} */}
           </Avatar>
         )}
 
         <span style={{ fontWeight: 500 }}>
-          {props.value.namecustomer ? props.value.namecustomer : "BeHome Store"}
+          {props.value.namecustomer ? props.value.namecustomer : 'BeHome Store'}
         </span>
       </div>
       <div className="single-comment-content">{props.value?.contents}</div>
@@ -63,7 +63,7 @@ function SingleComment(props: propsSingleComment) {
               if (valueReply.length > 0) {
                 setVisibleRepLyComment(!visibleRepLyComment);
               } else {
-                openNotificationWithIcon("error", "Vui lòng nhập bình luận");
+                openNotificationWithIcon('error', 'Vui lòng nhập bình luận');
               }
             }}
           >
@@ -74,10 +74,10 @@ function SingleComment(props: propsSingleComment) {
 
       <hr
         style={{
-          marginTop: "10px",
-          marginRight: "0px",
-          marginBottom: "10px",
-          marginLeft: "0px",
+          marginTop: '10px',
+          marginRight: '0px',
+          marginBottom: '10px',
+          marginLeft: '0px',
         }}
       />
 
@@ -95,7 +95,7 @@ function SingleComment(props: propsSingleComment) {
             })
           ).then(() => {
             props.toggleDone();
-            setValueReply("");
+            setValueReply('');
           });
           setReply(!reply);
         }}

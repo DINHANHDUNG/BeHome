@@ -1,11 +1,11 @@
-import { Button, Form, Input, Modal, Select } from "antd";
-import React, { useEffect } from "react";
+import { Button, Form, Input, Modal, Select } from 'antd';
+import React, { useEffect } from 'react';
 import {
   getAllCategoryTrees,
   postAddCategoryByIdAdmin,
-} from "../../../../../features/Admin/categoryAdnim";
-import { categoryAdminStore } from "../../../../../use-selector";
-import { useAppDispatch, useAppSelector } from "../../../../hooks";
+} from '../../../../../features/Admin/categoryAdnim';
+import { categoryAdminStore } from '../../../../../use-selector';
+import { useAppDispatch, useAppSelector } from '../../../../hooks';
 
 interface propsModalCategory {
   visible: boolean;
@@ -14,7 +14,7 @@ interface propsModalCategory {
     id: number;
     id_parent: number;
     name: string;
-    type: "PRODUCT" | "COMBO";
+    type: 'PRODUCT' | 'COMBO';
   };
 }
 function ModalCategory2(props: propsModalCategory) {
@@ -37,7 +37,7 @@ function ModalCategory2(props: propsModalCategory) {
       })
     ).then(() => {
       dispatch(getAllCategoryTrees());
-      props.toggle()
+      props.toggle();
     });
   }
 
@@ -48,13 +48,13 @@ function ModalCategory2(props: propsModalCategory) {
 
   return (
     <Modal
-      title={"Thêm danh mục"}
+      title={'Thêm danh mục'}
       centered
       visible={props.visible}
       onOk={() => props.toggle()}
       onCancel={() => props.toggle()}
-      okText={"Thêm"}
-      cancelText={"Hủy"}
+      okText={'Thêm'}
+      cancelText={'Hủy'}
       width={1000}
       footer={null}
     >
@@ -64,7 +64,7 @@ function ModalCategory2(props: propsModalCategory) {
         form={form}
         // wrapperCol={{ span: 16 }}
         initialValues={{
-          name: "",
+          name: '',
           dmcha: props.value.name,
           idcategory: props.value.id_parent,
         }}
@@ -77,7 +77,7 @@ function ModalCategory2(props: propsModalCategory) {
         <Form.Item
           label="Tên danh mục: "
           name="name"
-          rules={[{ required: true, message: "Nhập tên danh mục!" }]}
+          rules={[{ required: true, message: 'Nhập tên danh mục!' }]}
         >
           <Input />
         </Form.Item>
@@ -86,7 +86,7 @@ function ModalCategory2(props: propsModalCategory) {
           wrapperCol={{ offset: props.value?.id > 0 ? 21 : 20, span: 24 }}
         >
           <Button type="primary" htmlType="submit">
-            {"Thêm"}
+            {'Thêm'}
           </Button>
         </Form.Item>
       </Form>

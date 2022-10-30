@@ -1,11 +1,11 @@
-import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
-import { openNotification } from "../../app/hooks";
-import { Combo } from "../../app/types/combo";
+import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
+import { openNotification } from '../../app/hooks';
+import { Combo } from '../../app/types/combo';
 import {
   CustomesProductHomePage,
   ProductHomePage,
-} from "../../app/types/product-home-page";
-import { getProductHomePage } from "./patchAdmin-api";
+} from '../../app/types/product-home-page';
+import { getProductHomePage } from './patchAdmin-api';
 const initialStateAccount: CustomesProductHomePage = {
   listproducthomepage: [] as Array<ProductHomePage>,
   listcombohomepage: [] as Array<Combo>,
@@ -14,7 +14,7 @@ const initialStateAccount: CustomesProductHomePage = {
 };
 
 const ProductHomePageSlice = createSlice({
-  name: "homepage",
+  name: 'homepage',
   initialState: initialStateAccount,
   reducers: {
     //action login Storage
@@ -29,7 +29,7 @@ const ProductHomePageSlice = createSlice({
       })
       .addCase(getProductHomePage.fulfilled, (state, action) => {
         const { result ,combo} = action.payload;
-        console.log("result", result);
+        console.log('result', result);
         state.listcombohomepage = combo;
         state.listproducthomepage = result;
         state.loading = false;
@@ -39,8 +39,8 @@ const ProductHomePageSlice = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
   },

@@ -1,5 +1,5 @@
-import { AddOrder } from "../../../types/order";
-import axiosClientAdmin from "./axios-clientAdmin";
+import { AddOrder } from '../../../types/order';
+import axiosClientAdmin from './axios-clientAdmin';
 
 // Chờ thanh toán
 const orderAPIAdmin = {
@@ -7,7 +7,7 @@ const orderAPIAdmin = {
     page: number;
     noitem: number;
   }): Promise<any> {
-    const url = "order/getallorderwaitforpay";
+    const url = 'order/getallorderwaitforpay';
     return axiosClientAdmin.post(url, data);
   },
   // Đơn đã hoàn thành
@@ -15,40 +15,40 @@ const orderAPIAdmin = {
     page: number;
     noitem: number;
   }): Promise<any> {
-    const url = "order/getallordercompleted";
+    const url = 'order/getallordercompleted';
     return axiosClientAdmin.post(url, data);
   },
   // Đơn đã hủy
   getAllOrderCancelAdmin(data: { page: number; noitem: number }): Promise<any> {
-    const url = "order/getallordercanceled";
+    const url = 'order/getallordercanceled';
     return axiosClientAdmin.post(url, data);
   },
 
   // Hủy đơn
   OrderCanceledADmin(data: { id: number }): Promise<any> {
-    const url = "order/ordercanceled";
+    const url = 'order/ordercanceled';
     return axiosClientAdmin.post(url, data);
   },
   // Chuyển sang chờ thanh toán
   OrderWaitADmin(data: { id: number }): Promise<any> {
-    const url = "order/orderwait";
+    const url = 'order/orderwait';
     return axiosClientAdmin.post(url, data);
   },
 
   // Hoàn thành đơn
   OrderCompletedADmin(data: { id: number }): Promise<any> {
-    const url = "order/ordercompleted";
+    const url = 'order/ordercompleted';
     return axiosClientAdmin.post(url, data);
   },
 
   //  Get by id
   getorderByIdADmin(data: { id: number }): Promise<any> {
-    const url = "order/getorderbyid";
+    const url = 'order/getorderbyid';
     return axiosClientAdmin.post(url, data);
   },
 
   postAddorderADmin(data: AddOrder): Promise<any> {
-    const url = "order/createorder";
+    const url = 'order/createorder';
     return axiosClientAdmin.post(url, data);
   },
 
@@ -58,12 +58,12 @@ const orderAPIAdmin = {
   // },
 
   postDeleteorderADmin(data: { id: [number] }): Promise<any> {
-    const url = "order/deleteorder";
+    const url = 'order/deleteorder';
     return axiosClientAdmin.post(url, data);
   },
 
   getSearchOrderAdmin(data: { orderkey: string }): Promise<any> {
-    const url = "order/searchorder";
+    const url = 'order/searchorder';
     return axiosClientAdmin.post(url, data);
   },
 };

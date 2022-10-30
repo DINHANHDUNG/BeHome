@@ -12,7 +12,7 @@ export interface AddCategoryProduct {
 export type EditCategoryProduct = AddCategoryProduct & { id: number };
 
 export interface DeleteCategoryProduct {
-  id: Array<Number>;
+  id: Array<number>;
 }
 
 export interface CustomesCategoryProduct {

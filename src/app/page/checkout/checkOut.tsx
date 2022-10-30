@@ -1,26 +1,26 @@
-import { Col, Form, Input, InputNumber, Row } from "antd";
-import { FormInstance } from "rc-field-form";
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { postAddOrderByIdAdmin } from "../../../features/Admin/orderAdnim";
-import { deleteCart, orderSuccsess } from "../../../features/cart/cart-slice";
-import { CartStore } from "../../../use-selector";
+import { Col, Form, Input, InputNumber, Row } from 'antd';
+import { FormInstance } from 'rc-field-form';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { postAddOrderByIdAdmin } from '../../../features/Admin/orderAdnim';
+import { deleteCart, orderSuccsess } from '../../../features/cart/cart-slice';
+import { CartStore } from '../../../use-selector';
 import {
   currency,
   Numberformat,
   useAppDispatch,
   useAppSelector,
-} from "../../hooks";
-import CartShopping from "../cartShopping/cartShopping";
+} from '../../hooks';
+import CartShopping from '../cartShopping/cartShopping';
 
 function CheckOut() {
   const cart = useAppSelector(CartStore);
   const dispatch = useAppDispatch();
   const history = useNavigate();
-  const [namecustomer, setNamecustomer] = useState("");
-  const [addresscustomer, setAddresscustomer] = useState("");
-  const [emailcustomer, setEmailcustomer] = useState("");
-  const [phonenumbercustomer, setPhonenumbercustomer] = useState("");
+  const [namecustomer, setNamecustomer] = useState('');
+  const [addresscustomer, setAddresscustomer] = useState('');
+  const [emailcustomer, setEmailcustomer] = useState('');
+  const [phonenumbercustomer, setPhonenumbercustomer] = useState('');
   const formRef: any = React.createRef<FormInstance>();
   const [form] = Form.useForm();
   useEffect(() => {
@@ -43,8 +43,8 @@ function CheckOut() {
       })
     ).then(() => {
       dispatch(orderSuccsess());
-      localStorage.removeItem("InfoOrderCustomer");
-      history("/");
+      localStorage.removeItem('InfoOrderCustomer');
+      history('/');
     });
   }
 
@@ -60,10 +60,10 @@ function CheckOut() {
             layout="vertical"
             // wrapperCol={{ span: 16 }}
             initialValues={{
-              phonenumbercustomer: "",
-              emailcustomer: "",
-              addresscustomer: "",
-              namecustomer: "",
+              phonenumbercustomer: '',
+              emailcustomer: '',
+              addresscustomer: '',
+              namecustomer: '',
             }}
             onFinish={onFinish}
             autoComplete="off"
@@ -74,7 +74,7 @@ function CheckOut() {
                 <Form.Item
                   label="Họ tên "
                   name="namecustomer"
-                  rules={[{ required: true, message: "Nhập họ và tên!" }]}
+                  rules={[{ required: true, message: 'Nhập họ và tên!' }]}
                 >
                   <Input />
                 </Form.Item>
@@ -82,7 +82,7 @@ function CheckOut() {
                 <Form.Item
                   label="Địa chỉ "
                   name="addresscustomer"
-                  rules={[{ required: true, message: "Nhập địa chỉ!" }]}
+                  rules={[{ required: true, message: 'Nhập địa chỉ!' }]}
                 >
                   <Input />
                 </Form.Item>
@@ -90,7 +90,7 @@ function CheckOut() {
                 <Form.Item
                   label="Số điện thoại "
                   name="phonenumbercustomer"
-                  rules={[{ required: true, message: "Nhập số điện thoại!" }]}
+                  rules={[{ required: true, message: 'Nhập số điện thoại!' }]}
                 >
                   <Input />
                 </Form.Item>
@@ -119,10 +119,10 @@ function CheckOut() {
                               <a href="#">
                                 <img
                                   src={
-                                    "http://103.137.184.193:5500/images/" +
+                                    'http://103.137.184.193:5500/images/' +
                                     value?.images.find(
                                       (x: any) =>
-                                        x.type === "1" || x.type === "MAIN"
+                                        x.type === '1' || x.type === 'MAIN'
                                     )?.imagename
                                   }
                                   alt="Product image"
@@ -141,7 +141,7 @@ function CheckOut() {
                             ? Numberformat(
                                 value.productpropertiess.filter(
                                   (b: any) =>
-                                    b.id == value?.id_productproperties
+                                    b.id === value?.id_productproperties
                                 )[0]?.price
                               )
                             : Numberformat(value?.price)}
@@ -165,7 +165,7 @@ function CheckOut() {
                             ? Numberformat(
                                 value.productpropertiess.filter(
                                   (b: any) =>
-                                    b.id == value?.id_productproperties
+                                    b.id === value?.id_productproperties
                                 )[0]?.price * value.amount
                               )
                             : Numberformat(value?.price * value.amount)}
@@ -200,7 +200,7 @@ function CheckOut() {
                               ? Numberformat(
                                   value.productpropertiess.filter(
                                     (b: any) =>
-                                      b.id == value?.id_productproperties
+                                      b.id === value?.id_productproperties
                                   )[0]?.price
                                 )
                               : Numberformat(value?.price)}
@@ -228,9 +228,9 @@ function CheckOut() {
                       type="submit"
                       className="btn btn-outline-primary-2 btn-order btn-block"
                       style={{
-                        fontSize: "13px",
-                        fontWeight: "500",
-                        textTransform: "uppercase",
+                        fontSize: '13px',
+                        fontWeight: '500',
+                        textTransform: 'uppercase',
                       }}
                     >
                       <span className="btn-text">Đặt hàng</span>

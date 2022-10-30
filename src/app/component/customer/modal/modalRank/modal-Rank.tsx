@@ -1,16 +1,16 @@
-import { Button, Form, Input, Modal } from "antd";
-import React, { useEffect } from "react";
+import { Button, Form, Input, Modal } from 'antd';
+import React, { useEffect } from 'react';
 import {
   getAllManufacturerAdmin,
   postAddManufacturerByIdAdmin,
   postEditManufacturerByIdAdmin,
-} from "../../../../../features/Admin/manufacturerAdnim";
+} from '../../../../../features/Admin/manufacturerAdnim';
 import {
   getAllRankAdmin,
   postAddRankByIdAdmin,
   postEditRankByIdAdmin,
-} from "../../../../../features/Admin/rankAdnim";
-import { useAppDispatch } from "../../../../hooks";
+} from '../../../../../features/Admin/rankAdnim';
+import { useAppDispatch } from '../../../../hooks';
 
 interface propsModalRank {
   visible: boolean;
@@ -68,13 +68,13 @@ function ModalRank(props: propsModalRank) {
 
   return (
     <Modal
-      title={props.value?.id > 0 ? "Sửa phân khúc" : "Thêm phân khúc"}
+      title={props.value?.id > 0 ? 'Sửa phân khúc' : 'Thêm phân khúc'}
       centered
       visible={props.visible}
       onOk={() => props.toggle()}
       onCancel={() => props.toggle()}
-      okText={"Thêm"}
-      cancelText={"Hủy"}
+      okText={'Thêm'}
+      cancelText={'Hủy'}
       width={500}
       footer={null}
     >
@@ -92,7 +92,7 @@ function ModalRank(props: propsModalRank) {
         <Form.Item
           label="Tên "
           name="name"
-          rules={[{ required: true, message: "Nhập tên !" }]}
+          rules={[{ required: true, message: 'Nhập tên !' }]}
         >
           <Input />
         </Form.Item>
@@ -104,7 +104,7 @@ function ModalRank(props: propsModalRank) {
           }}
         >
           <Button type="primary" htmlType="submit">
-            {props.value?.id > 0 ? "Sửa" : "Thêm"}
+            {props.value?.id > 0 ? 'Sửa' : 'Thêm'}
           </Button>
         </Form.Item>
       </Form>

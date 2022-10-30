@@ -9,17 +9,17 @@ import {
   Table,
   TableColumnsType,
   Typography,
-} from "antd";
-import { useEffect, useState } from "react";
+} from 'antd';
+import { useEffect, useState } from 'react';
 import {
   getAllCommentAdmin,
   postAddReplyAdmin,
   postDeleteCommentAdmin,
   postDeleteReplyAdmin,
-} from "../../../../features/Admin/commentAdnim";
-import { commentAdminStore } from "../../../../use-selector";
-import ModalReplyAdmin from "../../../component/customer/modal/Reply/modal-reply";
-import { useAppDispatch, useAppSelector } from "../../../hooks";
+} from '../../../../features/Admin/commentAdnim';
+import { commentAdminStore } from '../../../../use-selector';
+import ModalReplyAdmin from '../../../component/customer/modal/Reply/modal-reply';
+import { useAppDispatch, useAppSelector } from '../../../hooks';
 
 function CommentAdmin() {
   const { Title, Text } = Typography;
@@ -38,34 +38,34 @@ function CommentAdmin() {
   const [value, setValue] = useState({
     id: 0,
     id_parent: 0,
-    name: "",
+    name: '',
   } as any);
 
   useEffect(() => {
     dispatch(getAllCommentAdmin({ page: page, noitem: noitem }));
   }, []);
   const columns2: TableColumnsType<any> = [
-    { title: "Replys", dataIndex: "contents", key: "contents" },
+    { title: 'Replys', dataIndex: 'contents', key: 'contents' },
     {
-      title: "Tên khách",
-      dataIndex: "namecustomer",
-      key: "namecustomer",
+      title: 'Tên khách',
+      dataIndex: 'namecustomer',
+      key: 'namecustomer',
       render: (text: any, row: any, index: any) =>
-        row.namecustomer?.length > 0 ? row.namecustomer : "ADMIN",
+        row.namecustomer?.length > 0 ? row.namecustomer : 'ADMIN',
     },
     {
-      title: "Số điện thoại",
-      key: "phonenumbercustomer",
+      title: 'Số điện thoại',
+      key: 'phonenumbercustomer',
     },
     {
-      title: "Địa chỉ",
-      dataIndex: "addresscustomer",
-      key: "addresscustomer",
+      title: 'Địa chỉ',
+      dataIndex: 'addresscustomer',
+      key: 'addresscustomer',
     },
     {
-      title: "hành động",
-      dataIndex: "operation",
-      key: "operation",
+      title: 'hành động',
+      dataIndex: 'operation',
+      key: 'operation',
       render: (text: any, row: any, index: any) => (
         <Space size="middle">
           <Popconfirm
@@ -88,10 +88,10 @@ function CommentAdmin() {
   // table code start
   const columns = [
     {
-      title: "STT",
-      dataIndex: "id",
-      key: "id",
-      width: "10%",
+      title: 'STT',
+      dataIndex: 'id',
+      key: 'id',
+      width: '10%',
       render: (text: any, row: any, index: any) => index + 1,
       // render: (id: any ) => (
       //   <>
@@ -100,15 +100,15 @@ function CommentAdmin() {
       // )
     },
     {
-      title: "Comment",
-      dataIndex: "contents",
-      key: "contents",
+      title: 'Comment',
+      dataIndex: 'contents',
+      key: 'contents',
     },
 
     {
-      title: "Sản phẩm /Combo",
-      dataIndex: "product",
-      key: "product",
+      title: 'Sản phẩm /Combo',
+      dataIndex: 'product',
+      key: 'product',
       render: (text: any, row: any, index: any) =>
         row.product?.id > 0
           ? row.product?.name
@@ -126,29 +126,29 @@ function CommentAdmin() {
     // },
 
     {
-      title: "Tên khách",
-      dataIndex: "namecustomer",
-      key: "namecustomer",
+      title: 'Tên khách',
+      dataIndex: 'namecustomer',
+      key: 'namecustomer',
       render: (text: any, row: any, index: any) =>
-        row.namecustomer?.length > 0 ? row.namecustomer : "ADMIN",
+        row.namecustomer?.length > 0 ? row.namecustomer : 'ADMIN',
     },
 
     {
-      title: "Số điện thoại",
-      dataIndex: "phonenumbercustomer",
-      key: "phonenumbercustomer",
+      title: 'Số điện thoại',
+      dataIndex: 'phonenumbercustomer',
+      key: 'phonenumbercustomer',
     },
 
     {
-      title: "Địa chỉ",
-      dataIndex: "addresscustomer",
-      key: "addresscustomer",
+      title: 'Địa chỉ',
+      dataIndex: 'addresscustomer',
+      key: 'addresscustomer',
     },
 
     {
-      title: "Replys",
-      dataIndex: "replys",
-      key: "replys",
+      title: 'Replys',
+      dataIndex: 'replys',
+      key: 'replys',
       render: (text: any, row: any, index: any) =>
         commentTrees.listComment[index]?.replys?.length > 0 ? (
           <Table
@@ -157,14 +157,14 @@ function CommentAdmin() {
             pagination={false}
           />
         ) : (
-          "Chưa có bình luận"
+          'Chưa có bình luận'
         ),
     },
 
     {
-      title: "Hàng động",
-      dataIndex: "action",
-      key: "action",
+      title: 'Hàng động',
+      dataIndex: 'action',
+      key: 'action',
       render: (text: any, row: any, index: any) => (
         <Space size="middle">
           {!row.id_comment ? (
@@ -209,7 +209,7 @@ function CommentAdmin() {
     onChange: (selectedRowKeys: any, selectedRows: any) => {
       console.log(
         `selectedRowKeys: ${selectedRowKeys}`,
-        "selectedRows: ",
+        'selectedRows: ',
         selectedRows
       );
       setSelectedID(selectedRowKeys);
@@ -218,7 +218,7 @@ function CommentAdmin() {
   };
 
   return (
-    <div className="tabled" style={{ marginBottom: "20px" }}>
+    <div className="tabled" style={{ marginBottom: '20px' }}>
       <Row gutter={[24, 0]}>
         <Col xs={24} xl={24}>
           <Card
@@ -247,7 +247,7 @@ function CommentAdmin() {
           >
             <div className="table-responsive">
               <Table
-                style={{ textAlign: "center" }}
+                style={{ textAlign: 'center' }}
                 columns={columns}
                 dataSource={commentTrees.listComment}
                 pagination={false}
@@ -262,15 +262,18 @@ function CommentAdmin() {
                 rowKey="id"
                 onRow={(record, rowIndex) => {
                   return {
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onClick: (event) => {}, // click row
                     onDoubleClick: (event) => {
                       //   setVisible(true);
                     }, // double click row
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onContextMenu: (event) => {}, // right button click row
                     onMouseEnter: (event) => {
                       // console.log(record);
                       setValue(record);
                     }, // mouse enter row
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onMouseLeave: (event) => {}, // mouse leave row
                   };
                 }}
@@ -284,9 +287,9 @@ function CommentAdmin() {
         <Col xl={24}>
           <Pagination
             style={{
-              marginTop: "10px",
-              float: "right",
-              marginBottom: "10px",
+              marginTop: '10px',
+              float: 'right',
+              marginBottom: '10px',
             }}
             onChange={(page, pageSizeNew) => {
               console.log(page, pageSizeNew);
@@ -314,7 +317,7 @@ function CommentAdmin() {
             setVisible(false);
           }}
           toggleFinish={(value) => {
-            console.log("toggleFinish", value);
+            console.log('toggleFinish', value);
             dispatch(
               postAddReplyAdmin({
                 id_comment: idComment,

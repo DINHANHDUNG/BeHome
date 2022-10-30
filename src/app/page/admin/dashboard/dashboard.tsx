@@ -9,10 +9,10 @@ import {
   Select,
   Space,
   Table,
-} from "antd";
-import moment from "moment";
-import React, { useEffect, useState } from "react";
-import { getAllCategoryProductAdmin } from "../../../../features/Admin/categoryAdnim";
+} from 'antd';
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
+import { getAllCategoryProductAdmin } from '../../../../features/Admin/categoryAdnim';
 import {
   getAllProductAdmin,
   getProductSearch2Admin,
@@ -20,21 +20,21 @@ import {
   hiddenProductByIdAdmin,
   postDeleteProductAdmin,
   showProductByIdAdmin,
-} from "../../../../features/Admin/productAdnim";
+} from '../../../../features/Admin/productAdnim';
 import {
   accountAdminStore,
   categoryAdminStore,
   productAdminStore,
-} from "../../../../use-selector";
-import ModalProduct from "../../../component/customer/modal/Product/modal-product";
+} from '../../../../use-selector';
+import ModalProduct from '../../../component/customer/modal/Product/modal-product';
 import {
   currency,
   getParsedDate,
   openNotification,
   useAppDispatch,
   useAppSelector,
-} from "../../../hooks";
-import { Product } from "../../../types/product";
+} from '../../../hooks';
+import { Product } from '../../../types/product';
 
 function Dashboard() {
   const { Option } = Select;
@@ -50,12 +50,12 @@ function Dashboard() {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [visibleSearch, setVisibleSearch] = useState(false);
-  const [valueSearch, setValueSearch] = useState("");
+  const [valueSearch, setValueSearch] = useState('');
   const [arrImgDelete, setArrImgDelete] = useState([] as any);
   console.log(products, categorys);
 
   useEffect(() => {
-    dispatch(getAllCategoryProductAdmin()).then((res: any) => {});
+    dispatch(getAllCategoryProductAdmin());
     setValueInputSelect(0);
 
     dispatch(
@@ -70,61 +70,61 @@ function Dashboard() {
 
   const columns = [
     {
-      title: "STT",
-      dataIndex: "id",
-      key: "id",
-      width: "10%",
+      title: 'STT',
+      dataIndex: 'id',
+      key: 'id',
+      width: '10%',
       render: (text: any, row: any, index: any) => index + 1,
     },
     {
-      title: "Danh mục",
-      dataIndex: "category",
-      key: "category",
+      title: 'Danh mục',
+      dataIndex: 'category',
+      key: 'category',
       render: (text: any, row: any, index: any) => row.category.name,
       sorter: (a: any, b: any) =>
         a.category.name.localeCompare(b.category.name),
     },
 
     {
-      title: "Phân khúc",
-      dataIndex: "rank",
-      key: "rank",
+      title: 'Phân khúc',
+      dataIndex: 'rank',
+      key: 'rank',
       render: (text: any, row: any, index: any) => row.rank.name,
       sorter: (a: any, b: any) => a.rank.name.localeCompare(b.rank.name),
     },
 
     {
-      title: "Hãng",
-      dataIndex: "manufacturer",
-      key: "manufacturer",
+      title: 'Hãng',
+      dataIndex: 'manufacturer',
+      key: 'manufacturer',
       render: (text: any, row: any, index: any) => row.manufacturer.name,
       sorter: (a: any, b: any) =>
         a.manufacturer.name.localeCompare(b.manufacturer.name),
     },
 
     {
-      title: "Tên sản phẩm",
-      dataIndex: "name",
-      key: "name",
+      title: 'Tên sản phẩm',
+      dataIndex: 'name',
+      key: 'name',
       sorter: (a: any, b: any) => a.name.localeCompare(b.name),
     },
 
     {
-      title: "Giá",
-      dataIndex: "price",
-      key: "price",
-      render: (price: any) => <>{price ? currency(price) : "Liên hệ"}</>,
+      title: 'Giá',
+      dataIndex: 'price',
+      key: 'price',
+      render: (price: any) => <>{price ? currency(price) : 'Liên hệ'}</>,
       sorter: (a: any, b: any) => Number(a.price) - Number(b.price),
     },
 
     {
-      title: "Ngày tạo",
-      dataIndex: "created_date",
-      key: "created_date",
+      title: 'Ngày tạo',
+      dataIndex: 'created_date',
+      key: 'created_date',
       render: (created_date: any) => (
         <>
           {/* {getParsedDate(created_date)} */}
-          {moment(created_date).utc().format("DD-MM-YYYY").toString()}
+          {moment(created_date).utc().format('DD-MM-YYYY').toString()}
         </>
       ),
       sorter: (a: any, b: any) => {
@@ -135,12 +135,12 @@ function Dashboard() {
       },
     },
     {
-      title: "Ngày cập nhật",
-      dataIndex: "updated_date",
-      key: "updated_date",
+      title: 'Ngày cập nhật',
+      dataIndex: 'updated_date',
+      key: 'updated_date',
 
       render: (updated_date: any) => (
-        <>{moment(updated_date).utc().format("DD-MM-YYYY").toString()}</>
+        <>{moment(updated_date).utc().format('DD-MM-YYYY').toString()}</>
       ),
       sorter: (a: any, b: any) => {
         if (moment(a.updated_date).isBefore(moment(b.updated_date))) {
@@ -151,9 +151,9 @@ function Dashboard() {
     },
 
     {
-      title: "Quản lý trang chủ",
-      dataIndex: "show",
-      key: "show",
+      title: 'Quản lý trang chủ',
+      dataIndex: 'show',
+      key: 'show',
       render: (text: any, row: any, index: any) => (
         <Space size="middle">
           {!row.homepage ? (
@@ -167,7 +167,7 @@ function Dashboard() {
                         id_category: 0,
                         id_rank: 0,
                         id_manufacturer: 0,
-                        productKey: valueSearch ? valueSearch : "",
+                        productKey: valueSearch ? valueSearch : '',
                         minprice: null,
                         maxprice: null,
                         page: page,
@@ -187,7 +187,7 @@ function Dashboard() {
                   }
                 });
               }}
-              style={{color: "#0a9f15"}}
+              style={{color: '#0a9f15'}}
             >
               Hiện trên trang chủ
             </Button>
@@ -202,7 +202,7 @@ function Dashboard() {
                         id_category: 0,
                         id_rank: 0,
                         id_manufacturer: 0,
-                        productKey: valueSearch ? valueSearch : "",
+                        productKey: valueSearch ? valueSearch : '',
                         minprice: null,
                         maxprice: null,
                         page: page,
@@ -222,7 +222,7 @@ function Dashboard() {
                   }
                 });
               }}
-              style={{color: "red"}}
+              style={{color: 'red'}}
             >
               Ẩn khỏi trang chủ
             </Button>
@@ -241,7 +241,7 @@ function Dashboard() {
     onChange: (selectedRowKeys: any, selectedRows: any) => {
       console.log(
         `selectedRowKeys: ${selectedRowKeys}`,
-        "selectedRows: ",
+        'selectedRows: ',
         selectedRows
       );
       setSelectedID(selectedRowKeys);
@@ -264,18 +264,18 @@ function Dashboard() {
   }
 
   function onSearch(val: any) {
-    console.log("search:", val.target.value);
+    console.log('search:', val.target.value);
     setValueSearch(val.target.value);
   }
 
   const handleKeyDown = (event: any) => {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       dispatch(
         getProductSearchAdmin({
           id_category: null,
           id_rank: null,
           id_manufacturer: null,
-          productKey: valueSearch ? valueSearch : "",
+          productKey: valueSearch ? valueSearch : '',
           minprice: null,
           maxprice: null,
           page: page,
@@ -287,7 +287,7 @@ function Dashboard() {
   };
 
   return (
-    <div className="tabled" style={{ marginBottom: "20px" }}>
+    <div className="tabled" style={{ marginBottom: '20px' }}>
       <Row gutter={[24, 0]}>
         <Col xs={24} xl={24}>
           <Card
@@ -297,7 +297,7 @@ function Dashboard() {
             extra={
               <>
                 <Button
-                  style={{ marginRight: "10px" }}
+                  style={{ marginRight: '10px' }}
                   onClick={() => {
                     setVisibleSearch(!visibleSearch);
                   }}
@@ -310,7 +310,7 @@ function Dashboard() {
                   optionFilterProp="children"
                   onChange={onChange}
                   onSearch={onSearch}
-                  style={{ minWidth: "120px", marginRight: "10px" }}
+                  style={{ minWidth: '120px', marginRight: '10px' }}
                   value={valueInputSelect}
                   filterOption={(input, option: any) =>
                     option?.children
@@ -329,7 +329,7 @@ function Dashboard() {
                 </Select>
 
                 <Button
-                  style={{ marginRight: "10px" }}
+                  style={{ marginRight: '10px' }}
                   onClick={() => {
                     setVisible(true);
                     setValue({} as Product);
@@ -345,8 +345,8 @@ function Dashboard() {
                   onConfirm={() => {
                     if (selectedID.length < 1) {
                       openNotification({
-                        message: "Chưa chọn sản phẩm",
-                        type: "error",
+                        message: 'Chưa chọn sản phẩm',
+                        type: 'error',
                       });
                     } else {
                       dispatch(postDeleteProductAdmin({ id: selectedID })).then(
@@ -364,7 +364,7 @@ function Dashboard() {
                     }
                   }}
                 >
-                  <Button onClick={() => {}}>Xóa</Button>
+                  <Button>Xóa</Button>
                 </Popconfirm>
               </>
             }
@@ -373,19 +373,19 @@ function Dashboard() {
               <Col xl={24}>
                 {visibleSearch && (
                   <Row gutter={[24, 24]}>
-                    <Col md={10} xs={20} style={{ margin: "20px" }}>
+                    <Col md={10} xs={20} style={{ margin: '20px' }}>
                       <div
                         style={{
-                          display: "flex",
-                          flexDirection: "row",
-                          justifyContent: "space-around",
-                          alignItems: "center",
+                          display: 'flex',
+                          flexDirection: 'row',
+                          justifyContent: 'space-around',
+                          alignItems: 'center',
                         }}
                       >
                         <Input
                           placeholder="Tìm kiếm"
                           onChange={onSearch}
-                          style={{ width: "100%", marginRight: "10px" }}
+                          style={{ width: '100%', marginRight: '10px' }}
                           size="small"
                           onKeyDown={handleKeyDown}
                         />
@@ -397,7 +397,7 @@ function Dashboard() {
                                 id_category: null,
                                 id_rank: null,
                                 id_manufacturer: null,
-                                productKey: valueSearch ? valueSearch : "",
+                                productKey: valueSearch ? valueSearch : '',
                                 minprice: null,
                                 maxprice: null,
                                 page: page,
@@ -425,15 +425,18 @@ function Dashboard() {
                     rowKey="id"
                     onRow={(record, rowIndex) => {
                       return {
+                        // eslint-disable-next-line @typescript-eslint/no-empty-function
                         onClick: (event) => {}, // click row
                         onDoubleClick: (event) => {
                           setVisible(true);
                         }, // double click row
+                        // eslint-disable-next-line @typescript-eslint/no-empty-function
                         onContextMenu: (event) => {}, // right button click row
                         onMouseEnter: (event) => {
                           // console.log(record);
                           setValue(record);
                         }, // mouse enter row
+                        // eslint-disable-next-line @typescript-eslint/no-empty-function
                         onMouseLeave: (event) => {}, // mouse leave row
                       };
                     }}
@@ -446,9 +449,9 @@ function Dashboard() {
               <Col xl={24}>
                 <Pagination
                   style={{
-                    marginTop: "10px",
-                    float: "right",
-                    marginBottom: "10px",
+                    marginTop: '10px',
+                    float: 'right',
+                    marginBottom: '10px',
                   }}
                   onChange={(page, pageSizeNew) => {
                     console.log(page, pageSizeNew);

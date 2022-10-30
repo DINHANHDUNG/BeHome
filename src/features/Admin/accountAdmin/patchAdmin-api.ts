@@ -1,25 +1,25 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import accountAdminAPI from "../../../app/commom/api/admin/api-account-admin";
-import { ChangePassword, LoginType } from "../../../app/types/account";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import accountAdminAPI from '../../../app/commom/api/admin/api-account-admin';
+import { ChangePassword, LoginType } from '../../../app/types/account';
 
 export const postLoginAdmin = createAsyncThunk(
-  "/accountadmin/loginadmin",
+  '/accountadmin/loginadmin',
   async (data: LoginType) => {
     const response = await accountAdminAPI.postLoginADmin(data);
 
-    console.log("loginadmin", response);
+    console.log('loginadmin', response);
     
 
     return response;
   }
 );
 
-export const postLogoutAdmin = createAsyncThunk("/accountadmin/logout", () => {
+export const postLogoutAdmin = createAsyncThunk('/accountadmin/logout', () => {
   return;
 });
 
 export const checkTokenAdmin = createAsyncThunk(
-  "/accountadmin/checktokenAdmin",
+  '/accountadmin/checktokenAdmin',
   async () => {
     const response = await accountAdminAPI.postCheckTokenAdmin();
     // console.log("checktoken", response);
@@ -35,12 +35,12 @@ export const checkTokenAdmin = createAsyncThunk(
 );
 
 export const ChangePassAdmin = createAsyncThunk(
-  "/account/changepasswordadmin",
+  '/account/changepasswordadmin',
   async (data: ChangePassword) => {
-    console.log("data chuyền vào", data);
+    console.log('data chuyền vào', data);
 
     const response = await accountAdminAPI.postChangePassWordAdmin(data);
-    console.log("ChangePassword", response);
+    console.log('ChangePassword', response);
 
     return response;
   }
