@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { CartStore, categoryAdminStore } from "../../../../use-selector";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { CartStore, categoryAdminStore } from '../../../../use-selector';
 // import logo from "../../../assets/images/logo/avtfb.png"
-import logo from "../../../assets/images/logo/biafb.png";
-import { useAppSelector } from "../../../hooks";
-import { CustomesCompany } from "../../../types/company";
+import logo from '../../../assets/images/logo/biafb.png';
+import { useAppSelector } from '../../../hooks';
+import { CustomesCompany } from '../../../types/company';
 interface typeProps {
   company: CustomesCompany;
 }
@@ -13,11 +13,11 @@ function Header(props: typeProps) {
   const cart = useAppSelector(CartStore); 
 
   const history = useNavigate();
-  console.log("categoryTrees", categoryTrees.listcategoryProduct);
   const [productkey, setProductkey] = useState(null as any);
+  const [isShowMenu, setIsShowMenu] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("InfoOrderCustomer", JSON.stringify(cart));
+    localStorage.setItem('InfoOrderCustomer', JSON.stringify(cart));
   }, [cart]);
   return (
     <header className="header header-10">
@@ -26,14 +26,14 @@ function Header(props: typeProps) {
           <div className="header-left">
             <button
               className="mobile-menu-toggler"
-              onClick={() => document.body.classList.add("mmenu-active")}
+              onClick={() => document.body.classList.add('mmenu-active')}
             >
               <span className="sr-only">Toggle mobile menu</span>
               <i className="icon-bars"></i>
             </button>
 
             <a href="/" className="logo">
-              <img src={logo} alt="" style={{ width: "200px" }} />
+              <img src={logo} alt="" style={{ width: '200px' }} />
               {/* BEHOME */}
             </a>
           </div>
@@ -47,7 +47,7 @@ function Header(props: typeProps) {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  history("/searchproduct/" + `${productkey}`);
+                  history('/searchproduct/' + `${productkey}`);
                 }}
               >
                 <div className="header-search-wrapper search-wrapper-wide">
@@ -75,10 +75,10 @@ function Header(props: typeProps) {
               </form>
             </div>
 
-            <a href={"tel:" + props.company.Company.phonenumber}>
+            <a href={'tel:' + props.company.Company.phonenumber}>
               <div className="header-center-hotline ">
-                <i className="fa-solid fa-phone"></i> Hotline:{" "}
-                {props.company.Company.phonenumber?.split("-")[0]}
+                <i className="fa-solid fa-phone"></i> Hotline:{' '}
+                {props.company.Company.phonenumber?.split('-')[0]}
               </div>
             </a>
           </div>
@@ -86,7 +86,7 @@ function Header(props: typeProps) {
           {/* Cart */}
           <div className="header-right" style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
             <div className="dropdown cart-dropdown">
-              <Link to={"/cart"} className="dropdown-toggle">
+              <Link to={'/cart'} className="dropdown-toggle">
                 <i
                   className="icon-shopping-cart"
                   onClick={() => {
@@ -95,7 +95,7 @@ function Header(props: typeProps) {
                 ></i>
                 <span
                   className="cart-count"
-                  style={{ position: "absolute", top: "-8px", right: "-8px" }}
+                  style={{ position: 'absolute', top: '-8px', right: '-8px' }}
                   onClick={() => {
                     // history("/cart");
                   }}
@@ -123,7 +123,7 @@ function Header(props: typeProps) {
                   aria-haspopup="true"
                   aria-expanded="false"
                   data-display="static"
-                  title="Br owse Categories"
+                  title="Browse Categories"
                 >
                   Danh mục sản phẩm
                 </a>
@@ -133,14 +133,14 @@ function Header(props: typeProps) {
                     <ul className="menu-vertical sf-arrows">
                       <span
                         style={{
-                          textAlign: "left",
-                          paddingBottom: "10px",
-                          paddingTop: "10px",
-                          paddingLeft: "15px",
-                          backgroundColor: "rgb(37, 140, 174)",
-                          width: "100%",
-                          fontSize: "14px",
-                          color: "#fff",
+                          textAlign: 'left',
+                          paddingBottom: '10px',
+                          paddingTop: '10px',
+                          paddingLeft: '15px',
+                          backgroundColor: 'rgb(37, 140, 174)',
+                          width: '100%',
+                          fontSize: '14px',
+                          color: '#fff',
                           fontWeight: 600,
                         }}
                       >
@@ -168,15 +168,15 @@ function Header(props: typeProps) {
                                       <div className="row">
                                         {val.children?.map((val2, idx) => (
                                           <div className="col-md-4" key={idx}>
-                                            <div className="menu-title ">
+                                            <div className="menu-title">
                                               <Link
                                                 to={`danhmucproduct/${val2.id}`}
-                                                style={{color: val2.children?.length > 0 ? "" : "#000"  }}
+                                                style={{color: val2.children?.length > 0 ? '' : '#000'  }}
                                               >
                                                 {val2.name}
                                               </Link>
                                             </div>
-                                            {val2.children && val2.children != null && val2.children.length > 0 ? (
+                                            {val2.children && val2.children !== null && val2.children.length > 0 ? (
                                               <ul>
                                                 {val2.children?.map(
                                                   (val3, idx) => (
@@ -230,14 +230,14 @@ function Header(props: typeProps) {
                     <ul className="menu-vertical sf-arrows">
                       <span
                         style={{
-                          textAlign: "left",
-                          paddingBottom: "10px",
-                          paddingTop: "10px",
-                          paddingLeft: "15px",
-                          backgroundColor: "rgb(37, 140, 174)",
-                          width: "100%",
-                          fontSize: "14px",
-                          color: "#fff",
+                          textAlign: 'left',
+                          paddingBottom: '10px',
+                          paddingTop: '10px',
+                          paddingLeft: '15px',
+                          backgroundColor: 'rgb(37, 140, 174)',
+                          width: '100%',
+                          fontSize: '14px',
+                          color: '#fff',
                           fontWeight: 600,
                         }}
                       >
@@ -344,17 +344,17 @@ function Header(props: typeProps) {
                   {/* active Thêm gạch chân */}
                   <li className="megamenu-container ">
                     {/* className="sf-with-ul" */}
-                    <Link to={"/"}>Trang chủ</Link>
+                    <Link to={'/'}>Trang chủ</Link>
                   </li>
 
                   <li className="megamenu-container ">
                     {/* className="sf-with-ul" */}
-                    <Link to={"/introduce"}>Giới thiệu</Link>
+                    <Link to={'/introduce'}>Giới thiệu</Link>
                   </li>
 
                   <li className="megamenu-container ">
                     {/* className="sf-with-ul" */}
-                    <Link to={"/buildcustomer"}>Xây dựng sản phẩm</Link>
+                    <Link to={'/buildcustomer'}>Xây dựng sản phẩm</Link>
                   </li>
                 </ul>
               </nav>

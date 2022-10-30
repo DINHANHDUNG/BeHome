@@ -7,16 +7,16 @@ import {
   Row,
   Table,
   Typography,
-} from "antd";
-import moment from "moment";
-import React, { useEffect, useState } from "react";
+} from 'antd';
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
 import {
   getAllBuildAdmin,
   postDeleteBuildAdmin,
-} from "../../../../features/Admin/buildAdmin";
-import { buildAdminStore } from "../../../../use-selector";
-import ModalBuildDesign from "../../../component/customer/modal/modalBuildDesign/modal-buildDesign";
-import { useAppDispatch, useAppSelector } from "../../../hooks";
+} from '../../../../features/Admin/buildAdmin';
+import { buildAdminStore } from '../../../../use-selector';
+import ModalBuildDesign from '../../../component/customer/modal/modalBuildDesign/modal-buildDesign';
+import { useAppDispatch, useAppSelector } from '../../../hooks';
 
 function BuildDesignAdmin() {
   const { Title, Text } = Typography;
@@ -27,7 +27,7 @@ function BuildDesignAdmin() {
   const [selected, setSelected] = useState([] as any);
   const [selectedID, setSelectedID] = useState([] as any);
   const [visible, setVisible] = useState(false);
-  const [value, setValue] = useState({ id: 0, name: "", builddesigns: [] });
+  const [value, setValue] = useState({ id: 0, name: '', builddesigns: [] });
 
   useEffect(() => {
     dispatch(getAllBuildAdmin());
@@ -37,17 +37,17 @@ function BuildDesignAdmin() {
   // table code start
   const columns = [
     {
-      title: "STT",
-      dataIndex: "id",
-      key: "id",
-      width: "10%",
+      title: 'STT',
+      dataIndex: 'id',
+      key: 'id',
+      width: '10%',
       render: (text: any, row: any, index: any) => index + 1,
     },
 
     {
-      title: "Tên thiết kế",
-      dataIndex: "name",
-      key: "name",
+      title: 'Tên thiết kế',
+      dataIndex: 'name',
+      key: 'name',
       // render: (text: any, row: any, index: any) => row.manufacturer?.name,
       sorter: (a: any, b: any) => a.name.localeCompare(b.name),
     },
@@ -59,7 +59,7 @@ function BuildDesignAdmin() {
     onChange: (selectedRowKeys: any, selectedRows: any) => {
       console.log(
         `selectedRowKeys: ${selectedRowKeys}`,
-        "selectedRows: ",
+        'selectedRows: ',
         selectedRows
       );
       setSelectedID(selectedRowKeys);
@@ -68,7 +68,7 @@ function BuildDesignAdmin() {
   };
 
   return (
-    <div className="tabled" style={{ marginBottom: "20px" }}>
+    <div className="tabled" style={{ marginBottom: '20px' }}>
       <Row gutter={[24, 0]}>
         <Col xs={24} xl={24}>
           <Card
@@ -78,9 +78,9 @@ function BuildDesignAdmin() {
             extra={
               <>
                 <Button
-                  style={{ marginRight: "10px" }}
+                  style={{ marginRight: '10px' }}
                   onClick={() => {
-                    setValue({ id: 0, name: "", builddesigns: [] });
+                    setValue({ id: 0, name: '', builddesigns: [] });
                     setVisible(true);
                   }}
                 >
@@ -114,15 +114,18 @@ function BuildDesignAdmin() {
                 rowKey="id"
                 onRow={(record: any, rowIndex) => {
                   return {
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onClick: (event) => {}, // click row
                     onDoubleClick: (event) => {
                       setVisible(true);
                     }, // double click row
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onContextMenu: (event) => {}, // right button click row
                     onMouseEnter: (event) => {
                       // console.log(record);
                       setValue(record);
                     }, // mouse enter row
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onMouseLeave: (event) => {}, // mouse leave row
                   };
                 }}

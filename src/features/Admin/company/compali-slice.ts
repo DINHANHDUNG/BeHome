@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { openNotification } from "../../../app/hooks";
-import { Company, CustomesCompany } from "../../../app/types/company";
-import { getCompany, updateCompany } from "./patchCompany";
+import { createSlice } from '@reduxjs/toolkit';
+import { openNotification } from '../../../app/hooks';
+import { Company, CustomesCompany } from '../../../app/types/company';
+import { getCompany, updateCompany } from './patchCompany';
 
 const initialState = {
   Company: {} as Company,
@@ -10,7 +10,7 @@ const initialState = {
 } as CustomesCompany;
 
 const companySlice = createSlice({
-  name: "company",
+  name: 'company',
   initialState,
   reducers: {
     // fill in primary logic here
@@ -37,8 +37,8 @@ const companySlice = createSlice({
     builder.addCase(updateCompany.fulfilled, (state, action) => {
       const { result } = action.payload;
       openNotification({
-        message: "Sửa thành công",
-        type: "success",
+        message: 'Sửa thành công',
+        type: 'success',
       });
       state.Company = result;
       state.loading = false;

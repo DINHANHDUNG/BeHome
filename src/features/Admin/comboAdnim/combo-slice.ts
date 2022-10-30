@@ -2,9 +2,9 @@ import {
   ActionReducerMapBuilder,
   createSlice,
   PayloadAction,
-} from "@reduxjs/toolkit";
-import { openNotification } from "../../../app/hooks";
-import { CustomesCombo } from "../../../app/types/combo";
+} from '@reduxjs/toolkit';
+import { openNotification } from '../../../app/hooks';
+import { CustomesCombo } from '../../../app/types/combo';
 import {
   getAllComboAdmin,
   getAllComboNeedUpdateAdmin,
@@ -15,17 +15,17 @@ import {
   postDeleteComboAdmin,
   postEditComboByIdAdmin,
   showComboByIdAdmin,
-} from "./patchCombo-api";
+} from './patchCombo-api';
 const initialState: CustomesCombo = {
   listCombo: [],
   loading: false,
   total: 0,
-  categoryname: "",
+  categoryname: '',
   error: false,
 };
 
 const comboSliceAdmin = createSlice({
-  name: "Comboadmin",
+  name: 'Comboadmin',
   initialState: initialState,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<CustomesCombo>) => {
@@ -46,8 +46,8 @@ const comboSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -58,8 +58,8 @@ const comboSliceAdmin = createSlice({
       })
       .addCase(showComboByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Thao tác thành công",
-          type: "success",
+          message: 'Thao tác thành công',
+          type: 'success',
         });
         state.loading = false;
         state.error = false;
@@ -68,8 +68,8 @@ const comboSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Thao tác không thành công",
-          type: "error",
+          message: 'Thao tác không thành công',
+          type: 'error',
         });
       });
 
@@ -80,8 +80,8 @@ const comboSliceAdmin = createSlice({
       })
       .addCase(hiddenComboByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Thao tác thành công",
-          type: "success",
+          message: 'Thao tác thành công',
+          type: 'success',
         });
         state.loading = false;
         state.error = false;
@@ -90,8 +90,8 @@ const comboSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Thao tác không thành công",
-          type: "error",
+          message: 'Thao tác không thành công',
+          type: 'error',
         });
       });
 
@@ -112,8 +112,8 @@ const comboSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
     // search
@@ -132,8 +132,8 @@ const comboSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -151,8 +151,8 @@ const comboSliceAdmin = createSlice({
       .addCase(getComboByIdAdmin.rejected, (state) => {
         state.loading = false;
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -163,8 +163,8 @@ const comboSliceAdmin = createSlice({
       })
       .addCase(postAddComboByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Thêm thành công",
-          type: "success",
+          message: 'Thêm thành công',
+          type: 'success',
         });
         const { result } = action.payload;
         state.loading = false;
@@ -174,8 +174,8 @@ const comboSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Thêm không thành công",
-          type: "error",
+          message: 'Thêm không thành công',
+          type: 'error',
         });
       });
 
@@ -186,8 +186,8 @@ const comboSliceAdmin = createSlice({
       })
       .addCase(postEditComboByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Sửa thành công",
-          type: "success",
+          message: 'Sửa thành công',
+          type: 'success',
         });
         state.loading = false;
         state.error = false;
@@ -196,8 +196,8 @@ const comboSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Sửa không thành công",
-          type: "error",
+          message: 'Sửa không thành công',
+          type: 'error',
         });
       });
 
@@ -212,8 +212,8 @@ const comboSliceAdmin = createSlice({
         state.loading = false;
         state.error = false;
         openNotification({
-          message: "Xóa thành công",
-          type: "success",
+          message: 'Xóa thành công',
+          type: 'success',
         });
         // console.log("Get all category thành công");
       })
@@ -221,8 +221,8 @@ const comboSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Xóa thất bại",
-          type: "error",
+          message: 'Xóa thất bại',
+          type: 'error',
         });
         // console.log("Get category không thành công");
       });

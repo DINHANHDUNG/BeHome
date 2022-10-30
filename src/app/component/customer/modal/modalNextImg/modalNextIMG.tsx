@@ -1,6 +1,6 @@
-import { Modal } from "antd";
-import { useEffect, useState } from "react";
-import { RightOutlined, LeftOutlined } from "@ant-design/icons";
+import { Modal } from 'antd';
+import { useEffect, useState } from 'react';
+import { RightOutlined, LeftOutlined } from '@ant-design/icons';
 interface propsModalNextIMG {
   visible: boolean;
   toggle: () => void;
@@ -45,7 +45,7 @@ function ModalNextIMG(props: propsModalNextIMG) {
 
   return (
     <Modal
-      title={""}
+      title={''}
       centered
       visible={props.visible}
       onOk={() => props.toggle()}
@@ -56,13 +56,13 @@ function ModalNextIMG(props: propsModalNextIMG) {
       <div
         className="row mt-3"
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <LeftOutlined
-          style={{ marginRight: "10px", cursor: "pointer", fontSize: "32px" }}
+          style={{ marginRight: '10px', cursor: 'pointer', fontSize: '32px' }}
           onClick={() => preImg(IMGDISPLAY.id)}
         />
         {/* <p
@@ -72,8 +72,8 @@ function ModalNextIMG(props: propsModalNextIMG) {
           pre
         </p> */}
         <img
-          style={{ width: "800px" , maxHeight: '500px', objectFit: "contain"}}
-          src={"http://103.137.184.193:5500/images/" + IMGDISPLAY?.imagename}
+          style={{ width: '800px' , maxHeight: '500px', objectFit: 'contain'}}
+          src={'http://103.137.184.193:5500/images/' + IMGDISPLAY?.imagename}
           alt=""
         />
         {/* <p
@@ -83,7 +83,7 @@ function ModalNextIMG(props: propsModalNextIMG) {
           next
         </p> */}
         <RightOutlined
-          style={{ marginLeft: "10px", cursor: "pointer", fontSize: "32px" }}
+          style={{ marginLeft: '10px', cursor: 'pointer', fontSize: '32px' }}
           onClick={() => nextImg(IMGDISPLAY.id)}
         />
       </div>

@@ -1,9 +1,9 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import orderAPIAdmin from "../../../app/commom/api/admin/api-order-admin";
-import { AddOrder, GetOrder } from "../../../app/types/order";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import orderAPIAdmin from '../../../app/commom/api/admin/api-order-admin';
+import { AddOrder, GetOrder } from '../../../app/types/order';
 
 export const getAllOrderWaitForPayAdmin = createAsyncThunk(
-  "/Orderadmin/getallOrderWaitForPay",
+  '/Orderadmin/getallOrderWaitForPay',
   async (data: GetOrder) => {
     const response = await orderAPIAdmin.getAllOrderWaitForPayAdmin(data);
 
@@ -12,7 +12,7 @@ export const getAllOrderWaitForPayAdmin = createAsyncThunk(
 );
 
 export const getSearchOrderAdmin = createAsyncThunk(
-  "/Orderadmin/getSearchOrderAdmin",
+  '/Orderadmin/getSearchOrderAdmin',
   async (data: { orderkey: string; type: string }) => {
     const response = await orderAPIAdmin.getSearchOrderAdmin(data);
 
@@ -21,7 +21,7 @@ export const getSearchOrderAdmin = createAsyncThunk(
 );
 
 export const getAllOrderCompletedAdmin = createAsyncThunk(
-  "/Orderadmin/getallOrderCompleted",
+  '/Orderadmin/getallOrderCompleted',
   async (data: GetOrder) => {
     const response = await orderAPIAdmin.getAllOrderCompletedAdmin(data);
 
@@ -30,7 +30,7 @@ export const getAllOrderCompletedAdmin = createAsyncThunk(
 );
 
 export const getAllOrderCancelAdmin = createAsyncThunk(
-  "/Orderadmin/getallOrderCancel",
+  '/Orderadmin/getallOrderCancel',
   async (data: GetOrder) => {
     const response = await orderAPIAdmin.getAllOrderCancelAdmin(data);
 
@@ -39,7 +39,7 @@ export const getAllOrderCancelAdmin = createAsyncThunk(
 );
 
 export const getOrderByIdAdmin = createAsyncThunk(
-  "/Orderadmin/getbyidOrder",
+  '/Orderadmin/getbyidOrder',
   async (data: { id: number }) => {
     const response = await orderAPIAdmin.getorderByIdADmin(data);
 
@@ -48,7 +48,7 @@ export const getOrderByIdAdmin = createAsyncThunk(
 );
 
 export const OrderCanceledADmin = createAsyncThunk(
-  "/Orderadmin/OrderCanceledADmin",
+  '/Orderadmin/OrderCanceledADmin',
   async (data: { id: number }) => {
     const response = await orderAPIAdmin.OrderCanceledADmin(data);
 
@@ -56,7 +56,7 @@ export const OrderCanceledADmin = createAsyncThunk(
   }
 );
 export const OrderWaitdADmin = createAsyncThunk(
-  "/Orderadmin/OrderWaitdADmin",
+  '/Orderadmin/OrderWaitdADmin',
   async (data: { id: number }) => {
     const response = await orderAPIAdmin.OrderWaitADmin(data);
 
@@ -65,7 +65,7 @@ export const OrderWaitdADmin = createAsyncThunk(
 );
 
 export const OrderCompletedADmin = createAsyncThunk(
-  "/Orderadmin/OrderCompletedADmin",
+  '/Orderadmin/OrderCompletedADmin',
   async (data: { id: number }) => {
     const response = await orderAPIAdmin.OrderCompletedADmin(data);
 
@@ -74,7 +74,7 @@ export const OrderCompletedADmin = createAsyncThunk(
 );
 
 export const postAddOrderByIdAdmin = createAsyncThunk(
-  "/Order/addOrder",
+  '/Order/addOrder',
   async (data: AddOrder) => {
     const response = await orderAPIAdmin.postAddorderADmin(data);
 
@@ -83,7 +83,7 @@ export const postAddOrderByIdAdmin = createAsyncThunk(
 );
 
 export const postDeleteOrderAdmin = createAsyncThunk(
-  "/Orderadmin/deleteOrder",
+  '/Orderadmin/deleteOrder',
   async (data: { id: [number] }) => {
     const response = await orderAPIAdmin.postDeleteorderADmin(data);
 

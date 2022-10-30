@@ -1,7 +1,7 @@
-import { Category } from "./category";
-import { Comment } from "./comment";
-import { Product } from "./product";
-import { Promotion } from "./promotion";
+import { Category } from './category';
+import { Comment } from './comment';
+import { Product } from './product';
+import { Promotion } from './promotion';
 
 export interface AddCombo {
   id_category: number;

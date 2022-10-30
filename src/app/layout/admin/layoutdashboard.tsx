@@ -1,32 +1,32 @@
 
-import { Drawer, Layout } from "antd";
-import React, { useEffect, useState } from "react";
-import { Outlet, useLocation } from "react-router-dom";
-import "../../assets/css/Admin/mainadmin.css";
-import "../../assets/css/Admin/responsive.css";
-import Headeradmin from "./headeradmin";
-import Sidenav from "./sidenav";
+import { Drawer, Layout } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+import '../../assets/css/Admin/mainadmin.css';
+import '../../assets/css/Admin/responsive.css';
+import Headeradmin from './headeradmin';
+import Sidenav from './sidenav';
 // import Sidenav from "./Sidenav";
 
 
 function LayoutDashboard({ children }: any) {
   const { Header: AntHeader, Content, Sider } = Layout;
   let { pathname } = useLocation();
-  pathname = pathname.replace("/", "");
+  pathname = pathname.replace('/', '');
   const [visible, setVisible] = useState(false);
-  const [sidenavType, setSidenavType] = useState("transparent");
-  const [sidenavColor, setSidenavColor] = useState("#1890ff");
+  const [sidenavType, setSidenavType] = useState('transparent');
+  const [sidenavColor, setSidenavColor] = useState('#1890ff');
   const openDrawer = () => setVisible(!visible);
  
   return (
     <Layout className="layout-dashboard">
       <Drawer
         title={false}
-        placement={"left"}
+        placement={'left'}
         closable={false}
         onClose={() => setVisible(false)}
         visible={visible}
-        key={"left"}
+        key={'left'}
         width={250}
         className="drawer-sidebar"
       >
@@ -36,7 +36,7 @@ function LayoutDashboard({ children }: any) {
             width={250}
             theme="light"
             className={`sider-primary ant-layout-sider-primary ${
-              sidenavType === "#fff" ? "active-route" : ""
+              sidenavType === '#fff' ? 'active-route' : ''
             }`}
             style={{ background: sidenavType }}
           >
@@ -46,7 +46,7 @@ function LayoutDashboard({ children }: any) {
       </Drawer>
 
       <Layout>
-        <AntHeader style={{ marginBottom: "20px" }}>
+        <AntHeader style={{ marginBottom: '20px' }}>
           <Headeradmin onPress={openDrawer} name={pathname} subName={pathname} />
         </AntHeader>
         {/* */}

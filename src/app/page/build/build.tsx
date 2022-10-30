@@ -1,12 +1,12 @@
-import { InputNumber, Typography } from "antd";
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { getAllBuildAdmin } from "../../../features/Admin/buildAdmin";
-import { addCartBuild } from "../../../features/cart/cart-slice";
-import { buildAdminStore } from "../../../use-selector";
-import ModalBuildDesignCustomer from "../../component/customer/modal/ModalBuildDesignCustomer/ModalBuildDesignCustomer";
-import { Numberformat, useAppDispatch, useAppSelector } from "../../hooks";
-import "./build.css";
+import { InputNumber, Typography } from 'antd';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { getAllBuildAdmin } from '../../../features/Admin/buildAdmin';
+import { addCartBuild } from '../../../features/cart/cart-slice';
+import { buildAdminStore } from '../../../use-selector';
+import ModalBuildDesignCustomer from '../../component/customer/modal/ModalBuildDesignCustomer/ModalBuildDesignCustomer';
+import { Numberformat, useAppDispatch, useAppSelector } from '../../hooks';
+import './build.css';
 function BuildDesign() {
   const { Title, Text } = Typography;
   const history = useNavigate();
@@ -17,13 +17,13 @@ function BuildDesign() {
     { listProduct: [], idBuild: 0 },
   ] as any);
 
-  console.log("selectedProduct", selectedProduct);
+  console.log('selectedProduct', selectedProduct);
 
   const [selectedID, setSelectedID] = useState(1);
   const [idCategory, setIdCategory] = useState(null as any);
   const [selectIndex, setSelectIndex] = useState(Number);
   const [visible, setVisible] = useState(false);
-  console.log("buildDesign", buildDesign);
+  console.log('buildDesign', buildDesign);
 
   useEffect(() => {
     dispatch(getAllBuildAdmin());
@@ -34,7 +34,7 @@ function BuildDesign() {
       setSelectedID(buildDesign.listBuild[0].id);
       setSelectIndex(0);
     }
-    var arrNew = [] as any;
+    const arrNew = [] as any;
     buildDesign.listBuild.map((value) => {
       arrNew.push({ listProduct: [], idBuild: value.id });
     });
@@ -44,14 +44,14 @@ function BuildDesign() {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-12" style={{ display: "flex", flexWrap: "wrap" }}>
+        <div className="col-12" style={{ display: 'flex', flexWrap: 'wrap' }}>
           {buildDesign.listBuild?.map((value, idx) => (
             <div
               key={value.id}
               className="product-details-action mt-3 mr-2"
               style={
                 selectedID === value?.id
-                  ? { backgroundColor: "#007bff", color: "#fff" }
+                  ? { backgroundColor: '#007bff', color: '#fff' }
                   : {}
               }
               onClick={() => {
@@ -62,7 +62,7 @@ function BuildDesign() {
               }}
             >
               <a className="btn-product btn">
-                <span style={selectedID === value?.id ? { color: "#fff" } : {}}>
+                <span style={selectedID === value?.id ? { color: '#fff' } : {}}>
                   {value.name}
                 </span>
               </a>
@@ -74,31 +74,31 @@ function BuildDesign() {
       {buildDesign.listBuild[selectIndex]?.builddesigns?.map((value, idx) => (
         <>
           {console.log(
-            "danh sách",
+            'danh sách',
             selectedProduct.filter((val: any) => {
-              console.log("log", val, value);
+              console.log('log', val, value);
               return val.idBuild === value.id_builddesign;
-            })[0]?.listProduct
+            })[0]?.listProduct,
           )}
 
           {console.log(
-            "Sản phẩm đã chọn",
+            'Sản phẩm đã chọn',
             selectedProduct
               .filter((val: any) => val.idBuild === value.id_builddesign)[0]
               ?.listProduct.filter(
-                (v: any) => v.id_category === value.id_category
-              )
+                (v: any) => v.id_category === value.id_category,
+              ),
           )}
           <hr />
           <div className="row" key={value.id}>
-            <div className="col-3" style={{ borderRight: "1px solid" }}>
+            <div className="col-3" style={{ borderRight: '1px solid' }}>
               {idx + 1} . {value.category?.name}
             </div>
 
             {selectedProduct
               .filter((val: any) => val.idBuild === value.id_builddesign)[0]
               ?.listProduct.filter(
-                (v: any) => v.id_category === value.id_category
+                (v: any) => v.id_category === value.id_category,
               )[0] ? (
               <div className="col-9">
                 <div className="item-build">
@@ -106,29 +106,30 @@ function BuildDesign() {
                     <figure className="item-build-product-media mr-2">
                       <Link
                         to={
-                          "/detailproduct/" +
+                          '/detailproduct/' +
                           selectedProduct
                             .filter(
-                              (val: any) => val.idBuild === value.id_builddesign
+                              (val: any) =>
+                                val.idBuild === value.id_builddesign,
                             )[0]
                             ?.listProduct.filter(
-                              (v: any) => v.id_category === value.id_category
+                              (v: any) => v.id_category === value.id_category,
                             )[0].id
                         }
                       >
                         <img
                           src={
-                            "http://103.137.184.193:5500/images/" +
+                            'http://103.137.184.193:5500/images/' +
                             selectedProduct
                               .filter(
                                 (val: any) =>
-                                  val.idBuild === value.id_builddesign
+                                  val.idBuild === value.id_builddesign,
                               )[0]
                               ?.listProduct.filter(
-                                (v: any) => v.id_category === value.id_category
+                                (v: any) => v.id_category === value.id_category,
                               )[0]
                               ?.images.find(
-                                (x: any) => x.type === "1" || x.type === "MAIN"
+                                (x: any) => x.type === '1' || x.type === 'MAIN',
                               )?.imagename
                           }
                           alt="Product image"
@@ -136,16 +137,17 @@ function BuildDesign() {
                       </Link>
                     </figure>
 
-                    <h3 className="product-title" style={{ paddingTop: "7px" }}>
+                    <h3 className="product-title" style={{ paddingTop: '7px' }}>
                       <Link
                         to={
-                          "/detailproduct/" +
+                          '/detailproduct/' +
                           selectedProduct
                             .filter(
-                              (val: any) => val.idBuild === value.id_builddesign
+                              (val: any) =>
+                                val.idBuild === value.id_builddesign,
                             )[0]
                             ?.listProduct.filter(
-                              (v: any) => v.id_category === value.id_category
+                              (v: any) => v.id_category === value.id_category,
                             )[0].id
                         }
                         style={{ fontWeight: 500 }}
@@ -153,10 +155,11 @@ function BuildDesign() {
                         {
                           selectedProduct
                             .filter(
-                              (val: any) => val.idBuild === value.id_builddesign
+                              (val: any) =>
+                                val.idBuild === value.id_builddesign,
                             )[0]
                             ?.listProduct.filter(
-                              (v: any) => v.id_category === value.id_category
+                              (v: any) => v.id_category === value.id_category,
                             )[0]?.name
                         }
                       </Link>
@@ -168,91 +171,87 @@ function BuildDesign() {
                       {Numberformat(
                         selectedProduct
                           .filter(
-                            (val: any) => val.idBuild === value.id_builddesign
+                            (val: any) => val.idBuild === value.id_builddesign,
                           )[0]
                           ?.listProduct.filter(
-                            (v: any) => v.id_category === value.id_category
-                          )[0]?.price
-                      )}{" "}
-                      x{" "}
+                            (v: any) => v.id_category === value.id_category,
+                          )[0]?.price,
+                      )}{' '}
+                      x{' '}
                       <InputNumber
                         min={1}
                         max={10}
                         value={
                           selectedProduct
                             .filter(
-                              (val: any) => val.idBuild === value.id_builddesign
+                              (val: any) =>
+                                val.idBuild === value.id_builddesign,
                             )[0]
                             ?.listProduct.filter(
-                              (v: any) => v.id_category === value.id_category
+                              (v: any) => v.id_category === value.id_category,
                             )[0]?.amount
                         }
                         onChange={(val) => {
-                          console.log(val);
-
                           setSelectedProduct([
                             {
                               idBuild: value.id_builddesign,
                               listProduct: [
-                                ...selectedProduct
-                                  ?.filter(
+                                // eslint-disable-next-line no-unsafe-optional-chaining
+                                ...selectedProduct?.filter(
                                     (val: any) =>
-                                      val.idBuild === value.id_builddesign
+                                      val.idBuild === value.id_builddesign,
                                   )[0]
                                   .listProduct.filter(
                                     (v: any) =>
-                                      v.id_category != value.category?.id
+                                      v.id_category !== value.category?.id,
                                   ),
                                 {
                                   ...selectedProduct
                                     ?.filter(
                                       (val: any) =>
-                                        val.idBuild === value.id_builddesign
+                                        val.idBuild === value.id_builddesign,
                                     )[0]
                                     .listProduct.filter(
                                       (v: any) =>
-                                        v.id_category === value.category?.id
+                                        v.id_category === value.category?.id,
                                     )[0],
                                   amount: val,
                                 },
                               ],
                             },
 
+                            // eslint-disable-next-line no-unsafe-optional-chaining
                             ...selectedProduct?.filter(
-                              (val: any) => val.idBuild != value.id_builddesign
+                              (val: any) =>
+                                val.idBuild !== value.id_builddesign,
                             ),
                           ]);
-
-                          console.log(
-                            selectedProduct?.filter(
-                              (val: any) => val.idBuild != value.id_builddesign
-                            )
-                          );
                         }}
-                      />{" "}
-                      ={" "}
-                      <span className="mr-3" style={{ color: "red" }}>
+                      />{' '}
+                      ={' '}
+                      <span className="mr-3" style={{ color: 'red' }}>
                         {Numberformat(
                           selectedProduct
                             .filter(
-                              (val: any) => val.idBuild === value.id_builddesign
+                              (val: any) =>
+                                val.idBuild === value.id_builddesign,
                             )[0]
                             ?.listProduct.filter(
-                              (v: any) => v.id_category === value.id_category
+                              (v: any) => v.id_category === value.id_category,
                             )[0]?.price *
                             selectedProduct
                               .filter(
                                 (val: any) =>
-                                  val.idBuild === value.id_builddesign
+                                  val.idBuild === value.id_builddesign,
                               )[0]
                               ?.listProduct.filter(
-                                (v: any) => v.id_category === value.id_category
-                              )[0]?.amount
+                                (v: any) => v.id_category === value.id_category,
+                              )[0]?.amount,
                         )}
                       </span>
                       <i
                         className="fa-solid fa-pen mr-3"
-                        style={{ cursor: "pointer", color: "#39f" }}
+                        style={{ cursor: 'pointer', color: '#39f' }}
                         onClick={() => {
                           setVisible(true);
                           setIdCategory(value.category?.id);
@@ -260,25 +259,27 @@ function BuildDesign() {
                       ></i>
                       <i
                         className="fa-solid fa-trash-can"
-                        style={{ cursor: "pointer", color: "red" }}
+                        style={{ cursor: 'pointer', color: 'red' }}
                         onClick={() => {
                           setSelectedProduct([
                             {
                               listProduct: selectedProduct
                                 ?.filter(
                                   (val: any) =>
-                                    val.idBuild === value.id_builddesign
+                                    val.idBuild === value.id_builddesign,
                                 )[0]
                                 .listProduct.filter(
                                   (v: any) =>
-                                    v.id_category != value.category?.id
+                                    v.id_category !== value.category?.id,
                                 ),
 
                               idBuild: value.id_builddesign,
                             },
 
+                            // eslint-disable-next-line no-unsafe-optional-chaining
                             ...selectedProduct?.filter(
-                              (val: any) => val.idBuild != value.id_builddesign
+                              (val: any) =>
+                                val.idBuild !== value.id_builddesign,
                             ),
                           ]);
                         }}
@@ -291,7 +292,7 @@ function BuildDesign() {
               <div className="col-9">
                 <div
                   className="product-details-action mb-0"
-                  style={{ maxWidth: "200px" }}
+                  style={{ maxWidth: '200px' }}
                   onClick={() => {
                     setVisible(true);
                     setIdCategory(value.category?.id);
@@ -311,7 +312,7 @@ function BuildDesign() {
 
       <div
         className="product-details-action mb-3"
-        style={{ maxWidth: "200px", float: "right" }}
+        style={{ maxWidth: '200px', float: 'right' }}
         onClick={() => {
           selectedProduct
             ?.filter((val: any) => val.idBuild === selectedID)[0]
@@ -320,7 +321,7 @@ function BuildDesign() {
               dispatch(addCartBuild(v));
             });
 
-          history("/cart");
+          history('/cart');
         }}
       >
         {selectedProduct?.filter((val: any) => val.idBuild === selectedID)[0]
@@ -336,12 +337,12 @@ function BuildDesign() {
         toggleSelect={(value) => {
           console.log(value);
 
-          let newArr = [] as any;
+          const newArr = [] as any;
 
           selectedProduct.map((val: any) => {
             if (val.idBuild === value.idBuild) {
-              var check = val.listProduct?.findIndex(
-                (v: any, idx: any) => v.id_category === idCategory
+              const check = val.listProduct?.findIndex(
+                (v: any, idx: any) => v.id_category === idCategory,
               );
               if (check >= 0) {
                 newArr.push(val);

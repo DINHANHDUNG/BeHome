@@ -8,36 +8,36 @@ export interface CustomInfoUser {
 }
 
 export interface InfoUser {
-  id: Number;
-  username: String;
-  password: String;
-  namecustomer: String;
-  phonenumber: String;
-  email: String;
-  namebank: String;
-  nameaccount: String;
-  numberaccount: String;
-  createdate: String;
+  id: number;
+  username: string;
+  password: string;
+  namecustomer: string;
+  phonenumber: string;
+  email: string;
+  namebank: string;
+  nameaccount: string;
+  numberaccount: string;
+  createdate: string;
 }
 
 export interface UpdateInfoUser {
-  id: Number;
-  namecustomer: String;
-  phonenumber: String;
-  email: String;
-  namebank: String;
-  nameaccount: String;
-  numberaccount: String;
+  id: number;
+  namecustomer: string;
+  phonenumber: string;
+  email: string;
+  namebank: string;
+  nameaccount: string;
+  numberaccount: string;
 }
 
 /*---------------------------------------Account/*---------------------------------------*/
 
 export interface Account {
   id: number;
-  username: String;
-  password: String;
-  createdate: String;
-  permission: String;
+  username: string;
+  password: string;
+  createdate: string;
+  permission: string;
 }
 
 export interface AccountResponseLogin {

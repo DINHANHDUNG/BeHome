@@ -1,13 +1,13 @@
 // import { useState } from "react";
-import { Menu } from "antd";
-import { NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { useAppDispatch } from "../../hooks";
+import { Menu } from 'antd';
+import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useAppDispatch } from '../../hooks';
 // import logo from "../../assets/images/logo.png";
 
 function Sidenav({ color }: any) {
   const { pathname } = useLocation();
-  const page = pathname.replace("/", "");
+  const page = pathname.replace('/', '');
   //   const permission = useAppSelector(accountAdminStore);
   console.log(page);
 
@@ -120,29 +120,29 @@ function Sidenav({ color }: any) {
 
   const router = [
     {
-      path: "/",
-      pathname: "Sản phẩm",
-      key: "1",
+      path: '/',
+      pathname: 'Sản phẩm',
+      key: '1',
     },
     {
-      path: "/category",
-      pathname: "Danh mục",
-      key: "2",
+      path: '/category',
+      pathname: 'Danh mục',
+      key: '2',
     },
     {
-      path: "/rank",
-      pathname: "Rank",
-      key: "3",
+      path: '/rank',
+      pathname: 'Rank',
+      key: '3',
     },
     {
-      path: "/manufacturer",
-      pathname: "Hãng sản xuất",
-      key: "4",
+      path: '/manufacturer',
+      pathname: 'Hãng sản xuất',
+      key: '4',
     },
     {
-      path: "/promotion",
-      pathname: "Khuyến mãi",
-      key: "5",
+      path: '/promotion',
+      pathname: 'Khuyến mãi',
+      key: '5',
     },
   ];
 
@@ -150,7 +150,7 @@ function Sidenav({ color }: any) {
     <>
       <div className="brand-admin">
         {/* <img src={logo} alt="" /> */}
-        <span style={{ fontWeight: "600" }}> Admin</span>
+        <span style={{ fontWeight: '600' }}> Admin</span>
       </div>
       <hr />
       <Menu theme="light" mode="inline">
@@ -159,7 +159,7 @@ function Sidenav({ color }: any) {
             <span
               className="icon"
               style={{
-                background: page === "admin" ? color : "",
+                background: page === 'admin' ? color : '',
               }}
             >
               {dashboard}
@@ -173,7 +173,7 @@ function Sidenav({ color }: any) {
             <span
               className="icon"
               style={{
-                background: page === "admin/product" ? color : "",
+                background: page === 'admin/product' ? color : '',
               }}
             >
               {dashboard}
@@ -200,7 +200,7 @@ function Sidenav({ color }: any) {
             <span
               className="icon"
               style={{
-                background: page === "admin/combo" ? color : "",
+                background: page === 'admin/combo' ? color : '',
               }}
             >
               {Category}
@@ -214,7 +214,7 @@ function Sidenav({ color }: any) {
             <span
               className="icon"
               style={{
-                background: page === "admin/categoryproduct" ? color : "",
+                background: page === 'admin/categoryproduct' ? color : '',
               }}
             >
               {Category}
@@ -228,7 +228,7 @@ function Sidenav({ color }: any) {
             <span
               className="icon"
               style={{
-                background: page === "admin/categorycombo" ? color : "",
+                background: page === 'admin/categorycombo' ? color : '',
               }}
             >
               {Category}
@@ -269,7 +269,7 @@ function Sidenav({ color }: any) {
             <span
               className="icon"
               style={{
-                background: page === "admin/comment" ? color : "",
+                background: page === 'admin/comment' ? color : '',
               }}
             >
               {Category}
@@ -283,7 +283,7 @@ function Sidenav({ color }: any) {
             <span
               className="icon"
               style={{
-                background: page === "admin/company" ? color : "",
+                background: page === 'admin/company' ? color : '',
               }}
             >
               {Category}
@@ -296,7 +296,7 @@ function Sidenav({ color }: any) {
             <span
               className="icon"
               style={{
-                background: page === "admin/builddesignadmin" ? color : "",
+                background: page === 'admin/builddesignadmin' ? color : '',
               }}
             >
               {dashboard}
@@ -324,7 +324,7 @@ function Sidenav({ color }: any) {
             <span
               className="icon"
               style={{
-                background: page === "admin/ConfigurationAdmin" ? color : "",
+                background: page === 'admin/ConfigurationAdmin' ? color : '',
               }}
             >
               {Category}

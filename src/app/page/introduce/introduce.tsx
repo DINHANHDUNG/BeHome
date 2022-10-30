@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 function Introduce() {
   return (
     <div className="container-fluid ">
       <div className="row d-flex justify-content-center mt-3 mb-3">
-        <h3 style={{ color: "#333333" }}>GIỚI THIỆU VỀ BEHOME</h3>
+        <h3 style={{ color: '#333333' }}>GIỚI THIỆU VỀ BEHOME</h3>
 
         <div className="container-fluid">
           <p>
@@ -28,7 +28,7 @@ function Introduce() {
             và quý phái, chúng tôi sẽ làm bạn yên tâm qua từng sản phẩm.
           </p>
 
-          <h3 style={{ color: "#333333" }}>
+          <h3 style={{ color: '#333333' }}>
             Trân trọng cảm ơn Quý khách hàng đã quan tâm !
           </h3>
         </div>

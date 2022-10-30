@@ -1,62 +1,62 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import categoryAPIAdmin from "../../../app/commom/api/admin/api-category-admin";
-import { AddCategory, EditCategory } from "../../../app/types/category";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import categoryAPIAdmin from '../../../app/commom/api/admin/api-category-admin';
+import { AddCategory, EditCategory } from '../../../app/types/category';
 
 export const postAddCategoryByIdAdmin = createAsyncThunk(
-  "/category/addcategory",
+  '/category/addcategory',
   async (data: AddCategory) => {
-    console.log("data truyền vào", data);
+    console.log('data truyền vào', data);
 
     const response = await categoryAPIAdmin.postAddCategoryADmin(data);
-    console.log("response Thêm", response);
+    console.log('response Thêm', response);
 
     return response;
   }
 );
 
 export const postEditCategoryByIdAdmin = createAsyncThunk(
-  "/categoryadmin/addcategory",
+  '/categoryadmin/addcategory',
   async (data: EditCategory) => {
-    console.log("data truyền vào", data);
+    console.log('data truyền vào', data);
     const response = await categoryAPIAdmin.postEditCategoryADmin(data);
-    console.log("response sửa", response);
+    console.log('response sửa', response);
 
     return response;
   }
 );
 
 export const getAllCategoryComboAdmin = createAsyncThunk(
-  "/categoryadmin/getallcombo",
+  '/categoryadmin/getallcombo',
   async () => {
     const response = await categoryAPIAdmin.getAllCategoryComboAdmin();
-    console.log("getallcombo", response);
+    console.log('getallcombo', response);
 
     return response;
   }
 );
 
 export const getAllCategoryProductAdmin = createAsyncThunk(
-  "/categoryadmin/getallproduct",
+  '/categoryadmin/getallproduct',
   async () => {
     const response = await categoryAPIAdmin.getAllCategoryProductAdmin();
-    console.log("getallproduct", response);
+    console.log('getallproduct', response);
 
     return response;
   }
 );
 
 export const getAllCategoryTrees = createAsyncThunk(
-  "/categoryadmin/getallcategorytrees",
+  '/categoryadmin/getallcategorytrees',
   async () => {
     const response = await categoryAPIAdmin.getAllCategoryTree();
-    console.log("getallcategorytrees", response);
+    console.log('getallcategorytrees', response);
 
     return response;
   }
 );
 
 export const getCategoryByIdAdmin = createAsyncThunk(
-  "/categoryadmin/getbyid",
+  '/categoryadmin/getbyid',
   async (data: { id: number }) => {
     // console.log("data truyền vào", data);
 
@@ -68,7 +68,7 @@ export const getCategoryByIdAdmin = createAsyncThunk(
 );
 
 export const showCategoryByIdAdmin = createAsyncThunk(
-  "/categoryadmin/showbyid",
+  '/categoryadmin/showbyid',
   async (data: { id: number }) => {
     // console.log("data truyền vào", data);
 
@@ -80,7 +80,7 @@ export const showCategoryByIdAdmin = createAsyncThunk(
 );
 
 export const hiddenCategoryByIdAdmin = createAsyncThunk(
-  "/categoryadmin/hiddenbyid",
+  '/categoryadmin/hiddenbyid',
   async (data: { id: number }) => {
     // console.log("data truyền vào", data);
 
@@ -92,12 +92,12 @@ export const hiddenCategoryByIdAdmin = createAsyncThunk(
 );
 
 export const postDeleteCategoryAdmin = createAsyncThunk(
-  "/categoryadmin/deletecategory",
+  '/categoryadmin/deletecategory',
   async (data: { id: [number] }) => {
-    console.log("data truyền vào", data);
+    console.log('data truyền vào', data);
 
     const response = await categoryAPIAdmin.postDeleteCategoryADmin(data);
-    console.log("deletecategory", response);
+    console.log('deletecategory', response);
 
     return response;
   }
@@ -105,12 +105,12 @@ export const postDeleteCategoryAdmin = createAsyncThunk(
 
 
 export const patchUpdateSttCategoryAdmin = createAsyncThunk(
-  "/categoryadmin/updatesttcategory",
+  '/categoryadmin/updatesttcategory',
   async (data: { id: number, stt: number }) => {
     
 
     const response = await categoryAPIAdmin.patchUpdateSttCategory(data);
-    console.log("updatesttcategory", response);
+    console.log('updatesttcategory', response);
 
     return response;
   }

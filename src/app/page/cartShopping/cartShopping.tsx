@@ -1,30 +1,30 @@
-import { InputNumber } from "antd";
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { InputNumber } from 'antd';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   CalculateTotalMomney,
   deleteCart,
   toggleAmountProduct,
-} from "../../../features/cart/cart-slice";
-import { CartStore } from "../../../use-selector";
+} from '../../../features/cart/cart-slice';
+import { CartStore } from '../../../use-selector';
 import {
   currency,
   Numberformat,
   useAppDispatch,
   useAppSelector,
-} from "../../hooks";
+} from '../../hooks';
 
 function CartShopping() {
   const cart = useAppSelector(CartStore);
   const dispatch = useAppDispatch();
   useEffect(() => {
-    var newTotal = 0;
+    let newTotal = 0;
 
     cart.orderdetails?.map((val) => {
       if (val.id_productproperties) {
         return (newTotal =
           val.productpropertiess.filter(
-            (b: any) => b.id == val?.id_productproperties
+            (b: any) => b.id === val?.id_productproperties
           )[0]?.price *
             val.amount +
           newTotal);
@@ -59,17 +59,17 @@ function CartShopping() {
                           <figure className="product-media">
                             <Link
                               to={
-                                value.category.type === "PRODUCT"
-                                  ? "/detailproduct/" + value.id_product
-                                  : "/detailcombo/" + value.id_combo
+                                value.category.type === 'PRODUCT'
+                                  ? '/detailproduct/' + value.id_product
+                                  : '/detailcombo/' + value.id_combo
                               }
                             >
                               <img
                                 src={
-                                  "http://103.137.184.193:5500/images/" +
+                                  'http://103.137.184.193:5500/images/' +
                                   value?.images.find(
                                     (x: any) =>
-                                      x.type === "1" || x.type === "MAIN"
+                                      x.type === '1' || x.type === 'MAIN'
                                   )?.imagename
                                 }
                                 alt="Product image"
@@ -80,9 +80,9 @@ function CartShopping() {
                           <h3 className="product-title">
                             <Link
                               to={
-                                value.category.type === "PRODUCT"
-                                  ? "/detailproduct/" + value.id_product
-                                  : "/detailcombo/" + value.id_combo
+                                value.category.type === 'PRODUCT'
+                                  ? '/detailproduct/' + value.id_product
+                                  : '/detailcombo/' + value.id_combo
                               }
                             >
                               {value?.name}
@@ -94,7 +94,7 @@ function CartShopping() {
                         {value?.id_productproperties
                           ? Numberformat(
                               value.productpropertiess.filter(
-                                (b: any) => b.id == value?.id_productproperties
+                                (b: any) => b.id === value?.id_productproperties
                               )[0]?.price
                             )
                           : Numberformat(value?.price)}
@@ -123,7 +123,7 @@ function CartShopping() {
                         {value?.id_productproperties
                           ? Numberformat(
                               value.productpropertiess.filter(
-                                (b: any) => b.id == value?.id_productproperties
+                                (b: any) => b.id === value?.id_productproperties
                               )[0]?.price * value.amount
                             )
                           : Numberformat(value?.price * value.amount)}
@@ -189,12 +189,12 @@ function CartShopping() {
 
                 {cart.orderdetails?.length > 0 ? (
                   <Link
-                    to={"/checkout"}
+                    to={'/checkout'}
                     className="btn btn-outline-primary-2 btn-order btn-block"
                     style={{
-                      fontSize: "13px",
-                      fontWeight: "500",
-                      textTransform: "uppercase",
+                      fontSize: '13px',
+                      fontWeight: '500',
+                      textTransform: 'uppercase',
                     }}
                   >
                     Tiến hành đặt hàng
@@ -202,7 +202,7 @@ function CartShopping() {
                 ) : null}
               </div>
 
-              <Link to={"/"} className="btn btn-outline-dark-2 btn-block mb-3">
+              <Link to={'/'} className="btn btn-outline-dark-2 btn-block mb-3">
                 <span>Tiếp tục mua sắm</span>
                 <i className="icon-refresh"></i>
               </Link>

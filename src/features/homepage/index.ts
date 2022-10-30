@@ -1,2 +1,2 @@
-export * from "./patchAdmin-api";
-export * from "./product-home-page-slice";
+export * from './patchAdmin-api';
+export * from './product-home-page-slice';

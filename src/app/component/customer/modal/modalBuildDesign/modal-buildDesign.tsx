@@ -1,19 +1,19 @@
-import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
-import { Button, Col, Form, Input, Modal, Row, Select } from "antd";
-import React, { useEffect } from "react";
+import { MinusCircleOutlined, PlusCircleOutlined } from '@ant-design/icons';
+import { Button, Col, Form, Input, Modal, Row, Select } from 'antd';
+import React, { useEffect } from 'react';
 import {
   getAllBuildAdmin,
   postAddBuildByIdAdmin,
   postEditBuildByIdAdmin,
-} from "../../../../../features/Admin/buildAdmin";
-import { getAllCategoryProductAdmin, getAllCategoryTrees } from "../../../../../features/Admin/categoryAdnim";
+} from '../../../../../features/Admin/buildAdmin';
+import { getAllCategoryProductAdmin, getAllCategoryTrees } from '../../../../../features/Admin/categoryAdnim';
 import {
   getAllManufacturerAdmin,
   postAddManufacturerByIdAdmin,
   postEditManufacturerByIdAdmin,
-} from "../../../../../features/Admin/manufacturerAdnim";
-import { categoryAdminStore } from "../../../../../use-selector";
-import { useAppDispatch, useAppSelector } from "../../../../hooks";
+} from '../../../../../features/Admin/manufacturerAdnim';
+import { categoryAdminStore } from '../../../../../use-selector';
+import { useAppDispatch, useAppSelector } from '../../../../hooks';
 
 interface propsModalBuildDesign {
   visible: boolean;
@@ -57,14 +57,14 @@ function ModalBuildDesign(props: propsModalBuildDesign) {
   return (
     <Modal
       title={
-        props.value?.id > 0 ? "Sửa xây dựng thiết kế" : "Thêm xây dựng thiết kế"
+        props.value?.id > 0 ? 'Sửa xây dựng thiết kế' : 'Thêm xây dựng thiết kế'
       }
       centered
       visible={props.visible}
       onOk={() => props.toggle()}
       onCancel={() => props.toggle()}
-      okText={"Thêm"}
-      cancelText={"Hủy"}
+      okText={'Thêm'}
+      cancelText={'Hủy'}
       width={500}
       footer={null}
     >
@@ -83,11 +83,11 @@ function ModalBuildDesign(props: propsModalBuildDesign) {
         <Form.Item
           label="Tên thiết kế"
           name="name"
-          rules={[{ required: true, message: "Nhập tên !" }]}
+          rules={[{ required: true, message: 'Nhập tên !' }]}
         >
           <Input />
         </Form.Item>
-        <h5 style={{ textAlign: "center" }}>Chi tiết thiết kế</h5>
+        <h5 style={{ textAlign: 'center' }}>Chi tiết thiết kế</h5>
         <Form.List name="builddesigns">
           {(fields, { add, remove }) => {
             return (
@@ -98,9 +98,9 @@ function ModalBuildDesign(props: propsModalBuildDesign) {
                       <Col md={23} xs={23}>
                         <Form.Item
                           label="Chọn danh mục"
-                          name={[index, "id_category"]}
+                          name={[index, 'id_category']}
                           rules={[
-                            { required: true, message: "Chọn danh mục!" },
+                            { required: true, message: 'Chọn danh mục!' },
                           ]}
                         >
                           <Select
@@ -111,8 +111,8 @@ function ModalBuildDesign(props: propsModalBuildDesign) {
                             // onChange={onChange}
                             // onSearch={onSearch}
                             style={{
-                              minWidth: "60px",
-                              marginRight: "props.pageSizepx",
+                              minWidth: '60px',
+                              marginRight: 'props.pageSizepx',
                             }}
                             filterOption={(input, option: any) =>
                               option.children
@@ -137,14 +137,14 @@ function ModalBuildDesign(props: propsModalBuildDesign) {
                       <Col
                         md={1}
                         style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
                         }}
                       >
                         {fields.length > 1 ? (
                           <MinusCircleOutlined
-                            style={{ fontSize: "20px" }}
+                            style={{ fontSize: '20px' }}
                             className="dynamic-delete-button"
                             onClick={() => remove(field.name)}
                           />
@@ -158,9 +158,9 @@ function ModalBuildDesign(props: propsModalBuildDesign) {
                   <PlusCircleOutlined
                     onClick={() => add()}
                     style={{
-                      fontSize: "20px",
-                      float: "right",
-                      marginRight: "25px",
+                      fontSize: '20px',
+                      float: 'right',
+                      marginRight: '25px',
                     }}
                   />
                 </Form.Item>
@@ -176,7 +176,7 @@ function ModalBuildDesign(props: propsModalBuildDesign) {
           }}
         >
           <Button type="primary" htmlType="submit">
-            {props.value?.id > 0 ? "Sửa" : "Thêm"}
+            {props.value?.id > 0 ? 'Sửa' : 'Thêm'}
           </Button>
         </Form.Item>
       </Form>

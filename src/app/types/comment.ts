@@ -1,5 +1,5 @@
-import { Combo } from "./combo";
-import { Product } from "./product";
+import { Combo } from './combo';
+import { Product } from './product';
 
 export interface AddComment {
   id_product: number | null;
@@ -51,8 +51,8 @@ export interface Reply {
 }
 
 export interface getAllComment {
-  page: Number;
-  noitem: Number;
+  page: number;
+  noitem: number;
 }
 
 export interface AddReply {

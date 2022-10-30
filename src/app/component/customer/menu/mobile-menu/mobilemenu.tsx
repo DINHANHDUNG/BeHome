@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   categoryAdminStore,
   companyAdminStore,
-} from "../../../../../use-selector";
-import { useAppSelector } from "../../../../hooks";
+} from '../../../../../use-selector';
+import { useAppSelector } from '../../../../hooks';
 
 function Mobilemenu() {
-  const [productkey, setProductkey] = useState("" as string | null);
+  const [productkey, setProductkey] = useState('' as string | null);
   const dispatch = useDispatch();
   const history = useNavigate();
   const categoryTrees = useAppSelector(categoryAdminStore);
@@ -29,7 +29,7 @@ function Mobilemenu() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              history("/searchproduct/" + `${productkey}`);
+              history('/searchproduct/' + `${productkey}`);
             }}
             className="mobile-search"
           >
@@ -111,8 +111,8 @@ function Mobilemenu() {
                       {company.Company.email}
                     </a>
                   </li> */}
-                  <li style={{ fontWeight: 500, cursor: "none" }}>
-                    <a>Danh mục bán lẻ</a>
+                  <li style={{ fontWeight: 500, cursor: 'none' }}>
+                    <a>SẢN PHẨM</a>
                   </li>
 
                   {categoryTrees.listcategoryProduct?.map((val, idx) =>
@@ -126,7 +126,7 @@ function Mobilemenu() {
                         </Link>
                         {val.children?.length > 0
                           ? val.children?.map((val2, idx) => (
-                              <ul style={{ display: "block" }}>
+                              <ul style={{ display: 'block' }}>
                                 {/* <li>
                                   <Link to={`danhmucproduct/${val2.id}`}>
                                     {val2.name}
@@ -140,7 +140,7 @@ function Mobilemenu() {
                                     {val2.name}
                                   </Link>
                                   {val2.children?.length > 0 ? (
-                                    <ul style={{ display: "block" }}>
+                                    <ul style={{ display: 'block' }}>
                                       {val2.children?.map((val3, idx) => (
                                         <li className="close-menu-mobile">
                                           <Link
@@ -170,8 +170,8 @@ function Mobilemenu() {
                     )
                   )}
 
-                  <li style={{ fontWeight: 500, cursor: "none" }}>
-                    <a>Danh mục combo</a>
+                  <li style={{ fontWeight: 500, cursor: 'none' }}>
+                    <a>COMBO</a>
                   </li>
 
                   {categoryTrees.listcategoryCombo?.map((val, idx) =>
@@ -185,7 +185,7 @@ function Mobilemenu() {
                         </Link>
                         {val.children?.length > 0
                           ? val.children?.map((val2, idx) => (
-                              <ul style={{ display: "block" }}>
+                              <ul style={{ display: 'block' }}>
                                 {/* <li>
                                   <Link to={`danhmuccombo/${val2.id}`}>
                                     {val2.name}
@@ -199,7 +199,7 @@ function Mobilemenu() {
                                     {val2.name}
                                   </Link>
                                   {val2.children?.length > 0 ? (
-                                    <ul style={{ display: "block" }}>
+                                    <ul style={{ display: 'block' }}>
                                       {val2.children?.map((val3, idx) => (
                                         <li>
                                           <Link
@@ -301,7 +301,7 @@ function Mobilemenu() {
             >
               <nav className="mobile-cats-nav">
                 <ul className="mobile-cats-menu">
-                  <li style={{ fontWeight: 500, cursor: "none" }}>
+                  <li style={{ fontWeight: 500, cursor: 'none' }}>
                     <a href="/">Danh mục bán lẻ</a>
                   </li>
 

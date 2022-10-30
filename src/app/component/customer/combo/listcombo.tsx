@@ -1,28 +1,28 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Combo } from "../../../types/combo";
-import { ProductHomePage } from "../../../types/product-home-page";
-import Product from "./combo";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Combo } from '../../../types/combo';
+import { ProductHomePage } from '../../../types/product-home-page';
+import Product from './combo';
 interface propsCombo {
   combo: Array<Combo>;
 }
 function Listcombo(props: propsCombo) {
-  console.log("props", props);
+  console.log('props', props);
 
   return (
     <div>
       <h2
         className="title title-border"
         style={{
-          marginTop: "30px",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
+          marginTop: '30px',
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
         }}
       >
         <span>Combo Sản Phẩm</span>
-        <Link to={`danhmuccombo/${0}`} style={{ fontSize: "16px" , fontWeight: 400}}>
+        <Link to={`danhmuccombo/${0}`} style={{ fontSize: '16px' , fontWeight: 400}}>
           Xem tất cả
         </Link>
         {/* <Link

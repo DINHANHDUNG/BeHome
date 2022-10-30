@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { Numberformat } from "../../../hooks";
-import { Combo } from "../../../types/combo";
-import "./styleBoxCombo.css";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Numberformat } from '../../../hooks';
+import { Combo } from '../../../types/combo';
+import './styleBoxCombo.css';
 interface PropsComboProduct {
   combo: Combo;
 }
 
 function BoxComboProduct(props: PropsComboProduct) {
-  console.log("props", props.combo);
+  console.log('props', props.combo);
   const history = useNavigate();
   const [total, setTotal] = useState(0);
   // useEffect(() => {
@@ -35,16 +35,16 @@ function BoxComboProduct(props: PropsComboProduct) {
                   {val.product.images?.length > 0 ? (
                     <img
                       src={
-                        "http://103.137.184.193:5500/images/" +
+                        'http://103.137.184.193:5500/images/' +
                         val.product?.images?.find(
-                          (x: any) => x.type === "1" || x.type === "MAIN"
+                          (x: any) => x.type === '1' || x.type === 'MAIN'
                         ).imagename
                       }
                       style={{
-                        height: "50px",
-                        width: "50px",
-                        objectFit: "cover",
-                        cursor: "pointer",
+                        height: '50px',
+                        width: '50px',
+                        objectFit: 'cover',
+                        cursor: 'pointer',
                       }}
                       alt=""
                     />
@@ -52,7 +52,7 @@ function BoxComboProduct(props: PropsComboProduct) {
                 </div>
 
                 <div className="icon-boxCombo-info-product">
-                  <Link to={"/detailproduct/" + val.id_product} style={{ color: "#d30808f7", cursor: "pointer", fontWeight: '500' }}>
+                  <Link to={'/detailproduct/' + val.id_product} style={{ color: '#d30808f7', cursor: 'pointer', fontWeight: '500' }}>
                     {val.product?.name}
                   </Link>
 

@@ -1,12 +1,12 @@
-import { Badge, Button, Col, Dropdown, List, Row, Typography } from "antd";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { LogoutOutlined, UnlockOutlined } from "@ant-design/icons";
-import ModalChangePass from "../../component/customer/modal/ChangePassword/modal-changepass";
-import { profile, toggler } from "../../assets/icon/iconsvg";
-import { ChangePassAdmin, postLogoutAdmin } from "../../../features/Admin/accountAdmin";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { accountAdminStore } from "../../../use-selector";
+import { Badge, Button, Col, Dropdown, List, Row, Typography } from 'antd';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { LogoutOutlined, UnlockOutlined } from '@ant-design/icons';
+import ModalChangePass from '../../component/customer/modal/ChangePassword/modal-changepass';
+import { profile, toggler } from '../../assets/icon/iconsvg';
+import { ChangePassAdmin, postLogoutAdmin } from '../../../features/Admin/accountAdmin';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { accountAdminStore } from '../../../use-selector';
 function Headeradmin({ placement, name, subName, onPress }: any) {
   const dispatch = useAppDispatch();
   const { Title, Text } = Typography;
@@ -14,12 +14,12 @@ function Headeradmin({ placement, name, subName, onPress }: any) {
   const acc = useAppSelector(accountAdminStore);
   const datause = [
     {
-      title: "Đổi mật khẩu",
-      avatar: <UnlockOutlined style={{ color: "#000" }} />,
+      title: 'Đổi mật khẩu',
+      avatar: <UnlockOutlined style={{ color: '#000' }} />,
     },
     {
-      title: "Đăng xuất",
-      avatar: <LogoutOutlined style={{ color: "#000" }} />,
+      title: 'Đăng xuất',
+      avatar: <LogoutOutlined style={{ color: '#000' }} />,
     },
   ];
   const menuuse = (
@@ -33,19 +33,19 @@ function Headeradmin({ placement, name, subName, onPress }: any) {
           key={idx}
           onClick={() => {
             console.log(item.title);
-            if (item.title === "Đăng xuất") {
+            if (item.title === 'Đăng xuất') {
               dispatch(postLogoutAdmin());
             }
 
-            if (item.title === "Đổi mật khẩu") {
+            if (item.title === 'Đổi mật khẩu') {
               setVisible(true);
             }
           }}
         >
-          <List.Item style={{ cursor: "pointer" }}>
-            <Typography.Text style={{ marginRight: "10px" }}>
-              {item.avatar}{" "}
-            </Typography.Text>{" "}
+          <List.Item style={{ cursor: 'pointer' }}>
+            <Typography.Text style={{ marginRight: '10px' }}>
+              {item.avatar}{' '}
+            </Typography.Text>{' '}
             {item.title}
           </List.Item>
         </List.Item>
@@ -63,23 +63,23 @@ function Headeradmin({ placement, name, subName, onPress }: any) {
             <Breadcrumb.Item>{name?.replace("/", "")}</Breadcrumb.Item>
           </Breadcrumb> */}
           <div className="ant-page-header-heading">
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
               <Button
                 type="link"
                 className="sidebar-toggler"
                 onClick={() => onPress()}
-                style={{ marginRight: "0px" }}
+                style={{ marginRight: '0px' }}
               >
                 {toggler}
               </Button>
               <Link
                 to="/admin"
                 style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "#000",
-                  fontWeight: "bold",
-                  paddingTop: "5px",
+                  textDecoration: 'none',
+                  fontSize: '20px',
+                  color: '#000',
+                  fontWeight: 'bold',
+                  paddingTop: '5px',
                 }}
               >
                 <span>BEHOME</span>
@@ -89,10 +89,10 @@ function Headeradmin({ placement, name, subName, onPress }: any) {
         </Col>
 
         <Col span={24} md={18} className="header-control">
-          <Dropdown overlay={menuuse} trigger={["click"]} placement="bottomRight" arrow={{ pointAtCenter: true }}>
+          <Dropdown overlay={menuuse} trigger={['click']} placement="bottomRight" arrow={{ pointAtCenter: true }}>
             <Link to="#" className="btn-sign-in">
               {profile}
-              <span>{"Admin"}</span>
+              <span>{'Admin'}</span>
             </Link>
           </Dropdown>
         </Col>
@@ -104,8 +104,8 @@ function Headeradmin({ placement, name, subName, onPress }: any) {
           setVisible(false);
         }}
         toggleChangePass={(value: {
-          newpassword: String;
-          oldpassword: String;
+          newpassword: string;
+          oldpassword: string;
         }) => {
           console.log(value);
           dispatch(

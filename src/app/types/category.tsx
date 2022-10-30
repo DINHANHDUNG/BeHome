@@ -16,13 +16,13 @@ export interface Category {
 export interface AddCategory {
   id_parent?: number | null;
   name: string;
-  type: "PRODUCT" | "COMBO";
+  type: 'PRODUCT' | 'COMBO';
 }
 
 export type EditCategory = AddCategory & { id: number };
 
 export interface DeleteCategory {
-  id: Array<Number>;
+  id: Array<number>;
 }
 
 export interface CustomesCategory {
@@ -37,8 +37,8 @@ export interface Category3 {
     {
       id: 3;
       id_parent: null;
-      name_parent: "";
-      name: "Test combo";
+      name_parent: '';
+      name: 'Test combo';
       categorytrees: null;
       homepage: boolean
     }
@@ -47,15 +47,15 @@ export interface Category3 {
     {
       id: 1;
       id_parent: null;
-      name_parent: "";
-      name: "test";
+      name_parent: '';
+      name: 'test';
       homepage: boolean
       categorytrees: [
         {
           id: 4;
           id_parent: 1;
-          name_parent: "test";
-          name: "Test poduct con";
+          name_parent: 'test';
+          name: 'Test poduct con';
           categorytrees: null;
           homepage: boolean
         }

@@ -1,11 +1,11 @@
-import { Button, Form, Input, Modal } from "antd";
-import React, { useEffect } from "react";
+import { Button, Form, Input, Modal } from 'antd';
+import React, { useEffect } from 'react';
 import {
   getAllManufacturerAdmin,
   postAddManufacturerByIdAdmin,
   postEditManufacturerByIdAdmin,
-} from "../../../../../features/Admin/manufacturerAdnim";
-import { useAppDispatch } from "../../../../hooks";
+} from '../../../../../features/Admin/manufacturerAdnim';
+import { useAppDispatch } from '../../../../hooks';
 
 interface propsModalManufacturer {
   visible: boolean;
@@ -69,15 +69,15 @@ function ModalManufacturer(props: propsModalManufacturer) {
     <Modal
       title={
         props.value?.id > 0
-          ? "Sửa hãng sản xuất"
-          : "Thêm hãng sản xuất"
+          ? 'Sửa hãng sản xuất'
+          : 'Thêm hãng sản xuất'
       }
       centered
       visible={props.visible}
       onOk={() => props.toggle()}
       onCancel={() => props.toggle()}
-      okText={"Thêm"}
-      cancelText={"Hủy"}
+      okText={'Thêm'}
+      cancelText={'Hủy'}
       width={500}
       footer={null}
     >
@@ -95,7 +95,7 @@ function ModalManufacturer(props: propsModalManufacturer) {
         <Form.Item
           label="Tên "
           name="name"
-          rules={[{ required: true, message: "Nhập tên !" }]}
+          rules={[{ required: true, message: 'Nhập tên !' }]}
         >
           <Input />
         </Form.Item>
@@ -107,7 +107,7 @@ function ModalManufacturer(props: propsModalManufacturer) {
           }}
         >
           <Button type="primary" htmlType="submit">
-            {props.value?.id > 0 ? "Sửa" : "Thêm"}
+            {props.value?.id > 0 ? 'Sửa' : 'Thêm'}
           </Button>
         </Form.Item>
       </Form>

@@ -1,6 +1,6 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import queryString from "query-string";
-import { REACT_APP_API_URL } from "./apiKey";
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import queryString from 'query-string';
+import { REACT_APP_API_URL } from './apiKey';
 
 /*Get token  */
 // export const retriveData = async () => {
@@ -11,7 +11,7 @@ import { REACT_APP_API_URL } from "./apiKey";
 //   // return JSON.parse(value);
 // };
 
-export var token: any = localStorage.getItem("tokenadmin");
+export const token: any = localStorage.getItem('tokenadmin');
 // export var token: any = retriveData();
 
 /*Axios */
@@ -19,16 +19,16 @@ export var token: any = localStorage.getItem("tokenadmin");
 const axiosClientAdmin = axios.create({
   baseURL: REACT_APP_API_URL,
   headers: {
-    "content-type": "application/json",
+    'content-type': 'application/json',
   },
-  responseType: "json",
+  responseType: 'json',
   paramsSerializer: (params: any) => queryString.stringify(params),
 });
 
 axiosClientAdmin.interceptors.request.use(
   //   (config: AxiosRequestConfig) => {
   async (config: any) => {
-    let value: any = (await localStorage.getItem("tokenadmin")) || "";
+    const value: any = (await localStorage.getItem('tokenadmin')) || '';
 
     const accessToken: any = value;
     // console.log('accessTokenadmin', accessToken);

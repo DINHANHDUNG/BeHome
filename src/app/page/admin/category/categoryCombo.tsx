@@ -7,18 +7,18 @@ import {
   Space,
   Table,
   Typography,
-} from "antd";
-import React, { useEffect, useState } from "react";
+} from 'antd';
+import React, { useEffect, useState } from 'react';
 import {
   getAllCategoryTrees,
   hiddenCategoryByIdAdmin,
   postDeleteCategoryAdmin,
   showCategoryByIdAdmin,
-} from "../../../../features/Admin/categoryAdnim";
-import { categoryAdminStore } from "../../../../use-selector";
-import ModalCategory from "../../../component/customer/modal/Category/modal-category";
-import ModalCategory2 from "../../../component/customer/modal/Category/modal-category2";
-import { useAppDispatch, useAppSelector } from "../../../hooks";
+} from '../../../../features/Admin/categoryAdnim';
+import { categoryAdminStore } from '../../../../use-selector';
+import ModalCategory from '../../../component/customer/modal/Category/modal-category';
+import ModalCategory2 from '../../../component/customer/modal/Category/modal-category2';
+import { useAppDispatch, useAppSelector } from '../../../hooks';
 
 function CategoryCombo() {
   const { Title, Text } = Typography;
@@ -37,7 +37,7 @@ function CategoryCombo() {
   const [value, setValue] = useState({
     id: 0,
     id_parent: 0,
-    name: "",
+    name: '',
   });
 
   useEffect(() => {
@@ -47,10 +47,10 @@ function CategoryCombo() {
   // table code start
   const columns = [
     {
-      title: "STT",
-      dataIndex: "id",
-      key: "id",
-      width: "10%",
+      title: 'STT',
+      dataIndex: 'id',
+      key: 'id',
+      width: '10%',
       render: (text: any, row: any, index: any) => index + 1,
       // render: (id: any ) => (
       //   <>
@@ -60,15 +60,15 @@ function CategoryCombo() {
     },
 
     {
-      title: "Tên danh mục",
-      dataIndex: "name",
-      key: "name",
+      title: 'Tên danh mục',
+      dataIndex: 'name',
+      key: 'name',
     },
 
     {
-      title: "Hành động",
-      dataIndex: "action",
-      key: "action",
+      title: 'Hành động',
+      dataIndex: 'action',
+      key: 'action',
       render: (text: any, row: any, index: any) => (
         <Space size="middle">
           {row.action ?? (
@@ -137,7 +137,7 @@ function CategoryCombo() {
     onChange: (selectedRowKeys: any, selectedRows: any) => {
       console.log(
         `selectedRowKeys: ${selectedRowKeys}`,
-        "selectedRows: ",
+        'selectedRows: ',
         selectedRows
       );
       setSelectedID(selectedRowKeys);
@@ -146,7 +146,7 @@ function CategoryCombo() {
   };
 
   return (
-    <div className="tabled" style={{ marginBottom: "20px" }}>
+    <div className="tabled" style={{ marginBottom: '20px' }}>
       <Row gutter={[24, 0]}>
         <Col xs={24} xl={24}>
           <Card
@@ -156,12 +156,12 @@ function CategoryCombo() {
             extra={
               <>
                 <Button
-                  style={{ marginRight: "10px" }}
+                  style={{ marginRight: '10px' }}
                   onClick={() => {
                     setValue({
                       id: 0,
                       id_parent: 0,
-                      name: "",
+                      name: '',
                     });
                     setVisible(true);
                   }}
@@ -196,15 +196,18 @@ function CategoryCombo() {
                 rowKey="id"
                 onRow={(record, rowIndex) => {
                   return {
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onClick: (event) => {}, // click row
                     onDoubleClick: (event) => {
                       setVisible(true);
                     }, // double click row
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onContextMenu: (event) => {}, // right button click row
                     onMouseEnter: (event) => {
                       // console.log(record);
                       setValue(record);
                     }, // mouse enter row
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onMouseLeave: (event) => {}, // mouse leave row
                   };
                 }}
@@ -219,7 +222,7 @@ function CategoryCombo() {
           toggle={() => {
             setVisible(false);
           }}
-          value={{ ...value, type: "COMBO" }}
+          value={{ ...value, type: 'COMBO' }}
         />
       )}
 
@@ -229,7 +232,7 @@ function CategoryCombo() {
           toggle={() => {
             setVisible2(false);
           }}
-          value={{ ...value, type: "COMBO" }}
+          value={{ ...value, type: 'COMBO' }}
         />
       )}
     </div>

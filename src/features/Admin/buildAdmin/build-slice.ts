@@ -1,14 +1,14 @@
-import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
-import { openNotification, openNotificationWithIcon } from "../../../app/hooks";
-import { Build, CustomesBuil } from "../../../app/types/build";
-import { CustomesPromotion, Promotion } from "../../../app/types/promotion";
+import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
+import { openNotification, openNotificationWithIcon } from '../../../app/hooks';
+import { Build, CustomesBuil } from '../../../app/types/build';
+import { CustomesPromotion, Promotion } from '../../../app/types/promotion';
 import {
   getAllBuildAdmin,
   getBuildByIdAdmin,
   postAddBuildByIdAdmin,
   postDeleteBuildAdmin,
   postEditBuildByIdAdmin,
-} from "./patchbuild-api";
+} from './patchbuild-api';
 const initialStateCategory: CustomesBuil = {
   listBuild: [] as Array<Build>,
   loading: false,
@@ -16,7 +16,7 @@ const initialStateCategory: CustomesBuil = {
 };
 
 const buildliceAdmin = createSlice({
-  name: "Build",
+  name: 'Build',
   initialState: initialStateCategory,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<CustomesBuil>) => {
@@ -36,7 +36,7 @@ const buildliceAdmin = createSlice({
       .addCase(getAllBuildAdmin.rejected, (state) => {
         state.loading = false;
         state.error = true; //Show lỗi
-        openNotificationWithIcon("error", "Lấy dữ liệu thất bại");
+        openNotificationWithIcon('error', 'Lấy dữ liệu thất bại');
       });
 
     // getbyid
@@ -52,7 +52,7 @@ const buildliceAdmin = createSlice({
       })
       .addCase(getBuildByIdAdmin.rejected, (state) => {
         state.loading = false;
-        openNotificationWithIcon("error", "Lấy dữ liệu thất bại");
+        openNotificationWithIcon('error', 'Lấy dữ liệu thất bại');
       });
 
     // Add category
@@ -61,7 +61,7 @@ const buildliceAdmin = createSlice({
         state.loading = true;
       })
       .addCase(postAddBuildByIdAdmin.fulfilled, (state, action) => {
-        openNotificationWithIcon("success", "Thêm thành công");
+        openNotificationWithIcon('success', 'Thêm thành công');
         const { result } = action.payload;
         state.loading = false;
         state.error = false;
@@ -69,7 +69,7 @@ const buildliceAdmin = createSlice({
       .addCase(postAddBuildByIdAdmin.rejected, (state) => {
         state.loading = false;
         state.error = true; //Show lỗi
-        openNotificationWithIcon("error", "Thêm không thành công");
+        openNotificationWithIcon('error', 'Thêm không thành công');
       });
 
     // Sửa category
@@ -78,14 +78,14 @@ const buildliceAdmin = createSlice({
         state.loading = true;
       })
       .addCase(postEditBuildByIdAdmin.fulfilled, (state, action) => {
-        openNotificationWithIcon("success", "Sửa thành công");
+        openNotificationWithIcon('success', 'Sửa thành công');
         state.loading = false;
         state.error = false;
       })
       .addCase(postEditBuildByIdAdmin.rejected, (state) => {
         state.loading = false;
         state.error = true; //Show lỗi
-        openNotificationWithIcon("error", "Sửa không thành công");
+        openNotificationWithIcon('error', 'Sửa không thành công');
       });
 
     // Xóa category
@@ -99,8 +99,8 @@ const buildliceAdmin = createSlice({
         state.loading = false;
         state.error = false;
         openNotification({
-          message: "Xóa thành công",
-          type: "success",
+          message: 'Xóa thành công',
+          type: 'success',
         });
         // console.log("Get all category thành công");
       })
@@ -108,8 +108,8 @@ const buildliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Xóa thất bại",
-          type: "error",
+          message: 'Xóa thất bại',
+          type: 'error',
         });
         // console.log("Get category không thành công");
       });

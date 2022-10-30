@@ -1,18 +1,18 @@
-import { Col, Modal, Pagination, Row } from "antd";
-import React, { useEffect, useState } from "react";
+import { Col, Modal, Pagination, Row } from 'antd';
+import React, { useEffect, useState } from 'react';
 import {
   getAllProductAdmin,
   getProductSearchAdmin,
-} from "../../../../../features/Admin/productAdnim";
-import { productAdminStore } from "../../../../../use-selector";
+} from '../../../../../features/Admin/productAdnim';
+import { productAdminStore } from '../../../../../use-selector';
 import {
   Numberformat,
   useAppDispatch,
   useAppSelector,
-} from "../../../../hooks";
-import FilterProductCombo from "../../../../page/admin/filterProductCombo/filterProductCombo";
-import Product from "../../product/product";
-import "./modalbui.css";
+} from '../../../../hooks';
+import FilterProductCombo from '../../../../page/admin/filterProductCombo/filterProductCombo';
+import Product from '../../product/product';
+import './modalbui.css';
 interface propsModalBuildDesignCustomer {
   visible: boolean;
   toggle: () => void;
@@ -28,10 +28,10 @@ function ModalBuildDesignCustomer(props: propsModalBuildDesignCustomer) {
   const [valueRangePrice, setValueRangePrice] = useState(null as any);
   const [valueFirm, setValueFirm] = useState(null as any);
   const [valueRank, setValueRank] = useState(null as any);
-  console.log("product search", product);
+  console.log('product search', product);
 
   useEffect(() => {
-    console.log("id category", props.value.idCategory);
+    console.log('id category', props.value.idCategory);
 
     if (props.value.idCategory) {
       dispatch(
@@ -54,7 +54,7 @@ function ModalBuildDesignCustomer(props: propsModalBuildDesignCustomer) {
   }, [props.value.idCategory]);
   return (
     <Modal
-      title={<span style={{ color: "#258cae" }}>Chọn linh kiện</span>}
+      title={<span style={{ color: '#258cae' }}>Chọn linh kiện</span>}
       centered
       visible={props.visible}
       onOk={() => props.toggle()}
@@ -112,9 +112,9 @@ function ModalBuildDesignCustomer(props: propsModalBuildDesignCustomer) {
                   <Col xl={24}>
                     <Pagination
                       style={{
-                        marginTop: "10px",
-                        float: "right",
-                        marginBottom: "10px",
+                        marginTop: '10px',
+                        float: 'right',
+                        marginBottom: '10px',
                       }}
                       onChange={(page, pageSizeNew) => {
                         console.log(page, pageSizeNew);
@@ -158,11 +158,11 @@ function ModalBuildDesignCustomer(props: propsModalBuildDesignCustomer) {
                     <figure className="Modal-item-build-product-media mr-2">
                       <a href="#">
                         <img
-                          style={{ width: "80px", height: "80px" }}
+                          style={{ width: '80px', height: '80px' }}
                           src={
-                            "http://103.137.184.193:5500/images/" +
+                            'http://103.137.184.193:5500/images/' +
                             val.images.find(
-                              (x: any) => x.type === "1" || x.type === "MAIN"
+                              (x: any) => x.type === '1' || x.type === 'MAIN'
                             ).imagename
                           }
                           alt="Product image"
@@ -173,9 +173,9 @@ function ModalBuildDesignCustomer(props: propsModalBuildDesignCustomer) {
                     <h3
                       className="product-title"
                       style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        width: "70%",
+                        display: 'flex',
+                        flexDirection: 'column',
+                        width: '70%',
                       }}
                     >
                       <a href="#" style={{ fontWeight: 500 }}>
@@ -202,9 +202,9 @@ function ModalBuildDesignCustomer(props: propsModalBuildDesignCustomer) {
                           props.toggle();
                         }}
                         style={{
-                          cursor: "pointer",
-                          color: "#39f",
-                          fontSize: "40px",
+                          cursor: 'pointer',
+                          color: '#39f',
+                          fontSize: '40px',
                         }}
                       ></i>
                     </span>

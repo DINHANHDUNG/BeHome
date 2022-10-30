@@ -1,16 +1,16 @@
-import { Col, DatePicker, Pagination, Row, Slider } from "antd";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getComboSearchAdmin } from "../../../features/Admin/comboAdnim";
+import { Col, DatePicker, Pagination, Row, Slider } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getComboSearchAdmin } from '../../../features/Admin/comboAdnim';
 import {
   getAllProductAdmin,
   getProductSearchAdmin,
-} from "../../../features/Admin/productAdnim";
-import { comboAdminStore, productAdminStore } from "../../../use-selector";
-import Listproduct from "../../component/customer/product/listproduct";
-import Product from "../../component/customer/product/product";
-import { Numberformat, useAppDispatch, useAppSelector } from "../../hooks";
-import FilterProductCombo from "../admin/filterProductCombo/filterProductCombo";
+} from '../../../features/Admin/productAdnim';
+import { comboAdminStore, productAdminStore } from '../../../use-selector';
+import Listproduct from '../../component/customer/product/listproduct';
+import Product from '../../component/customer/product/product';
+import { Numberformat, useAppDispatch, useAppSelector } from '../../hooks';
+import FilterProductCombo from '../admin/filterProductCombo/filterProductCombo';
 
 function ComboByCategory() {
   const { ID } = useParams();
@@ -42,7 +42,7 @@ function ComboByCategory() {
             <div className="toolbox">
               <div className="toolbox-left">
                 <div className="toolbox-info" style={{ fontWeight: 500 }}>
-                  {Number(ID) === 0 ? "TẤT CẢ COMBO" : combo.categoryname}
+                  {Number(ID) === 0 ? 'TẤT CẢ COMBO' : combo.categoryname}
                 </div>
               </div>
 
@@ -101,9 +101,9 @@ function ComboByCategory() {
                 <Col xl={24}>
                   <Pagination
                     style={{
-                      marginTop: "10px",
-                      float: "right",
-                      marginBottom: "10px",
+                      marginTop: '10px',
+                      float: 'right',
+                      marginBottom: '10px',
                     }}
                     onChange={(page, pageSizeNew) => {
                       console.log(page, pageSizeNew);

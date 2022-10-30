@@ -2,33 +2,33 @@ import {
   ActionReducerMapBuilder,
   createSlice,
   PayloadAction,
-} from "@reduxjs/toolkit";
+} from '@reduxjs/toolkit';
 import {
   getAllProductAdmin,
   getProductByIdAdmin,
   postAddProductByIdAdmin,
   postDeleteProductAdmin,
   postEditProductByIdAdmin,
-} from ".";
-import { openNotification } from "../../../app/hooks";
-import { CustomesProduct, Product } from "../../../app/types/product";
+} from '.';
+import { openNotification } from '../../../app/hooks';
+import { CustomesProduct, Product } from '../../../app/types/product';
 import {
   getAllProductNeedUpdate,
   getProductSearch2Admin,
   getProductSearchAdmin,
   hiddenProductByIdAdmin,
   showProductByIdAdmin,
-} from "./patchProduct-api";
+} from './patchProduct-api';
 const initialState: CustomesProduct = {
   listproduct: [] as Array<Product>,
   total: 0,
   loading: false,
-  categoryname: "",
+  categoryname: '',
   error: false,
 };
 
 const productSliceAdmin = createSlice({
-  name: "productadmin",
+  name: 'productadmin',
   initialState: initialState,
   reducers: {
     // SortAscendingState(state, action: PayloadAction<any>) {
@@ -72,8 +72,8 @@ const productSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -93,8 +93,8 @@ const productSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -105,8 +105,8 @@ const productSliceAdmin = createSlice({
       })
       .addCase(showProductByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Thao tác thành công",
-          type: "success",
+          message: 'Thao tác thành công',
+          type: 'success',
         });
         state.loading = false;
         state.error = false;
@@ -115,8 +115,8 @@ const productSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Thao tác không thành công",
-          type: "error",
+          message: 'Thao tác không thành công',
+          type: 'error',
         });
       });
 
@@ -129,16 +129,16 @@ const productSliceAdmin = createSlice({
         state.loading = false;
         state.error = false;
         openNotification({
-          message: "Thao tác thành công",
-          type: "success",
+          message: 'Thao tác thành công',
+          type: 'success',
         });
       })
       .addCase(hiddenProductByIdAdmin.rejected, (state) => {
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Thao tác không thành công",
-          type: "error",
+          message: 'Thao tác không thành công',
+          type: 'error',
         });
       });
 
@@ -159,8 +159,8 @@ const productSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -181,8 +181,8 @@ const productSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -200,8 +200,8 @@ const productSliceAdmin = createSlice({
       .addCase(getProductByIdAdmin.rejected, (state) => {
         state.loading = false;
         openNotification({
-          message: "Lấy dữ liệu thất bại",
-          type: "error",
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
         });
       });
 
@@ -212,8 +212,8 @@ const productSliceAdmin = createSlice({
       })
       .addCase(postAddProductByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Thêm thành công",
-          type: "success",
+          message: 'Thêm thành công',
+          type: 'success',
         });
         const { result } = action.payload;
         state.loading = false;
@@ -223,8 +223,8 @@ const productSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Thêm không thành công",
-          type: "error",
+          message: 'Thêm không thành công',
+          type: 'error',
         });
       });
 
@@ -235,8 +235,8 @@ const productSliceAdmin = createSlice({
       })
       .addCase(postEditProductByIdAdmin.fulfilled, (state, action) => {
         openNotification({
-          message: "Sửa thành công",
-          type: "success",
+          message: 'Sửa thành công',
+          type: 'success',
         });
         state.loading = false;
         state.error = false;
@@ -245,8 +245,8 @@ const productSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Sửa không thành công",
-          type: "error",
+          message: 'Sửa không thành công',
+          type: 'error',
         });
       });
 
@@ -261,8 +261,8 @@ const productSliceAdmin = createSlice({
         state.loading = false;
         state.error = false;
         openNotification({
-          message: "Xóa thành công",
-          type: "success",
+          message: 'Xóa thành công',
+          type: 'success',
         });
         // console.log("Get all category thành công");
       })
@@ -270,8 +270,8 @@ const productSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Xóa thất bại",
-          type: "error",
+          message: 'Xóa thất bại',
+          type: 'error',
         });
         // console.log("Get category không thành công");
       });

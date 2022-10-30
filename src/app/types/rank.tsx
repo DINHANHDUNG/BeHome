@@ -13,7 +13,7 @@ export interface AddRank {
 export type EditRank = AddRank & { id: number };
 
 export interface DeleteRank {
-  id: Array<Number>;
+  id: Array<number>;
 }
 export interface CustomesRank {
   listRank: Array<Rank>;

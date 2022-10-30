@@ -1,4 +1,4 @@
-import { RootState } from "../app/store";
+import { RootState } from '../app/store';
 
 /* ---------------------------------------ADMIN-------------------------------------------------- */
 export const accountAdminStore = (state: RootState) => state.accountAdmin; //acc

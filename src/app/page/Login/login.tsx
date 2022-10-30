@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { postLoginAdmin } from "../../../features/Admin/accountAdmin";
-import { accountAdminStore } from "../../../use-selector";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { postLoginAdmin } from '../../../features/Admin/accountAdmin';
+import { accountAdminStore } from '../../../use-selector';
 import {
   openNotificationWithIcon,
   useAppDispatch,
   useAppSelector,
-} from "../../hooks";
+} from '../../hooks';
 // import { openNotification } from "../../component/Notifi/noti";
 // import { useAppDispatch, useAppSelector } from "../../app/hooks";
 // import { openNotification } from "../../component/Notifi/noti";
 // import { postLogin } from "../../features/Customer/account";
-import "./login.css";
+import './login.css';
 function Login() {
   const dispatch = useAppDispatch();
   const history = useNavigate();
@@ -20,8 +20,8 @@ function Login() {
   // console.log(acc);
 
   useEffect(() => {
-    if (localStorage.getItem("tokenadmin")) {
-      history("/admin");
+    if (localStorage.getItem('tokenadmin')) {
+      history('/admin');
     }
   }, [acc.token]);
 
@@ -29,7 +29,7 @@ function Login() {
   const [password, setPassword] = useState(String);
 
   const handleKeyDown = (event: any) => {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       submit();
     }
   };
@@ -44,7 +44,7 @@ function Login() {
         })
       );
     } else {
-      openNotificationWithIcon("warning", "Vui lòng điền username và password");
+      openNotificationWithIcon('warning', 'Vui lòng điền username và password');
     }
   }
   return (
@@ -73,7 +73,7 @@ function Login() {
           />
           <label>Password</label>
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <a href="#" onClick={submit}>
             <span></span>
             <span></span>

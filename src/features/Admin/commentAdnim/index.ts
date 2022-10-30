@@ -1,2 +1,2 @@
-export * from "./patchComment-api";
-export * from "./comment-slice";
+export * from './patchComment-api';
+export * from './comment-slice';

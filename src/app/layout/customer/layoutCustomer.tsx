@@ -1,36 +1,36 @@
-import { Modal } from "antd";
-import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import { getAllCategoryTrees } from "../../../features/Admin/categoryAdnim";
-import { getCompany } from "../../../features/Admin/company";
-import { getProductHomePage } from "../../../features/homepage";
-import { companyAdminStore } from "../../../use-selector";
-import Footer from "../../component/customer/footer/footer";
-import Header from "../../component/customer/header/header";
-import Mobilemenu from "../../component/customer/menu/mobile-menu/mobilemenu";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import BuildDesign from "../../page/build/build";
-import CartShopping from "../../page/cartShopping/cartShopping";
-import CheckOut from "../../page/checkout/checkOut";
-import ComboByCategory from "../../page/comboByCategory/comboByCategory";
-import Contact from "../../page/contact/contact";
-import DetailCombo from "../../page/detail/DetailCombo";
-import DetailProduct from "../../page/detail/DetailProduct";
-import Home from "../../page/home/home";
-import Introduce from "../../page/introduce/introduce";
-import PaymentTerms from "../../page/paymentTerms/paymentTerms";
-import ProductByCategory from "../../page/productByCategory/productByCategory";
-import Purchase from "../../page/purchase/purchase";
-import RefundPolicy from "../../page/refundPolicy/refundPolicy";
-import Searchproduct from "../../page/searchproduct/searchproduct";
-import Security from "../../page/security/security";
-import ShippingPolicy from "../../page/shippingPolicy/shippingPolicy";
-import WarrantyPolicy from "../../page/warrantyPolicy/warrantyPolicy";
+import { Modal } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { getAllCategoryTrees } from '../../../features/Admin/categoryAdnim';
+import { getCompany } from '../../../features/Admin/company';
+import { getProductHomePage } from '../../../features/homepage';
+import { companyAdminStore } from '../../../use-selector';
+import Footer from '../../component/customer/footer/footer';
+import Header from '../../component/customer/header/header';
+import Mobilemenu from '../../component/customer/menu/mobile-menu/mobilemenu';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import BuildDesign from '../../page/build/build';
+import CartShopping from '../../page/cartShopping/cartShopping';
+import CheckOut from '../../page/checkout/checkOut';
+import ComboByCategory from '../../page/comboByCategory/comboByCategory';
+import Contact from '../../page/contact/contact';
+import DetailCombo from '../../page/detail/DetailCombo';
+import DetailProduct from '../../page/detail/DetailProduct';
+import Home from '../../page/home/home';
+import Introduce from '../../page/introduce/introduce';
+import PaymentTerms from '../../page/paymentTerms/paymentTerms';
+import ProductByCategory from '../../page/productByCategory/productByCategory';
+import Purchase from '../../page/purchase/purchase';
+import RefundPolicy from '../../page/refundPolicy/refundPolicy';
+import Searchproduct from '../../page/searchproduct/searchproduct';
+import Security from '../../page/security/security';
+import ShippingPolicy from '../../page/shippingPolicy/shippingPolicy';
+import WarrantyPolicy from '../../page/warrantyPolicy/warrantyPolicy';
 
 function LayoutCustomer() {
   const dispatch = useAppDispatch();
   const config = {
-    title: "Thông báo!",
+    title: 'Thông báo!',
     content: (
       <>
         PHẦN MỀM ĐANG TRONG QUÁ TRÌNH XÂY DỰNG. DỮ LIỆU TRÊN LÀ TESTTKHOONG PHẢI
@@ -50,9 +50,9 @@ function LayoutCustomer() {
   }, []);
   const company = useAppSelector(companyAdminStore);
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: 'relative' }}>
       <div className="page-wrapper">
-        <Modal
+        {/* <Modal
           title="Thông báo!"
           visible={visible}
           onOk={() => setVisible(false)}
@@ -64,7 +64,7 @@ function LayoutCustomer() {
             PHẦN MỀM ĐANG XÂY DỰNG. DỮ LIỆU KHÔNG PHẢI CHÍNH THỨC. <br /> XIN
             CẢM ƠN!
           </p>
-        </Modal>
+        </Modal> */}
         <Header company={company} />
         <Routes>
           <Route index element={<Home company={company} />} />
@@ -98,7 +98,7 @@ function LayoutCustomer() {
           className="mb-1"
           // href="#"
           onClick={() => {
-            window.open("https://www.facebook.com/messages/t/111073668305784");
+            window.open('https://www.facebook.com/messages/t/111073668305784');
           }}
         >
           <img
@@ -111,7 +111,7 @@ function LayoutCustomer() {
           // href="#"
           className="mb-1"
           onClick={() => {
-            window.open("https://zalo.me/3400142806706859418");
+            window.open('https://zalo.me/3400142806706859418');
           }}
         >
           <img

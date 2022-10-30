@@ -1,10 +1,10 @@
-import { Col, Pagination, Row } from "antd";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getProductSearchAdmin } from "../../../features/Admin/productAdnim";
-import { productAdminStore } from "../../../use-selector";
-import Product from "../../component/customer/product/product";
-import { useAppDispatch, useAppSelector } from "../../hooks";
+import { Col, Pagination, Row } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getProductSearchAdmin } from '../../../features/Admin/productAdnim';
+import { productAdminStore } from '../../../use-selector';
+import Product from '../../component/customer/product/product';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 
 function Searchproduct() {
   const { KEY } = useParams();
@@ -21,7 +21,7 @@ function Searchproduct() {
           id_category: null,
           id_rank: null,
           id_manufacturer: null,
-          productKey: KEY ? KEY : "KHONGCOKY",
+          productKey: KEY ? KEY : 'KHONGCOKY',
           minprice: null,
           maxprice: null,
           page: 1,
@@ -34,7 +34,7 @@ function Searchproduct() {
   return (
     <div className="page-content  mt-3">
       <div className="container-fluid">
-        <h5 style={{ textAlign: "left", color: "red" }}>
+        <h5 style={{ textAlign: 'left', color: 'red' }}>
           Tìm kiếm sản phẩm với {KEY}
         </h5>
       </div>
@@ -58,9 +58,9 @@ function Searchproduct() {
             <Col xl={24}>
               <Pagination
                 style={{
-                  marginTop: "10px",
-                  float: "right",
-                  marginBottom: "10px",
+                  marginTop: '10px',
+                  float: 'right',
+                  marginBottom: '10px',
                 }}
                 onChange={(page, pageSizeNew) => {
                   console.log(page, pageSizeNew);
@@ -70,7 +70,7 @@ function Searchproduct() {
                       id_category: null,
                       id_rank: null,
                       id_manufacturer: null,
-                      productKey: KEY ? KEY : "KHONGCOKY",
+                      productKey: KEY ? KEY : 'KHONGCOKY',
                       minprice: null,
                       maxprice: null,
                       page: page,
@@ -90,7 +90,7 @@ function Searchproduct() {
           </Row>
         </div>
       ) : (
-        <h5 style={{ textAlign: "center", color: "red" }}>
+        <h5 style={{ textAlign: 'center', color: 'red' }}>
           KHÔNG CÓ SẢN PHẨM NÀO
         </h5>
       )}

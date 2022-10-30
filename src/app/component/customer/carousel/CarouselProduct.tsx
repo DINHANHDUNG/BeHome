@@ -1,6 +1,6 @@
-import React from "react";
-import { ProductHomePage } from "../../../types/product-home-page";
-import Product from "../product/product";
+import React from 'react';
+import { ProductHomePage } from '../../../types/product-home-page';
+import Product from '../product/product';
 interface propsProduct {
   product: ProductHomePage;
 }

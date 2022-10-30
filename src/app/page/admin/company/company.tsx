@@ -1,10 +1,10 @@
-import { Button, Card, Col, Form, Image, Input, Row } from "antd";
-import TextArea from "antd/lib/input/TextArea";
-import React, { useEffect, useState } from "react";
-import { getCompany, updateCompany } from "../../../../features/Admin/company";
-import { companyAdminStore } from "../../../../use-selector";
-import uploadIMGAdminAPI from "../../../commom/api/UploadIMG/upload";
-import { useAppDispatch, useAppSelector } from "../../../hooks";
+import { Button, Card, Col, Form, Image, Input, Row } from 'antd';
+import TextArea from 'antd/lib/input/TextArea';
+import React, { useEffect, useState } from 'react';
+import { getCompany, updateCompany } from '../../../../features/Admin/company';
+import { companyAdminStore } from '../../../../use-selector';
+import uploadIMGAdminAPI from '../../../commom/api/UploadIMG/upload';
+import { useAppDispatch, useAppSelector } from '../../../hooks';
 
 function Company() {
   const [form] = Form.useForm();
@@ -29,13 +29,13 @@ function Company() {
   function onFinish(value: any) {
     console.log(value);
 
-    let arrIMG = [] as any;
+    const arrIMG = [] as any;
 
     fileIMG.map((val: any, idx: any) => {
       console.log(idx);
       arrIMG.push({
         imagename: val.imagename,
-        type: "BANNER",
+        type: 'BANNER',
       });
     });
 
@@ -48,19 +48,19 @@ function Company() {
   }
 
   function deleteImgArr(value: any) {
-    if (value.imagename.split(".").length > 1) {
+    if (value.imagename.split('.').length > 1) {
       uploadIMGAdminAPI
         .postDeleteIMG({
           imageName: value.imagename,
         })
         .then((res) => {
-          console.log("Thành công");
+          console.log('Thành công');
         });
     }
   }
 
   function deleteIMG(value: any) {
-    console.log("Đang xóa", value);
+    console.log('Đang xóa', value);
 
     setArrImgDelete((pre: any) => {
       console.log(pre);
@@ -71,7 +71,7 @@ function Company() {
     setFileIMG((pre: any) => {
       console.log(pre);
 
-      return pre.filter((values: any) => values.imagename != value.imagename);
+      return pre.filter((values: any) => values.imagename !== value.imagename);
     });
   }
 
@@ -87,7 +87,7 @@ function Company() {
 
   function uploadImage(e: any) {
     const data = new FormData();
-    data.append("image", e);
+    data.append('image', e);
     setUploading(true);
     uploadIMGAdminAPI
       .postUploadIMG(data)
@@ -102,13 +102,13 @@ function Company() {
         setUploading(false);
       })
       .catch((err) => {
-        console.log("Lỗi upload");
+        console.log('Lỗi upload');
         setUploading(false);
       });
   }
 
   return (
-    <div className="tabled" style={{ marginBottom: "20px" }}>
+    <div className="tabled" style={{ marginBottom: '20px' }}>
       <Row gutter={[24, 0]}>
         <Col xs={24} xl={24}>
           <Card
@@ -142,7 +142,7 @@ function Company() {
                   <Form.Item
                     label="Địa chỉ"
                     name="address"
-                    rules={[{ required: true, message: "Nhập địa chỉ!" }]}
+                    rules={[{ required: true, message: 'Nhập địa chỉ!' }]}
                   >
                     <Input />
                   </Form.Item>
@@ -152,10 +152,10 @@ function Company() {
                     label="Email"
                     name="email"
                     rules={[
-                      { required: true, message: "Nhập email!" },
+                      { required: true, message: 'Nhập email!' },
                       {
-                        type: "email",
-                        message: "Chưa đúng định dạng!",
+                        type: 'email',
+                        message: 'Chưa đúng định dạng!',
                       },
                     ]}
                   >
@@ -173,7 +173,7 @@ function Company() {
                       // },
                       {
                         required: true,
-                        message: "Nhập số điện thoại",
+                        message: 'Nhập số điện thoại',
                       },
                     ]}
                   >
@@ -188,7 +188,7 @@ function Company() {
                     label="Chính sách bảo hành"
                     name="csbh"
                     rules={[
-                      { required: true, message: "Nhập chính sách bảo hành!" },
+                      { required: true, message: 'Nhập chính sách bảo hành!' },
                     ]}
                   >
                     <TextArea rows={6} />
@@ -199,7 +199,7 @@ function Company() {
                     label="Chính sách vận chuyển"
                     name="csvc"
                     rules={[
-                      { required: true, message: "Nhập chính sách vận chuyển!" },
+                      { required: true, message: 'Nhập chính sách vận chuyển!' },
                     ]}
                   >
                     <TextArea rows={6} />
@@ -212,7 +212,7 @@ function Company() {
                     label="Quy định thanh toán"
                     name="qdtt"
                     rules={[
-                      { required: true, message: "Nhập quy định thanh toán!" },
+                      { required: true, message: 'Nhập quy định thanh toán!' },
                     ]}
                   >
                     <TextArea rows={6} />
@@ -223,7 +223,7 @@ function Company() {
                     label="Chính sách đổi trả"
                     name="csdt"
                     rules={[
-                      { required: true, message: "Nhập chính sách đổi trả!" },
+                      { required: true, message: 'Nhập chính sách đổi trả!' },
                     ]}
                   >
                     <TextArea rows={6} />
@@ -236,7 +236,7 @@ function Company() {
                     label="Chính sách bảo mật"
                     name="csbm"
                     rules={[
-                      { required: true, message: "Nhập chính sách bảo mật!" },
+                      { required: true, message: 'Nhập chính sách bảo mật!' },
                     ]}
                   >
                     <TextArea rows={6} />
@@ -247,7 +247,7 @@ function Company() {
                     label="Hướng dẫn mua hàng"
                     name="hdmh"
                     rules={[
-                      { required: true, message: "Nhập hướng dẫn mua hàng!" },
+                      { required: true, message: 'Nhập hướng dẫn mua hàng!' },
                     ]}
                   >
                     <TextArea rows={6} />
@@ -269,7 +269,7 @@ function Company() {
                             // value.split(".").length > 1
                             //   ? "http://103.137.184.193:5500/images/" + value
                             //   : "https://cf.shopee.vn/file/" + value
-                            "http://103.137.184.193:5500/images/" +
+                            'http://103.137.184.193:5500/images/' +
                             value.imagename
                           }
                         />
@@ -299,7 +299,7 @@ function Company() {
               <Row>
                 <Col
                   span={24}
-                  style={{ textAlign: "right", paddingRight: "10px" }}
+                  style={{ textAlign: 'right', paddingRight: '10px' }}
                 >
                   <Form.Item>
                     <Button type="primary" htmlType="submit">

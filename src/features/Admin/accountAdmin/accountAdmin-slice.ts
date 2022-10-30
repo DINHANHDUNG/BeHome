@@ -1,21 +1,21 @@
-import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
+import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
 import {
   ChangePassAdmin,
   checkTokenAdmin,
   postLoginAdmin,
   postLogoutAdmin,
-} from ".";
-import { openNotificationWithIcon } from "../../../app/hooks";
-import { Account, CustomesAccount } from "../../../app/types/account";
+} from '.';
+import { openNotificationWithIcon } from '../../../app/hooks';
+import { Account, CustomesAccount } from '../../../app/types/account';
 const initialStateAccount: CustomesAccount = {
   listuser: {} as Account,
   loading: false,
-  token: localStorage.getItem("tokenadmin") ?? "",
+  token: localStorage.getItem('tokenadmin') ?? '',
   error: false,
 };
 
 const accountAdminSlice = createSlice({
-  name: "accountadmin",
+  name: 'accountadmin',
   initialState: initialStateAccount,
   reducers: {
     //action login Storage
@@ -34,7 +34,7 @@ const accountAdminSlice = createSlice({
         state.token = token;
         state.loading = false;
         state.error = false;
-        localStorage.setItem("tokenadmin", token);
+        localStorage.setItem('tokenadmin', token);
         // if (listuser.permission === "1") {
         //   socket.emit("join_room", `Admin`);
         // } else {
@@ -47,19 +47,19 @@ const accountAdminSlice = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotificationWithIcon(
-          "error",
-          "Tài khoản hoặc mật khẩu không chính xác"
+          'error',
+          'Tài khoản hoặc mật khẩu không chính xác'
         );
       });
     //  log out the user
     builder.addCase(postLogoutAdmin.fulfilled, (state) => {
       state.listuser = {} as any;
-      state.token = "";
-      localStorage.removeItem("tokenadmin");
+      state.token = '';
+      localStorage.removeItem('tokenadmin');
       // localStorage.removeItem("user");
       openNotificationWithIcon(
-        "success",
-        "Đã đăng xuất"
+        'success',
+        'Đã đăng xuất'
       );
       
     });
@@ -75,7 +75,7 @@ const accountAdminSlice = createSlice({
         // console.log("user", user);
 
         state.listuser = user;
-        state.token = localStorage.getItem("tokenadmin") ?? "";
+        state.token = localStorage.getItem('tokenadmin') ?? '';
         state.loading = false;
         state.error = false;
         // if (user.permission === "1") {
@@ -89,8 +89,8 @@ const accountAdminSlice = createSlice({
       })
       .addCase(checkTokenAdmin.rejected, (state) => {
         state.loading = false;
-        localStorage.removeItem("tokenadmin");
-        state.token = "";
+        localStorage.removeItem('tokenadmin');
+        state.token = '';
       });
 
     //ChangePass
@@ -100,7 +100,7 @@ const accountAdminSlice = createSlice({
         state.loading = true;
       })
       .addCase(ChangePassAdmin.fulfilled, (state, action) => {
-        console.log("action payload", action.payload);
+        console.log('action payload', action.payload);
 
         // state.listuser = action.payload;
         state.loading = false;
@@ -108,18 +108,18 @@ const accountAdminSlice = createSlice({
         
 
         openNotificationWithIcon(
-          "success",
-          "Đổi mật khẩu thành công"
+          'success',
+          'Đổi mật khẩu thành công'
         );
-        console.log("Đổi mật khẩu thành công");
+        console.log('Đổi mật khẩu thành công');
       })
       .addCase(ChangePassAdmin.rejected, (state) => {
         state.loading = false;
-        console.log("Đổi mật khẩu thất bại");
+        console.log('Đổi mật khẩu thất bại');
 
         openNotificationWithIcon(
-          "error",
-          "Mật khẩu cũ không chính xác"
+          'error',
+          'Mật khẩu cũ không chính xác'
         );
       });
   },

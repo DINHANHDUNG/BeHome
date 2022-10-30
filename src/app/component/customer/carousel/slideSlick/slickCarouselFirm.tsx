@@ -1,6 +1,6 @@
-import { Image } from "antd";
-import React, { useState } from "react";
-import Slider from "react-slick";
+import { Image } from 'antd';
+import React, { useState } from 'react';
+import Slider from 'react-slick';
 
 function SlickCarousel(props: { value: any; toggle: any }) {
   const [autoPlay, setAutoPlay] = useState(true);
@@ -31,7 +31,7 @@ function SlickCarousel(props: { value: any; toggle: any }) {
         {props.value?.map((v: any) => (
           <div
             className="slide-detailproduct-item"
-            style={{ cursor: "pointer", }}
+            style={{ cursor: 'pointer', }}
           >
             <img
               onMouseEnter={() => {
@@ -39,14 +39,14 @@ function SlickCarousel(props: { value: any; toggle: any }) {
               }}
               onClick={() => props.toggle(v)}
               onMouseLeave={() => setAutoPlay(true)}
-              width={"100%"}
-              src={"http://103.137.184.193:5500/images/" + v?.imagename}
+              width={'100%'}
+              src={'http://103.137.184.193:5500/images/' + v?.imagename}
               alt="product side"
               style={{
-                maxHeight: "130px",
-                padding: "10px",
-                objectFit: "contain",
-                border: "1px solid #039",
+                maxHeight: '130px',
+                padding: '10px',
+                objectFit: 'contain',
+                border: '1px solid #039',
               }}
             />
           </div>
@@ -63,7 +63,7 @@ function SampleNextArrow(props: any) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block" }}
+      style={{ ...style, display: 'block' }}
       onClick={onClick}
     />
   );
@@ -74,7 +74,7 @@ function SamplePrevArrow(props: any) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block" }}
+      style={{ ...style, display: 'block' }}
       onClick={onClick}
     />
   );

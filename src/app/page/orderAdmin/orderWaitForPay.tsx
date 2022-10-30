@@ -9,27 +9,27 @@ import {
   Space,
   Table,
   Typography,
-} from "antd";
-import moment from "moment";
-import React, { useEffect, useState } from "react";
+} from 'antd';
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
 import {
   getAllOrderWaitForPayAdmin,
   getSearchOrderAdmin,
   OrderCanceledADmin,
   OrderCompletedADmin,
   postDeleteOrderAdmin,
-} from "../../../features/Admin/orderAdnim";
-import { orderAdminStore } from "../../../use-selector";
-import ModalDetailoOderDdmin from "../../component/customer/modal/order/modal-detailorder-admin";
+} from '../../../features/Admin/orderAdnim';
+import { orderAdminStore } from '../../../use-selector';
+import ModalDetailoOderDdmin from '../../component/customer/modal/order/modal-detailorder-admin';
 import {
   currency,
   getParsedDate,
   getParsedDateTime,
   useAppDispatch,
   useAppSelector,
-} from "../../hooks";
-import { Order } from "../../types/order";
-import { Product } from "../../types/product";
+} from '../../hooks';
+import { Order } from '../../types/order';
+import { Product } from '../../types/product';
 
 function OrderWaitForPay() {
   const { Title, Text } = Typography;
@@ -45,7 +45,7 @@ function OrderWaitForPay() {
   const [value, setValue] = useState({} as Order);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
-  const [valueSearch, setValueSearch] = useState("");
+  const [valueSearch, setValueSearch] = useState('');
   const [visibleSearch, setVisibleSearch] = useState(false);
 
   useEffect(() => {
@@ -58,16 +58,16 @@ function OrderWaitForPay() {
   }, []);
 
   function onSearch(val: any) {
-    console.log("search:", val.target.value);
+    console.log('search:', val.target.value);
     setValueSearch(val.target.value);
   }
 
   const handleKeyDown = (event: any) => {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       dispatch(
         getSearchOrderAdmin({
-          orderkey: valueSearch ? valueSearch : "",
-          type: "CHỜ THANH TOÁN",
+          orderkey: valueSearch ? valueSearch : '',
+          type: 'CHỜ THANH TOÁN',
         })
       );
     }
@@ -77,69 +77,69 @@ function OrderWaitForPay() {
   // table code start
   const columns = [
     {
-      title: "STT",
-      dataIndex: "id",
-      key: "id",
-      width: "10%",
+      title: 'STT',
+      dataIndex: 'id',
+      key: 'id',
+      width: '10%',
       render: (text: any, row: any, index: any) => index + 1,
     },
 
     {
-      title: "Mã đơn",
-      dataIndex: "code",
-      key: "code",
+      title: 'Mã đơn',
+      dataIndex: 'code',
+      key: 'code',
       // render: (text: any, row: any, index: any) => row.manufacturer?.name,
       sorter: (a: any, b: any) => a.code.localeCompare(b.code),
     },
 
     {
-      title: "Tổng tiền",
-      dataIndex: "totalmoney",
-      key: "totalmoney",
+      title: 'Tổng tiền',
+      dataIndex: 'totalmoney',
+      key: 'totalmoney',
       render: (text: any, row: any, index: any) => currency(row.totalmoney),
       sorter: (a: any, b: any) => a.totalmoney.localeCompare(b.totalmoney),
     },
 
     {
-      title: "Tên khách hàng",
-      dataIndex: "namecustomer",
-      key: "namecustomer",
+      title: 'Tên khách hàng',
+      dataIndex: 'namecustomer',
+      key: 'namecustomer',
       // render: (text: any, row: any, index: any) => row.manufacturer?.name,
       sorter: (a: any, b: any) => a.namecustomer.localeCompare(b.namecustomer),
     },
 
     {
-      title: "Địa chỉ",
-      dataIndex: "addresscustomer",
-      key: "addresscustomer",
+      title: 'Địa chỉ',
+      dataIndex: 'addresscustomer',
+      key: 'addresscustomer',
       // render: (text: any, row: any, index: any) => row.manufacturer?.name,
       sorter: (a: any, b: any) =>
         a.addresscustomer.localeCompare(b.addresscustomer),
     },
 
     {
-      title: "Số điện thoại",
-      dataIndex: "phonenumbercustomer",
-      key: "phonenumbercustomer",
+      title: 'Số điện thoại',
+      dataIndex: 'phonenumbercustomer',
+      key: 'phonenumbercustomer',
       // render: (text: any, row: any, index: any) => row.manufacturer?.name,
       sorter: (a: any, b: any) =>
         a.phonenumbercustomer.localeCompare(b.phonenumbercustomer),
     },
 
     {
-      title: "Email",
-      dataIndex: "emailcustomer",
-      key: "emailcustomer",
+      title: 'Email',
+      dataIndex: 'emailcustomer',
+      key: 'emailcustomer',
       // render: (text: any, row: any, index: any) => row.manufacturer?.name,
       sorter: (a: any, b: any) =>
         a.emailcustomer.localeCompare(b.emailcustomer),
     },
     {
-      title: "Ngày tạo",
-      dataIndex: "created_date",
-      key: "created_date",
+      title: 'Ngày tạo',
+      dataIndex: 'created_date',
+      key: 'created_date',
       render: (created_date: any) => (
-        <>{moment(created_date).utc().format("DD-MM-YYYY").toString()}</>
+        <>{moment(created_date).utc().format('DD-MM-YYYY').toString()}</>
       ),
       sorter: (a: any, b: any) => {
         if (moment(a.created_date).isBefore(moment(b.created_date))) {
@@ -150,9 +150,9 @@ function OrderWaitForPay() {
     },
 
     {
-      title: "Hành động",
-      dataIndex: "action",
-      key: "action",
+      title: 'Hành động',
+      dataIndex: 'action',
+      key: 'action',
       render: (text: any, row: any, index: any) => (
         <Space size="middle">
           <Button
@@ -194,7 +194,7 @@ function OrderWaitForPay() {
     onChange: (selectedRowKeys: any, selectedRows: any) => {
       console.log(
         `selectedRowKeys: ${selectedRowKeys}`,
-        "selectedRows: ",
+        'selectedRows: ',
         selectedRows
       );
       setSelectedID(selectedRowKeys);
@@ -203,7 +203,7 @@ function OrderWaitForPay() {
   };
 
   return (
-    <div className="tabled" style={{ marginBottom: "20px" }}>
+    <div className="tabled" style={{ marginBottom: '20px' }}>
       <Row gutter={[24, 0]}>
         <Col xs={24} xl={24}>
           <Card
@@ -213,7 +213,7 @@ function OrderWaitForPay() {
             extra={
               <>
                 <Button
-                  style={{ marginRight: "10px" }}
+                  style={{ marginRight: '10px' }}
                   onClick={() => {
                     setVisibleSearch(!visibleSearch);
                   }}
@@ -243,19 +243,19 @@ function OrderWaitForPay() {
           >
             {visibleSearch && (
               <Row gutter={[24, 24]}>
-                <Col md={10} xs={20} style={{ margin: "20px" }}>
+                <Col md={10} xs={20} style={{ margin: '20px' }}>
                   <div
                     style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      justifyContent: "space-around",
-                      alignItems: "center",
+                      display: 'flex',
+                      flexDirection: 'row',
+                      justifyContent: 'space-around',
+                      alignItems: 'center',
                     }}
                   >
                     <Input
                       placeholder="Tìm kiếm"
                       onChange={onSearch}
-                      style={{ width: "100%", marginRight: "10px" }}
+                      style={{ width: '100%', marginRight: '10px' }}
                       size="small"
                       onKeyDown={handleKeyDown}
                     />
@@ -264,8 +264,8 @@ function OrderWaitForPay() {
                       onClick={() => {
                         dispatch(
                           getSearchOrderAdmin({
-                            orderkey: valueSearch ? valueSearch : "",
-                            type: "CHỜ THANH TOÁN",
+                            orderkey: valueSearch ? valueSearch : '',
+                            type: 'CHỜ THANH TOÁN',
                           })
                         );
                       }}
@@ -288,15 +288,18 @@ function OrderWaitForPay() {
                 rowKey="id"
                 onRow={(record: any, rowIndex) => {
                   return {
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onClick: (event) => {}, // click row
                     onDoubleClick: (event) => {
                       setVisible(true);
                     }, // double click row
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onContextMenu: (event) => {}, // right button click row
                     onMouseEnter: (event) => {
                       // console.log(record);
                       setValue(record);
                     }, // mouse enter row
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onMouseLeave: (event) => {}, // mouse leave row
                   };
                 }}
@@ -310,9 +313,9 @@ function OrderWaitForPay() {
         <Col xl={24}>
           <Pagination
             style={{
-              marginTop: "10px",
-              float: "right",
-              marginBottom: "10px",
+              marginTop: '10px',
+              float: 'right',
+              marginBottom: '10px',
             }}
             onChange={(page: any, pageSizeNew: any) => {
               console.log(page, pageSizeNew);

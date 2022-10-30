@@ -1,6 +1,6 @@
-import TextArea from "antd/lib/input/TextArea";
-import React from "react";
-import { Product } from "../../../types/product";
+import TextArea from 'antd/lib/input/TextArea';
+import React from 'react';
+import { Product } from '../../../types/product';
 interface propsInfoDetail {
   describe: string;
   productdetails: any;
@@ -61,7 +61,7 @@ function ComponentInfoDetail(props: propsInfoDetail) {
             {/* <p>{products.listproduct[0]?.describe}</p> */}
             <TextArea
               rows={20}
-              style={{ width: "100%", outline: 'none', border: 'none' }}
+              style={{ width: '100%', outline: 'none', border: 'none' }}
               value={props.describe}
               readOnly
               className="TextAreaAntd"
@@ -77,9 +77,9 @@ function ComponentInfoDetail(props: propsInfoDetail) {
           <div className="product-desc-content">
             {props.productdetails?.map((val: any) => (
               <p>
-                <span style={{ color: "green", fontWeight: 600 }}>✔</span>{" "}
-                <span style={{ color: "black", fontWeight: 600 }}>
-                  {val.title}{" "}
+                <span style={{ color: 'green', fontWeight: 600 }}>✔</span>{' '}
+                <span style={{ color: 'black', fontWeight: 600 }}>
+                  {val.title}{' '}
                 </span>
                 {val.specifications}
               </p>

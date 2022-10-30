@@ -1,9 +1,9 @@
-import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
+import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
 import {
   getAllPromotionAdmin, getPromotionByIdAdmin, postAddPromotionByIdAdmin, postDeletePromotionAdmin, postEditPromotionByIdAdmin
-} from ".";
-import { openNotification, openNotificationWithIcon } from "../../../app/hooks";
-import { CustomesPromotion, Promotion } from "../../../app/types/promotion";
+} from '.';
+import { openNotification, openNotificationWithIcon } from '../../../app/hooks';
+import { CustomesPromotion, Promotion } from '../../../app/types/promotion';
 const initialStateCategory: CustomesPromotion = {
   listpromotion: [] as Array<Promotion>,
   total: 0,
@@ -12,7 +12,7 @@ const initialStateCategory: CustomesPromotion = {
 };
 
 const promotionSliceAdmin = createSlice({
-  name: "categoryadmin",
+  name: 'categoryadmin',
   initialState: initialStateCategory,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<CustomesPromotion>) => {
@@ -32,7 +32,7 @@ const promotionSliceAdmin = createSlice({
       .addCase(getAllPromotionAdmin.rejected, (state) => {
         state.loading = false;
         state.error = true; //Show lỗi
-        openNotificationWithIcon("error", "Lấy dữ liệu thất bại");
+        openNotificationWithIcon('error', 'Lấy dữ liệu thất bại');
       });
 
     // getbyid
@@ -48,7 +48,7 @@ const promotionSliceAdmin = createSlice({
       })
       .addCase(getPromotionByIdAdmin.rejected, (state) => {
         state.loading = false;
-        openNotificationWithIcon("error", "Lấy dữ liệu thất bại");
+        openNotificationWithIcon('error', 'Lấy dữ liệu thất bại');
       });
 
     // Add category
@@ -57,7 +57,7 @@ const promotionSliceAdmin = createSlice({
         state.loading = true;
       })
       .addCase(postAddPromotionByIdAdmin.fulfilled, (state, action) => {
-        openNotificationWithIcon("success", "Thêm thành công");
+        openNotificationWithIcon('success', 'Thêm thành công');
         const { result } = action.payload;
         state.loading = false;
         state.error = false;
@@ -65,7 +65,7 @@ const promotionSliceAdmin = createSlice({
       .addCase(postAddPromotionByIdAdmin.rejected, (state) => {
         state.loading = false;
         state.error = true; //Show lỗi
-        openNotificationWithIcon("error", "Thêm không thành công");
+        openNotificationWithIcon('error', 'Thêm không thành công');
       });
 
     // Sửa category
@@ -74,14 +74,14 @@ const promotionSliceAdmin = createSlice({
         state.loading = true;
       })
       .addCase(postEditPromotionByIdAdmin.fulfilled, (state, action) => {
-        openNotificationWithIcon("success", "Sửa thành công");
+        openNotificationWithIcon('success', 'Sửa thành công');
         state.loading = false;
         state.error = false;
       })
       .addCase(postEditPromotionByIdAdmin.rejected, (state) => {
         state.loading = false;
         state.error = true; //Show lỗi
-        openNotificationWithIcon("error", "Sửa không thành công");
+        openNotificationWithIcon('error', 'Sửa không thành công');
       });
 
     // Xóa category
@@ -95,8 +95,8 @@ const promotionSliceAdmin = createSlice({
         state.loading = false;
         state.error = false;
         openNotification({
-          message: "Xóa thành công",
-          type: "success",
+          message: 'Xóa thành công',
+          type: 'success',
         });
         // console.log("Get all category thành công");
       })
@@ -104,8 +104,8 @@ const promotionSliceAdmin = createSlice({
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({
-          message: "Xóa thất bại",
-          type: "error",
+          message: 'Xóa thất bại',
+          type: 'error',
         });
         // console.log("Get category không thành công");
       });

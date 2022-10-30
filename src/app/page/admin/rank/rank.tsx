@@ -5,15 +5,15 @@ import {
   Row,
   Table,
   Typography
-} from "antd";
-import { useEffect, useState } from "react";
+} from 'antd';
+import { useEffect, useState } from 'react';
 import {
   getAllRankAdmin,
   postDeleteRankAdmin
-} from "../../../../features/Admin/rankAdnim";
-import { rankAdminStore } from "../../../../use-selector";
-import ModalRank from "../../../component/customer/modal/modalRank/modal-Rank";
-import { useAppDispatch, useAppSelector } from "../../../hooks";
+} from '../../../../features/Admin/rankAdnim';
+import { rankAdminStore } from '../../../../use-selector';
+import ModalRank from '../../../component/customer/modal/modalRank/modal-Rank';
+import { useAppDispatch, useAppSelector } from '../../../hooks';
 
 function Rank() {
   const { Title, Text } = Typography;
@@ -27,7 +27,7 @@ function Rank() {
   const [dataTable, setDataTable] = useState([] as any);
   const [value, setValue] = useState({
     count: 0,
-    rank: { id: 0, name: "" },
+    rank: { id: 0, name: '' },
   });
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(12);
@@ -56,17 +56,17 @@ function Rank() {
   // table code start
   const columns = [
     {
-      title: "STT",
-      dataIndex: "id",
-      key: "id",
-      width: "10%",
+      title: 'STT',
+      dataIndex: 'id',
+      key: 'id',
+      width: '10%',
       render: (text: any, row: any, index: any) => index + 1,
     },
 
     {
-      title: "Phân khúc",
-      dataIndex: "name",
-      key: "name",
+      title: 'Phân khúc',
+      dataIndex: 'name',
+      key: 'name',
       // render: (text: any, row: any, index: any) => row.rank?.name,
       sorter: (a: any, b: any) => a.rank.name.localeCompare(b.rank.name),
     },
@@ -78,7 +78,7 @@ function Rank() {
     onChange: (selectedRowKeys: any, selectedRows: any) => {
       console.log(
         `selectedRowKeys: ${selectedRowKeys}`,
-        "selectedRows: ",
+        'selectedRows: ',
         selectedRows
       );
       setSelectedID(selectedRowKeys);
@@ -87,7 +87,7 @@ function Rank() {
   };
 
   return (
-    <div className="tabled" style={{ marginBottom: "20px" }}>
+    <div className="tabled" style={{ marginBottom: '20px' }}>
       <Row gutter={[24, 0]}>
         <Col xs={24} xl={24}>
           <Card
@@ -97,11 +97,11 @@ function Rank() {
             extra={
               <>
                 <Button
-                  style={{ marginRight: "10px" }}
+                  style={{ marginRight: '10px' }}
                   onClick={() => {
                     setValue({
                       count: 0,
-                      rank: { id: 0, name: "" },
+                      rank: { id: 0, name: '' },
                     });
                     setVisible(true);
                   }}
@@ -140,16 +140,13 @@ function Rank() {
                 rowKey="id"
                 onRow={(record: any, rowIndex) => {
                   return {
-                    onClick: (event) => {}, // click row
                     onDoubleClick: (event) => {
                       setVisible(true);
                     }, // double click row
-                    onContextMenu: (event) => {}, // right button click row
                     onMouseEnter: (event) => {
                       // console.log(record);
                       setValue(record);
                     }, // mouse enter row
-                    onMouseLeave: (event) => {}, // mouse leave row
                   };
                 }}
               />

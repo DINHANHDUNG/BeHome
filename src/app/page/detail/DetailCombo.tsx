@@ -1,29 +1,29 @@
-import { Button } from "antd";
-import TextArea from "antd/lib/input/TextArea";
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { getComboByIdAdmin } from "../../../features/Admin/comboAdnim";
-import { postAddCommentByIdAdmin } from "../../../features/Admin/commentAdnim";
-import { getProductByIdAdmin } from "../../../features/Admin/productAdnim";
-import { addCart } from "../../../features/cart/cart-slice";
-import { comboAdminStore, productAdminStore } from "../../../use-selector";
-import BoxComboProduct from "../../component/customer/box-combo-product/box-combo-product";
-import BoxPromotion from "../../component/customer/box-promotion/box-promotion";
-import SlickCarousel from "../../component/customer/carousel/slideSlick/slickCarouselFirm";
-import Comment from "../../component/customer/comment/comment";
-import ReplyComment from "../../component/customer/comments/replyComment";
-import SingleComment from "../../component/customer/comments/singleComment";
-import ModalFormComment from "../../component/customer/modal/modalFormCommnet/modalFormCommnet";
-import ModalNextIMG from "../../component/customer/modal/modalNextImg/modalNextIMG";
+import { Button } from 'antd';
+import TextArea from 'antd/lib/input/TextArea';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getComboByIdAdmin } from '../../../features/Admin/comboAdnim';
+import { postAddCommentByIdAdmin } from '../../../features/Admin/commentAdnim';
+import { getProductByIdAdmin } from '../../../features/Admin/productAdnim';
+import { addCart } from '../../../features/cart/cart-slice';
+import { comboAdminStore, productAdminStore } from '../../../use-selector';
+import BoxComboProduct from '../../component/customer/box-combo-product/box-combo-product';
+import BoxPromotion from '../../component/customer/box-promotion/box-promotion';
+import SlickCarousel from '../../component/customer/carousel/slideSlick/slickCarouselFirm';
+import Comment from '../../component/customer/comment/comment';
+import ReplyComment from '../../component/customer/comments/replyComment';
+import SingleComment from '../../component/customer/comments/singleComment';
+import ModalFormComment from '../../component/customer/modal/modalFormCommnet/modalFormCommnet';
+import ModalNextIMG from '../../component/customer/modal/modalNextImg/modalNextIMG';
 import {
   currency,
   Numberformat,
   openNotificationWithIcon,
   useAppDispatch,
   useAppSelector,
-} from "../../hooks";
-import ComponentInfoDetail from "./componentInfoDetail/componentInfoDetail";
-import ComponentVideo from "./componentVideo/componentVideo";
+} from '../../hooks';
+import ComponentInfoDetail from './componentInfoDetail/componentInfoDetail';
+import ComponentVideo from './componentVideo/componentVideo';
 
 function DetailCombo() {
   const { ID } = useParams();
@@ -43,7 +43,7 @@ function DetailCombo() {
     if (combo?.listCombo[0]?.images?.length > 0) {
       setDisplayIMG(combo?.listCombo[0]?.images[0]);
     }
-    var newtotal = 0;
+    let newtotal = 0;
     combo.listCombo[0]?.combo_products?.map((val) => {
       newtotal = newtotal + (val.product.price * val.amountproduct);
     });
@@ -56,7 +56,7 @@ function DetailCombo() {
   );
   const [visible, setVisible] = useState(false);
   const [visibleRepLyComment, setVisibleRepLyComment] = useState(false);
-  const [valueComment, setValueComment] = useState("");
+  const [valueComment, setValueComment] = useState('');
   const [total, setTotal] = useState(0);
 
   return (
@@ -70,11 +70,11 @@ function DetailCombo() {
                   <img
                     id="product-zoom"
                     src={
-                      "http://103.137.184.193:5500/images/" +
+                      'http://103.137.184.193:5500/images/' +
                       dispayIMG?.imagename
                     }
                     alt="product image"
-                    style={{ maxHeight: "500px", objectFit: "contain" }}
+                    style={{ maxHeight: '500px', objectFit: 'contain' }}
                   />
 
                   <a
@@ -110,7 +110,7 @@ function DetailCombo() {
                         >
                           <img
                             src={
-                              "http://103.137.184.193:5500/images/" +
+                              'http://103.137.184.193:5500/images/' +
                               value?.imagename
                             }
                             alt="product side"
@@ -125,26 +125,26 @@ function DetailCombo() {
 
             <div className="col-md-6">
               <div className="product-details">
-                <h1 className="product-title" style={{ fontWeight: "500" }}>
+                <h1 className="product-title" style={{ fontWeight: '500' }}>
                   {combo.listCombo[0]?.name}
                 </h1>
 
                 <div
                   className="product-price"
-                  style={{ justifyContent: "left", fontWeight: "500" }}
+                  style={{ justifyContent: 'left', fontWeight: '500' }}
                 >
                   <span>
                     {combo.listCombo[0]?.price
                       ? currency(combo.listCombo[0]?.price)
-                      : "Liên hệ"}
+                      : 'Liên hệ'}
                   </span>
                   &nbsp;
                   {combo.listCombo[0]?.price ? (
                     <del
                       style={{
-                        fontSize: "15px",
-                        opacity: "0.8",
-                        color: "black",
+                        fontSize: '15px',
+                        opacity: '0.8',
+                        color: 'black',
                       }}
                       className="ml-2"
                     >
@@ -155,9 +155,9 @@ function DetailCombo() {
                   {combo.listCombo[0]?.price ? (
                     <span
                       style={{
-                        fontSize: "15px",
-                        opacity: "0.8",
-                        color: "#d30808f7",
+                        fontSize: '15px',
+                        opacity: '0.8',
+                        color: '#d30808f7',
                       }}
                       className="ml-2"
                     >
@@ -183,7 +183,7 @@ function DetailCombo() {
                   className="product-details-action mt-3"
                   onClick={() => {
                     dispatch(addCart(combo.listCombo[0]));
-                    history("/cart");
+                    history('/cart');
                   }}
                 >
                   <a className="btn-product btn-cart">
@@ -199,18 +199,18 @@ function DetailCombo() {
               <h4>Video</h4>
               <hr
                 style={{
-                  marginTop: "10px",
-                  marginRight: "0px",
-                  marginBottom: "10px",
-                  marginLeft: "0px",
+                  marginTop: '10px',
+                  marginRight: '0px',
+                  marginBottom: '10px',
+                  marginLeft: '0px',
                 }}
               />
               <div
                 style={{
-                  width: "100%",
+                  width: '100%',
                   // display: "flex",
                   // justifyContent: "center",
-                  textAlign: "center",
+                  textAlign: 'center',
                 }}
               >
                 <ComponentVideo link={combo.listCombo[0]?.linkvideo} />
@@ -218,10 +218,10 @@ function DetailCombo() {
 
               <hr
                 style={{
-                  marginTop: "10px",
-                  marginRight: "0px",
-                  marginBottom: "10px",
-                  marginLeft: "0px",
+                  marginTop: '10px',
+                  marginRight: '0px',
+                  marginBottom: '10px',
+                  marginLeft: '0px',
                 }}
               />
             </div>
@@ -234,10 +234,10 @@ function DetailCombo() {
               <h4>Bình luận</h4>
               <hr
                 style={{
-                  marginTop: "10px",
-                  marginRight: "0px",
-                  marginBottom: "10px",
-                  marginLeft: "0px",
+                  marginTop: '10px',
+                  marginRight: '0px',
+                  marginBottom: '10px',
+                  marginLeft: '0px',
                 }}
               />
               <TextArea
@@ -255,8 +255,8 @@ function DetailCombo() {
                     setVisibleRepLyComment(!visibleRepLyComment);
                   } else {
                     openNotificationWithIcon(
-                      "error",
-                      "Vui lòng nhập bình luận"
+                      'error',
+                      'Vui lòng nhập bình luận'
                     );
                   }
                 }}
@@ -275,10 +275,11 @@ function DetailCombo() {
                     />
                     {/* Reply */}
                     {val.replys.map((rep) => (
-                      <div style={{ marginLeft: "45px" }}>
+                      <div style={{ marginLeft: '45px' }}>
                         <SingleComment
                           reply={false}
                           value={rep}
+                          // eslint-disable-next-line @typescript-eslint/no-empty-function
                           toggleDone={() => {}}
                         />
                       </div>
@@ -292,7 +293,7 @@ function DetailCombo() {
           </div>
         </div>
       ) : (
-        "Sản phẩm không tồn tại"
+        'Sản phẩm không tồn tại'
       )}
 
       <ModalNextIMG
@@ -316,7 +317,7 @@ function DetailCombo() {
             })
           ).then(() => {
             dispatch(getComboByIdAdmin({ id: Number(ID) }));
-            setValueComment("");
+            setValueComment('');
           });
         }}
       />

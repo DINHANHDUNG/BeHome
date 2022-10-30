@@ -1,2 +1,2 @@
-export * from "./patchProduct-api";
-export * from "./product-slice";
+export * from './patchProduct-api';
+export * from './product-slice';

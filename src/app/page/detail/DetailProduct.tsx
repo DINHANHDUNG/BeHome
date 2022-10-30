@@ -1,29 +1,29 @@
-import { Button } from "antd";
-import TextArea from "antd/lib/input/TextArea";
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { getComboByIdAdmin } from "../../../features/Admin/comboAdnim";
-import { postAddCommentByIdAdmin } from "../../../features/Admin/commentAdnim";
-import { getProductByIdAdmin } from "../../../features/Admin/productAdnim";
-import { addCart } from "../../../features/cart/cart-slice";
-import { productAdminStore } from "../../../use-selector";
-import BoxComboProduct from "../../component/customer/box-combo-product/box-combo-product";
-import BoxPromotion from "../../component/customer/box-promotion/box-promotion";
-import SlickCarousel from "../../component/customer/carousel/slideSlick/slickCarouselFirm";
-import Comment from "../../component/customer/comment/comment";
-import ReplyComment from "../../component/customer/comments/replyComment";
-import SingleComment from "../../component/customer/comments/singleComment";
-import ModalFormComment from "../../component/customer/modal/modalFormCommnet/modalFormCommnet";
-import ModalNextIMG from "../../component/customer/modal/modalNextImg/modalNextIMG";
+import { Button } from 'antd';
+import TextArea from 'antd/lib/input/TextArea';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getComboByIdAdmin } from '../../../features/Admin/comboAdnim';
+import { postAddCommentByIdAdmin } from '../../../features/Admin/commentAdnim';
+import { getProductByIdAdmin } from '../../../features/Admin/productAdnim';
+import { addCart } from '../../../features/cart/cart-slice';
+import { productAdminStore } from '../../../use-selector';
+import BoxComboProduct from '../../component/customer/box-combo-product/box-combo-product';
+import BoxPromotion from '../../component/customer/box-promotion/box-promotion';
+import SlickCarousel from '../../component/customer/carousel/slideSlick/slickCarouselFirm';
+import Comment from '../../component/customer/comment/comment';
+import ReplyComment from '../../component/customer/comments/replyComment';
+import SingleComment from '../../component/customer/comments/singleComment';
+import ModalFormComment from '../../component/customer/modal/modalFormCommnet/modalFormCommnet';
+import ModalNextIMG from '../../component/customer/modal/modalNextImg/modalNextIMG';
 import {
   currency,
   Numberformat,
   openNotificationWithIcon,
   useAppDispatch,
   useAppSelector,
-} from "../../hooks";
-import ComponentInfoDetail from "./componentInfoDetail/componentInfoDetail";
-import ComponentVideo from "./componentVideo/componentVideo";
+} from '../../hooks';
+import ComponentInfoDetail from './componentInfoDetail/componentInfoDetail';
+import ComponentVideo from './componentVideo/componentVideo';
 
 function DetailProduct() {
   const { ID } = useParams();
@@ -40,7 +40,7 @@ function DetailProduct() {
     } | null
   );
 
-  console.log("products->>>", products);
+  console.log('products->>>', products);
 
   useEffect(() => {
     setIMG(products?.listproduct[0]?.images);
@@ -48,7 +48,7 @@ function DetailProduct() {
     if (products?.listproduct[0]?.images?.length > 0) {
       setDisplayIMG(
         products.listproduct[0].images?.find(
-          (x: any) => x.type === "1" || x.type === "MAIN"
+          (x: any) => x.type === '1' || x.type === 'MAIN'
         )
       );
     }
@@ -67,7 +67,7 @@ function DetailProduct() {
   );
   const [visible, setVisible] = useState(false);
   const [visibleRepLyComment, setVisibleRepLyComment] = useState(false);
-  const [valueComment, setValueComment] = useState("");
+  const [valueComment, setValueComment] = useState('');
 
   return (
     <div className="container-fluid">
@@ -80,11 +80,11 @@ function DetailProduct() {
                   <img
                     id="product-zoom"
                     src={
-                      "http://103.137.184.193:5500/images/" +
+                      'http://103.137.184.193:5500/images/' +
                       dispayIMG?.imagename
                     }
                     alt="product image"
-                    style={{ height: "400px", objectFit: "contain" }}
+                    style={{ height: '400px', objectFit: 'contain' }}
                   />
 
                   <a
@@ -115,7 +115,7 @@ function DetailProduct() {
                       >
                         <img
                           src={
-                            "http://103.137.184.193:5500/images/" +
+                            'http://103.137.184.193:5500/images/' +
                             value?.imagename
                           }
                           alt="product side"
@@ -129,22 +129,22 @@ function DetailProduct() {
 
             <div className="col-md-6">
               <div className="product-details">
-                <h1 className="product-title" style={{ fontWeight: "500" }}>
+                <h1 className="product-title" style={{ fontWeight: '500' }}>
                   {products?.listproduct[0]?.name}
                 </h1>
 
                 <div
                   className="product-price"
-                  style={{ justifyContent: "left", fontWeight: "500" }}
+                  style={{ justifyContent: 'left', fontWeight: '500' }}
                 >
                   <span>
-                    {selectProperti != null
-                      ? selectProperti?.price != null
+                    {selectProperti !== null
+                      ? selectProperti?.price !== null
                         ? currency(selectProperti?.price)
-                        : "Liên hệ"
+                        : 'Liên hệ'
                       : products?.listproduct[0]?.price
                       ? currency(products?.listproduct[0]?.price)
-                      : "Liên hệ"}
+                      : 'Liên hệ'}
                   </span>
                   &nbsp;
                   {/* <del style={{ fontSize: "13px", opacity: "0.4" }}>
@@ -164,7 +164,7 @@ function DetailProduct() {
                           className="btn-properties"
                           style={
                             selectProperti?.id === value.id
-                              ? { borderColor: "#258cae", color: "#258cae" }
+                              ? { borderColor: '#258cae', color: '#258cae' }
                               : {}
                           }
                         >
@@ -172,8 +172,8 @@ function DetailProduct() {
                             style={{
                               color:
                                 selectProperti?.id === value.id
-                                  ? "#258cae"
-                                  : "",
+                                  ? '#258cae'
+                                  : '',
                             }}
                           >
                             {value?.nameproperties}
@@ -213,7 +213,7 @@ function DetailProduct() {
                         id_productproperties: selectProperti?.id,
                       })
                     );
-                    history("/cart");
+                    history('/cart');
                   }}
                 >
                   <a className="btn-product btn-cart">
@@ -232,15 +232,15 @@ function DetailProduct() {
               <h4>Video</h4>
               <hr
                 style={{
-                  marginTop: "10px",
-                  marginRight: "0px",
-                  marginBottom: "10px",
-                  marginLeft: "0px",
+                  marginTop: '10px',
+                  marginRight: '0px',
+                  marginBottom: '10px',
+                  marginLeft: '0px',
                 }}
               />
               <div
                 style={{
-                  width: "100%",
+                  width: '100%',
                   // display: "flex",
                   // justifyContent: "center",
                 }}
@@ -250,10 +250,10 @@ function DetailProduct() {
 
               <hr
                 style={{
-                  marginTop: "10px",
-                  marginRight: "0px",
-                  marginBottom: "10px",
-                  marginLeft: "0px",
+                  marginTop: '10px',
+                  marginRight: '0px',
+                  marginBottom: '10px',
+                  marginLeft: '0px',
                 }}
               />
             </div>
@@ -264,10 +264,10 @@ function DetailProduct() {
               <h4>Bình luận</h4>
               <hr
                 style={{
-                  marginTop: "10px",
-                  marginRight: "0px",
-                  marginBottom: "10px",
-                  marginLeft: "0px",
+                  marginTop: '10px',
+                  marginRight: '0px',
+                  marginBottom: '10px',
+                  marginLeft: '0px',
                 }}
               />
               <TextArea
@@ -285,8 +285,8 @@ function DetailProduct() {
                     setVisibleRepLyComment(!visibleRepLyComment);
                   } else {
                     openNotificationWithIcon(
-                      "error",
-                      "Vui lòng nhập bình luận"
+                      'error',
+                      'Vui lòng nhập bình luận'
                     );
                   }
                 }}
@@ -305,10 +305,11 @@ function DetailProduct() {
                     />
                     {/* Reply */}
                     {val.replys.map((rep: any) => (
-                      <div style={{ marginLeft: "45px" }}>
+                      <div style={{ marginLeft: '45px' }}>
                         <SingleComment
                           reply={false}
                           value={rep}
+                          // eslint-disable-next-line @typescript-eslint/no-empty-function
                           toggleDone={() => {}}
                         />
                       </div>
@@ -322,7 +323,7 @@ function DetailProduct() {
           </div>
         </div>
       ) : (
-        "Sản phẩm không tồn tại"
+        'Sản phẩm không tồn tại'
       )}
 
       <ModalNextIMG
@@ -344,7 +345,7 @@ function DetailProduct() {
             })
           ).then(() => {
             dispatch(getProductByIdAdmin({ id: Number(ID) }));
-            setValueComment("");
+            setValueComment('');
           })
         }
         // value={{ id: 0, replycomment: valueComment }}

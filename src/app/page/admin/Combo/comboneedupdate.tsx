@@ -8,34 +8,34 @@ import {
   Row,
   Select,
   Table,
-} from "antd";
-import moment from "moment";
-import { useEffect, useState } from "react";
+} from 'antd';
+import moment from 'moment';
+import { useEffect, useState } from 'react';
 import {
   getAllCategoryComboAdmin,
   getAllCategoryProductAdmin,
-} from "../../../../features/Admin/categoryAdnim";
+} from '../../../../features/Admin/categoryAdnim';
 import {
   getAllComboAdmin,
   getAllComboNeedUpdateAdmin,
   getComboSearchAdmin,
   postDeleteComboAdmin,
-} from "../../../../features/Admin/comboAdnim";
+} from '../../../../features/Admin/comboAdnim';
 import {
   accountAdminStore,
   categoryAdminStore,
   comboAdminStore,
-} from "../../../../use-selector";
-import ModalCombo from "../../../component/customer/modal/Combo/modal-combo";
-import ModalComboUpdate from "../../../component/customer/modal/Combo/modal-comboUpdate";
+} from '../../../../use-selector';
+import ModalCombo from '../../../component/customer/modal/Combo/modal-combo';
+import ModalComboUpdate from '../../../component/customer/modal/Combo/modal-comboUpdate';
 import {
   currency,
   getParsedDate,
   openNotification,
   useAppDispatch,
   useAppSelector,
-} from "../../../hooks";
-import { Product } from "../../../types/product";
+} from '../../../hooks';
+import { Product } from '../../../types/product';
 
 function ComboNeedUpdate() {
   const { Option } = Select;
@@ -51,13 +51,13 @@ function ComboNeedUpdate() {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [visibleSearch, setVisibleSearch] = useState(false);
-  const [valueSearch, setValueSearch] = useState("");
+  const [valueSearch, setValueSearch] = useState('');
   const [arrImgDelete, setArrImgDelete] = useState([] as any);
 
   useEffect(() => {
     dispatch(
       getAllComboNeedUpdateAdmin({ page: page, sort: 0, noitem: pageSize })
-    ).then((res: any) => {});
+    );
     setValueInputSelect(0);
 
     // dispatch(
@@ -72,42 +72,42 @@ function ComboNeedUpdate() {
 
   const columns = [
     {
-      title: "STT",
-      dataIndex: "id",
-      key: "id",
-      width: "10%",
+      title: 'STT',
+      dataIndex: 'id',
+      key: 'id',
+      width: '10%',
       render: (text: any, row: any, index: any) => index + 1,
     },
     {
-      title: "Danh mục",
-      dataIndex: "category",
-      key: "category",
+      title: 'Danh mục',
+      dataIndex: 'category',
+      key: 'category',
       render: (text: any, row: any, index: any) => row.category.name,
       sorter: (a: any, b: any) =>
         a.category.name.localeCompare(b.category.name),
     },
 
     {
-      title: "Tên combo",
-      dataIndex: "name",
-      key: "name",
+      title: 'Tên combo',
+      dataIndex: 'name',
+      key: 'name',
       sorter: (a: any, b: any) => a.name.localeCompare(b.name),
     },
 
     {
-      title: "Giá",
-      dataIndex: "price",
-      key: "price",
+      title: 'Giá',
+      dataIndex: 'price',
+      key: 'price',
       render: (price: any) => <>{currency(price)}</>,
       sorter: (a: any, b: any) => Number(a.price) - Number(b.price),
     },
 
     {
-      title: "Ngày tạo",
-      dataIndex: "created_date",
-      key: "created_date",
+      title: 'Ngày tạo',
+      dataIndex: 'created_date',
+      key: 'created_date',
       render: (created_date: any) => (
-        <>{moment(created_date).utc().format("DD-MM-YYYY").toString()}</>
+        <>{moment(created_date).utc().format('DD-MM-YYYY').toString()}</>
       ),
       sorter: (a: any, b: any) => {
         if (moment(a.created_date).isBefore(moment(b.created_date))) {
@@ -117,11 +117,11 @@ function ComboNeedUpdate() {
       },
     },
     {
-      title: "Ngày cập nhật",
-      dataIndex: "updated_date",
-      key: "updated_date",
+      title: 'Ngày cập nhật',
+      dataIndex: 'updated_date',
+      key: 'updated_date',
       render: (updated_date: any) => (
-        <>{moment(updated_date).utc().format("DD-MM-YYYY").toString()}</>
+        <>{moment(updated_date).utc().format('DD-MM-YYYY').toString()}</>
       ),
       sorter: (a: any, b: any) => {
         if (moment(a.updated_date).isBefore(moment(b.updated_date))) {
@@ -138,7 +138,7 @@ function ComboNeedUpdate() {
     onChange: (selectedRowKeys: any, selectedRows: any) => {
       console.log(
         `selectedRowKeys: ${selectedRowKeys}`,
-        "selectedRows: ",
+        'selectedRows: ',
         selectedRows
       );
       setSelectedID(selectedRowKeys);
@@ -161,16 +161,16 @@ function ComboNeedUpdate() {
   }
 
   function onSearch(val: any) {
-    console.log("search:", val.target.value);
+    console.log('search:', val.target.value);
     setValueSearch(val.target.value);
   }
 
   const handleKeyDown = (event: any) => {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       dispatch(
         getComboSearchAdmin({
           id_category: 0,
-          comboKey: valueSearch ? valueSearch : "",
+          comboKey: valueSearch ? valueSearch : '',
           minprice: null,
           maxprice: null,
           page: page,
@@ -181,7 +181,7 @@ function ComboNeedUpdate() {
   };
 
   return (
-    <div className="tabled" style={{ marginBottom: "20px" }}>
+    <div className="tabled" style={{ marginBottom: '20px' }}>
       <Row gutter={[24, 0]}>
         <Col xs={24} xl={24}>
           <Card
@@ -239,8 +239,8 @@ function ComboNeedUpdate() {
                   onConfirm={() => {
                     if (selectedID.length < 1) {
                       openNotification({
-                        message: "Chưa chọn sản phẩm",
-                        type: "error",
+                        message: 'Chưa chọn sản phẩm',
+                        type: 'error',
                       });
                     } else {
                       dispatch(postDeleteComboAdmin({ id: selectedID })).then(
@@ -257,7 +257,7 @@ function ComboNeedUpdate() {
                     }
                   }}
                 >
-                  <Button onClick={() => {}}>Xóa</Button>
+                  <Button>Xóa</Button>
                 </Popconfirm>
               </>
             }
@@ -266,19 +266,19 @@ function ComboNeedUpdate() {
               <Col xl={24}>
                 {visibleSearch && (
                   <Row gutter={[24, 24]}>
-                    <Col md={10} xs={20} style={{ margin: "20px" }}>
+                    <Col md={10} xs={20} style={{ margin: '20px' }}>
                       <div
                         style={{
-                          display: "flex",
-                          flexDirection: "row",
-                          justifyContent: "space-around",
-                          alignItems: "center",
+                          display: 'flex',
+                          flexDirection: 'row',
+                          justifyContent: 'space-around',
+                          alignItems: 'center',
                         }}
                       >
                         <Input
                           placeholder="Tìm kiếm"
                           onChange={onSearch}
-                          style={{ width: "100%", marginRight: "10px" }}
+                          style={{ width: '100%', marginRight: '10px' }}
                           size="small"
                           onKeyDown={handleKeyDown}
                         />
@@ -288,7 +288,7 @@ function ComboNeedUpdate() {
                             dispatch(
                               getComboSearchAdmin({
                                 id_category: 0,
-                                comboKey: valueSearch ? valueSearch : "",
+                                comboKey: valueSearch ? valueSearch : '',
                                 minprice: null,
                                 maxprice: null,
                                 page: page,
@@ -315,15 +315,18 @@ function ComboNeedUpdate() {
                     rowKey="id"
                     onRow={(record, rowIndex) => {
                       return {
+                        // eslint-disable-next-line @typescript-eslint/no-empty-function
                         onClick: (event) => {}, // click row
                         onDoubleClick: (event) => {
                           setVisible(true);
                         }, // double click row
+                        // eslint-disable-next-line @typescript-eslint/no-empty-function
                         onContextMenu: (event) => {}, // right button click row
                         onMouseEnter: (event) => {
                           // console.log(record);
                           setValue(record);
                         }, // mouse enter row
+                        // eslint-disable-next-line @typescript-eslint/no-empty-function
                         onMouseLeave: (event) => {}, // mouse leave row
                       };
                     }}
@@ -337,9 +340,9 @@ function ComboNeedUpdate() {
                 <Col xl={24}>
                   <Pagination
                     style={{
-                      marginTop: "10px",
-                      float: "right",
-                      marginBottom: "10px",
+                      marginTop: '10px',
+                      float: 'right',
+                      marginBottom: '10px',
                     }}
                     onChange={(page, pageSizeNew) => {
                       console.log(page, pageSizeNew);

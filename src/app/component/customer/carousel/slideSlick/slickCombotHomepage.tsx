@@ -1,16 +1,16 @@
-import { Image } from "antd";
-import React from "react";
-import { Link } from "react-router-dom";
-import Slider from "react-slick";
-import { Combo } from "../../../../types/combo";
-import { ProductHomePage } from "../../../../types/product-home-page";
-import Product from "../../product/product";
-import "./slick.css";
+import { Image } from 'antd';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
+import { Combo } from '../../../../types/combo';
+import { ProductHomePage } from '../../../../types/product-home-page';
+import Product from '../../product/product';
+import './slick.css';
 interface propsSlide {
   combo: Array<Combo>;
 }
 function SlickComBoCarouselHomePage(props: propsSlide) {
-  console.log("props", props);
+  console.log('props', props);
 
   const settings = {
     dots: false,
@@ -68,17 +68,17 @@ function SlickComBoCarouselHomePage(props: propsSlide) {
       <h2
         className="title title-border"
         style={{
-          marginTop: "30px",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
+          marginTop: '30px',
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
         }}
       >
-        {"Combo Sản Phẩm"}
+        {'Combo Sản Phẩm'}
         <Link
           to={`danhmuccombo/${0}`}
-          style={{ fontSize: "16px", marginRight: "70px" , fontWeight: 400}}
+          style={{ fontSize: '16px', marginRight: '70px' , fontWeight: 400}}
         >
           Xem tất cả
         </Link>
@@ -98,7 +98,7 @@ function SlickComBoCarouselHomePage(props: propsSlide) {
         {props.combo.map((e) => (
           <div
             className="slide-home-page"
-            style={{ margin: "10px", padding: "10px" }}
+            style={{ margin: '10px', padding: '10px' }}
           >
             <Product value={e} />
           </div>
@@ -115,7 +115,7 @@ function SampleNextArrow(props: any) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block" }}
+      style={{ ...style, display: 'block' }}
       onClick={onClick}
     />
   );
@@ -126,7 +126,7 @@ function SamplePrevArrow(props: any) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block" }}
+      style={{ ...style, display: 'block' }}
       onClick={onClick}
     />
   );

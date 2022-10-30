@@ -1,6 +1,6 @@
-import { Category } from "./category";
-import { Combo } from "./combo";
-import { Promotion, promotiondetails } from "./promotion";
+import { Category } from './category';
+import { Combo } from './combo';
+import { Promotion, promotiondetails } from './promotion';
 
 export interface Product {
   id: number;
@@ -84,15 +84,15 @@ export interface AddProduct {
 }
 
 export interface AddProductCombo {
-  id_category: Number;
-  id_promotion: Number;
+  id_category: number;
+  id_promotion: number;
   name: string;
   describe: string;
-  price: Number;
+  price: number;
   linkvideo: string;
   combo_products: [
     {
-      id_product: Number;
+      id_product: number;
       amountproduct: string;
     }
   ];
@@ -107,7 +107,7 @@ export interface AddProductCombo {
 export type EditProduct = AddProduct & { id: number };
 
 export interface DeleteProduct {
-  id: Array<Number>;
+  id: Array<number>;
 }
 export interface CustomesProduct {
   listproduct: Array<Product>;

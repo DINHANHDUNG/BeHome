@@ -1,2 +1,2 @@
-export * from "./patchCategory-api";
-export * from "./category-slice";
+export * from './patchCategory-api';
+export * from './category-slice';
