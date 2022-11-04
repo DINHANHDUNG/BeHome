@@ -12,7 +12,7 @@ function Footer(props: typeProps) {
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }, [scroll]);
 
@@ -121,10 +121,17 @@ function Footer(props: typeProps) {
                         style={{ color: 'red', fontSize: '40px' }}
                       ></i>
                     </a>
-                    <a href="" className="mr-3">
-                      <i
+                    <a
+                      href="https://www.tiktok.com/@behome_store"
+                      className="mr-3"
+                    >
+                      {/* <i
                         className="icons fa-brands fa-instagram"
                         style={{ color: 'red', fontSize: '40px' }}
+                      ></i> */}
+                      <i
+                        className="fa-brands fa-tiktok"
+                        style={{ color: 'black', fontSize: '35px' }}
                       ></i>
                     </a>
 

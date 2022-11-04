@@ -105,7 +105,7 @@ function ModalProductUpdate(props: propsModalProduct) {
       });
     });
 
-    manufacturer.listManufacturer?.map((val) => {
+    manufacturer?.listManufacturer?.map((val) => {
       dataManufacturer.push({
         id: val.manufacturer?.id,
         name: val.manufacturer?.name,

@@ -44,7 +44,7 @@ function Manufacturer() {
 
   useEffect(() => {
     const data = [] as any;
-    manufacturer.listManufacturer?.map((val) => {
+    manufacturer?.listManufacturer?.map((val) => {
       data.push({
         id: val.manufacturer?.id,
         name: val.manufacturer?.name,

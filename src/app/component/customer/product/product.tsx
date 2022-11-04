@@ -31,7 +31,7 @@ function Product(props: propsProduct) {
               src={
                 'http://103.137.184.193:5500/images/' +
                 props.value?.images?.find(
-                  (x: any) => x.type === '1' || x.type === 'MAIN'
+                  (x: any) => x.type === '1' || x.type === 'MAIN',
                 )?.imagename
               }
               alt="Product image"
@@ -58,7 +58,7 @@ function Product(props: propsProduct) {
                   addCart({
                     ...props.value,
                     id_productproperties: props.value.productpropertiess[0].id,
-                  })
+                  }),
                 );
               }
               dispatch(addCart(props.value));
@@ -88,13 +88,24 @@ function Product(props: propsProduct) {
           </Link>
         </h3>
         <div className="product-price">
-          {props.value.productpropertiess.length > 0
+          <span style={{ fontWeight: 600, marginRight: '5px' }}>
+            {props.value.productpropertiess.length > 0
+              ? props.value.productpropertiess[0]?.price !== null
+                ? Numberformat(props.value.productpropertiess[0]?.price) + ' đ'
+                : 'Liên hệ'
+              : props.value?.price
+              ? Numberformat(props.value?.price) + ' đ'
+              : 'Liên hệ'}
+          </span>
+          {/* {(props.value.productpropertiess.length > 0
             ? props.value.productpropertiess[0]?.price !== null
               ? Numberformat(props.value.productpropertiess[0]?.price)
               : 'Liên hệ'
             : props.value?.price
             ? Numberformat(props.value?.price)
-            : 'Liên hệ'}
+            : 'Liên hệ') !== 'Liên hệ'
+            ? <span>đ</span>
+            : null} */}
           {/* {props.value?.id_productproperties
                           ? Numberformat(
                               props.value.productpropertiess.filter(

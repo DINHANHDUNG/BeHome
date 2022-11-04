@@ -159,12 +159,12 @@ function Sidenav({ color }: any) {
             <span
               className="icon"
               style={{
-                background: page === 'admin' ? color : '',
+                background: page === 'admin' ? color : color,
               }}
             >
               {dashboard}
             </span>
-            <span className="label">Đơn hàng</span>
+            <span className="label" style={{fontWeight: 600}}>Đơn hàng</span>
           </NavLink>
         </Menu.Item>
 

@@ -266,10 +266,10 @@ function ModalCombo(props: propsModalProduct) {
   }
 
   //Select
-  const valueSelect = categorys.listcategoryCombo.filter(
+  const valueSelect = categorys?.listcategoryCombo?.filter(
     (item) => item.id !== 0
   );
-  console.log(valueSelect);
+  console.log(categorys?.listcategoryCombo);
 
   //Xử lý ảnh
   const inputRef = useRef(null as any);
@@ -386,7 +386,7 @@ function ModalCombo(props: propsModalProduct) {
                       {item.name}
                     </Option>
                   ))} */}
-                {valueSelect.map((item) => (
+                {valueSelect?.map((item) => (
                   <Option value={item.id} key={item.id}>
                     {item.name}
                   </Option>

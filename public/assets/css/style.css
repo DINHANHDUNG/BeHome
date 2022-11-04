@@ -3735,9 +3735,20 @@ p {
 }
 .header-10 .header-top {
   font-size: 1.4rem;
-  background-color: #fafafa;
+  background-color: rgb(37 140 174);
   margin-bottom: 0;
 }
+
+.header-10 .header-top .header-top-center {
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  align-items: center;
+} 
 .header-10 .header-top .container:after,
 .header-10 .header-top .container-fluid:after {
   display: none;
@@ -4245,6 +4256,10 @@ p {
   .header-12 .header-search-extended {
     max-width: 832px;
   }
+
+  .header-10 .header-top .header-top-center{
+    display: none;
+  }
 }
 @media screen and (max-width: 991px) {
   .header-12 .header-search-visible .header-search-wrapper:before {
@@ -4282,6 +4297,10 @@ p {
   }
   .header-12 .dropdown.category-dropdown .dropdown-toggle::before {
     right: 1rem;
+  }
+
+  .header-10 .header-top .header-top-center{
+    display: block;
   }
 }
 @media screen and (max-width: 395px) {
@@ -4984,7 +5003,7 @@ p {
   width: 5rem;
   height: 5rem;
   position: fixed;
-  right: 50px;
+  right: 20px;
   bottom: 15px;
   z-index: 999;
   color: #cccccc;
@@ -5022,7 +5041,7 @@ p {
   flex-direction: column;
   bottom: 70px;
   justify-content: space-between;
-  right: 50px;
+  right: 20px;
   z-index: 999;
 }
 
@@ -6692,7 +6711,7 @@ p {
 .product-price {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-flow: wrap;
   font-weight: 400;
   font-size: 1.6rem;
@@ -8278,6 +8297,7 @@ p {
     height: 7rem;
     font-size: 1.8rem;
   }
+  
 }
 @media screen and (min-width: 992px) {
   .video-banner-bg {
@@ -9118,6 +9138,18 @@ small.form-text {
   }
   .cta .input-group-round .input-group-append {
     justify-content: center;
+  }
+  .product-image{
+    height: 200px !important;
+  }
+  .product-body{
+    padding: 1.6rem 1rem !important
+  }
+  .product-title{
+    white-space: nowrap; 
+    width: 100%; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
   }
 }
 .table {
@@ -16664,12 +16696,12 @@ button:focus {
 
 @media screen and (max-width: 575px) {
   .banner > .slick-initialized .slick-slide {
-    max-height: 128px !important;
+    max-height: 200px !important
   }
 }
 @media (max-width: 340px) {
   .banner > .slick-initialized .slick-slide {
-    max-height: 128px !important;
+    max-height: 200px !important
   }
 }
 

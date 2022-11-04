@@ -18,11 +18,17 @@ function Mobilemenu() {
   }, []);
   return (
     <div>
-      <div className="mobile-menu-overlay" onClick={()=>document.body.classList.remove('mmenu-active')}></div>
+      <div
+        className="mobile-menu-overlay"
+        onClick={() => document.body.classList.remove('mmenu-active')}
+      ></div>
 
       <div className="mobile-menu-container mobile-menu-light">
         <div className="mobile-menu-wrapper">
-          <span className="mobile-menu-close" onClick={()=>document.body.classList.remove('mmenu-active')}>
+          <span
+            className="mobile-menu-close"
+            onClick={() => document.body.classList.remove('mmenu-active')}
+          >
             <i className="fa-solid fa-align-justify"></i>
           </span>
 
@@ -90,24 +96,33 @@ function Mobilemenu() {
               aria-labelledby="mobile-menu-link"
             >
               <nav className="mobile-nav">
-                <ul className="mobile-menu" onClick={()=>document.body.classList.remove('mmenu-active')}>
-                  {/* <li className="active close-menu-mobile">
+                <ul
+                  className="mobile-menu"
+                  onClick={() => document.body.classList.remove('mmenu-active')}
+                >
+                  <li className="active close-menu-mobile">
                     <a className="close-menu-mobile" href="/">
                       Trang chủ
                     </a>
                   </li>
                   <li className="active">
-                    <Link to={"/buildcustomer"}>Thiết kế nội thất</Link>
+                    <Link to={'/introduce'}>Giới thiệu</Link>
+                  </li>
+                  <li className="active">
+                    <Link to={'/buildcustomer'}>Thiết kế nội thất</Link>
+                  </li>
+                  {/* <li className="active">
+                    <Link to={'/buildcustomer'}>Thiết kế nội thất</Link>
                   </li>
 
                   <li>
-                    <a href={"tel:" + company.Company.phonenumber}>
+                    <a href={'tel:' + company.Company.phonenumber}>
                       {company.Company.phonenumber}
                     </a>
                   </li>
 
                   <li>
-                    <a href={"mailto:" + company.Company.email}>
+                    <a href={'mailto:' + company.Company.email}>
                       {company.Company.email}
                     </a>
                   </li> */}
@@ -167,7 +182,7 @@ function Mobilemenu() {
                           {val.name}
                         </Link>
                       </li>
-                    )
+                    ),
                   )}
 
                   <li style={{ fontWeight: 500, cursor: 'none' }}>
@@ -226,7 +241,7 @@ function Mobilemenu() {
                           {val.name}
                         </Link>
                       </li>
-                    )
+                    ),
                   )}
                   {/* 
                   {category.listcategory.map((val) => (

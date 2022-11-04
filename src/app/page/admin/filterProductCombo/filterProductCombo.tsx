@@ -76,7 +76,7 @@ function FilterProductCombo(props: propsFilter) {
             <div className="collapse show" id="widget-1">
               <div className="widget-body">
                 <div className="filter-items filter-items-count">
-                  {manufacturer.listManufacturer?.map((value) => (
+                  {manufacturer?.listManufacturer?.map((value) => (
                     <div className="filter-item" style={{display: value.count > 0 ? '' : 'none'}}>
                       <div className="custom-control custom-checkbox">
                         <input

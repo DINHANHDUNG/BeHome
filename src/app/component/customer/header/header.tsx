@@ -10,7 +10,7 @@ interface typeProps {
 }
 function Header(props: typeProps) {
   const categoryTrees = useAppSelector(categoryAdminStore);
-  const cart = useAppSelector(CartStore); 
+  const cart = useAppSelector(CartStore);
 
   const history = useNavigate();
   const [productkey, setProductkey] = useState(null as any);
@@ -21,6 +21,13 @@ function Header(props: typeProps) {
   }, [cart]);
   return (
     <header className="header header-10">
+      <div className="header-top">
+        <div className="container">
+          <div className="header-top-center">
+            Hotline: {props.company.Company.phonenumber?.split('-')[0]}
+          </div>
+        </div>
+      </div>
       <div className="header-middle">
         <div className="container-fluid">
           <div className="header-left">
@@ -84,7 +91,14 @@ function Header(props: typeProps) {
           </div>
 
           {/* Cart */}
-          <div className="header-right" style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+          <div
+            className="header-right"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
             <div className="dropdown cart-dropdown">
               <Link to={'/cart'} className="dropdown-toggle">
                 <i
@@ -102,10 +116,9 @@ function Header(props: typeProps) {
                 >
                   {cart.orderdetails?.length}
                 </span>
-                
               </Link>
             </div>
-            <span style={{whiteSpace: 'nowrap'}}>Giỏ hàng</span>
+            <span style={{ whiteSpace: 'nowrap' }}>Giỏ hàng</span>
           </div>
         </div>
       </div>
@@ -154,29 +167,43 @@ function Header(props: typeProps) {
                       {categoryTrees.listcategoryProduct?.map((val, idx) =>
                         val.children?.length > 0 ? (
                           <li className="megamenu-container" key={idx}>
+                            {/* <a href={`danhmucproduct/${val.id}`}>{val.name}</a> */}
                             <Link
                               to={`danhmucproduct/${val.id}`}
                               className="sf-with-ul"
                             >
                               {val.name}
                             </Link>
-                            {val.children?.length  > 0 && val.children? (
+                            {val.children?.length > 0 && val.children ? (
                               <div className="megamenu">
                                 <div className="row no-gutters">
                                   <div className="col-md-12">
                                     <div className="menu-col">
                                       <div className="row">
                                         {val.children?.map((val2, idx) => (
-                                          <div className="col-md-4" key={idx}>
+                                          <div
+                                            className="col-md-4"
+                                            key={idx}
+                                            style={{
+                                              marginTop: idx >= 3 ? '15px' : 0,
+                                            }}
+                                          >
                                             <div className="menu-title">
                                               <Link
                                                 to={`danhmucproduct/${val2.id}`}
-                                                style={{color: val2.children?.length > 0 ? '' : '#000'  }}
+                                                style={{
+                                                  color:
+                                                    val2.children?.length > 0
+                                                      ? ''
+                                                      : '#000',
+                                                }}
                                               >
                                                 {val2.name}
                                               </Link>
                                             </div>
-                                            {val2.children && val2.children !== null && val2.children.length > 0 ? (
+                                            {val2.children &&
+                                            val2.children !== null &&
+                                            val2.children.length > 0 ? (
                                               <ul>
                                                 {val2.children?.map(
                                                   (val3, idx) => (
@@ -202,7 +229,7 @@ function Header(props: typeProps) {
                                                     </ul>
                                                   ) : null} */}
                                                     </li>
-                                                  )
+                                                  ),
                                                 )}
                                               </ul>
                                             ) : (
@@ -223,7 +250,7 @@ function Header(props: typeProps) {
                               {val.name}
                             </Link>
                           </li>
-                        )
+                        ),
                       )}
                     </ul>
 
@@ -266,7 +293,13 @@ function Header(props: typeProps) {
                                     <div className="menu-col">
                                       <div className="row">
                                         {val.children?.map((val2, idx) => (
-                                          <div className="col-md-4" key={idx}>
+                                          <div
+                                            className="col-md-4"
+                                            key={idx}
+                                            style={{
+                                              marginTop: idx > 3 ? '10px' : 0,
+                                            }}
+                                          >
                                             <div className="menu-title ">
                                               <Link
                                                 to={`danhmuccombo/${val2.id}`}
@@ -300,7 +333,7 @@ function Header(props: typeProps) {
                                                     </ul>
                                                   ) : null} */}
                                                     </li>
-                                                  )
+                                                  ),
                                                 )}
                                               </ul>
                                             ) : (
@@ -330,7 +363,7 @@ function Header(props: typeProps) {
                               {val.name}
                             </Link>
                           </li>
-                        )
+                        ),
                       )}
                     </ul>
                   </nav>

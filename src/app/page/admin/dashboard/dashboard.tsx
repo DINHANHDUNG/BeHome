@@ -64,7 +64,7 @@ function Dashboard() {
         page: page,
         sort: 0,
         noitem: pageSize,
-      })
+      }),
     );
   }, []);
 
@@ -113,8 +113,35 @@ function Dashboard() {
       title: 'Giá',
       dataIndex: 'price',
       key: 'price',
-      render: (price: any) => <>{price ? currency(price) : 'Liên hệ'}</>,
-      sorter: (a: any, b: any) => Number(a.price) - Number(b.price),
+      render: (text: any, row: any, index: any) => {
+        console.log('row', row);
+        return row.productpropertiess.length > 0
+          ? row.productpropertiess[0]?.price !== null
+            ? currency(row.productpropertiess[0]?.price)
+            : 'Liên hệ'
+          : row?.price
+          ? currency(row?.price)
+          : 'Liên hệ';
+      },
+      sorter: (a: any, b: any) =>
+        Number(
+          a.productpropertiess.length > 0
+            ? a.productpropertiess[0]?.price !== null
+              ? a.productpropertiess[0]?.price
+              : 0
+            : a?.price
+            ? a?.price
+            : 0,
+        ) -
+        Number(
+          b.productpropertiess.length > 0
+            ? b.productpropertiess[0]?.price !== null
+              ? b.productpropertiess[0]?.price
+              : 0
+            : b.price
+            ? b.price
+            : 0,
+        ),
     },
 
     {
@@ -173,7 +200,7 @@ function Dashboard() {
                         page: page,
                         noitem: pageSize,
                         sort: 0,
-                      })
+                      }),
                     );
                   } else {
                     dispatch(
@@ -182,12 +209,12 @@ function Dashboard() {
                         sort: 0,
                         page: page,
                         noitem: pageSize,
-                      })
+                      }),
                     );
                   }
                 });
               }}
-              style={{color: '#0a9f15'}}
+              style={{ color: '#0a9f15' }}
             >
               Hiện trên trang chủ
             </Button>
@@ -208,7 +235,7 @@ function Dashboard() {
                         page: page,
                         noitem: pageSize,
                         sort: 0,
-                      })
+                      }),
                     );
                   } else {
                     dispatch(
@@ -217,12 +244,12 @@ function Dashboard() {
                         sort: 0,
                         page: page,
                         noitem: pageSize,
-                      })
+                      }),
                     );
                   }
                 });
               }}
-              style={{color: 'red'}}
+              style={{ color: 'red' }}
             >
               Ẩn khỏi trang chủ
             </Button>
@@ -242,7 +269,7 @@ function Dashboard() {
       console.log(
         `selectedRowKeys: ${selectedRowKeys}`,
         'selectedRows: ',
-        selectedRows
+        selectedRows,
       );
       setSelectedID(selectedRowKeys);
       setSelected(selectedRows);
@@ -259,7 +286,7 @@ function Dashboard() {
         page: 1,
         sort: 0,
         noitem: pageSize,
-      })
+      }),
     );
   }
 
@@ -281,7 +308,7 @@ function Dashboard() {
           page: page,
           noitem: pageSize,
           sort: 0,
-        })
+        }),
       );
     }
   };
@@ -357,9 +384,9 @@ function Dashboard() {
                               page: page,
                               sort: 0,
                               noitem: pageSize,
-                            })
+                            }),
                           );
-                        }
+                        },
                       );
                     }
                   }}
@@ -403,7 +430,7 @@ function Dashboard() {
                                 page: page,
                                 noitem: pageSize,
                                 sort: 0,
-                              })
+                              }),
                             );
                           }}
                         >
@@ -462,7 +489,7 @@ function Dashboard() {
                         page: page,
                         sort: 0,
                         noitem: pageSizeNew ? pageSizeNew : pageSize,
-                      })
+                      }),
                     );
                     if (pageSizeNew) {
                       setPageSize(pageSizeNew);
