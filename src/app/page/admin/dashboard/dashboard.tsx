@@ -115,7 +115,7 @@ function Dashboard() {
       key: 'price',
       render: (text: any, row: any, index: any) => {
         console.log('row', row);
-        return row.productpropertiess.length > 0
+        return row?.productpropertiess?.length > 0
           ? row.productpropertiess[0]?.price !== null
             ? currency(row.productpropertiess[0]?.price)
             : 'Liên hệ'

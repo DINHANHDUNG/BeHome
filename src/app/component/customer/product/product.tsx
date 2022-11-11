@@ -53,7 +53,7 @@ function Product(props: propsProduct) {
                 message: 'Đã thêm vào giỏ hàng',
                 type: 'success',
               });
-              if (props.value.productpropertiess.length > 0) {
+              if (props.value?.productpropertiess?.length > 0) {
                 return dispatch(
                   addCart({
                     ...props.value,
@@ -89,7 +89,7 @@ function Product(props: propsProduct) {
         </h3>
         <div className="product-price">
           <span style={{ fontWeight: 600, marginRight: '5px' }}>
-            {props.value.productpropertiess.length > 0
+            {props.value?.productpropertiess?.length > 0
               ? props.value.productpropertiess[0]?.price !== null
                 ? Numberformat(props.value.productpropertiess[0]?.price) + ' đ'
                 : 'Liên hệ'

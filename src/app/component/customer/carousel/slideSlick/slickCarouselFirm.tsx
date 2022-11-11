@@ -10,7 +10,7 @@ function SlickCarousel(props: { value: any; toggle: any }) {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     pauseOnHover: true,
     autoplay: true,
@@ -39,12 +39,13 @@ function SlickCarousel(props: { value: any; toggle: any }) {
               }}
               onClick={() => props.toggle(v)}
               onMouseLeave={() => setAutoPlay(true)}
-              width={'100%'}
+              // width={'100%'}
               src={'http://103.137.184.193:5500/images/' + v?.imagename}
               alt="product side"
               style={{
                 maxHeight: '130px',
-                padding: '10px',
+                width: '90%',
+                // padding: '10px',
                 objectFit: 'contain',
                 border: '1px solid #039',
               }}
