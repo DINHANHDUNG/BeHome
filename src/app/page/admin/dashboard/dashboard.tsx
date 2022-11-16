@@ -35,7 +35,8 @@ import {
   useAppSelector,
 } from '../../../hooks';
 import { Product } from '../../../types/product';
-
+// import { CKEditor } from '@ckeditor/ckeditor5-react';
+// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 function Dashboard() {
   const { Option } = Select;
   const dispatch = useAppDispatch();
@@ -312,9 +313,67 @@ function Dashboard() {
       );
     }
   };
-
+  //   const imageConfiguration = {
+  //     resizeOptions: [
+  //         {
+  //             name: 'resizeImage:original',
+  //             value: null,
+  //             label: 'Original'
+  //         },
+  //         {
+  //             name: 'resizeImage:40',
+  //             value: '40',
+  //             label: '40%'
+  //         },
+  //         {
+  //             name: 'resizeImage:60',
+  //             value: '60',
+  //             label: '60%'
+  //         }
+  //     ],
+  //     toolbar: [ ..., 'resizeImage' ]
+  // }
   return (
     <div className="tabled" style={{ marginBottom: '20px' }}>
+      {/* <CKEditor
+        editor={ClassicEditor}
+        config={{
+          resizeOptions: [
+            {
+              name: 'resizeImage:original',
+              value: null,
+              label: 'Original',
+            },
+            {
+              name: 'resizeImage:40',
+              value: '40',
+              label: '40%',
+            },
+            {
+              name: 'resizeImage:60',
+              value: '60',
+              label: '60%',
+            },
+          ],
+          toolbar: ['uploadImage', 'resizeImage:original'],
+          // toolbar: [
+          //   'bold',
+          //   'italic',
+          //   'resizeImage:50',
+          //   'resizeImage:75',
+          //   'resizeImage:original',
+          //   'Image'
+          // ],
+        }}
+        data="<p>Hello from CKEditor 5!</p>"
+        onReady={(editor: any) => {
+          console.log('ok', editor);
+        }}
+        onChange={(event: any, editor: any) => {
+          const data = editor.getData();
+          console.log({ event, editor, data });
+        }}
+      /> */}
       <Row gutter={[24, 0]}>
         <Col xs={24} xl={24}>
           <Card
