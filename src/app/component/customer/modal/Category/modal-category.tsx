@@ -42,7 +42,7 @@ function ModalCategory(props: propsModalCategory) {
           id_parent: value.idcategory ? value.idcategory : null,
           name: value.name,
           type: props.value.type,
-        })
+        }),
       ).then(() => dispatch(getAllCategoryTrees()));
     } else {
       // Thêm;
@@ -51,14 +51,17 @@ function ModalCategory(props: propsModalCategory) {
           id_parent: value.idcategory ? value.idcategory : null,
           name: value.name,
           type: props.value.type,
-        })
+        }),
       ).then(() => dispatch(getAllCategoryTrees()));
     }
   }
 
   //Select
   const categorys = useAppSelector(categoryAdminStore);
-  const valueSelect = categorys.listcategoryProduct;
+  const valueSelect =
+    props.value.type === 'COMBO'
+      ? categorys.listcategoryCombo
+      : categorys.listcategoryProduct;
   console.log(valueSelect);
 
   return (

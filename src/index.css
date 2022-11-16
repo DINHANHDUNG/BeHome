@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.HideShowSpecifications {
+  background-color: #f5f5f5;
+  padding: 5px;
+  width: 100px;
+  cursor: pointer;
+  text-align: center;
+}

@@ -37,7 +37,7 @@ function DetailProduct() {
       id_product: number;
       nameproperties: string;
       price: number;
-    } | null
+    } | null,
   );
 
   console.log('products->>>', products);
@@ -48,8 +48,8 @@ function DetailProduct() {
     if (products?.listproduct[0]?.images?.length > 0) {
       setDisplayIMG(
         products.listproduct[0].images?.find(
-          (x: any) => x.type === '1' || x.type === 'MAIN'
-        )
+          (x: any) => x.type === '1' || x.type === 'MAIN',
+        ),
       );
     }
 
@@ -59,16 +59,24 @@ function DetailProduct() {
   }, [products]);
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
     dispatch(getProductByIdAdmin({ id: Number(ID) }));
   }, []);
   const [img, setIMG] = useState([] as any);
   const [dispayIMG, setDisplayIMG] = useState(
-    img?.length > 0 ? img[0] : ({} as any)
+    img?.length > 0 ? img[0] : ({} as any),
   );
   const [visible, setVisible] = useState(false);
   const [visibleRepLyComment, setVisibleRepLyComment] = useState(false);
   const [valueComment, setValueComment] = useState('');
-
+  const [showFullSpecifications, setShowFullSpecifications] = useState(false);
+  const onChangeShowFull = () => {
+    setShowFullSpecifications(!showFullSpecifications);
+  };
   return (
     <div className="container-fluid">
       {products?.listproduct[0]?.id ? (
@@ -185,13 +193,48 @@ function DetailProduct() {
                 </div>
 
                 <div className="product-content mb-3">
-                  {products?.listproduct[0]?.productdetails
+                  {/* {products?.listproduct[0]?.productdetails
                     ?.slice(0, 5)
                     .map((val: any) => (
                       <p>
                         ✔ {val?.title}: {val?.specifications}
                       </p>
-                    ))}
+                    ))} */}
+
+                  {showFullSpecifications
+                    ? products?.listproduct[0]?.productdetails?.map(
+                        (val: any) => (
+                          <p>
+                            ✔ {val?.title}: {val?.specifications}
+                          </p>
+                        ),
+                      )
+                    : products?.listproduct[0]?.productdetails
+                        ?.slice(0, 5)
+                        .map((val: any) => (
+                          <p>
+                            ✔ {val?.title}: {val?.specifications}
+                          </p>
+                        ))}
+
+                  {products?.listproduct[0]?.productdetails.length > 5 ? (
+                    !showFullSpecifications ? (
+                      <p
+                        onClick={onChangeShowFull}
+                        className="HideShowSpecifications"
+                      >
+                        Xem đầy đủ <i className="fa-solid fa-caret-down"></i>
+                      </p>
+                    ) : (
+                      <p
+                        onClick={onChangeShowFull}
+                        className="HideShowSpecifications"
+                      >
+                        Thu gọn{' '}
+                        <i className="fa-sharp fa-solid fa-caret-up"></i>
+                      </p>
+                    )
+                  ) : null}
 
                   {/* <p> ✔ RAM: 64GB</p>
                   <p> ✔ Ổ cứng: 1TB SSD</p>
@@ -211,7 +254,7 @@ function DetailProduct() {
                       addCart({
                         ...products?.listproduct[0],
                         id_productproperties: selectProperti?.id,
-                      })
+                      }),
                     );
                     history('/cart');
                   }}
@@ -286,7 +329,7 @@ function DetailProduct() {
                   } else {
                     openNotificationWithIcon(
                       'error',
-                      'Vui lòng nhập bình luận'
+                      'Vui lòng nhập bình luận',
                     );
                   }
                 }}
@@ -342,7 +385,7 @@ function DetailProduct() {
               id_product: Number(ID),
               id_combo: null,
               contents: valueComment,
-            })
+            }),
           ).then(() => {
             dispatch(getProductByIdAdmin({ id: Number(ID) }));
             setValueComment('');
