@@ -6712,7 +6712,6 @@ p {
   display: flex;
   align-items: center;
   /* justify-content: space-between; */
-  flex-flow: wrap;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.25;
@@ -9146,6 +9145,18 @@ small.form-text {
     padding: 1.6rem 1rem !important
   }
   .product-title{
+    white-space: nowrap; 
+    width: 100%; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+  .product-price {
+    white-space: nowrap; 
+    width: 100%; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+  .currency-product {
     white-space: nowrap; 
     width: 100%; 
     overflow: hidden;

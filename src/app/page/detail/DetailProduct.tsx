@@ -52,10 +52,9 @@ function DetailProduct() {
         ),
       );
     }
-
-    if (products?.listproduct[0]?.productpropertiess?.length > 0) {
-      setSelectProperti(products.listproduct[0].productpropertiess[0]);
-    }
+    // if (products?.listproduct[0]?.productpropertiess?.length > 0) {
+    //   setSelectProperti(products.listproduct[0].productpropertiess[0]);
+    // }
   }, [products]);
 
   useEffect(() => {
@@ -150,6 +149,8 @@ function DetailProduct() {
                       ? selectProperti?.price !== null
                         ? currency(selectProperti?.price)
                         : 'Liên hệ'
+                      : products?.listproduct[0].productpropertiess.length > 0
+                      ? sortPrice(products?.listproduct[0].productpropertiess)
                       : products?.listproduct[0]?.price
                       ? currency(products?.listproduct[0]?.price)
                       : 'Liên hệ'}
@@ -399,3 +400,25 @@ function DetailProduct() {
 }
 
 export default DetailProduct;
+
+export function sortPrice(arr: any) {
+  let array = [] as any;
+  array = arr?.slice()?.sort((a: any, b: any) => {
+    return Number(a.price) - Number(b.price);
+  });
+  if (array.length > 1) {
+    if (array[0].price === array[array.length - 1].price) {
+      return currency(array[0].price);
+    }
+    return (
+      <div className='currency-product'>
+        {currency(array[0].price)} -{' '}
+        {currency(array[array.length - 1].price)}
+      </div>
+    );
+  }
+  if (array.length === 1) {
+    return array[0].price ? currency(array[0].price) : 'Liên hệ';
+  }
+  return 'Liên hệ';
+}

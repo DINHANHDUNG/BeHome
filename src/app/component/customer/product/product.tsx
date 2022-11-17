@@ -8,6 +8,7 @@ import {
   success,
   useAppDispatch,
 } from '../../../hooks';
+import { sortPrice } from '../../../page/detail/DetailProduct';
 import { Combo } from '../../../types/combo';
 import { Product as Product2 } from '../../../types/product';
 interface propsProduct {
@@ -88,32 +89,13 @@ function Product(props: propsProduct) {
           </Link>
         </h3>
         <div className="product-price">
-          <span style={{ fontWeight: 600, marginRight: '5px' }}>
+          <span className='currency-product' style={{ fontWeight: 600, marginRight: '5px' }}>
             {props.value?.productpropertiess?.length > 0
-              ? props.value.productpropertiess[0]?.price !== null
-                ? Numberformat(props.value.productpropertiess[0]?.price) + ' đ'
-                : 'Liên hệ'
+              ? sortPrice(props.value?.productpropertiess)
               : props.value?.price
-              ? Numberformat(props.value?.price) + ' đ'
+              ? currency(props.value?.price)
               : 'Liên hệ'}
           </span>
-          {/* {(props.value.productpropertiess.length > 0
-            ? props.value.productpropertiess[0]?.price !== null
-              ? Numberformat(props.value.productpropertiess[0]?.price)
-              : 'Liên hệ'
-            : props.value?.price
-            ? Numberformat(props.value?.price)
-            : 'Liên hệ') !== 'Liên hệ'
-            ? <span>đ</span>
-            : null} */}
-          {/* {props.value?.id_productproperties
-                          ? Numberformat(
-                              props.value.productpropertiess.filter(
-                                (b: any) => b.id === props.value?.id_productproperties
-                              )[0]?.price
-                            )
-                          : Numberformat(props.value?.price)} */}
-          {/* {props.value.price ? currency(props.value.price) : "Liên hệ"} */}
         </div>
       </div>
     </div>

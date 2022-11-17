@@ -27,7 +27,7 @@ function Home(props: typeProps) {
         <Listcombo combo={products.listcombohomepage} />
       )}
 
-      {products.listproducthomepage.map((val, idx) =>
+      {products?.listproducthomepage?.map((val, idx) =>
         val.products?.length > 6 ? (
           <SlickCarouselHomePage product={val} />
         ) : (
