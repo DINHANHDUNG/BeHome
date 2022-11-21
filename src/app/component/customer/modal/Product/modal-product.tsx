@@ -255,7 +255,7 @@ function ModalProduct(props: propsModalProduct) {
   }
 
   //Select
-  const valueSelect = categorys.listcategoryProduct.filter(
+  const valueSelect = categorys.listcategoryProduct?.filter(
     (item) => item.id !== 0
   );
   console.log(valueSelect);

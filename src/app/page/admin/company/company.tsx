@@ -128,7 +128,7 @@ function Company() {
   }
   const categorys = useAppSelector(categoryAdminStore);
   //Select
-  const valueSelect = categorys.listcategoryProduct.filter(
+  const valueSelect = categorys.listcategoryProduct?.filter(
     (item) => item.id !== 0,
   );
 
