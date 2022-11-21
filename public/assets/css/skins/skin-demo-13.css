@@ -899,7 +899,15 @@ a:focus {
   background-color: rgb(19 123 158);
 }
 .header-10 .menu-vertical .menu-title {
-  color: #39f;
+  /* color: #39f; */
+  color: #000 !important;
+}
+.header-10 .menu-vertical .menu-title a {
+  color: #000 !important;
+}
+
+.header-10 .menu-vertical .menu-title:hover a {
+  color: #39f !important;
 }
 .header-12 .dropdown.category-dropdown .dropdown-toggle {
   background-color: #39f;

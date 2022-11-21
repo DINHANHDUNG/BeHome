@@ -29,7 +29,7 @@ const cartSliceAdmin = createSlice({
       console.log('action add', action.payload);
 
       let product = {} as any;
-      if (action.payload.category.type === 'PRODUCT') {
+      if (action.payload?.category?.type === 'PRODUCT') {
         const indexValue = state.orderdetails?.findIndex(
           (val, idx) => val.id_product === action.payload.id
         );
@@ -86,7 +86,7 @@ const cartSliceAdmin = createSlice({
         product: any;
       }>
     ) => {
-      if (action.payload.product.category.type === 'PRODUCT') {
+      if (action.payload.product?.category?.type === 'PRODUCT') {
         const indexValue = state.orderdetails?.findIndex(
           (val, idx) => val.id_product === action.payload.product.id_product
         );

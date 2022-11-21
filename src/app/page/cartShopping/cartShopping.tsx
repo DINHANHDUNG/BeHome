@@ -59,7 +59,7 @@ function CartShopping() {
                           <figure className="product-media">
                             <Link
                               to={
-                                value.category.type === 'PRODUCT'
+                                value?.category?.type === 'PRODUCT'
                                   ? '/detailproduct/' + value.id_product
                                   : '/detailcombo/' + value.id_combo
                               }
@@ -80,7 +80,7 @@ function CartShopping() {
                           <h3 className="product-title">
                             <Link
                               to={
-                                value.category.type === 'PRODUCT'
+                                value?.category?.type === 'PRODUCT'
                                   ? '/detailproduct/' + value.id_product
                                   : '/detailcombo/' + value.id_combo
                               }

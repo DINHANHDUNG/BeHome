@@ -333,28 +333,39 @@ function Dashboard() {
   //     ],
   //     toolbar: [ ..., 'resizeImage' ]
   // }
+
+  function uploadPlugin(editor: any) {
+    console.log(editor);
+    
+    // editor.plugins.get('FileRepository').createUploadAdapter = (
+    //   loader: any,
+    // ) => {
+    //   console.log(loader);
+    // };
+  }
   return (
     <div className="tabled" style={{ marginBottom: '20px' }}>
       {/* <CKEditor
         editor={ClassicEditor}
         config={{
-          resizeOptions: [
-            {
-              name: 'resizeImage:original',
-              value: null,
-              label: 'Original',
-            },
-            {
-              name: 'resizeImage:40',
-              value: '40',
-              label: '40%',
-            },
-            {
-              name: 'resizeImage:60',
-              value: '60',
-              label: '60%',
-            },
-          ],
+          extraPlugins: [uploadPlugin],
+          // resizeOptions: [
+          //   {
+          //     name: 'resizeImage:original',
+          //     value: null,
+          //     label: 'Original',
+          //   },
+          //   {
+          //     name: 'resizeImage:40',
+          //     value: '40',
+          //     label: '40%',
+          //   },
+          //   {
+          //     name: 'resizeImage:60',
+          //     value: '60',
+          //     label: '60%',
+          //   },
+          // ],
           toolbar: ['uploadImage', 'resizeImage:original'],
           // toolbar: [
           //   'bold',

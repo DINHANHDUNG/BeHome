@@ -111,21 +111,6 @@ function Mobilemenu() {
                   <li className="active">
                     <Link to={'/buildcustomer'}>Thiết kế nội thất</Link>
                   </li>
-                  {/* <li className="active">
-                    <Link to={'/buildcustomer'}>Thiết kế nội thất</Link>
-                  </li>
-
-                  <li>
-                    <a href={'tel:' + company.Company.phonenumber}>
-                      {company.Company.phonenumber}
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href={'mailto:' + company.Company.email}>
-                      {company.Company.email}
-                    </a>
-                  </li> */}
                   <li style={{ fontWeight: 500, cursor: 'none' }}>
                     <a>SẢN PHẨM</a>
                   </li>
@@ -142,11 +127,6 @@ function Mobilemenu() {
                         {val.children?.length > 0
                           ? val.children?.map((val2, idx) => (
                               <ul style={{ display: 'block' }}>
-                                {/* <li>
-                                  <Link to={`danhmucproduct/${val2.id}`}>
-                                    {val2.name}
-                                  </Link>
-                                </li> */}
                                 <li className="close-menu-mobile">
                                   <Link
                                     to={`danhmucproduct/${val2.id}`}
@@ -201,11 +181,6 @@ function Mobilemenu() {
                         {val.children?.length > 0
                           ? val.children?.map((val2, idx) => (
                               <ul style={{ display: 'block' }}>
-                                {/* <li>
-                                  <Link to={`danhmuccombo/${val2.id}`}>
-                                    {val2.name}
-                                  </Link>
-                                </li> */}
                                 <li>
                                   <Link
                                     className="close-menu-mobile"
@@ -243,68 +218,6 @@ function Mobilemenu() {
                       </li>
                     ),
                   )}
-                  {/* 
-                  {category.listcategory.map((val) => (
-                    <li className="mobile-menu-close">
-                      <Link to={`laptop/${val.id}`}>{val.categoryname}</Link>
-                      <ul>
-                        <li>
-                          <Link to={`laptop/${val.id}`}>
-                            {val.categoryname}
-                          </Link>
-                        </li>
-                      </ul>
-                    </li>
-                  ))} */}
-
-                  {/* <li>
-                    <a href="#">Laptop</a>
-                    <ul>
-                      {category.listcategory.map((val) => (
-                        <li className="mobile-menu-close">
-                          <Link to={`laptop/${val.id}`}>
-                            {val.categoryname}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </li> */}
-
-                  {/* {category.listcategory?.map((val) => (
-                    <li key={val.id}>
-                      <Link to={`danhmuc/${val.id}`}>{val.categoryname}</Link>
-                      <ul style={{ display: "block" }}>
-                        {val.children?.map((v) => (
-                          <li>
-                            <Link to={`danhmuc/${v.id}`}>{v.categoryname}</Link>
-                            {v.children?.length > 0 ? (
-                              <ul style={{ display: "block" }}>
-                                {v.children?.map((e) => (
-                                  <li>
-                                    <Link to={`danhmuc/${e.id}`}>
-                                      {e.categoryname}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            ) : null}
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  ))} */}
-
-                  {/* <li>
-                    <Link to="category.html">Shop</Link>
-                    <ul>
-                      <li>
-                        <Link to="category-list.html">Shop List</Link>
-                      </li>
-                      <li>
-                        <Link to="category-2cols.html">Shop Grid 2 Columns</Link>
-                      </li>
-                    </ul>
-                  </li> */}
                 </ul>
               </nav>
             </div>

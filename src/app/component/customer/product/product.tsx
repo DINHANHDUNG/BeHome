@@ -22,7 +22,7 @@ function Product(props: propsProduct) {
       <figure className="product-media">
         <Link
           to={
-            props.value.category.type === 'PRODUCT'
+            props.value?.category?.type === 'PRODUCT'
               ? '/detailproduct/' + props.value.id
               : '/detailcombo/' + props.value.id
           }
@@ -80,7 +80,7 @@ function Product(props: propsProduct) {
         <h3 className="product-title" style={{ fontWeight: '500' }}>
           <Link
             to={
-              props.value.category.type === 'PRODUCT'
+              props.value?.category?.type === 'PRODUCT'
                 ? '/detailproduct/' + props.value.id
                 : '/detailcombo/' + props.value.id
             }

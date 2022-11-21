@@ -167,13 +167,13 @@ function Header(props: typeProps) {
                       {categoryTrees.listcategoryProduct?.map((val, idx) =>
                         val.children?.length > 0 ? (
                           <li className="megamenu-container" key={idx}>
-                            {/* <a href={`danhmucproduct/${val.id}`}>{val.name}</a> */}
-                            <Link
+                            <a href={`/danhmucproduct/${val.id}`}>{val.name}</a>
+                            {/* <Link
                               to={`danhmucproduct/${val.id}`}
                               className="sf-with-ul"
                             >
                               {val.name}
-                            </Link>
+                            </Link> */}
                             {val.children?.length > 0 && val.children ? (
                               <div className="megamenu">
                                 <div className="row no-gutters">
@@ -189,7 +189,7 @@ function Header(props: typeProps) {
                                             }}
                                           >
                                             <div className="menu-title">
-                                              <Link
+                                              {/* <Link
                                                 to={`danhmucproduct/${val2.id}`}
                                                 style={{
                                                   color:
@@ -199,7 +199,18 @@ function Header(props: typeProps) {
                                                 }}
                                               >
                                                 {val2.name}
-                                              </Link>
+                                              </Link> */}
+                                              <a
+                                                style={{
+                                                  color:
+                                                    val2.children?.length > 0
+                                                      ? ''
+                                                      : '#000',
+                                                }}
+                                                href={`/danhmucproduct/${val2.id}`}
+                                              >
+                                                {val2.name}
+                                              </a>
                                             </div>
                                             {val2.children &&
                                             val2.children !== null &&
@@ -209,11 +220,16 @@ function Header(props: typeProps) {
                                                   (val3, idx) => (
                                                     // cap 4 thi them className="sf-with-ul" vaof li
                                                     <li key={idx}>
-                                                      <Link
+                                                      {/* <Link
                                                         to={`danhmucproduct/${val3.id}`}
                                                       >
                                                         {val3?.name}
-                                                      </Link>
+                                                      </Link> */}
+                                                      <a
+                                                        href={`/danhmucproduct/${val3.id}`}
+                                                      >
+                                                        {val3.name}
+                                                      </a>
                                                       {/* cap 4 */}
                                                       {/* {val2.children.length > 0 ? (
                                                     <ul>
@@ -246,9 +262,10 @@ function Header(props: typeProps) {
                           </li>
                         ) : (
                           <li>
-                            <Link to={`danhmucproduct/${val.id}`}>
+                            <a href={`/danhmucproduct/${val.id}`}>{val.name}</a>
+                            {/* <Link to={`danhmucproduct/${val.id}`}>
                               {val.name}
-                            </Link>
+                            </Link> */}
                           </li>
                         ),
                       )}

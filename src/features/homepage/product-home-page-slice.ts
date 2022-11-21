@@ -30,8 +30,8 @@ const ProductHomePageSlice = createSlice({
       .addCase(getProductHomePage.fulfilled, (state, action) => {
         const { result ,combo} = action.payload;
         console.log('result', result);
-        state.listcombohomepage = combo;
-        state.listproducthomepage = result;
+        state.listcombohomepage = Array.isArray(combo) ? combo : [];
+        state.listproducthomepage = Array.isArray(result) ? result : [];
         state.loading = false;
         state.error = false;
       })
