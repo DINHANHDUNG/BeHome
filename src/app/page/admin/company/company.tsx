@@ -1,15 +1,22 @@
-import { Button, Card, Col, Form, Image, Input, Row } from 'antd';
+import { Button, Card, Col, Form, Image, Input, Row, Select } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 import React, { useEffect, useState } from 'react';
+import { getAllCategoryProductAdmin } from '../../../../features/Admin/categoryAdnim';
 import { getCompany, updateCompany } from '../../../../features/Admin/company';
-import { companyAdminStore } from '../../../../use-selector';
+import {
+  categoryAdminStore,
+  companyAdminStore,
+} from '../../../../use-selector';
 import uploadIMGAdminAPI from '../../../commom/api/UploadIMG/upload';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 
 function Company() {
   const [form] = Form.useForm();
+  const { Option } = Select;
   const dispatch = useAppDispatch();
   const [fileIMG, setFileIMG] = useState([] as any);
+  console.log('fileIMG', fileIMG);
+
   const [uploading, setUploading] = useState(false);
   const [arrImgDelete, setArrImgDelete] = useState([] as any);
 
@@ -19,6 +26,7 @@ function Company() {
 
   useEffect(() => {
     dispatch(getCompany());
+    dispatch(getAllCategoryProductAdmin());
   }, []);
 
   useEffect(() => {
@@ -36,6 +44,7 @@ function Company() {
       arrIMG.push({
         imagename: val.imagename,
         type: 'BANNER',
+        id_category: val.id_category,
       });
     });
 
@@ -106,6 +115,22 @@ function Company() {
         setUploading(false);
       });
   }
+
+  function onChange(value: any, idx: any) {
+    const newState = fileIMG.map((obj: any, index: any) =>
+      index === idx ? { ...obj, id_category: value } : obj,
+    );
+    setFileIMG(newState);
+  }
+
+  function onSearch(val: any) {
+    console.log('search:', val);
+  }
+  const categorys = useAppSelector(categoryAdminStore);
+  //Select
+  const valueSelect = categorys.listcategoryProduct.filter(
+    (item) => item.id !== 0,
+  );
 
   return (
     <div className="tabled" style={{ marginBottom: '20px' }}>
@@ -199,7 +224,10 @@ function Company() {
                     label="Chính sách vận chuyển"
                     name="csvc"
                     rules={[
-                      { required: true, message: 'Nhập chính sách vận chuyển!' },
+                      {
+                        required: true,
+                        message: 'Nhập chính sách vận chuyển!',
+                      },
                     ]}
                   >
                     <TextArea rows={6} />
@@ -259,7 +287,7 @@ function Company() {
               <Row gutter={[0, 0]}>
                 {fileIMG?.map((value: any, idx: any) => {
                   return (
-                    <Col span={6}>
+                    <Col xs={24} xl={12}>
                       <div className="info_image">
                         <Image
                           key={idx}
@@ -279,6 +307,39 @@ function Company() {
                         >
                           x
                         </span>
+                      </div>
+                      <div>
+                        <Select
+                          showSearch
+                          size="large"
+                          placeholder="Chọn danh mục"
+                          optionFilterProp="children"
+                          onChange={(v) => onChange(v, idx)}
+                          onSearch={onSearch}
+                          value={value.id_category}
+                          style={{
+                            // minWidth: '60px',
+                            width: '95%',
+                            marginBottom: '10px',
+                            marginRight: 'props.pageSizepx',
+                          }}
+                          filterOption={(input, option: any) =>
+                            option.children
+                              .toLowerCase()
+                              .indexOf(input.toLowerCase()) >= 0
+                          }
+                          filterSort={(optionA: any, optionB: any) =>
+                            optionA.children
+                              .toLowerCase()
+                              .localeCompare(optionB.children.toLowerCase())
+                          }
+                        >
+                          {valueSelect.map((item) => (
+                            <Option value={item.id} key={item.id}>
+                              {item.name}
+                            </Option>
+                          ))}
+                        </Select>
                       </div>
                     </Col>
                   );

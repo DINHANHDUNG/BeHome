@@ -36,6 +36,10 @@ function ProductByCategory() {
         sort: sort,
       })
     );
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }, [ID]);
   return (
     <div className="page-content  mt-3">

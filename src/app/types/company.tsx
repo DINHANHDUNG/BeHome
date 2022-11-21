@@ -16,6 +16,7 @@ export interface image {
   id: number;
   imagename: string;
   type: string;
+  id_category: number
 }
 
 export interface UpdateCompany {
