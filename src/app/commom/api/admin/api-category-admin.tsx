@@ -6,6 +6,12 @@ const categoryAPIAdmin = {
     const url = 'category/getallcategoryproduct';
     return axiosClientAdmin.get(url);
   },
+
+  getFullCategoryProductAdmin(): Promise<any> {
+    const url = 'category/getallcategory';
+    return axiosClientAdmin.get(url);
+  },
+
   getAllCategoryComboAdmin(): Promise<any> {
     const url = 'category/getallcategorycombo';
     return axiosClientAdmin.get(url);

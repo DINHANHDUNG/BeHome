@@ -2630,7 +2630,7 @@ blockquote.text-white cite span {
   border-bottom-color: #c96;
 }
 .mobile-cats-nav .mobile-menu > li > a {
-  text-transform: capitalize;
+  text-transform: black;
 }
 .mobile-cats-menu li a {
   position: relative;
@@ -4270,6 +4270,10 @@ p {
   .header-12 .header-text {
     display: block;
   }
+
+  .header-10 .header-top .header-top-center{
+    display: none;
+  }
 }
 @media screen and (max-width: 1279px) {
   .header-12 .header-bottom .menu > li + li {
@@ -5217,6 +5221,32 @@ p {
 .footer-menu a {
   box-shadow: 0 1px 0 #b5b5b5;
 }
+@media screen and (max-width: 1280px) {
+  .footer .widget-title1 {
+    font-size: 1.6rem;
+  }
+  
+  .footer .widget-title2 {
+    font-size: 1.6rem;
+  }
+  
+  .footer .widget-title3 {
+    font-size: 1.6rem;
+  }
+  
+  .footer .widget-title4 {
+    font-size: 1.6rem;
+  }
+  .footer .widget-title2::after {
+    display: block;
+    content: "";
+    height: 2px;
+    width: 190px;
+    background: red;
+    margin-top: 5px;
+  }
+  
+}
 @media screen and (min-width: 992px) {
   .footer-2 .footer-bottom .container,
   .footer-2 .footer-bottom .container-fluid {
@@ -5237,6 +5267,8 @@ p {
   .widget-about-info .col-sm-6:not(:last-child) {
     margin-bottom: 1rem;
   }
+
+  
 }
 .page-header {
   padding: 4.6rem 0 5rem;
@@ -9081,6 +9113,30 @@ small.form-text {
     display: block;
   }
 }
+@media screen and (max-width: 1280px) {
+  .product-image{
+    height: 200px !important;
+  }
+
+  .product-title{
+    white-space: nowrap; 
+    width: 100%; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+  .product-price {
+    white-space: nowrap; 
+    width: 100%; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+  .currency-product {
+    white-space: nowrap; 
+    width: 100%; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+}
 @media screen and (max-width: 1199px) {
   .cta-horizontal-box {
     padding-left: 3rem;
@@ -9139,7 +9195,7 @@ small.form-text {
     justify-content: center;
   }
   .product-image{
-    height: 200px !important;
+    height: 170px !important;
   }
   .product-body{
     padding: 1.6rem 1rem !important

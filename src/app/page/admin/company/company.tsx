@@ -1,7 +1,7 @@
 import { Button, Card, Col, Form, Image, Input, Row, Select } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 import React, { useEffect, useState } from 'react';
-import { getAllCategoryProductAdmin } from '../../../../features/Admin/categoryAdnim';
+import { getAllCategoryProductAdmin, getFullCategoryProductAdmin } from '../../../../features/Admin/categoryAdnim';
 import { getCompany, updateCompany } from '../../../../features/Admin/company';
 import {
   categoryAdminStore,
@@ -26,7 +26,7 @@ function Company() {
 
   useEffect(() => {
     dispatch(getCompany());
-    dispatch(getAllCategoryProductAdmin());
+    dispatch(getFullCategoryProductAdmin());
   }, []);
 
   useEffect(() => {

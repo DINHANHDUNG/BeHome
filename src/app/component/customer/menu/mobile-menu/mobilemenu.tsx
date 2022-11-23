@@ -87,7 +87,90 @@ function Mobilemenu() {
               </a>
             </li> */}
           </ul>
-
+          {/* <div className="tab-content">
+            <div
+              className="tab-pane fade show active"
+              id="mobile-menu-tab"
+              role="tabpanel"
+              aria-labelledby="mobile-menu-link"
+            >
+              <nav className="mobile-nav">
+                <ul className="mobile-menu">
+                  <li className="active">
+                    <a href="index.html">Home</a>
+                    <ul>
+                      <li>
+                        <a href="index-1.html">01 - furniture store</a>
+                      </li>
+                      <li>
+                        <a href="index-2.html">02 - furniture store</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="category.html">Shop</a>
+                    <ul>
+                      <li>
+                        <a href="category-list.html">Shop List</a>
+                      </li>
+                      <li>
+                        <a href="category-2cols.html">Shop Grid 2 Columns</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="product.html" className="sf-with-ul">
+                      Product
+                    </a>
+                    <ul>
+                      <li>
+                        <a href="product.html">Default</a>
+                      </li>
+                      <li>
+                        <a href="product-centered.html">Centered</a>
+                      </li>
+                      <li>
+                        <a href="product-extended.html">
+                          <span>
+                            Extended Info
+                            <span className="tip tip-new">New</span>
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="product-gallery.html">Gallery</a>
+                      </li>
+                      <li>
+                        <a href="product-sticky.html">Sticky Info</a>
+                        <ul>
+                          <li>
+                            <a href="product.html">Default</a>
+                          </li>
+                          <li>
+                            <a href="product-centered.html">Centered</a>
+                          </li>
+                          <li>
+                            <a href="product-extended.html">
+                              <span>
+                                Extended Info
+                                <span className="tip tip-new">New</span>
+                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="product-gallery.html">Gallery</a>
+                          </li>
+                          <li>
+                            <a href="product-sticky.html">Sticky Info</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div> */}
           <div className="tab-content">
             <div
               className="tab-pane fade show active"
@@ -109,7 +192,7 @@ function Mobilemenu() {
                     <Link to={'/introduce'}>Giới thiệu</Link>
                   </li>
                   <li className="active">
-                    <Link to={'/buildcustomer'}>Thiết kế nội thất</Link>
+                    <Link to={'/buildcustomer'}>Xây dựng sản phẩm</Link>
                   </li>
                   <li style={{ fontWeight: 500, cursor: 'none' }}>
                     <a>SẢN PHẨM</a>
@@ -218,145 +301,6 @@ function Mobilemenu() {
                       </li>
                     ),
                   )}
-                </ul>
-              </nav>
-            </div>
-            <div
-              className="tab-pane fade"
-              id="mobile-cats-tab"
-              role="tabpanel"
-              aria-labelledby="mobile-cats-link"
-            >
-              <nav className="mobile-cats-nav">
-                <ul className="mobile-cats-menu">
-                  <li style={{ fontWeight: 500, cursor: 'none' }}>
-                    <a href="/">Danh mục bán lẻ</a>
-                  </li>
-
-                  <li>
-                    <a href="blog.html" className="sf-with-ul">
-                      Blog
-                    </a>
-
-                    <ul>
-                      <li>
-                        <a href="blog.html">Classic</a>
-                      </li>
-                      <li>
-                        <a href="blog-listing.html">Listing</a>
-                      </li>
-                      <li>
-                        <a href="#">Grid</a>
-                        <ul>
-                          <li>
-                            <a href="blog-grid-2cols.html">Grid 2 columns</a>
-                          </li>
-                          <li>
-                            <a href="blog-grid-3cols.html">Grid 3 columns</a>
-                          </li>
-                          <li>
-                            <a href="blog-grid-4cols.html">Grid 4 columns</a>
-                          </li>
-                          <li>
-                            <a href="blog-grid-sidebar.html">Grid sidebar</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="#">Masonry</a>
-                        <ul>
-                          <li>
-                            <a href="blog-masonry-2cols.html">
-                              Masonry 2 columns
-                            </a>
-                          </li>
-                          <li>
-                            <a href="blog-masonry-3cols.html">
-                              Masonry 3 columns
-                            </a>
-                          </li>
-                          <li>
-                            <a href="blog-masonry-4cols.html">
-                              Masonry 4 columns
-                            </a>
-                          </li>
-                          <li>
-                            <a href="blog-masonry-sidebar.html">
-                              Masonry sidebar
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="#">Mask</a>
-                        <ul>
-                          <li>
-                            <a href="blog-mask-grid.html">Blog mask grid</a>
-                          </li>
-                          <li>
-                            <a href="blog-mask-masonry.html">
-                              Blog mask masonry
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="#">Single Post</a>
-                        <ul>
-                          <li>
-                            <a href="single.html">Default with sidebar</a>
-                          </li>
-                          <li>
-                            <a href="single-fullwidth.html">
-                              Fullwidth no sidebar
-                            </a>
-                          </li>
-                          <li>
-                            <a href="single-fullwidth-sidebar.html">
-                              Fullwidth with sidebar
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a className="mobile-cats-lead" href="#">
-                      Daily offers
-                    </a>
-                  </li>
-                  <li>
-                    <a className="mobile-cats-lead" href="#">
-                      Gift Ideas
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">Beds</a>
-                  </li>
-                  <li>
-                    <a href="#">Lighting</a>
-                  </li>
-                  <li>
-                    <a href="#">Sofas & Sleeper sofas</a>
-                  </li>
-                  <li>
-                    <a href="#">Storage</a>
-                  </li>
-                  <li>
-                    <a href="#">Armchairs & Chaises</a>
-                  </li>
-                  <li>
-                    <a href="#">Decoration </a>
-                  </li>
-                  <li>
-                    <a href="#">Kitchen Cabinets</a>
-                  </li>
-                  <li>
-                    <a href="#">Coffee & Tables</a>
-                  </li>
-                  <li>
-                    <a href="#">Outdoor Furniture </a>
-                  </li>
                 </ul>
               </nav>
             </div>

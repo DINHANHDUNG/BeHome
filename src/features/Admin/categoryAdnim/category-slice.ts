@@ -12,6 +12,7 @@ import {
   getAllCategoryComboAdmin,
   getAllCategoryProductAdmin,
   getAllCategoryTrees,
+  getFullCategoryProductAdmin,
   hiddenCategoryByIdAdmin,
   showCategoryByIdAdmin,
 } from './patchCategory-api';
@@ -34,7 +35,6 @@ const categorySliceAdmin = createSlice({
       })
       .addCase(getAllCategoryComboAdmin.fulfilled, (state, action) => {
         const { result } = action.payload;
-        
 
         state.listcategoryCombo = result;
 
@@ -63,6 +63,27 @@ const categorySliceAdmin = createSlice({
         state.error = false;
       })
       .addCase(getAllCategoryProductAdmin.rejected, (state) => {
+        state.loading = false;
+        state.error = true; //Show lỗi
+        openNotification({
+          message: 'Lấy dữ liệu thất bại',
+          type: 'error',
+        });
+      });
+
+    // getFull product
+    builder
+      .addCase(getFullCategoryProductAdmin.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getFullCategoryProductAdmin.fulfilled, (state, action) => {
+        const { result } = action.payload;
+        state.listcategoryProduct = result;
+
+        state.loading = false;
+        state.error = false;
+      })
+      .addCase(getFullCategoryProductAdmin.rejected, (state) => {
         state.loading = false;
         state.error = true; //Show lỗi
         openNotification({

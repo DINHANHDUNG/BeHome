@@ -30,7 +30,7 @@ function Contact(props: typeProps) {
           </p>
           <p className="mb-2">
             <span style={{ fontWeight: 600 }}>Số điện thoại</span>:{' '}
-            <a href={'#'}>{props.company.Company.phonenumber}</a>
+            <a href={'tel:' + props.company.Company.phonenumber}>{props.company.Company.phonenumber}</a>
           </p>
           <p className="mb-2">
             <span style={{ fontWeight: 600 }}>Giờ mở cửa</span>: Giờ mở cửa

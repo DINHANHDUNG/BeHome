@@ -95,7 +95,7 @@ function Footer(props: typeProps) {
               </div>
             </div>
 
-            <div className="col-sm-4 col-lg-3">
+            <div className="col-sm-4 col-lg-3 col-md-12">
               <div className="widget">
                 <h4 className="widget-title3" style={{ fontWeight: 600 }}>
                   KẾT NỐI VỚI CHÚNG TÔI
@@ -158,7 +158,7 @@ function Footer(props: typeProps) {
               </div>
             </div>
 
-            <div className="col-sm-4 col-lg-3">
+            <div className="col-sm-6 col-lg-3 col-md-12">
               <div className="widget" style={{ maxWidth: '400px' }}>
                 <iframe
                   src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FC%25E1%25BB%25ADa-h%25C3%25A0ng-thi%25E1%25BA%25BFt-b%25E1%25BB%258B-v%25E1%25BA%25ADt-t%25C6%25B0-%25C4%2590i%25E1%25BB%2587n-N%25C6%25B0%25E1%25BB%259Bc-Behome-Store-111073668305784%2F%3Fref%3Dpages_you_manage&tabs=none&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
@@ -203,7 +203,7 @@ function Footer(props: typeProps) {
                 </p>
                 <p className="mb-0">
                   <span style={{ fontWeight: 600 }}>Số điện thoại</span>:{' '}
-                  <a href={'#'}>{props.company.Company.phonenumber}</a>
+                  <a href={'tel:' + props.company.Company.phonenumber}>{props.company.Company.phonenumber}</a>
                 </p>
                 <p className="mb-0">
                   <span style={{ fontWeight: 600 }}>Giờ mở cửa</span>: Giờ mở

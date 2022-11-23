@@ -24,7 +24,7 @@ function Header(props: typeProps) {
       <div className="header-top">
         <div className="container">
           <div className="header-top-center">
-            Hotline: {props.company.Company.phonenumber?.split('-')[0]}
+            Hotline: <a href={'tel:' + props.company.Company.phonenumber}>{props.company.Company.phonenumber?.split('-')[0]}</a>
           </div>
         </div>
       </div>
