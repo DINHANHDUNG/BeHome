@@ -36,7 +36,9 @@ function Banner2(props: { Company: Company }) {
             onClick={(e) => {
               e.preventDefault();
               if (!dragging) {
-                history('danhmucproduct/' + val.id_category);
+                if (val?.id_category) {
+                  history('danhmucproduct/' + val.id_category);
+                }
               }
             }}
           />
