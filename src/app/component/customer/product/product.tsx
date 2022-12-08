@@ -85,7 +85,8 @@ function Product(props: propsProduct) {
                 : '/detailcombo/' + props.value.id
             }
           >
-            {props.value.name?.toUpperCase()}
+            {/* {props.value.name?.toUpperCase()} */}
+            {props.value.name}
           </Link>
         </h3>
         <div className="product-price">

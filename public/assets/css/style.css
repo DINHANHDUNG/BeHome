@@ -1,4 +1,4 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,900&display=swap");
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,900&display=swap');
 html {
   font-size: 62.5%;
   -webkit-text-size-adjust: 100%;
@@ -10,7 +10,7 @@ body {
   height: 100%;
 }
 body {
-  font: normal 300 1.4rem/1.86 "Poppins", sans-serif;
+  font: normal 300 1.4rem/1.86 'Poppins', sans-serif;
   color: #666;
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
@@ -93,7 +93,7 @@ img {
   position: relative;
 }
 .bg-overlay:before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: 0;
@@ -326,7 +326,7 @@ blockquote.text-white cite span {
   margin-right: 0;
 }
 .no-gutters > .col,
-.no-gutters > [class*="col-"] {
+.no-gutters > [class*='col-'] {
   padding-left: 0;
   padding-right: 0;
 }
@@ -568,9 +568,8 @@ blockquote.text-white cite span {
   margin-left: auto;
   margin-right: auto;
   justify-content: space-around;
-    width: 100%;
+  width: 100%;
 }
-
 
 .header-center-hotline {
   border: 1px solid #39f;
@@ -614,7 +613,7 @@ blockquote.text-white cite span {
 }
 .header-top .container:after,
 .header-top .container-fluid:after {
-  content: "";
+  content: '';
   display: block;
   height: 1px;
   position: absolute;
@@ -692,8 +691,8 @@ blockquote.text-white cite span {
 }
 .header-dropdown > a::after,
 .header-dropdown > span::after {
-  font-family: "molla";
-  content: "\f110";
+  font-family: 'molla';
+  content: '\f110';
   position: absolute;
   right: 0;
   top: 50%;
@@ -726,7 +725,7 @@ blockquote.text-white cite span {
   left: 0;
 }
 .header-menu:before {
-  content: "";
+  content: '';
   display: block;
   width: 100%;
   height: 0.1rem;
@@ -817,7 +816,7 @@ blockquote.text-white cite span {
 }
 .cart-dropdown .dropdown-menu:before,
 .compare-dropdown .dropdown-menu:before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   bottom: 100%;
@@ -1104,7 +1103,7 @@ blockquote.text-white cite span {
   align-self: center;
 }
 .header-search .select-custom:before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: 0;
@@ -1348,7 +1347,7 @@ blockquote.text-white cite span {
 }
 .header-intro-clearance .header-bottom .container::before {
   position: absolute;
-  content: "";
+  content: '';
   left: 28.5rem;
   height: 1.5rem;
   width: 0.1rem;
@@ -1526,7 +1525,6 @@ blockquote.text-white cite span {
     width: 480px;
   }
 
-
   .header-search-extended {
     margin-right: 10rem;
   }
@@ -1553,8 +1551,8 @@ blockquote.text-white cite span {
     padding-right: 0;
   }
   .top-menu:not(.top-link-menu) > li::after {
-    font-family: "molla";
-    content: "\f110";
+    font-family: 'molla';
+    content: '\f110';
     position: absolute;
     right: 0;
     top: 50%;
@@ -1581,7 +1579,7 @@ blockquote.text-white cite span {
     text-transform: capitalize;
   }
   .top-menu:not(.top-link-menu) ul:before {
-    content: "";
+    content: '';
     display: block;
     width: 100%;
     height: 0.1rem;
@@ -1634,7 +1632,7 @@ blockquote.text-white cite span {
     border-width: 0.4rem;
   }
   .header-search-visible .header-search-wrapper:before {
-    content: "";
+    content: '';
     display: block;
     width: 0;
     height: 0;
@@ -1759,7 +1757,7 @@ blockquote.text-white cite span {
 }
 .menu ul:before,
 .menu .megamenu:before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   bottom: 100%;
@@ -1814,8 +1812,8 @@ blockquote.text-white cite span {
   position: relative;
 }
 .menu.sf-arrows .sf-with-ul::after {
-  font-family: "molla";
-  content: "\f110";
+  font-family: 'molla';
+  content: '\f110';
   position: absolute;
   right: 0;
   top: 50%;
@@ -1828,7 +1826,7 @@ blockquote.text-white cite span {
   padding-right: 4rem;
 }
 .menu.sf-arrows ul .sf-with-ul:after {
-  content: "\f112";
+  content: '\f112';
   right: 3rem;
 }
 .menu .megamenu,
@@ -1998,7 +1996,7 @@ blockquote.text-white cite span {
   padding-right: 3rem;
 }
 .header-bottom .menu > li > a:before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: 0;
@@ -2059,16 +2057,16 @@ blockquote.text-white cite span {
   transition: background 0.4s, color 0.1s;
 }
 .category-dropdown .dropdown-toggle:after {
-  content: "\f0c9 ";
-  font-family: "FontAwesome";
+  content: '\f0c9 ';
+  font-family: 'FontAwesome';
   border: none;
   font-size: 2.3rem;
   line-height: 1;
   margin-left: 6.7rem;
 }
 .category-dropdown .dropdown-toggle:before {
-  content: "\f0c9 ";
-  font-family: "FontAwesome";
+  content: '\f0c9 ';
+  font-family: 'FontAwesome';
   display: block;
   position: absolute;
   left: 0;
@@ -2092,15 +2090,15 @@ blockquote.text-white cite span {
   background-color: #c96;
 }
 .category-dropdown:not(.is-on):hover .dropdown-toggle:after {
-  content: "\f0c9 ";
-  font-family: "FontAwesome";
+  content: '\f0c9 ';
+  font-family: 'FontAwesome';
 }
 .category-dropdown.show .dropdown-toggle {
   color: #fff;
   background-color: #c96;
 }
 .category-dropdown.show .dropdown-toggle:after {
-  content: "";
+  content: '';
 }
 .category-dropdown .dropdown-menu {
   left: 0;
@@ -2248,8 +2246,8 @@ blockquote.text-white cite span {
 }
 .menu-vertical.sf-arrows .sf-with-ul::after {
   display: block;
-  font-family: "molla";
-  content: "\f112";
+  font-family: 'molla';
+  content: '\f112';
   position: absolute;
   right: 1.8rem;
   top: 50%;
@@ -2343,7 +2341,7 @@ blockquote.text-white cite span {
   display: flex !important;
 }
 .menu-brands .col,
-.menu-brands [class*="col-"] {
+.menu-brands [class*='col-'] {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2547,8 +2545,8 @@ blockquote.text-white cite span {
   transition: color 0.35s;
 }
 .mmenu-btn::after {
-  font-family: "molla";
-  content: "\f110";
+  font-family: 'molla';
+  content: '\f110';
   display: inline-block;
 }
 .mmenu-btn:hover,
@@ -2556,7 +2554,7 @@ blockquote.text-white cite span {
   color: #c96;
 }
 .open > a > .mmenu-btn::after {
-  content: "\e802";
+  content: '\e802';
 }
 .mobile-search {
   margin: 1rem 0 1.5rem;
@@ -2744,7 +2742,7 @@ p {
 }
 .header-2 .header-search-extended .form-control {
   padding: 1.2rem 2.4rem 1rem 2rem;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   letter-spacing: -0.01em;
 }
 .header-2 .header-search-extended .btn {
@@ -2802,7 +2800,7 @@ p {
 }
 .header-2 .header-middle .container::after {
   position: absolute;
-  content: "";
+  content: '';
   bottom: -0.1rem;
   left: 1rem;
   right: 1rem;
@@ -3192,7 +3190,7 @@ p {
   letter-spacing: -0.01em;
 }
 .header-5 .menu > li > a::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 2rem;
   right: -0.5rem;
@@ -3748,7 +3746,7 @@ p {
   color: #fff;
   text-align: center;
   align-items: center;
-} 
+}
 .header-10 .header-top .container:after,
 .header-10 .header-top .container-fluid:after {
   display: none;
@@ -3887,7 +3885,7 @@ p {
   font-size: 15px;
 }
 .header-10 .category-dropdown.show .dropdown-toggle:after {
-  content: "x";
+  content: 'x';
 }
 .header-10 .category-dropdown .dropdown-menu {
   box-shadow: none;
@@ -4124,9 +4122,9 @@ p {
 .header-12 .dropdown.category-dropdown .dropdown-toggle:before {
   display: block;
   height: auto;
-  content: "";
-  font-family: "molla";
-  content: "\f110";
+  content: '';
+  font-family: 'molla';
+  content: '\f110';
   position: absolute;
   left: auto;
   right: 1.8rem;
@@ -4136,7 +4134,7 @@ p {
   margin-top: -0.5rem;
 }
 .header-12 .dropdown.category-dropdown.show .dropdown-toggle:before {
-  content: "\e801";
+  content: '\e801';
 }
 .header-12 .header-dropdown > a,
 .header-12 .header-dropdown > span {
@@ -4174,7 +4172,7 @@ p {
   position: relative;
 }
 .header-12 .header-bottom .container::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 1.8rem;
   bottom: 1.8rem;
@@ -4189,7 +4187,7 @@ p {
   padding: 1.55rem 3rem 1.55rem 1rem;
 }
 .header-12 .header-bottom .menu > li > a::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: 0;
@@ -4257,7 +4255,7 @@ p {
     max-width: 832px;
   }
 
-  .header-10 .header-top .header-top-center{
+  .header-10 .header-top .header-top-center {
     display: none;
   }
 }
@@ -4271,7 +4269,7 @@ p {
     display: block;
   }
 
-  .header-10 .header-top .header-top-center{
+  .header-10 .header-top .header-top-center {
     display: none;
   }
 }
@@ -4303,7 +4301,7 @@ p {
     right: 1rem;
   }
 
-  .header-10 .header-top .header-top-center{
+  .header-10 .header-top .header-top-center {
     display: block;
   }
 }
@@ -4427,7 +4425,7 @@ p {
   margin-top: -1.1rem;
 }
 .header-13 .dropdown.category-dropdown.show .dropdown-toggle:before {
-  content: "\e801";
+  content: '\e801';
 }
 .header-13 .header-text {
   color: #ccc;
@@ -4591,7 +4589,7 @@ p {
   padding-bottom: 1.6rem;
 }
 .header-14 .header-bottom .menu > li > a::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: 0;
@@ -4645,7 +4643,7 @@ p {
   box-shadow: none;
 }
 .header-14 .dropdown.category-dropdown.show .dropdown-toggle::after {
-  content: "";
+  content: '';
 }
 .header-14 .menu-vertical ul li > a {
   padding-top: 0.5rem;
@@ -4745,9 +4743,9 @@ p {
 .header-14 .cart-dropdown:focus .cart-txt {
   color: #fcb941;
 }
-.header-14 .compare-dropdown [class*="count"],
-.header-14 .cart-dropdown [class*="count"],
-.header-14 .wishlist-link [class*="count"] {
+.header-14 .compare-dropdown [class*='count'],
+.header-14 .cart-dropdown [class*='count'],
+.header-14 .wishlist-link [class*='count'] {
   min-width: 1.6rem;
   height: 1.6rem;
   position: absolute;
@@ -4885,17 +4883,16 @@ p {
 
 .footer .widget-title::after {
   display: block;
-  content: "";
+  content: '';
   height: 2px;
   width: 100px;
   background: red;
   margin-top: 5px;
 }
 
-
 .footer .widget-title1::after {
   display: block;
-  content: "";
+  content: '';
   height: 2px;
   width: 160px;
   background: red;
@@ -4904,7 +4901,7 @@ p {
 
 .footer .widget-title2::after {
   display: block;
-  content: "";
+  content: '';
   height: 2px;
   width: 208px;
   background: red;
@@ -4913,7 +4910,7 @@ p {
 
 .footer .widget-title3::after {
   display: block;
-  content: "";
+  content: '';
   height: 2px;
   width: 195px;
   background: red;
@@ -4922,7 +4919,7 @@ p {
 
 .footer .widget-title4::after {
   display: block;
-  content: "";
+  content: '';
   height: 2px;
   width: 180px;
   background: red;
@@ -4948,7 +4945,7 @@ p {
 .widget-list {
   margin-bottom: 0;
   list-style-type: disc;
-  list-style-position: inside
+  list-style-position: inside;
 }
 .widget-list li:not(:last-child) {
   margin-bottom: 0.4rem;
@@ -4985,7 +4982,7 @@ p {
 }
 .footer-bottom .container:before,
 .footer-bottom .container-fluid:before {
-  content: "";
+  content: '';
   display: block;
   height: 1px;
   position: absolute;
@@ -5208,7 +5205,7 @@ p {
   margin-left: 2.1rem;
 }
 .footer-menu li + li:before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 1px;
   height: 1.2rem;
@@ -5225,27 +5222,26 @@ p {
   .footer .widget-title1 {
     font-size: 1.6rem;
   }
-  
+
   .footer .widget-title2 {
     font-size: 1.6rem;
   }
-  
+
   .footer .widget-title3 {
     font-size: 1.6rem;
   }
-  
+
   .footer .widget-title4 {
     font-size: 1.6rem;
   }
   .footer .widget-title2::after {
     display: block;
-    content: "";
+    content: '';
     height: 2px;
     width: 190px;
     background: red;
     margin-top: 5px;
   }
-  
 }
 @media screen and (min-width: 992px) {
   .footer-2 .footer-bottom .container,
@@ -5267,8 +5263,6 @@ p {
   .widget-about-info .col-sm-6:not(:last-child) {
     margin-bottom: 1rem;
   }
-
-  
 }
 .page-header {
   padding: 4.6rem 0 5rem;
@@ -5279,7 +5273,7 @@ p {
 }
 .page-header h1 {
   color: #333;
-  font: normal 400 3.2rem/1.1 "Poppins", sans-serif;
+  font: normal 400 3.2rem/1.1 'Poppins', sans-serif;
   letter-spacing: -0.025em;
   margin-bottom: 0;
 }
@@ -5377,8 +5371,8 @@ p {
 }
 .breadcrumb-item + .breadcrumb-item:before {
   color: #999999;
-  content: "\f112";
-  font-family: "molla";
+  content: '\f112';
+  font-family: 'molla';
   padding-right: 0.7rem;
   font-size: 1.1rem;
   vertical-align: middle;
@@ -5577,8 +5571,8 @@ p {
   }
 }
 @media screen and (min-width: 1200px) {
-  .icon-boxes-separator [class*="col-"] + [class*="col-"]:before {
-    content: "";
+  .icon-boxes-separator [class*='col-'] + [class*='col-']:before {
+    content: '';
     display: block;
     width: 0.1rem;
     height: 5.3rem;
@@ -5618,7 +5612,7 @@ p {
 .card-header::after {
   display: block;
   clear: both;
-  content: "";
+  content: '';
 }
 .card-title {
   font-size: 1.8rem;
@@ -5639,13 +5633,13 @@ p {
   margin-right: 2.4rem;
 }
 .card-title a:before {
-  content: "\e802";
+  content: '\e802';
   display: inline-block;
   position: absolute;
   right: 1.2rem;
   top: 50%;
   color: #c96;
-  font-family: "molla";
+  font-family: 'molla';
   line-height: 1;
   transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -5659,7 +5653,7 @@ p {
   color: #c96;
 }
 .card-title a.collapsed:before {
-  content: "\f110";
+  content: '\f110';
   color: #8c8c8c;
   transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -5673,10 +5667,10 @@ p {
   padding-left: 5.5rem !important;
 }
 .accordion-plus .card-title a:before {
-  content: "\f28e";
+  content: '\f28e';
 }
 .accordion-plus .card-title a.collapsed:before {
-  content: "\f2c2";
+  content: '\f2c2';
 }
 .accordion-rounded .card:first-child {
   border-radius: 0.3rem 0.3rem 0 0;
@@ -5882,7 +5876,7 @@ p {
   border-bottom: none;
 }
 .nav.nav-border-anim .nav-link:before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: 0;
@@ -5999,7 +5993,7 @@ p {
   letter-spacing: 0;
   font-size: 1.4rem;
   min-width: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 .btn-link.btn-link-dark {
   color: #333;
@@ -6620,7 +6614,7 @@ p {
 }
 .product-countdown .countdown-section:not(:last-child):after {
   color: #fff;
-  content: ":";
+  content: ':';
   display: inline-block;
   font-weight: 400;
   font-size: 20px;
@@ -6703,7 +6697,7 @@ p {
 }
 .product-body {
   position: relative;
-  padding: 1.6rem 2rem;
+  padding: 1.6rem 1.2rem;
   transition: all 0.35s ease;
   background-color: #fff;
 }
@@ -6851,11 +6845,11 @@ p {
   font-size: 1.4rem;
   letter-spacing: 0.1em;
   line-height: 1;
-  font-family: "molla";
+  font-family: 'molla';
 }
 .ratings:before,
 .ratings-val:before {
-  content: "\f318""\f318""\f318""\f318""\f318";
+  content: '\f318''\f318''\f318''\f318''\f318';
 }
 .ratings-val {
   position: absolute;
@@ -6949,7 +6943,7 @@ p {
   border-left: 0.1rem dotted #e5e5e5;
 }
 .btn-product:before {
-  font-family: "molla";
+  font-family: 'molla';
   margin-right: 0.9rem;
 }
 .btn-product span {
@@ -6961,7 +6955,7 @@ p {
 }
 
 .btn-properties span {
-  color: #666666 ;
+  color: #666666;
   font-weight: 400;
   font-size: 1.3rem;
   letter-spacing: -0.01em;
@@ -7021,7 +7015,7 @@ p {
   background-color: #fff;
 }
 .btn-product-icon:before {
-  font-family: "molla";
+  font-family: 'molla';
 }
 .btn-product-icon span {
   display: none;
@@ -7035,13 +7029,13 @@ p {
   margin-top: 1rem;
 }
 .btn-cart:before {
-  content: "\e812";
+  content: '\e812';
 }
 .btn-wishlist {
   font-size: 1.6rem;
 }
 .btn-wishlist:before {
-  content: "\f234";
+  content: '\f234';
 }
 .product-body .btn-wishlist {
   position: absolute;
@@ -7064,10 +7058,10 @@ p {
   background: none;
 }
 .btn-quickview:before {
-  content: "\f145";
+  content: '\f145';
 }
 .btn-compare:before {
-  content: "\f2d0";
+  content: '\f2d0';
 }
 .btn-expandable {
   position: relative;
@@ -7594,7 +7588,7 @@ p {
   text-transform: uppercase;
 }
 .product.product-9 .product-action::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;
@@ -7672,7 +7666,7 @@ p {
 }
 .product.product-10 .product-body .btn-wishlist:hover::before,
 .product.product-10 .product-body .btn-wishlist:focus::before {
-  content: "\f233";
+  content: '\f233';
 }
 .product.product-10 .btn-product:hover span,
 .product.product-10 .btn-product:focus span {
@@ -7696,7 +7690,7 @@ p {
   text-transform: uppercase;
 }
 .product.product-10 .btn-cart::before {
-  content: "";
+  content: '';
 }
 .product.product-10 .btn-cart:hover,
 .product.product-10 .btn-cart:focus {
@@ -7714,7 +7708,7 @@ p {
 .product.product-10 .product-title a {
   font-size: 1.3rem;
   font-weight: 400;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   letter-spacing: 0;
   color: #333;
 }
@@ -7726,20 +7720,20 @@ p {
   margin-top: 0.8rem;
   font-size: 1.3rem;
   font-weight: 700;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   letter-spacing: 0;
   color: #333333;
 }
 .product.product-10 .new-price {
   font-size: 1.3rem;
   font-weight: 700;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   letter-spacing: 0;
 }
 .product.product-10 .old-price {
   font-size: 1.3rem;
   font-weight: 400;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   letter-spacing: 0;
   text-decoration: none;
 }
@@ -7748,7 +7742,7 @@ p {
   text-transform: uppercase;
   font-size: 1.3rem;
   font-weight: 700;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   letter-spacing: -0.01em;
 }
 .product.product-10 .product-label.label-deal {
@@ -8133,7 +8127,7 @@ p {
   }
 }
 .banner-display > a:before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: 0;
@@ -8185,7 +8179,7 @@ p {
   position: relative;
 }
 .banner-overlay > a:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: 0;
@@ -8328,7 +8322,6 @@ p {
     height: 7rem;
     font-size: 1.8rem;
   }
-  
 }
 @media screen and (min-width: 992px) {
   .video-banner-bg {
@@ -8672,8 +8665,8 @@ p {
   color: #3399cc;
 }
 .testimonial-icon:before {
-  font-family: "molla";
-  content: "\f10d";
+  font-family: 'molla';
+  content: '\f10d';
   display: inline-block;
   font-style: normal;
   font-weight: normal;
@@ -8690,10 +8683,10 @@ p {
   margin-top: 1rem;
   margin-bottom: 2.1rem;
 }
-.owl-testimonials.owl-theme .owl-nav [class*="owl-"] {
+.owl-testimonials.owl-theme .owl-nav [class*='owl-'] {
   top: 65px;
 }
-.owl-testimonials-photo.owl-theme .owl-nav [class*="owl-"] {
+.owl-testimonials-photo.owl-theme .owl-nav [class*='owl-'] {
   top: 110px;
 }
 .form-group {
@@ -8768,7 +8761,7 @@ small.form-text {
   font-size: 85%;
 }
 .required-field > label::after {
-  content: "*";
+  content: '*';
   color: #e02b27;
   font-size: 1.2rem;
   margin: 0 0 0 0.45rem;
@@ -8795,7 +8788,7 @@ small.form-text {
   appearance: none;
 }
 .select-custom::after {
-  font-family: "molla";
+  font-family: 'molla';
   /* content: "\f107"; */
   position: absolute;
   display: inline-block;
@@ -8866,8 +8859,8 @@ small.form-text {
   color: #fff;
   background-image: none;
   font-size: 1rem;
-  font-family: "molla";
-  content: "\ec2d";
+  font-family: 'molla';
+  content: '\ec2d';
   line-height: 1;
   text-align: center;
   opacity: 0;
@@ -9007,8 +9000,8 @@ small.form-text {
 .cta-separator {
   position: relative;
 }
-.cta-separator [class*="col-"] + [class*="col-"]:before {
-  content: "";
+.cta-separator [class*='col-'] + [class*='col-']:before {
+  content: '';
   width: 0.1rem;
   display: block;
   height: 80%;
@@ -9019,7 +9012,7 @@ small.form-text {
   -ms-transform: translateY(-50%);
   background-color: #ebebeb;
 }
-.cta-separator.bg-image [class*="col-"] + [class*="col-"]:before {
+.cta-separator.bg-image [class*='col-'] + [class*='col-']:before {
   background-color: #dadada;
 }
 .cta-wrapper {
@@ -9072,7 +9065,7 @@ small.form-text {
   margin-bottom: 2rem;
 }
 .cta-border .cta-text::before {
-  content: "";
+  content: '';
   background-color: #f5f5f5;
   width: 0.5rem;
   height: 9rem;
@@ -9113,28 +9106,40 @@ small.form-text {
     display: block;
   }
 }
+
+@media screen and (min-width: 1444px) {
+  .product-title {
+    /* white-space: nowrap;  */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+}
 @media screen and (max-width: 1280px) {
-  .product-image{
+  .product-image {
     height: 200px !important;
   }
 
-  .product-title{
-    white-space: nowrap; 
-    width: 100%; 
+  .product-title {
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
   .product-price {
-    white-space: nowrap; 
-    width: 100%; 
+    white-space: nowrap;
+    width: 100%;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
   }
   .currency-product {
-    white-space: nowrap; 
-    width: 100%; 
+    white-space: nowrap;
+    width: 100%;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
   }
 }
 @media screen and (max-width: 1199px) {
@@ -9147,7 +9152,7 @@ small.form-text {
   .cta-horizontal .cta-desc {
     margin-bottom: 1.5rem;
   }
-  .cta-separator [class*="col-"] + [class*="col-"]:before {
+  .cta-separator [class*='col-'] + [class*='col-']:before {
     height: 0.1rem;
     width: 80%;
     left: 10%;
@@ -9194,29 +9199,30 @@ small.form-text {
   .cta .input-group-round .input-group-append {
     justify-content: center;
   }
-  .product-image{
+  .product-image {
     height: 170px !important;
   }
-  .product-body{
-    padding: 1.6rem 1rem !important
+  .product-body {
+    padding: 1.6rem 1rem !important;
   }
-  .product-title{
-    white-space: nowrap; 
-    width: 100%; 
+  .product-title {
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
   .product-price {
-    white-space: nowrap; 
-    width: 100%; 
+    white-space: nowrap;
+    width: 100%;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
   }
   .currency-product {
-    white-space: nowrap; 
-    width: 100%; 
+    white-space: nowrap;
+    width: 100%;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
   }
 }
 .table {
@@ -9440,7 +9446,7 @@ small.form-text {
   margin-bottom: 0;
 }
 .instagram-feed:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: 0;
@@ -9633,7 +9639,7 @@ small.form-text {
 .element-type {
   font-size: 1.3rem;
   font-weight: 400;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   letter-spacing: 0.01em;
   color: #666;
   text-transform: uppercase;
@@ -9664,7 +9670,7 @@ small.form-text {
 .intro-slider-container:before,
 .intro-slide .slide-image:before {
   display: block;
-  content: "";
+  content: '';
   width: 100%;
 }
 .slider-container-1:before,
@@ -9696,7 +9702,7 @@ small.form-text {
   color: #333;
 }
 .slider-loader::after {
-  content: "\f311";
+  content: '\f311';
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9704,7 +9710,7 @@ small.form-text {
   height: 5rem;
   margin-top: -2.5rem;
   margin-left: -2.5rem;
-  font-family: "molla";
+  font-family: 'molla';
   position: absolute;
   left: 50%;
   top: 50%;
@@ -9782,7 +9788,7 @@ button:focus {
   position: relative;
 }
 .categories.container::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 1rem;
   right: 1rem;
@@ -9808,7 +9814,7 @@ button:focus {
   margin-top: -3rem;
   padding-top: 3rem;
 }
-.carousel-with-shadow.owl-simple .owl-nav [class*="owl-"] {
+.carousel-with-shadow.owl-simple .owl-nav [class*='owl-'] {
   margin-top: -31px;
 }
 .blog-posts .entry {
@@ -9885,7 +9891,7 @@ button:focus {
 }
 .cross-txt:before,
 .cross-txt:after {
-  content: "";
+  content: '';
   -ms-flex: 1;
   flex: 1;
   height: 1px;
@@ -9904,13 +9910,13 @@ button:focus {
   padding: 4rem 2rem;
   background-color: #fff;
 }
-.quickView-content .owl-theme.owl-light .owl-nav [class*="owl-"] {
+.quickView-content .owl-theme.owl-light .owl-nav [class*='owl-'] {
   border: none;
   font-size: 3rem;
   color: #fff;
 }
-.quickView-content .owl-theme.owl-light .owl-nav [class*="owl-"]:hover,
-.quickView-content .owl-theme.owl-light .owl-nav [class*="owl-"]:focus {
+.quickView-content .owl-theme.owl-light .owl-nav [class*='owl-']:hover,
+.quickView-content .owl-theme.owl-light .owl-nav [class*='owl-']:focus {
   color: #c96;
   background-color: transparent;
 }
@@ -9922,10 +9928,10 @@ button:focus {
   right: 30px;
   margin: 0;
 }
-.quickView-content .owl-theme .owl-nav [class*="owl-"] {
+.quickView-content .owl-theme .owl-nav [class*='owl-'] {
   top: 50%;
 }
-.quickView-content .owl-theme.owl-light .owl-nav [class*="owl-"] {
+.quickView-content .owl-theme.owl-light .owl-nav [class*='owl-'] {
   background-color: transparent;
 }
 .quickView-content .owl-theme.owl-nav-inside .owl-dots {
@@ -10048,10 +10054,10 @@ button:focus {
   height: unset;
 }
 .quickView-content .btn-wishlist:before {
-  content: "\f234";
+  content: '\f234';
 }
 .quickView-content .btn-compare:before {
-  content: "\f2d0";
+  content: '\f2d0';
 }
 .quickView-content .btn-wishlist,
 .quickView-content .btn-compare {
@@ -10402,7 +10408,7 @@ button:focus {
 .toolbox::after {
   display: block;
   clear: both;
-  content: "";
+  content: '';
 }
 .toolbox .select-custom {
   margin-bottom: 0;
@@ -10487,7 +10493,7 @@ button:focus {
 .btn-layout.active svg {
   fill: #333;
 }
-.products > .row > [class*="col-"] {
+.products > .row > [class*='col-'] {
   display: flex;
   align-items: stretch;
   align-content: stretch;
@@ -10579,9 +10585,9 @@ button:focus {
 }
 .widget-collapsible .widget-title a:after {
   color: #333;
-  content: "\f110";
+  content: '\f110';
   display: block;
-  font-family: "molla";
+  font-family: 'molla';
   font-size: 1.4rem;
   line-height: 1;
   position: absolute;
@@ -10590,7 +10596,7 @@ button:focus {
   margin-top: -0.7rem;
 }
 .widget-collapsible .widget-title a.collapsed:after {
-  content: "\e802";
+  content: '\e802';
 }
 .widget-collapsible .widget-title a:focus {
   outline: none !important;
@@ -10664,8 +10670,8 @@ button:focus {
 }
 .filter-colors a:after {
   color: #fff;
-  font-family: "molla";
-  content: "\ec2d";
+  font-family: 'molla';
+  content: '\ec2d';
   font-size: 1rem;
   line-height: 1;
   position: absolute;
@@ -10787,7 +10793,7 @@ button:focus {
 }
 .product-gallery-item:before,
 .product-gallery-item:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: 0.5rem;
@@ -11052,14 +11058,12 @@ button:focus {
   margin-bottom: 0;
 }
 
-.container-product-properties{
+.container-product-properties {
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
 }
-
-
 
 .product-properties-action {
   /* display: flex; */
@@ -11081,7 +11085,6 @@ button:focus {
   box-shadow: none;
   transition: box-shadow 0.35s ease, color 0s ease;
 }
-
 
 .product-details-action .btn-cart {
   padding: 1rem 1.5rem;
@@ -11220,7 +11223,7 @@ button:focus {
   padding-left: 1.3rem;
 }
 .product-desc-content ul li:before {
-  content: "•";
+  content: '•';
   position: absolute;
   display: block;
   top: 0;
@@ -11411,11 +11414,11 @@ button:focus {
   margin-right: 2rem;
 }
 @media screen and (min-width: 768px) {
-  .product-details-separator [class*="col-"] {
+  .product-details-separator [class*='col-'] {
     padding-top: 1rem;
   }
-  .product-details-separator [class*="col-"] + [class*="col-"]:before {
-    content: "";
+  .product-details-separator [class*='col-'] + [class*='col-']:before {
+    content: '';
     width: 0.1rem;
     display: block;
     height: 100%;
@@ -11616,7 +11619,6 @@ button:focus {
   }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
-
   .product-properties-action {
     flex-direction: column;
     align-items: flex-start;
@@ -11732,8 +11734,8 @@ button:focus {
   height: auto;
 }
 .entry-video a:after {
-  content: "\ec2c";
-  font-family: "molla";
+  content: '\ec2c';
+  font-family: 'molla';
   display: -ms-inline-flexbox;
   display: inline-flex;
   align-items: center;
@@ -11827,8 +11829,8 @@ button:focus {
   transition: all 0.3s ease;
 }
 .read-more:after {
-  font-family: "molla";
-  content: "\f274";
+  font-family: 'molla';
+  content: '\f274';
   font-size: 1.5rem;
   line-height: 1;
   display: block;
@@ -11909,7 +11911,7 @@ button:focus {
 .entry-container::after {
   display: block;
   clear: both;
-  content: "";
+  content: '';
 }
 .entry-item {
   float: left;
@@ -11922,7 +11924,7 @@ button:focus {
   margin-bottom: 2rem;
 }
 .entry-mask:before {
-  content: "";
+  content: '';
   display: block;
   height: 50%;
   position: absolute;
@@ -11967,8 +11969,8 @@ button:focus {
 .entry-mask .entry-gallery a:after {
   color: #fff;
   position: absolute;
-  content: "\f24d";
-  font-family: "molla";
+  content: '\f24d';
+  font-family: 'molla';
   top: 2.6rem;
 }
 .entry-mask .entry-body {
@@ -12089,7 +12091,7 @@ button:focus {
 .posts-list li::after {
   display: block;
   clear: both;
-  content: "";
+  content: '';
 }
 .posts-list li:last-child {
   margin-bottom: 0;
@@ -12252,7 +12254,7 @@ button:focus {
 .editor-content::after {
   display: block;
   clear: both;
-  content: "";
+  content: '';
 }
 .editor-content .float-left {
   margin-right: 2.8rem;
@@ -12301,11 +12303,11 @@ button:focus {
 }
 .editor-content blockquote:before {
   color: #ebebeb;
-  content: "\f10e";
+  content: '\f10e';
   font-weight: normal;
   font-size: 3rem;
   line-height: 1;
-  font-family: "molla";
+  font-family: 'molla';
   position: absolute;
   left: 3rem;
   top: 4rem;
@@ -12317,7 +12319,7 @@ button:focus {
 }
 .editor-content ul li:before {
   display: inline-block;
-  content: "•";
+  content: '•';
   font-size: 1.8rem;
   line-height: 1;
   margin-right: 1rem;
@@ -12444,7 +12446,7 @@ button:focus {
 .pager-link:after {
   color: #333;
   display: block;
-  font-family: "molla";
+  font-family: 'molla';
   font-size: 1.5rem;
   line-height: 1;
   position: absolute;
@@ -12457,7 +12459,7 @@ button:focus {
   padding-right: 1rem;
 }
 .pager-link.pager-link-prev:after {
-  content: "\f273";
+  content: '\f273';
   left: 3rem;
 }
 .pager-link.pager-link-next {
@@ -12467,7 +12469,7 @@ button:focus {
   text-align: right;
 }
 .pager-link.pager-link-next:after {
-  content: "\f274";
+  content: '\f274';
   right: 3rem;
 }
 .pager-link:hover,
@@ -12582,8 +12584,8 @@ button:focus {
   transition: all 0.35s ease;
 }
 .comment-reply:after {
-  font-family: "molla";
-  content: "\f279";
+  font-family: 'molla';
+  content: '\f279';
   font-size: 1.5rem;
   margin-left: 0.7rem;
 }
@@ -12682,7 +12684,7 @@ button:focus {
   .editor-content::after {
     display: block;
     clear: both;
-    content: "";
+    content: '';
   }
   .editor-content .float-left {
     margin-right: 4.8rem;
@@ -12766,7 +12768,7 @@ button:focus {
 .portfolio-container::after {
   display: block;
   clear: both;
-  content: "";
+  content: '';
 }
 .portfolio-nogap {
   margin-left: 0;
@@ -12774,7 +12776,7 @@ button:focus {
   margin-bottom: 1rem;
 }
 .portfolio-nogap .col,
-.portfolio-nogap [class*="col-"] {
+.portfolio-nogap [class*='col-'] {
   padding-left: 0;
   padding-right: 0;
 }
@@ -12799,7 +12801,7 @@ button:focus {
   outline: none !important;
 }
 .portfolio-media > a:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: 0;
@@ -12936,10 +12938,10 @@ button:focus {
   min-height: 0;
   margin-bottom: 4rem;
 }
-.brands-display [class*="col-"] {
+.brands-display [class*='col-'] {
   display: flex;
 }
-.brands-display [class*="col-"] .brand {
+.brands-display [class*='col-'] .brand {
   width: 100%;
 }
 .about-testimonials blockquote {
@@ -13383,7 +13385,7 @@ button:focus {
   overflow: hidden;
 }
 .categories-page .banner > a:not(.banner-link):after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;
@@ -13676,7 +13678,7 @@ button:focus {
   color: #999;
 }
 .accordion-summary .card-title a:before {
-  content: "";
+  content: '';
   width: 1.6rem;
   height: 1.6rem;
   border-radius: 50%;
@@ -13688,7 +13690,7 @@ button:focus {
   -ms-transform: translateY(0);
 }
 .accordion-summary .card-title a:after {
-  content: "";
+  content: '';
   display: block;
   width: 0.6rem;
   height: 0.6rem;
@@ -14126,8 +14128,8 @@ button:focus {
   border-bottom: 0.1rem solid #ebebeb;
 }
 .nav-dashboard .nav-link:before {
-  font-family: "molla";
-  content: "\f274";
+  font-family: 'molla';
+  content: '\f274';
   display: block;
   font-size: 1.5rem;
   line-height: 1;
@@ -15095,19 +15097,19 @@ button:focus {
   }
 }
 @font-face {
-  font-family: "molla";
-  src: url("../fonts/molla0ab2.eot?74273691");
-  src: url("../fonts/molla0ab2.eot?74273691#iefix") format("embedded-opentype"),
-    url("../fonts/molla0ab2.woff2?74273691") format("woff2"),
-    url("../fonts/molla0ab2.woff?74273691") format("woff"),
-    url("../fonts/molla0ab2.ttf?74273691") format("truetype"),
-    url("../fonts/molla0ab2.svg?74273691#molla") format("svg");
+  font-family: 'molla';
+  src: url('../fonts/molla0ab2.eot?74273691');
+  src: url('../fonts/molla0ab2.eot?74273691#iefix') format('embedded-opentype'),
+    url('../fonts/molla0ab2.woff2?74273691') format('woff2'),
+    url('../fonts/molla0ab2.woff?74273691') format('woff'),
+    url('../fonts/molla0ab2.ttf?74273691') format('truetype'),
+    url('../fonts/molla0ab2.svg?74273691#molla') format('svg');
   font-weight: normal;
   font-style: normal;
 }
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
-  font-family: "molla";
+[class^='icon-']:before,
+[class*=' icon-']:before {
+  font-family: 'molla';
   font-style: normal;
   font-weight: normal;
   speak: none;
@@ -15121,1567 +15123,1567 @@ button:focus {
   -moz-osx-font-smoothing: grayscale;
 }
 .icon-google:before {
-  content: "\e800";
+  content: '\e800';
 }
 .icon-check:before {
-  content: "\e801";
+  content: '\e801';
 }
 .icon-angle-up:before {
-  content: "\e802";
+  content: '\e802';
 }
 .icon-life-ring:before {
-  content: "\e803";
+  content: '\e803';
 }
 .icon-phone-square:before {
-  content: "\e804";
+  content: '\e804';
 }
 .icon-euro:before {
-  content: "\e805";
+  content: '\e805';
 }
 .icon-phone:before {
-  content: "\e806";
+  content: '\e806';
 }
 .icon-life-bouy:before {
-  content: "\e807";
+  content: '\e807';
 }
 .icon-rmb:before {
-  content: "\e808";
+  content: '\e808';
 }
 .icon-creative-commons-1:before {
-  content: "\e809";
+  content: '\e809';
 }
 .icon-comment-o:before {
-  content: "\e80a";
+  content: '\e80a';
 }
 .icon-check-circle-o:before {
-  content: "\e80b";
+  content: '\e80b';
 }
 .icon-info-circle:before {
-  content: "\e80c";
+  content: '\e80c';
 }
 .icon-cog:before {
-  content: "\e80d";
+  content: '\e80d';
 }
 .icon-cogs:before {
-  content: "\e80e";
+  content: '\e80e';
 }
 .icon-gift:before {
-  content: "\e80f";
+  content: '\e80f';
 }
 .icon-cart-arrow-down:before {
-  content: "\e810";
+  content: '\e810';
 }
 .icon-home:before {
-  content: "\e811";
+  content: '\e811';
 }
 .icon-cart-plus:before {
-  content: "\e812";
+  content: '\e812';
 }
 .icon-refresh:before {
-  content: "\e813";
+  content: '\e813';
 }
 .icon-eye:before {
-  content: "\e814";
+  content: '\e814';
 }
 .icon-map-marker:before {
-  content: "\e815";
+  content: '\e815';
 }
 .icon-headphones:before {
-  content: "\e816";
+  content: '\e816';
 }
 .icon-comments:before {
-  content: "\e817";
+  content: '\e817';
 }
 .icon-list-alt:before {
-  content: "\e818";
+  content: '\e818';
 }
 .icon-list-ol:before {
-  content: "\e819";
+  content: '\e819';
 }
 .icon-clone-1:before {
-  content: "\e81a";
+  content: '\e81a';
 }
 .icon-plus-square-o:before {
-  content: "\e81b";
+  content: '\e81b';
 }
 .icon-rotate-left:before {
-  content: "\e81c";
+  content: '\e81c';
 }
 .icon-tv:before {
-  content: "\e81d";
+  content: '\e81d';
 }
 .icon-play:before {
-  content: "\ec2c";
+  content: '\ec2c';
 }
 .icon-check:before {
-  content: "\ec2d";
+  content: '\ec2d';
 }
 .icon-music:before {
-  content: "\f001";
+  content: '\f001';
 }
 .icon-gift-1:before {
-  content: "\f06b";
+  content: '\f06b';
 }
 .icon-twitter-square:before {
-  content: "\f081";
+  content: '\f081';
 }
 .icon-facebook-square:before {
-  content: "\f082";
+  content: '\f082';
 }
 .icon-linkedin:before {
-  content: "\f08c";
+  content: '\f08c';
 }
 .icon-github-square:before {
-  content: "\f092";
+  content: '\f092';
 }
 .icon-twitter:before {
-  content: "\f099";
+  content: '\f099';
 }
 .icon-facebook:before {
-  content: "\f09a";
+  content: '\f09a';
 }
 .icon-github:before {
-  content: "\f09b";
+  content: '\f09b';
 }
 .icon-pinterest:before {
-  content: "\f0d2";
+  content: '\f0d2';
 }
 .icon-pinterest-square:before {
-  content: "\f0d3";
+  content: '\f0d3';
 }
 .icon-google-plus-square:before {
-  content: "\f0d4";
+  content: '\f0d4';
 }
 .icon-google-plus-g:before {
-  content: "\f0d5";
+  content: '\f0d5';
 }
 .icon-linkedin-in:before {
-  content: "\f0e1";
+  content: '\f0e1';
 }
 .icon-laptop:before {
-  content: "\f109";
+  content: '\f109';
 }
 .icon-quote-left:before {
-  content: "\f10d";
+  content: '\f10d';
 }
 .icon-quote-right:before {
-  content: "\f10e";
+  content: '\f10e';
 }
 .icon-angle-down:before {
-  content: "\f110";
+  content: '\f110';
 }
 .icon-angle-left:before {
-  content: "\f111";
+  content: '\f111';
 }
 .icon-angle-right:before {
-  content: "\f112";
+  content: '\f112';
 }
 .icon-github-alt:before {
-  content: "\f113";
+  content: '\f113';
 }
 .icon-arrow-down:before {
-  content: "\f11f";
+  content: '\f11f';
 }
 .icon-arrow-left:before {
-  content: "\f120";
+  content: '\f120';
 }
 .icon-arrow-right:before {
-  content: "\f121";
+  content: '\f121';
 }
 .icon-arrow-up:before {
-  content: "\f122";
+  content: '\f122';
 }
 .icon-arrows:before {
-  content: "\f123";
+  content: '\f123';
 }
 .icon-balance-scale:before {
-  content: "\f12b";
+  content: '\f12b';
 }
 .icon-bars:before {
-  content: "\f131";
+  content: '\f131';
 }
 .icon-maxcdn:before {
-  content: "\f136";
+  content: '\f136';
 }
 .icon-html5:before {
-  content: "\f13b";
+  content: '\f13b';
 }
 .icon-css3:before {
-  content: "\f13c";
+  content: '\f13c';
 }
 .icon-binoculars:before {
-  content: "\f145";
+  content: '\f145';
 }
 .icon-bookmark-o:before {
-  content: "\f150";
+  content: '\f150';
 }
 .icon-btc:before {
-  content: "\f15a";
+  content: '\f15a';
 }
 .icon-calendar:before {
-  content: "\f15c";
+  content: '\f15c';
 }
 .icon-youtube:before {
-  content: "\f167";
+  content: '\f167';
 }
 .icon-xing:before {
-  content: "\f168";
+  content: '\f168';
 }
 .icon-xing-square:before {
-  content: "\f169";
+  content: '\f169';
 }
 .icon-dropbox:before {
-  content: "\f16b";
+  content: '\f16b';
 }
 .icon-stack-overflow:before {
-  content: "\f16c";
+  content: '\f16c';
 }
 .icon-instagram:before {
-  content: "\f16d";
+  content: '\f16d';
 }
 .icon-flickr:before {
-  content: "\f16e";
+  content: '\f16e';
 }
 .icon-adn:before {
-  content: "\f170";
+  content: '\f170';
 }
 .icon-bitbucket:before {
-  content: "\f171";
+  content: '\f171';
 }
 .icon-tumblr:before {
-  content: "\f173";
+  content: '\f173';
 }
 .icon-tumblr-square:before {
-  content: "\f174";
+  content: '\f174';
 }
 .icon-certificate:before {
-  content: "\f178";
+  content: '\f178';
 }
 .icon-apple:before {
-  content: "\f179";
+  content: '\f179';
 }
 .icon-windows:before {
-  content: "\f17a";
+  content: '\f17a';
 }
 .icon-android:before {
-  content: "\f17b";
+  content: '\f17b';
 }
 .icon-linux:before {
-  content: "\f17c";
+  content: '\f17c';
 }
 .icon-dribbble:before {
-  content: "\f17d";
+  content: '\f17d';
 }
 .icon-skype:before {
-  content: "\f17e";
+  content: '\f17e';
 }
 .icon-foursquare:before {
-  content: "\f180";
+  content: '\f180';
 }
 .icon-trello:before {
-  content: "\f181";
+  content: '\f181';
 }
 .icon-gratipay:before {
-  content: "\f184";
+  content: '\f184';
 }
 .icon-vk:before {
-  content: "\f189";
+  content: '\f189';
 }
 .icon-weibo:before {
-  content: "\f18a";
+  content: '\f18a';
 }
 .icon-renren:before {
-  content: "\f18b";
+  content: '\f18b';
 }
 .icon-pagelines:before {
-  content: "\f18c";
+  content: '\f18c';
 }
 .icon-stack-exchange:before {
-  content: "\f18d";
+  content: '\f18d';
 }
 .icon-clock-o:before {
-  content: "\f18f";
+  content: '\f18f';
 }
 .icon-close:before {
-  content: "\f191";
+  content: '\f191';
 }
 .icon-vimeo-square:before {
-  content: "\f194";
+  content: '\f194';
 }
 .icon-slack:before {
-  content: "\f198";
+  content: '\f198';
 }
 .icon-wordpress:before {
-  content: "\f19a";
+  content: '\f19a';
 }
 .icon-openid:before {
-  content: "\f19b";
+  content: '\f19b';
 }
 .icon-yahoo:before {
-  content: "\f19e";
+  content: '\f19e';
 }
 .icon-reddit:before {
-  content: "\f1a1";
+  content: '\f1a1';
 }
 .icon-reddit-square:before {
-  content: "\f1a2";
+  content: '\f1a2';
 }
 .icon-stumbleupon-circle:before {
-  content: "\f1a3";
+  content: '\f1a3';
 }
 .icon-stumbleupon:before {
-  content: "\f1a4";
+  content: '\f1a4';
 }
 .icon-delicious:before {
-  content: "\f1a5";
+  content: '\f1a5';
 }
 .icon-digg:before {
-  content: "\f1a6";
+  content: '\f1a6';
 }
 .icon-pied-piper-pp:before {
-  content: "\f1a7";
+  content: '\f1a7';
 }
 .icon-pied-piper-alt:before {
-  content: "\f1a8";
+  content: '\f1a8';
 }
 .icon-drupal:before {
-  content: "\f1a9";
+  content: '\f1a9';
 }
 .icon-joomla:before {
-  content: "\f1aa";
+  content: '\f1aa';
 }
 .icon-behance:before {
-  content: "\f1b4";
+  content: '\f1b4';
 }
 .icon-behance-square:before {
-  content: "\f1b5";
+  content: '\f1b5';
 }
 .icon-steam:before {
-  content: "\f1b6";
+  content: '\f1b6';
 }
 .icon-steam-square:before {
-  content: "\f1b7";
+  content: '\f1b7';
 }
 .icon-dollar:before {
-  content: "\f1bb";
+  content: '\f1bb';
 }
 .icon-spotify:before {
-  content: "\f1bc";
+  content: '\f1bc';
 }
 .icon-deviantart:before {
-  content: "\f1bd";
+  content: '\f1bd';
 }
 .icon-soundcloud:before {
-  content: "\f1be";
+  content: '\f1be';
 }
 .icon-edit:before {
-  content: "\f1c1";
+  content: '\f1c1';
 }
 .icon-envelope:before {
-  content: "\f1c6";
+  content: '\f1c6';
 }
 .icon-vine:before {
-  content: "\f1ca";
+  content: '\f1ca';
 }
 .icon-codepen:before {
-  content: "\f1cb";
+  content: '\f1cb';
 }
 .icon-jsfiddle:before {
-  content: "\f1cc";
+  content: '\f1cc';
 }
 .icon-exclamation-circle:before {
-  content: "\f1ce";
+  content: '\f1ce';
 }
 .icon-rebel:before {
-  content: "\f1d0";
+  content: '\f1d0';
 }
 .icon-empire:before {
-  content: "\f1d1";
+  content: '\f1d1';
 }
 .icon-git:before {
-  content: "\f1d3";
+  content: '\f1d3';
 }
 .icon-hacker-news:before {
-  content: "\f1d4";
+  content: '\f1d4';
 }
 .icon-tencent-weibo:before {
-  content: "\f1d5";
+  content: '\f1d5';
 }
 .icon-qq:before {
-  content: "\f1d6";
+  content: '\f1d6';
 }
 .icon-weixin:before {
-  content: "\f1d7";
+  content: '\f1d7';
 }
 .icon-slideshare:before {
-  content: "\f1e7";
+  content: '\f1e7';
 }
 .icon-twitch:before {
-  content: "\f1e8";
+  content: '\f1e8';
 }
 .icon-yelp:before {
-  content: "\f1e9";
+  content: '\f1e9';
 }
 .icon-paypal:before {
-  content: "\f1ed";
+  content: '\f1ed';
 }
 .icon-google-wallet:before {
-  content: "\f1ee";
+  content: '\f1ee';
 }
 .icon-cc-visa:before {
-  content: "\f1f0";
+  content: '\f1f0';
 }
 .icon-cc-mastercard:before {
-  content: "\f1f1";
+  content: '\f1f1';
 }
 .icon-cc-discover:before {
-  content: "\f1f2";
+  content: '\f1f2';
 }
 .icon-cc-amex:before {
-  content: "\f1f3";
+  content: '\f1f3';
 }
 .icon-cc-paypal:before {
-  content: "\f1f4";
+  content: '\f1f4';
 }
 .icon-cc-stripe:before {
-  content: "\f1f5";
+  content: '\f1f5';
 }
 .icon-lastfm:before {
-  content: "\f202";
+  content: '\f202';
 }
 .icon-lastfm-square:before {
-  content: "\f203";
+  content: '\f203';
 }
 .icon-ioxhost:before {
-  content: "\f208";
+  content: '\f208';
 }
 .icon-angellist:before {
-  content: "\f209";
+  content: '\f209';
 }
 .icon-buysellads:before {
-  content: "\f20d";
+  content: '\f20d';
 }
 .icon-connectdevelop:before {
-  content: "\f20e";
+  content: '\f20e';
 }
 .icon-dashcube:before {
-  content: "\f210";
+  content: '\f210';
 }
 .icon-forumbee:before {
-  content: "\f211";
+  content: '\f211';
 }
 .icon-leanpub:before {
-  content: "\f212";
+  content: '\f212';
 }
 .icon-sellsy:before {
-  content: "\f213";
+  content: '\f213';
 }
 .icon-shirtsinbulk:before {
-  content: "\f214";
+  content: '\f214';
 }
 .icon-simplybuilt:before {
-  content: "\f215";
+  content: '\f215';
 }
 .icon-skyatlas:before {
-  content: "\f216";
+  content: '\f216';
 }
 .icon-heartbeat:before {
-  content: "\f21e";
+  content: '\f21e';
 }
 .icon-pinterest-p:before {
-  content: "\f231";
+  content: '\f231';
 }
 .icon-whatsapp:before {
-  content: "\f232";
+  content: '\f232';
 }
 .icon-heart:before {
-  content: "\f233";
+  content: '\f233';
 }
 .icon-heart-o:before {
-  content: "\f234";
+  content: '\f234';
 }
 .icon-viacoin:before {
-  content: "\f237";
+  content: '\f237';
 }
 .icon-medium:before {
-  content: "\f23a";
+  content: '\f23a';
 }
 .icon-y-combinator:before {
-  content: "\f23b";
+  content: '\f23b';
 }
 .icon-optin-monster:before {
-  content: "\f23c";
+  content: '\f23c';
 }
 .icon-opencart:before {
-  content: "\f23d";
+  content: '\f23d';
 }
 .icon-expeditedssl:before {
-  content: "\f23e";
+  content: '\f23e';
 }
 .icon-cc-jcb:before {
-  content: "\f24b";
+  content: '\f24b';
 }
 .icon-cc-diners-club:before {
-  content: "\f24c";
+  content: '\f24c';
 }
 .icon-clone:before {
-  content: "\f24d";
+  content: '\f24d';
 }
 .icon-jpy:before {
-  content: "\f253";
+  content: '\f253';
 }
 .icon-creative-commons:before {
-  content: "\f25e";
+  content: '\f25e';
 }
 .icon-gg:before {
-  content: "\f260";
+  content: '\f260';
 }
 .icon-gg-circle:before {
-  content: "\f261";
+  content: '\f261';
 }
 .icon-tripadvisor:before {
-  content: "\f262";
+  content: '\f262';
 }
 .icon-odnoklassniki:before {
-  content: "\f263";
+  content: '\f263';
 }
 .icon-odnoklassniki-square:before {
-  content: "\f264";
+  content: '\f264';
 }
 .icon-get-pocket:before {
-  content: "\f265";
+  content: '\f265';
 }
 .icon-wikipedia-w:before {
-  content: "\f266";
+  content: '\f266';
 }
 .icon-safari:before {
-  content: "\f267";
+  content: '\f267';
 }
 .icon-chrome:before {
-  content: "\f268";
+  content: '\f268';
 }
 .icon-firefox:before {
-  content: "\f269";
+  content: '\f269';
 }
 .icon-opera:before {
-  content: "\f26a";
+  content: '\f26a';
 }
 .icon-internet-explorer:before {
-  content: "\f26b";
+  content: '\f26b';
 }
 .icon-list:before {
-  content: "\f26c";
+  content: '\f26c';
 }
 .icon-contao:before {
-  content: "\f26d";
+  content: '\f26d';
 }
 .icon-500px:before {
-  content: "\f26e";
+  content: '\f26e';
 }
 .icon-list-ul:before {
-  content: "\f26f";
+  content: '\f26f';
 }
 .icon-amazon:before {
-  content: "\f270";
+  content: '\f270';
 }
 .icon-long-arrow-down:before {
-  content: "\f272";
+  content: '\f272';
 }
 .icon-long-arrow-left:before {
-  content: "\f273";
+  content: '\f273';
 }
 .icon-long-arrow-right:before {
-  content: "\f274";
+  content: '\f274';
 }
 .icon-long-arrow-up:before {
-  content: "\f275";
+  content: '\f275';
 }
 .icon-magic:before {
-  content: "\f276";
+  content: '\f276';
 }
 .icon-map-signs:before {
-  content: "\f277";
+  content: '\f277';
 }
 .icon-mail-reply:before {
-  content: "\f279";
+  content: '\f279';
 }
 .icon-houzz:before {
-  content: "\f27c";
+  content: '\f27c';
 }
 .icon-vimeo-v:before {
-  content: "\f27d";
+  content: '\f27d';
 }
 .icon-black-tie:before {
-  content: "\f27e";
+  content: '\f27e';
 }
 .icon-fonticons:before {
-  content: "\f280";
+  content: '\f280';
 }
 .icon-reddit-alien:before {
-  content: "\f281";
+  content: '\f281';
 }
 .icon-edge:before {
-  content: "\f282";
+  content: '\f282';
 }
 .icon-codiepie:before {
-  content: "\f284";
+  content: '\f284';
 }
 .icon-modx:before {
-  content: "\f285";
+  content: '\f285';
 }
 .icon-fort-awesome:before {
-  content: "\f286";
+  content: '\f286';
 }
 .icon-usb:before {
-  content: "\f287";
+  content: '\f287';
 }
 .icon-product-hunt:before {
-  content: "\f288";
+  content: '\f288';
 }
 .icon-mixcloud:before {
-  content: "\f289";
+  content: '\f289';
 }
 .icon-scribd:before {
-  content: "\f28a";
+  content: '\f28a';
 }
 .icon-minus:before {
-  content: "\f28e";
+  content: '\f28e';
 }
 .icon-shopping-bag:before {
-  content: "\f290";
+  content: '\f290';
 }
 .icon-bluetooth:before {
-  content: "\f293";
+  content: '\f293';
 }
 .icon-bluetooth-b:before {
-  content: "\f294";
+  content: '\f294';
 }
 .icon-gitlab:before {
-  content: "\f296";
+  content: '\f296';
 }
 .icon-wpbeginner:before {
-  content: "\f297";
+  content: '\f297';
 }
 .icon-wpforms:before {
-  content: "\f298";
+  content: '\f298';
 }
 .icon-envira:before {
-  content: "\f299";
+  content: '\f299';
 }
 .icon-glide:before {
-  content: "\f2a5";
+  content: '\f2a5';
 }
 .icon-glide-g:before {
-  content: "\f2a6";
+  content: '\f2a6';
 }
 .icon-viadeo:before {
-  content: "\f2a9";
+  content: '\f2a9';
 }
 .icon-viadeo-square:before {
-  content: "\f2aa";
+  content: '\f2aa';
 }
 .icon-snapchat:before {
-  content: "\f2ab";
+  content: '\f2ab';
 }
 .icon-snapchat-ghost:before {
-  content: "\f2ac";
+  content: '\f2ac';
 }
 .icon-snapchat-square:before {
-  content: "\f2ad";
+  content: '\f2ad';
 }
 .icon-pied-piper:before {
-  content: "\f2ae";
+  content: '\f2ae';
 }
 .icon-first-order:before {
-  content: "\f2b0";
+  content: '\f2b0';
 }
 .icon-yoast:before {
-  content: "\f2b1";
+  content: '\f2b1';
 }
 .icon-themeisle:before {
-  content: "\f2b2";
+  content: '\f2b2';
 }
 .icon-google-plus:before {
-  content: "\f2b3";
+  content: '\f2b3';
 }
 .icon-font-awesome:before {
-  content: "\f2b4";
+  content: '\f2b4';
 }
 .icon-linode:before {
-  content: "\f2b8";
+  content: '\f2b8';
 }
 .icon-play-outline:before {
-  content: "\f2be";
+  content: '\f2be';
 }
 .icon-plus:before {
-  content: "\f2c2";
+  content: '\f2c2';
 }
 .icon-quora:before {
-  content: "\f2c4";
+  content: '\f2c4';
 }
 .icon-free-code-camp:before {
-  content: "\f2c5";
+  content: '\f2c5';
 }
 .icon-telegram:before {
-  content: "\f2c6";
+  content: '\f2c6';
 }
 .icon-puzzle-piece:before {
-  content: "\f2c8";
+  content: '\f2c8';
 }
 .icon-question-circle:before {
-  content: "\f2cc";
+  content: '\f2cc';
 }
 .icon-random:before {
-  content: "\f2d0";
+  content: '\f2d0';
 }
 .icon-bandcamp:before {
-  content: "\f2d5";
+  content: '\f2d5';
 }
 .icon-grav:before {
-  content: "\f2d6";
+  content: '\f2d6';
 }
 .icon-etsy:before {
-  content: "\f2d7";
+  content: '\f2d7';
 }
 .icon-imdb:before {
-  content: "\f2d8";
+  content: '\f2d8';
 }
 .icon-ravelry:before {
-  content: "\f2d9";
+  content: '\f2d9';
 }
 .icon-sellcast:before {
-  content: "\f2da";
+  content: '\f2da';
 }
 .icon-superpowers:before {
-  content: "\f2dd";
+  content: '\f2dd';
 }
 .icon-wpexplorer:before {
-  content: "\f2de";
+  content: '\f2de';
 }
 .icon-rocket:before {
-  content: "\f2df";
+  content: '\f2df';
 }
 .icon-meetup:before {
-  content: "\f2e0";
+  content: '\f2e0';
 }
 .icon-rotate-right:before {
-  content: "\f2e1";
+  content: '\f2e1';
 }
 .icon-rupee:before {
-  content: "\f2e7";
+  content: '\f2e7';
 }
 .icon-search:before {
-  content: "\f2eb";
+  content: '\f2eb';
 }
 .icon-search-plus:before {
-  content: "\f2ed";
+  content: '\f2ed';
 }
 .icon-shopping-cart:before {
-  content: "\f2fa";
+  content: '\f2fa';
 }
 .icon-spinner:before {
-  content: "\f311";
+  content: '\f311';
 }
 .icon-star:before {
-  content: "\f318";
+  content: '\f318';
 }
 .icon-star-o:before {
-  content: "\f31b";
+  content: '\f31b';
 }
 .icon-tag:before {
-  content: "\f330";
+  content: '\f330';
 }
 .icon-tags:before {
-  content: "\f331";
+  content: '\f331';
 }
 .icon-th-list:before {
-  content: "\f33b";
+  content: '\f33b';
 }
 .icon-thumbs-down:before {
-  content: "\f33d";
+  content: '\f33d';
 }
 .icon-thumbs-up:before {
-  content: "\f340";
+  content: '\f340';
 }
 .icon-times:before {
-  content: "\f342";
+  content: '\f342';
 }
 .icon-times-circle-o:before {
-  content: "\f344";
+  content: '\f344';
 }
 .icon-trophy:before {
-  content: "\f351";
+  content: '\f351';
 }
 .icon-truck:before {
-  content: "\f352";
+  content: '\f352';
 }
 .icon-turkish-lira:before {
-  content: "\f357";
+  content: '\f357';
 }
 .icon-font-awesome-alt:before {
-  content: "\f35c";
+  content: '\f35c';
 }
 .icon-unlock:before {
-  content: "\f360";
+  content: '\f360';
 }
 .icon-usd:before {
-  content: "\f363";
+  content: '\f363';
 }
 .icon-user:before {
-  content: "\f364";
+  content: '\f364';
 }
 .icon-accessible-icon:before {
-  content: "\f368";
+  content: '\f368';
 }
 .icon-accusoft:before {
-  content: "\f369";
+  content: '\f369';
 }
 .icon-adversal:before {
-  content: "\f36a";
+  content: '\f36a';
 }
 .icon-affiliatetheme:before {
-  content: "\f36b";
+  content: '\f36b';
 }
 .icon-algolia:before {
-  content: "\f36c";
+  content: '\f36c';
 }
 .icon-amilia:before {
-  content: "\f36d";
+  content: '\f36d';
 }
 .icon-angrycreative:before {
-  content: "\f36e";
+  content: '\f36e';
 }
 .icon-app-store:before {
-  content: "\f36f";
+  content: '\f36f';
 }
 .icon-app-store-ios:before {
-  content: "\f370";
+  content: '\f370';
 }
 .icon-apper:before {
-  content: "\f371";
+  content: '\f371';
 }
 .icon-asymmetrik:before {
-  content: "\f372";
+  content: '\f372';
 }
 .icon-audible:before {
-  content: "\f373";
+  content: '\f373';
 }
 .icon-avianex:before {
-  content: "\f374";
+  content: '\f374';
 }
 .icon-aws:before {
-  content: "\f375";
+  content: '\f375';
 }
 .icon-bimobject:before {
-  content: "\f378";
+  content: '\f378';
 }
 .icon-bitcoin:before {
-  content: "\f379";
+  content: '\f379';
 }
 .icon-bity:before {
-  content: "\f37a";
+  content: '\f37a';
 }
 .icon-blackberry:before {
-  content: "\f37b";
+  content: '\f37b';
 }
 .icon-blogger:before {
-  content: "\f37c";
+  content: '\f37c';
 }
 .icon-blogger-b:before {
-  content: "\f37d";
+  content: '\f37d';
 }
 .icon-buromobelexperte:before {
-  content: "\f37f";
+  content: '\f37f';
 }
 .icon-centercode:before {
-  content: "\f380";
+  content: '\f380';
 }
 .icon-cloudscale:before {
-  content: "\f383";
+  content: '\f383';
 }
 .icon-cloudsmith:before {
-  content: "\f384";
+  content: '\f384';
 }
 .icon-cloudversify:before {
-  content: "\f385";
+  content: '\f385';
 }
 .icon-cpanel:before {
-  content: "\f388";
+  content: '\f388';
 }
 .icon-yen:before {
-  content: "\f38a";
+  content: '\f38a';
 }
 .icon-css3-alt:before {
-  content: "\f38b";
+  content: '\f38b';
 }
 .icon-cuttlefish:before {
-  content: "\f38c";
+  content: '\f38c';
 }
 .icon-d-and-d:before {
-  content: "\f38d";
+  content: '\f38d';
 }
 .icon-deploydog:before {
-  content: "\f38e";
+  content: '\f38e';
 }
 .icon-deskpro:before {
-  content: "\f38f";
+  content: '\f38f';
 }
 .icon-digital-ocean:before {
-  content: "\f391";
+  content: '\f391';
 }
 .icon-discord:before {
-  content: "\f392";
+  content: '\f392';
 }
 .icon-discourse:before {
-  content: "\f393";
+  content: '\f393';
 }
 .icon-dochub:before {
-  content: "\f394";
+  content: '\f394';
 }
 .icon-docker:before {
-  content: "\f395";
+  content: '\f395';
 }
 .icon-draft2digital:before {
-  content: "\f396";
+  content: '\f396';
 }
 .icon-dribbble-square:before {
-  content: "\f397";
+  content: '\f397';
 }
 .icon-dyalog:before {
-  content: "\f399";
+  content: '\f399';
 }
 .icon-earlybirds:before {
-  content: "\f39a";
+  content: '\f39a';
 }
 .icon-erlang:before {
-  content: "\f39d";
+  content: '\f39d';
 }
 .icon-facebook-f:before {
-  content: "\f39e";
+  content: '\f39e';
 }
 .icon-facebook-messenger:before {
-  content: "\f39f";
+  content: '\f39f';
 }
 .icon-firstdraft:before {
-  content: "\f3a1";
+  content: '\f3a1';
 }
 .icon-fonticons-fi:before {
-  content: "\f3a2";
+  content: '\f3a2';
 }
 .icon-fort-awesome-alt:before {
-  content: "\f3a3";
+  content: '\f3a3';
 }
 .icon-freebsd:before {
-  content: "\f3a4";
+  content: '\f3a4';
 }
 .icon-gitkraken:before {
-  content: "\f3a6";
+  content: '\f3a6';
 }
 .icon-gofore:before {
-  content: "\f3a7";
+  content: '\f3a7';
 }
 .icon-goodreads:before {
-  content: "\f3a8";
+  content: '\f3a8';
 }
 .icon-goodreads-g:before {
-  content: "\f3a9";
+  content: '\f3a9';
 }
 .icon-google-drive:before {
-  content: "\f3aa";
+  content: '\f3aa';
 }
 .icon-google-play:before {
-  content: "\f3ab";
+  content: '\f3ab';
 }
 .icon-gripfire:before {
-  content: "\f3ac";
+  content: '\f3ac';
 }
 .icon-grunt:before {
-  content: "\f3ad";
+  content: '\f3ad';
 }
 .icon-gulp:before {
-  content: "\f3ae";
+  content: '\f3ae';
 }
 .icon-hacker-news-square:before {
-  content: "\f3af";
+  content: '\f3af';
 }
 .icon-hire-a-helper:before {
-  content: "\f3b0";
+  content: '\f3b0';
 }
 .icon-hotjar:before {
-  content: "\f3b1";
+  content: '\f3b1';
 }
 .icon-hubspot:before {
-  content: "\f3b2";
+  content: '\f3b2';
 }
 .icon-itunes:before {
-  content: "\f3b4";
+  content: '\f3b4';
 }
 .icon-itunes-note:before {
-  content: "\f3b5";
+  content: '\f3b5';
 }
 .icon-jenkins:before {
-  content: "\f3b6";
+  content: '\f3b6';
 }
 .icon-joget:before {
-  content: "\f3b7";
+  content: '\f3b7';
 }
 .icon-js:before {
-  content: "\f3b8";
+  content: '\f3b8';
 }
 .icon-js-square:before {
-  content: "\f3b9";
+  content: '\f3b9';
 }
 .icon-keycdn:before {
-  content: "\f3ba";
+  content: '\f3ba';
 }
 .icon-kickstarter:before {
-  content: "\f3bb";
+  content: '\f3bb';
 }
 .icon-kickstarter-k:before {
-  content: "\f3bc";
+  content: '\f3bc';
 }
 .icon-laravel:before {
-  content: "\f3bd";
+  content: '\f3bd';
 }
 .icon-line:before {
-  content: "\f3c0";
+  content: '\f3c0';
 }
 .icon-lyft:before {
-  content: "\f3c3";
+  content: '\f3c3';
 }
 .icon-magento:before {
-  content: "\f3c4";
+  content: '\f3c4';
 }
 .icon-medapps:before {
-  content: "\f3c6";
+  content: '\f3c6';
 }
 .icon-medium-m:before {
-  content: "\f3c7";
+  content: '\f3c7';
 }
 .icon-medrt:before {
-  content: "\f3c8";
+  content: '\f3c8';
 }
 .icon-microsoft:before {
-  content: "\f3ca";
+  content: '\f3ca';
 }
 .icon-mix:before {
-  content: "\f3cb";
+  content: '\f3cb';
 }
 .icon-mizuni:before {
-  content: "\f3cc";
+  content: '\f3cc';
 }
 .icon-mobile-alt:before {
-  content: "\f3cd";
+  content: '\f3cd';
 }
 .icon-monero:before {
-  content: "\f3d0";
+  content: '\f3d0';
 }
 .icon-napster:before {
-  content: "\f3d2";
+  content: '\f3d2';
 }
 .icon-node-js:before {
-  content: "\f3d3";
+  content: '\f3d3';
 }
 .icon-npm:before {
-  content: "\f3d4";
+  content: '\f3d4';
 }
 .icon-ns8:before {
-  content: "\f3d5";
+  content: '\f3d5';
 }
 .icon-nutritionix:before {
-  content: "\f3d6";
+  content: '\f3d6';
 }
 .icon-page4:before {
-  content: "\f3d7";
+  content: '\f3d7';
 }
 .icon-palfed:before {
-  content: "\f3d8";
+  content: '\f3d8';
 }
 .icon-patreon:before {
-  content: "\f3d9";
+  content: '\f3d9';
 }
 .icon-periscope:before {
-  content: "\f3da";
+  content: '\f3da';
 }
 .icon-phabricator:before {
-  content: "\f3db";
+  content: '\f3db';
 }
 .icon-phoenix-framework:before {
-  content: "\f3dc";
+  content: '\f3dc';
 }
 .icon-playstation:before {
-  content: "\f3df";
+  content: '\f3df';
 }
 .icon-pushed:before {
-  content: "\f3e1";
+  content: '\f3e1';
 }
 .icon-python:before {
-  content: "\f3e2";
+  content: '\f3e2';
 }
 .icon-red-river:before {
-  content: "\f3e3";
+  content: '\f3e3';
 }
 .icon-wpressr:before {
-  content: "\f3e4";
+  content: '\f3e4';
 }
 .icon-replyd:before {
-  content: "\f3e6";
+  content: '\f3e6';
 }
 .icon-resolving:before {
-  content: "\f3e7";
+  content: '\f3e7';
 }
 .icon-rocketchat:before {
-  content: "\f3e8";
+  content: '\f3e8';
 }
 .icon-rockrms:before {
-  content: "\f3e9";
+  content: '\f3e9';
 }
 .icon-schlix:before {
-  content: "\f3ea";
+  content: '\f3ea';
 }
 .icon-searchengin:before {
-  content: "\f3eb";
+  content: '\f3eb';
 }
 .icon-servicestack:before {
-  content: "\f3ec";
+  content: '\f3ec';
 }
 .icon-sistrix:before {
-  content: "\f3ee";
+  content: '\f3ee';
 }
 .icon-slack-hash:before {
-  content: "\f3ef";
+  content: '\f3ef';
 }
 .icon-speakap:before {
-  content: "\f3f3";
+  content: '\f3f3';
 }
 .icon-staylinked:before {
-  content: "\f3f5";
+  content: '\f3f5';
 }
 .icon-steam-symbol:before {
-  content: "\f3f6";
+  content: '\f3f6';
 }
 .icon-sticker-mule:before {
-  content: "\f3f7";
+  content: '\f3f7';
 }
 .icon-studiovinari:before {
-  content: "\f3f8";
+  content: '\f3f8';
 }
 .icon-supple:before {
-  content: "\f3f9";
+  content: '\f3f9';
 }
 .icon-telegram-plane:before {
-  content: "\f3fe";
+  content: '\f3fe';
 }
 .icon-uber:before {
-  content: "\f402";
+  content: '\f402';
 }
 .icon-uikit:before {
-  content: "\f403";
+  content: '\f403';
 }
 .icon-uniregistry:before {
-  content: "\f404";
+  content: '\f404';
 }
 .icon-untappd:before {
-  content: "\f405";
+  content: '\f405';
 }
 .icon-ussunnah:before {
-  content: "\f407";
+  content: '\f407';
 }
 .icon-vaadin:before {
-  content: "\f408";
+  content: '\f408';
 }
 .icon-viber:before {
-  content: "\f409";
+  content: '\f409';
 }
 .icon-vimeo:before {
-  content: "\f40a";
+  content: '\f40a';
 }
 .icon-vnv:before {
-  content: "\f40b";
+  content: '\f40b';
 }
 .icon-whatsapp-square:before {
-  content: "\f40c";
+  content: '\f40c';
 }
 .icon-whmcs:before {
-  content: "\f40d";
+  content: '\f40d';
 }
 .icon-wordpress-simple:before {
-  content: "\f411";
+  content: '\f411';
 }
 .icon-xbox:before {
-  content: "\f412";
+  content: '\f412';
 }
 .icon-yandex:before {
-  content: "\f413";
+  content: '\f413';
 }
 .icon-yandex-international:before {
-  content: "\f414";
+  content: '\f414';
 }
 .icon-apple-pay:before {
-  content: "\f415";
+  content: '\f415';
 }
 .icon-cc-apple-pay:before {
-  content: "\f416";
+  content: '\f416';
 }
 .icon-fly:before {
-  content: "\f417";
+  content: '\f417';
 }
 .icon-nintendo-switch:before {
-  content: "\f418";
+  content: '\f418';
 }
 .icon-node:before {
-  content: "\f419";
+  content: '\f419';
 }
 .icon-osi:before {
-  content: "\f41a";
+  content: '\f41a';
 }
 .icon-react:before {
-  content: "\f41b";
+  content: '\f41b';
 }
 .icon-autoprefixer:before {
-  content: "\f41c";
+  content: '\f41c';
 }
 .icon-less:before {
-  content: "\f41d";
+  content: '\f41d';
 }
 .icon-sass:before {
-  content: "\f41e";
+  content: '\f41e';
 }
 .icon-vuejs:before {
-  content: "\f41f";
+  content: '\f41f';
 }
 .icon-angular:before {
-  content: "\f420";
+  content: '\f420';
 }
 .icon-aviato:before {
-  content: "\f421";
+  content: '\f421';
 }
 .icon-ember:before {
-  content: "\f423";
+  content: '\f423';
 }
 .icon-font-awesome-flag:before {
-  content: "\f425";
+  content: '\f425';
 }
 .icon-gitter:before {
-  content: "\f426";
+  content: '\f426';
 }
 .icon-hooli:before {
-  content: "\f427";
+  content: '\f427';
 }
 .icon-strava:before {
-  content: "\f428";
+  content: '\f428';
 }
 .icon-stripe:before {
-  content: "\f429";
+  content: '\f429';
 }
 .icon-stripe-s:before {
-  content: "\f42a";
+  content: '\f42a';
 }
 .icon-typo3:before {
-  content: "\f42b";
+  content: '\f42b';
 }
 .icon-amazon-pay:before {
-  content: "\f42c";
+  content: '\f42c';
 }
 .icon-cc-amazon-pay:before {
-  content: "\f42d";
+  content: '\f42d';
 }
 .icon-ethereum:before {
-  content: "\f42e";
+  content: '\f42e';
 }
 .icon-korvue:before {
-  content: "\f42f";
+  content: '\f42f';
 }
 .icon-elementor:before {
-  content: "\f430";
+  content: '\f430';
 }
 .icon-youtube-square:before {
-  content: "\f431";
+  content: '\f431';
 }
 .icon-flipboard:before {
-  content: "\f44d";
+  content: '\f44d';
 }
 .icon-hips:before {
-  content: "\f452";
+  content: '\f452';
 }
 .icon-php:before {
-  content: "\f457";
+  content: '\f457';
 }
 .icon-quinscape:before {
-  content: "\f459";
+  content: '\f459';
 }
 .icon-couch:before {
-  content: "\f4b8";
+  content: '\f4b8';
 }
 .icon-readme:before {
-  content: "\f4d5";
+  content: '\f4d5';
 }
 .icon-java:before {
-  content: "\f4e4";
+  content: '\f4e4';
 }
 .icon-pied-piper-hat:before {
-  content: "\f4e5";
+  content: '\f4e5';
 }
 .icon-creative-commons-by:before {
-  content: "\f4e7";
+  content: '\f4e7';
 }
 .icon-creative-commons-nc:before {
-  content: "\f4e8";
+  content: '\f4e8';
 }
 .icon-creative-commons-nc-eu:before {
-  content: "\f4e9";
+  content: '\f4e9';
 }
 .icon-creative-commons-nc-jp:before {
-  content: "\f4ea";
+  content: '\f4ea';
 }
 .icon-creative-commons-nd:before {
-  content: "\f4eb";
+  content: '\f4eb';
 }
 .icon-creative-commons-pd:before {
-  content: "\f4ec";
+  content: '\f4ec';
 }
 .icon-creative-commons-pd-alt:before {
-  content: "\f4ed";
+  content: '\f4ed';
 }
 .icon-creative-commons-remix:before {
-  content: "\f4ee";
+  content: '\f4ee';
 }
 .icon-creative-commons-sa:before {
-  content: "\f4ef";
+  content: '\f4ef';
 }
 .icon-creative-commons-sampling:before {
-  content: "\f4f0";
+  content: '\f4f0';
 }
 .icon-creative-commons-sampling-plus:before {
-  content: "\f4f1";
+  content: '\f4f1';
 }
 .icon-creative-commons-share:before {
-  content: "\f4f2";
+  content: '\f4f2';
 }
 .icon-creative-commons-zero:before {
-  content: "\f4f3";
+  content: '\f4f3';
 }
 .icon-ebay:before {
-  content: "\f4f4";
+  content: '\f4f4';
 }
 .icon-keybase:before {
-  content: "\f4f5";
+  content: '\f4f5';
 }
 .icon-mastodon:before {
-  content: "\f4f6";
+  content: '\f4f6';
 }
 .icon-r-project:before {
-  content: "\f4f7";
+  content: '\f4f7';
 }
 .icon-researchgate:before {
-  content: "\f4f8";
+  content: '\f4f8';
 }
 .icon-teamspeak:before {
-  content: "\f4f9";
+  content: '\f4f9';
 }
 .icon-first-order-alt:before {
-  content: "\f50a";
+  content: '\f50a';
 }
 .icon-fulcrum:before {
-  content: "\f50b";
+  content: '\f50b';
 }
 .icon-galactic-republic:before {
-  content: "\f50c";
+  content: '\f50c';
 }
 .icon-galactic-senate:before {
-  content: "\f50d";
+  content: '\f50d';
 }
 .icon-jedi-order:before {
-  content: "\f50e";
+  content: '\f50e';
 }
 .icon-mandalorian:before {
-  content: "\f50f";
+  content: '\f50f';
 }
 .icon-old-republic:before {
-  content: "\f510";
+  content: '\f510';
 }
 .icon-phoenix-squadron:before {
-  content: "\f511";
+  content: '\f511';
 }
 .icon-sith:before {
-  content: "\f512";
+  content: '\f512';
 }
 .icon-trade-federation:before {
-  content: "\f513";
+  content: '\f513';
 }
 .icon-wolf-pack-battalion:before {
-  content: "\f514";
+  content: '\f514';
 }
 .icon-blender:before {
-  content: "\f517";
+  content: '\f517';
 }
 .icon-shoe-prints:before {
-  content: "\f54b";
+  content: '\f54b';
 }
 .icon-tshirt:before {
-  content: "\f553";
+  content: '\f553';
 }
 .icon-concierge-bell:before {
-  content: "\f562";
+  content: '\f562';
 }
 .icon-hornbill:before {
-  content: "\f592";
+  content: '\f592';
 }
 .icon-mailchimp:before {
-  content: "\f59e";
+  content: '\f59e';
 }
 .icon-megaport:before {
-  content: "\f5a3";
+  content: '\f5a3';
 }
 .icon-nimblr:before {
-  content: "\f5a8";
+  content: '\f5a8';
 }
 .icon-rev:before {
-  content: "\f5b2";
+  content: '\f5b2';
 }
 .icon-shopware:before {
-  content: "\f5b5";
+  content: '\f5b5';
 }
 .icon-squarespace:before {
-  content: "\f5be";
+  content: '\f5be';
 }
 .icon-themeco:before {
-  content: "\f5c6";
+  content: '\f5c6';
 }
 .icon-weebly:before {
-  content: "\f5cc";
+  content: '\f5cc';
 }
 .icon-wix:before {
-  content: "\f5cf";
+  content: '\f5cf';
 }
 .icon-ello:before {
-  content: "\f5f1";
+  content: '\f5f1';
 }
 .icon-hackerrank:before {
-  content: "\f5f7";
+  content: '\f5f7';
 }
 .icon-kaggle:before {
-  content: "\f5fa";
+  content: '\f5fa';
 }
 .icon-markdown:before {
-  content: "\f60f";
+  content: '\f60f';
 }
 .icon-neos:before {
-  content: "\f612";
+  content: '\f612';
 }
 .icon-zhihu:before {
-  content: "\f63f";
+  content: '\f63f';
 }
 .icon-alipay:before {
-  content: "\f642";
+  content: '\f642';
 }
 .icon-the-red-yeti:before {
-  content: "\f69d";
+  content: '\f69d';
 }
 .icon-acquisitions-incorporated:before {
-  content: "\f6af";
+  content: '\f6af';
 }
 .icon-critical-role:before {
-  content: "\f6c9";
+  content: '\f6c9';
 }
 .icon-d-and-d-beyond:before {
-  content: "\f6ca";
+  content: '\f6ca';
 }
 .icon-dev:before {
-  content: "\f6cc";
+  content: '\f6cc';
 }
 .icon-fantasy-flight-games:before {
-  content: "\f6dc";
+  content: '\f6dc';
 }
 .icon-penny-arcade:before {
-  content: "\f704";
+  content: '\f704';
 }
 .icon-wizards-of-the-coast:before {
-  content: "\f730";
+  content: '\f730';
 }
 .icon-think-peaks:before {
-  content: "\f731";
+  content: '\f731';
 }
 .icon-reacteurope:before {
-  content: "\f75d";
+  content: '\f75d';
 }
 .icon-adobe:before {
-  content: "\f778";
+  content: '\f778';
 }
 .icon-artstation:before {
-  content: "\f77a";
+  content: '\f77a';
 }
 .icon-atlassian:before {
-  content: "\f77b";
+  content: '\f77b';
 }
 .icon-canadian-maple-leaf:before {
-  content: "\f785";
+  content: '\f785';
 }
 .icon-centos:before {
-  content: "\f789";
+  content: '\f789';
 }
 .icon-confluence:before {
-  content: "\f78d";
+  content: '\f78d';
 }
 .icon-dhl:before {
-  content: "\f790";
+  content: '\f790';
 }
 .icon-diaspora:before {
-  content: "\f791";
+  content: '\f791';
 }
 .icon-fedex:before {
-  content: "\f797";
+  content: '\f797';
 }
 .icon-fedora:before {
-  content: "\f798";
+  content: '\f798';
 }
 .icon-figma:before {
-  content: "\f799";
+  content: '\f799';
 }
 .icon-intercom:before {
-  content: "\f7af";
+  content: '\f7af';
 }
 .icon-invision:before {
-  content: "\f7b0";
+  content: '\f7b0';
 }
 .icon-jira:before {
-  content: "\f7b1";
+  content: '\f7b1';
 }
 .icon-mendeley:before {
-  content: "\f7b3";
+  content: '\f7b3';
 }
 .icon-raspberry-pi:before {
-  content: "\f7bb";
+  content: '\f7bb';
 }
 .icon-redhat:before {
-  content: "\f7bc";
+  content: '\f7bc';
 }
 .icon-sketch:before {
-  content: "\f7c6";
+  content: '\f7c6';
 }
 .icon-sourcetree:before {
-  content: "\f7d3";
+  content: '\f7d3';
 }
 .icon-suse:before {
-  content: "\f7d6";
+  content: '\f7d6';
 }
 .icon-ubuntu:before {
-  content: "\f7df";
+  content: '\f7df';
 }
 .icon-ups:before {
-  content: "\f7e0";
+  content: '\f7e0';
 }
 .icon-usps:before {
-  content: "\f7e1";
+  content: '\f7e1';
 }
 .icon-yarn:before {
-  content: "\f7e3";
+  content: '\f7e3';
 }
 /*# sourceMappingURL=style.css.map */
 
 .fa-cart-shopping:before,
 .fa-shopping-cart:before {
-  content: "\f07a";
+  content: '\f07a';
   font-size: 25px;
 }
 
@@ -16763,43 +16765,46 @@ button:focus {
 
 @media screen and (max-width: 575px) {
   .banner > .slick-initialized .slick-slide {
-    max-height: 200px !important
+    max-height: 200px !important;
   }
 }
 @media (max-width: 340px) {
   .banner > .slick-initialized .slick-slide {
-    max-height: 200px !important
+    max-height: 200px !important;
   }
 }
 
-
 /* fb */
-._2p3a{
+._2p3a {
   width: '100%' !important;
 }
 .fb-page,
 .fb-page span,
 .fb-page span iframe[style] {
-    max-width: 100% !important;
+  max-width: 100% !important;
 }
 
-.fb-page, .fb-page iframe[style], .fb-page span {
+.fb-page,
+.fb-page iframe[style],
+.fb-page span {
   width: 100% !important;
 }
-.fb-comments, .fb-comments iframe[style], .fb-comments span {
- width: 100% !important;
+.fb-comments,
+.fb-comments iframe[style],
+.fb-comments span {
+  width: 100% !important;
 }
 
 .iframe-fb {
   width: 100%;
-  } 
+}
 
-.container-video{
+.container-video {
   max-width: 60%;
   margin: 0 auto;
 }
-  @media screen and (max-width: 1200px) {
-    .container-video {
-      max-width: 100%;
-    }
+@media screen and (max-width: 1200px) {
+  .container-video {
+    max-width: 100%;
   }
+}

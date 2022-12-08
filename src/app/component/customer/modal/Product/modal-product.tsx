@@ -58,7 +58,7 @@ function ModalProduct(props: propsModalProduct) {
   const manufacturer = useAppSelector(manufacturerAdminStore);
   const [dataSelectRank, setDataSelectRank] = useState([] as any);
   const [dataSelectManufacturer, setDataSelectManufacturer] = useState(
-    [] as any
+    [] as any,
   );
 
   const dispatch = useAppDispatch();
@@ -69,13 +69,13 @@ function ModalProduct(props: propsModalProduct) {
       getAllPromotionAdmin({
         page: 0,
         noitem: 0,
-      })
+      }),
     );
 
     dispatch(
       getAllRankAdmin({
         id_category: 0,
-      })
+      }),
     );
 
     dispatch(
@@ -83,7 +83,7 @@ function ModalProduct(props: propsModalProduct) {
         id_category: 0,
         page: 0,
         noitem: 0,
-      })
+      }),
     );
     // form.setFieldsValue({
     //   id_dmsps: arrid_dmsps,
@@ -155,7 +155,7 @@ function ModalProduct(props: propsModalProduct) {
             id: props.value.id,
             price: value.price ? Number(value.price) : null,
             images: arrIMG,
-          })
+          }),
         ).then((res) => {
           if (props.visibleSearch) {
             dispatch(
@@ -169,7 +169,7 @@ function ModalProduct(props: propsModalProduct) {
                 page: props.page,
                 noitem: props.pageSize,
                 sort: 0,
-              })
+              }),
             );
           } else {
             dispatch(
@@ -178,7 +178,7 @@ function ModalProduct(props: propsModalProduct) {
                 sort: 0,
                 page: props.page,
                 noitem: props.pageSize,
-              })
+              }),
             );
           }
           arrImgDelete?.map((value: any) => {
@@ -194,7 +194,7 @@ function ModalProduct(props: propsModalProduct) {
             ...value,
             price: value.price ? Number(value.price) : null,
             images: arrIMG,
-          })
+          }),
         ).then(() => {
           if (props.visibleSearch) {
             dispatch(
@@ -208,7 +208,7 @@ function ModalProduct(props: propsModalProduct) {
                 page: props.page,
                 noitem: props.pageSize,
                 sort: 0,
-              })
+              }),
             );
           } else {
             dispatch(
@@ -217,7 +217,7 @@ function ModalProduct(props: propsModalProduct) {
                 page: props.page,
                 sort: 0,
                 noitem: props.pageSize,
-              })
+              }),
             );
           }
           arrImgDelete?.map((value: any) => {
@@ -256,7 +256,7 @@ function ModalProduct(props: propsModalProduct) {
 
   //Select
   const valueSelect = categorys.listcategoryProduct?.filter(
-    (item) => item.id !== 0
+    (item) => item.id !== 0,
   );
   console.log(valueSelect);
 
@@ -294,19 +294,19 @@ function ModalProduct(props: propsModalProduct) {
     }
   }
 
-  function uploadImage(e: any, key: string) {
+  const uploadImage = async (e: any, key: string) => {
     const data = new FormData();
     data.append('image', e);
     setUploading(true);
-    uploadIMGAdminAPI
+    await uploadIMGAdminAPI
       .postUploadIMG(data)
       .then((res) => {
         // setFileIMG(res.data.data.imageName);
         console.log(res.data.data.imageName);
         console.log(res.data.data.imageUrl);
         setFileIMG((pre: any) => [
-          ...pre,
           { imagename: res.data.data.imageName, type: key },
+          ...pre,
         ]);
         setUploading(false);
       })
@@ -314,7 +314,7 @@ function ModalProduct(props: propsModalProduct) {
         console.log('Lỗi upload');
         setUploading(false);
       });
-  }
+  };
 
   return (
     <Modal
@@ -622,7 +622,7 @@ function ModalProduct(props: propsModalProduct) {
                             { required: true, message: 'Nhập tên thuộc tính!' },
                           ]}
                         >
-                          <Input  />
+                          <Input />
                         </Form.Item>
                       </Col>
                       <Col md={11} xs={23}>
@@ -754,7 +754,7 @@ function ModalProduct(props: propsModalProduct) {
         </Row>
 
         {fileIMG?.find(
-          (x: any) => x.type === '1' || x.type === 'MAIN'
+          (x: any) => x.type === '1' || x.type === 'MAIN',
         ) ? null : (
           <input
             type="file"
