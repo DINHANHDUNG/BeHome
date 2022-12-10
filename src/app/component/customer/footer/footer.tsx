@@ -106,14 +106,16 @@ function Footer(props: typeProps) {
                         Mạng xã hội
                       </span> */}
                     <a
-                      href="https://www.facebook.com/C%E1%BB%ADa-h%C3%A0ng-thi%E1%BA%BFt-b%E1%BB%8B-v%E1%BA%ADt-t%C6%B0-%C4%90i%E1%BB%87n-N%C6%B0%E1%BB%9Bc-Behome-Store-111073668305784/?ref=pages_you_manage"
+                      target="_blank"
+                      href={props.company.Company.linkFacebook}
                       className="mr-3"
                     >
                       <i className="icons fab fa-facebook-f"></i>
                     </a>
 
                     <a
-                      href="https://www.youtube.com/channel/UCMmbSPuCXy_nClDcYLz4oLQ"
+                      target="_blank"
+                      href={props.company.Company.linkYoutube}
                       className="mr-3"
                     >
                       <i
@@ -122,7 +124,8 @@ function Footer(props: typeProps) {
                       ></i>
                     </a>
                     <a
-                      href="https://www.tiktok.com/@behome_store"
+                      target="_blank"
+                      href={props.company.Company.linkTiktok}
                       className="mr-3"
                     >
                       {/* <i
@@ -136,7 +139,8 @@ function Footer(props: typeProps) {
                     </a>
 
                     <a
-                      href="https://www.facebook.com/messages/t/111073668305784"
+                      target="_blank"
+                      href={props.company.Company.linkMessenger}
                       className="mr-3"
                     >
                       <i className="icons fab fa-facebook-messenger"></i>
@@ -177,13 +181,28 @@ function Footer(props: typeProps) {
           <div className="row ">
             <div className="col-sm-8 col-lg-9">
               <div className="widget widget-about">
-                <img
-                  src={'http://103.137.184.193:5500/avtfb.png'}
-                  alt="Payment methods"
-                  width="190"
-                  // height="20"
-                />
-                <h4>CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ BEHOME</h4>
+                {props.company.Company.images?.find((v) => v.type === 'LOGO')
+                  ?.imagename ? (
+                  <img
+                    src={
+                      'http://103.137.184.193:5500/images/' +
+                      props.company.Company.images?.find(
+                        (v) => v.type === 'LOGO',
+                      )?.imagename
+                    }
+                    alt=""
+                    width="190"
+                  />
+                ) : (
+                  <img
+                    src={'http://103.137.184.193:5500/avtfb.png'}
+                    alt="Payment methods"
+                    width="190"
+                    // height="20"
+                  />
+                )}
+
+                <h4 style={{marginTop: 10}}>CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ BEHOME</h4>
                 <p className="mb-0">
                   <span style={{ fontWeight: 600 }}>Địa chỉ</span>:{' '}
                   {props.company.Company.address}
@@ -203,7 +222,9 @@ function Footer(props: typeProps) {
                 </p>
                 <p className="mb-0">
                   <span style={{ fontWeight: 600 }}>Số điện thoại</span>:{' '}
-                  <a href={'tel:' + props.company.Company.phonenumber}>{props.company.Company.phonenumber}</a>
+                  <a href={'tel:' + props.company.Company.phonenumber}>
+                    {props.company.Company.phonenumber}
+                  </a>
                 </p>
                 <p className="mb-0">
                   <span style={{ fontWeight: 600 }}>Giờ mở cửa</span>: Giờ mở

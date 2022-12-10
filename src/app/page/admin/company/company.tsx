@@ -1,7 +1,10 @@
 import { Button, Card, Col, Form, Image, Input, Row, Select } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 import React, { useEffect, useState } from 'react';
-import { getAllCategoryProductAdmin, getFullCategoryProductAdmin } from '../../../../features/Admin/categoryAdnim';
+import {
+  getAllCategoryProductAdmin,
+  getFullCategoryProductAdmin,
+} from '../../../../features/Admin/categoryAdnim';
 import { getCompany, updateCompany } from '../../../../features/Admin/company';
 import {
   categoryAdminStore,
@@ -15,6 +18,7 @@ function Company() {
   const { Option } = Select;
   const dispatch = useAppDispatch();
   const [fileIMG, setFileIMG] = useState([] as any);
+  const [logo, setLogo] = useState(null as any);
   console.log('fileIMG', fileIMG);
 
   const [uploading, setUploading] = useState(false);
@@ -31,7 +35,8 @@ function Company() {
 
   useEffect(() => {
     form.resetFields();
-    setFileIMG(company.Company.images);
+    setFileIMG(company.Company.images?.filter((v) => v.type !== 'LOGO'));
+    setLogo(company.Company.images?.find((v) => v.type === 'LOGO')?.imagename);
   }, [company.Company]);
 
   function onFinish(value: any) {
@@ -47,6 +52,14 @@ function Company() {
         id_category: val.id_category,
       });
     });
+
+    if (logo) {
+      arrIMG.push({
+        imagename: logo,
+        type: 'LOGO',
+        id_category: null,
+      });
+    }
 
     dispatch(updateCompany({ ...value, images: arrIMG })).then(() => {
       // Thành công thì gọi
@@ -68,7 +81,7 @@ function Company() {
     }
   }
 
-  function deleteIMG(value: any) {
+  function deleteIMG(value: any, type?: string) {
     console.log('Đang xóa', value);
 
     setArrImgDelete((pre: any) => {
@@ -76,6 +89,10 @@ function Company() {
 
       return [...pre, value];
     });
+
+    if (type === 'LOGO') {
+      return setLogo(null);
+    }
 
     setFileIMG((pre: any) => {
       console.log(pre);
@@ -94,7 +111,12 @@ function Company() {
     }
   }
 
-  function uploadImage(e: any) {
+  function onchangeLogo(e: any) {
+    console.log(e.target.files);
+    uploadImage(e.target.files[0], 'LOGO');
+  }
+
+  function uploadImage(e: any, type?: string) {
     const data = new FormData();
     data.append('image', e);
     setUploading(true);
@@ -104,11 +126,14 @@ function Company() {
         // setFileIMG(res.data.data.imageName);
         console.log(res.data.data.imageName);
         console.log(res.data.data.imageUrl);
+        setUploading(false);
+        if (type === 'LOGO') {
+          return setLogo(res.data.data.imageName);
+        }
         setFileIMG((pre: any) => [
           ...pre,
           { imagename: res.data.data.imageName },
         ]);
-        setUploading(false);
       })
       .catch((err) => {
         console.log('Lỗi upload');
@@ -158,6 +183,10 @@ function Company() {
                 qdtt: company.Company.qdtt,
                 csbm: company.Company.csbm,
                 hdmh: company.Company.hdmh,
+                linkTiktok: company.Company.linkTiktok,
+                linkMessenger: company.Company.linkMessenger,
+                linkFacebook: company.Company.linkFacebook,
+                linkYoutube: company.Company.linkYoutube,
               }}
               onFinish={onFinish}
               autoComplete="off"
@@ -283,6 +312,43 @@ function Company() {
                 </Col>
               </Row>
 
+              <Row gutter={[24, 0]}>
+                <Col xs={24} xl={12}>
+                  <Form.Item
+                    label="Link Tiktok"
+                    name="linkTiktok"
+                  >
+                    <Input />
+                  </Form.Item>
+                </Col>
+                <Col xs={24} xl={12}>
+                  <Form.Item
+                    label="Link Youtube"
+                    name="linkYoutube"
+                  >
+                    <Input />
+                  </Form.Item>
+                </Col>
+              </Row>
+              <Row gutter={[24, 0]}>
+                <Col xs={24} xl={12}>
+                  <Form.Item
+                    label="Link Messenger"
+                    name="linkMessenger"
+                  >
+                    <Input />
+                  </Form.Item>
+                </Col>
+                <Col xs={24} xl={12}>
+                  <Form.Item
+                    label="Link Facebook"
+                    name="linkFacebook"
+                  >
+                    <Input />
+                  </Form.Item>
+                </Col>
+              </Row>
+
               <h5>Danh sách banner</h5>
               <Row gutter={[0, 0]}>
                 {fileIMG?.map((value: any, idx: any) => {
@@ -355,6 +421,45 @@ function Company() {
                   onChange={onchangeIMG}
                   // ref={inputRef}
                 />
+              </Form.Item>
+
+              <h5>LOGO</h5>
+
+              {logo && (
+                <Row gutter={[0, 0]}>
+                  <Col span={24}>
+                    <div className="info_image">
+                      <Image
+                        width={150}
+                        height={150}
+                        src={
+                          // value.split(".").length > 1
+                          //   ? "http://103.137.184.193:5500/images/" + value
+                          //   : "https://cf.shopee.vn/file/" + value
+                          'http://103.137.184.193:5500/images/' + logo
+                        }
+                      />
+                      <span
+                        className="icon_delete"
+                        onClick={() => deleteIMG(logo, 'LOGO')}
+                      >
+                        x
+                      </span>
+                    </div>
+                  </Col>
+                </Row>
+              )}
+
+              <Form.Item>
+                {!logo && (
+                  <input
+                    type="file"
+                    accept="image/*"
+                    // style={{ display: "none" }}
+                    onChange={onchangeLogo}
+                    // ref={inputRef}
+                  />
+                )}
               </Form.Item>
 
               <Row>

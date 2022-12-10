@@ -24,7 +24,10 @@ function Header(props: typeProps) {
       <div className="header-top">
         <div className="container">
           <div className="header-top-center">
-            Hotline: <a href={'tel:' + props.company.Company.phonenumber}>{props.company.Company.phonenumber?.split('-')[0]}</a>
+            Hotline:{' '}
+            <a href={'tel:' + props.company.Company.phonenumber}>
+              {props.company.Company.phonenumber?.split('-')[0]}
+            </a>
           </div>
         </div>
       </div>
@@ -40,7 +43,21 @@ function Header(props: typeProps) {
             </button>
 
             <a href="/" className="logo">
-              <img src={logo} alt="" style={{ width: '200px' }} />
+              {props.company.Company.images?.find((v) => v.type === 'LOGO')
+                ?.imagename ? (
+                <img
+                  src={
+                    'http://103.137.184.193:5500/images/' +
+                    props.company.Company.images?.find((v) => v.type === 'LOGO')
+                      ?.imagename
+                  }
+                  alt=""
+                  style={{ width: '200px' }}
+                />
+              ) : (
+                <img src={logo} alt="" style={{ width: '200px' }} />
+              )}
+
               {/* BEHOME */}
             </a>
           </div>

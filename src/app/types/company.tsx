@@ -9,6 +9,10 @@ export interface Company {
   csvc: string;
   csbm: string;
   hdmh: string;
+  linkYoutube: string;
+  linkFacebook: string;
+  linkMessenger: string;
+  linkTiktok: string;
   images: Array<image>;
 }
 
@@ -16,7 +20,7 @@ export interface image {
   id: number;
   imagename: string;
   type: string;
-  id_category: number
+  id_category: number;
 }
 
 export interface UpdateCompany {
