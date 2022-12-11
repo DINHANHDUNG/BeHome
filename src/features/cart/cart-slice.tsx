@@ -33,12 +33,23 @@ const cartSliceAdmin = createSlice({
         const indexValue = state.orderdetails?.findIndex(
           (val, idx) => val.id_product === action.payload.id
         );
-
         // console.log(indexValue);
 
         if (indexValue >= 0) {
+          if (state.orderdetails[indexValue].id_productproperties !== action.payload.id_productproperties) {
+            product = {
+              ...action.payload,
+              id: null,
+              id_product: action.payload.id,
+              id_productproperties: action.payload.id_productproperties,
+              id_combo: null,
+              amount: 1,
+            };
+            state.orderdetails = [...state.orderdetails, product];
+            return;
+          }
           state.orderdetails[indexValue].amount =
-            state.orderdetails[indexValue].amount + 1;
+          state.orderdetails[indexValue].amount + 1;
         } else {
           product = {
             ...action.payload,

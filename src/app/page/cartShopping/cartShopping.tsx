@@ -44,6 +44,7 @@ function CartShopping() {
                 <thead>
                   <tr>
                     <th>Sản phẩm</th>
+                    <th>Thuộc tính</th>
                     <th>Giá</th>
                     <th>Số lượng</th>
                     <th>Tổng tiền</th>
@@ -91,6 +92,12 @@ function CartShopping() {
                         </div>
                       </td>
                       <td className="price-col">
+                          {/* {Numberformat(value?.price)} */}
+                          {value?.id_productproperties
+                            ? value.productpropertiess?.find((v: any)=>v.id === value?.id_productproperties)?.nameproperties
+                            : null}
+                        </td>
+                      <td className="price-col">
                         {value?.id_productproperties
                           ? Numberformat(
                               value.productpropertiess.filter(
@@ -119,6 +126,7 @@ function CartShopping() {
                           />
                         </div>
                       </td>
+                      
                       <td className="total-col">
                         {value?.id_productproperties
                           ? Numberformat(

@@ -70,7 +70,7 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
       footer={null}
     >
       <Row className="rowgap-vbox" gutter={[24, 0]}>
-        <Col xs={24} sm={24} md={12} lg={6} xl={6} className="mb-24">
+        <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
           <Card bordered={false} className="criclebox ">
             <div className="number">
               <Row align="middle" gutter={[24, 0]}>
@@ -135,7 +135,7 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
             </div>
           </Card>
         </Col>
-        <Col xs={24} sm={24} md={12} lg={6} xl={6} className="mb-24">
+        <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
           <Card bordered={false} className="criclebox ">
             <div className="number">
               <Row align="middle" gutter={[24, 0]}>
@@ -191,7 +191,7 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
           </Card>
         </Col>
 
-        <Col xs={24} sm={24} md={24} lg={12} xl={12} className="mb-24">
+        <Col xs={24} sm={24} md={24} lg={24} xl={24} className="mb-24">
           <Card bordered={false} className="criclebox ">
             <div className="number">
               <Row align="middle" gutter={[24, 0]}>
@@ -208,6 +208,7 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
                     <thead>
                       <tr>
                         <th>Sản phẩm</th>
+                        <th>Thuộc tính</th>
                         <th>Giá</th>
                         <th>Số lượng</th>
                         <th>Tổng tiền</th>
@@ -290,6 +291,12 @@ function ModalDetailoOderDdmin(props: propsModalDetailoOderDdmin) {
                                   <a>{val.product.name}</a>
                                 </h3>
                               </div>
+                            </td>
+                            <td className="price-col">
+                              {/* {Numberformat(val.product.price)} */}
+                              {val.id_productproperties ?
+                                  val.productproperties?.nameproperties
+                              : null}
                             </td>
                             <td className="price-col">
                               {/* {Numberformat(val.product.price)} */}

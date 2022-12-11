@@ -15,6 +15,9 @@ import CartShopping from '../cartShopping/cartShopping';
 
 function CheckOut() {
   const cart = useAppSelector(CartStore);
+  console.log('====================================');
+  console.log('cart',cart);
+  console.log('====================================');
   const dispatch = useAppDispatch();
   const history = useNavigate();
   const [namecustomer, setNamecustomer] = useState('');
@@ -32,7 +35,16 @@ function CheckOut() {
   const inputRef = React.useRef(null);
 
   function onFinish(value: any) {
-    console.log(value);
+    // console.log(value);
+    // console.log('====================================');
+    // console.log({
+    //   ...cart,
+    //   namecustomer: value.namecustomer,
+    //   addresscustomer: value.addresscustomer,
+    //   emailcustomer: value.emailcustomer,
+    //   phonenumbercustomer: value.phonenumbercustomer,
+    // });
+    // console.log('====================================');
     dispatch(
       postAddOrderByIdAdmin({
         ...cart,
@@ -103,6 +115,7 @@ function CheckOut() {
                   <thead>
                     <tr>
                       <th>Sản phẩm</th>
+                      <th>Thuộc tính</th>
                       <th>Giá</th>
                       <th>Số lượng</th>
                       <th>Tổng tiền</th>
@@ -134,6 +147,12 @@ function CheckOut() {
                               <a href="#">{value?.name}</a>
                             </h3>
                           </div>
+                        </td>
+                        <td className="price-col">
+                          {/* {Numberformat(value?.price)} */}
+                          {value?.id_productproperties
+                            ? value.productpropertiess?.find((v: any)=>v.id === value?.id_productproperties)?.nameproperties
+                            : null}
                         </td>
                         <td className="price-col">
                           {/* {Numberformat(value?.price)} */}
