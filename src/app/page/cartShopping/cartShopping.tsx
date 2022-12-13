@@ -1,10 +1,11 @@
-import { InputNumber } from 'antd';
+import { InputNumber, Select } from 'antd';
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   CalculateTotalMomney,
   deleteCart,
   toggleAmountProduct,
+  toggleSelectProertiesProduct,
 } from '../../../features/cart/cart-slice';
 import { CartStore } from '../../../use-selector';
 import {
@@ -15,6 +16,7 @@ import {
 } from '../../hooks';
 
 function CartShopping() {
+  const { Option } = Select;
   const cart = useAppSelector(CartStore);
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -24,7 +26,7 @@ function CartShopping() {
       if (val.id_productproperties) {
         return (newTotal =
           val.productpropertiess.filter(
-            (b: any) => b.id === val?.id_productproperties
+            (b: any) => b.id === val?.id_productproperties,
           )[0]?.price *
             val.amount +
           newTotal);
@@ -34,6 +36,18 @@ function CartShopping() {
 
     dispatch(CalculateTotalMomney(newTotal));
   }, [cart]);
+
+  const handleChange = (e: any, value: any, idx: number) => {
+    console.log(`selected ${e}`);
+    console.log('value', value);
+    dispatch(
+      toggleSelectProertiesProduct({
+        value: value,
+        id_productproperties: Number(e),
+        idx,
+      }),
+    );
+  };
   return (
     <div className="page-content mt-3">
       <div className="cart">
@@ -70,7 +84,7 @@ function CartShopping() {
                                   'http://103.137.184.193:5500/images/' +
                                   value?.images.find(
                                     (x: any) =>
-                                      x.type === '1' || x.type === 'MAIN'
+                                      x.type === '1' || x.type === 'MAIN',
                                   )?.imagename
                                 }
                                 alt="Product image"
@@ -92,17 +106,41 @@ function CartShopping() {
                         </div>
                       </td>
                       <td className="price-col">
-                          {/* {Numberformat(value?.price)} */}
-                          {value?.id_productproperties
-                            ? value.productpropertiess?.find((v: any)=>v.id === value?.id_productproperties)?.nameproperties
-                            : null}
-                        </td>
+                        {/* {Numberformat(value?.price)} */}
+                        {/* {value?.id_productproperties
+                          ? value.productpropertiess?.find(
+                              (v: any) => v.id === value?.id_productproperties,
+                            )?.nameproperties
+                          : null} */}
+                        {value?.id_productproperties ? (
+                          <Select
+                            size="large"
+                            placeholder="Chọn loại sản phấm"
+                            optionFilterProp="children"
+                            onChange={(e) => handleChange(e, value, idx)}
+                            // onSearch={onSearch}
+                            value={
+                              value.productpropertiess?.find(
+                                (v: any) =>
+                                  v.id === value?.id_productproperties,
+                              )?.id
+                            }
+                          >
+                            {value.productpropertiess.map((item: any) => (
+                              <Option value={item.id} key={item.id}>
+                                {item.nameproperties}
+                              </Option>
+                            ))}
+                          </Select>
+                        ): null}
+                      </td>
                       <td className="price-col">
                         {value?.id_productproperties
                           ? Numberformat(
                               value.productpropertiess.filter(
-                                (b: any) => b.id === value?.id_productproperties
-                              )[0]?.price
+                                (b: any) =>
+                                  b.id === value?.id_productproperties,
+                              )[0]?.price,
                             )
                           : Numberformat(value?.price)}
                         {/* {Numberformat(value?.price)} */}
@@ -111,7 +149,7 @@ function CartShopping() {
                         <div className="cart-product-quantity">
                           <InputNumber
                             min={1}
-                            max={10}
+                            max={100}
                             value={value?.amount}
                             onChange={(val) => {
                               console.log(val);
@@ -120,19 +158,21 @@ function CartShopping() {
                                 toggleAmountProduct({
                                   amount: Number(val),
                                   product: value,
-                                })
+                                  idx: idx
+                                }),
                               );
                             }}
                           />
                         </div>
                       </td>
-                      
+
                       <td className="total-col">
                         {value?.id_productproperties
                           ? Numberformat(
                               value.productpropertiess.filter(
-                                (b: any) => b.id === value?.id_productproperties
-                              )[0]?.price * value.amount
+                                (b: any) =>
+                                  b.id === value?.id_productproperties,
+                              )[0]?.price * value.amount,
                             )
                           : Numberformat(value?.price * value.amount)}
                         {/* {Numberformat(value?.price * value.amount)} */}
@@ -141,7 +181,7 @@ function CartShopping() {
                         <button
                           className="btn-remove"
                           onClick={() => {
-                            dispatch(deleteCart(value));
+                            dispatch(deleteCart({ ...value, idx }));
                           }}
                         >
                           <i className="icon-close"></i>

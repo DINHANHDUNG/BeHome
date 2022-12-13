@@ -31,12 +31,15 @@ const cartSliceAdmin = createSlice({
       let product = {} as any;
       if (action.payload?.category?.type === 'PRODUCT') {
         const indexValue = state.orderdetails?.findIndex(
-          (val, idx) => val.id_product === action.payload.id
+          (val, idx) => val.id_product === action.payload.id,
         );
         // console.log(indexValue);
 
         if (indexValue >= 0) {
-          if (state.orderdetails[indexValue].id_productproperties !== action.payload.id_productproperties) {
+          if (
+            state.orderdetails[indexValue].id_productproperties !==
+            action.payload.id_productproperties
+          ) {
             product = {
               ...action.payload,
               id: null,
@@ -49,7 +52,7 @@ const cartSliceAdmin = createSlice({
             return;
           }
           state.orderdetails[indexValue].amount =
-          state.orderdetails[indexValue].amount + 1;
+            state.orderdetails[indexValue].amount + 1;
         } else {
           product = {
             ...action.payload,
@@ -63,7 +66,7 @@ const cartSliceAdmin = createSlice({
         }
       } else {
         const indexValue = state.orderdetails?.findIndex(
-          (val, idx) => val.id_combo === action.payload.id
+          (val, idx) => val.id_combo === action.payload.id,
         );
 
         console.log(indexValue);
@@ -95,44 +98,77 @@ const cartSliceAdmin = createSlice({
       action: PayloadAction<{
         amount: number;
         product: any;
-      }>
+        idx: number;
+      }>,
     ) => {
-      if (action.payload.product?.category?.type === 'PRODUCT') {
-        const indexValue = state.orderdetails?.findIndex(
-          (val, idx) => val.id_product === action.payload.product.id_product
+      state.orderdetails[action.payload.idx].amount = action.payload.amount;
+      // if (action.payload.product?.category?.type === 'PRODUCT') {
+      //   const indexValue = state.orderdetails?.findIndex(
+      //     (val, idx) => val.id_product === action.payload.product.id_product
+      //   );
+
+      //   console.log(indexValue);
+
+      //   if (indexValue >= 0) {
+      //     state.orderdetails[indexValue].amount = action.payload.amount;
+      //   }
+      // } else {
+      //   const indexValue = state.orderdetails?.findIndex(
+      //     (val, idx) => val.id_combo === action.payload.product.id_combo
+      //   );
+
+      //   console.log(indexValue);
+
+      //   if (indexValue >= 0) {
+      //     state.orderdetails[indexValue].amount = action.payload.amount;
+      //   }
+      // }
+    },
+
+    toggleSelectProertiesProduct: (state, action: PayloadAction<any>) => {
+      console.log(action.payload, current(state.orderdetails));
+      if (action.payload.value?.category?.type === 'PRODUCT') {
+        const indexByProperties = state.orderdetails?.findIndex(
+          (val, idx) =>
+            val.id_product === action.payload.value.id_product &&
+            val.id_productproperties === action.payload.id_productproperties &&
+            idx !== action.payload.idx,
         );
-
-        console.log(indexValue);
-
-        if (indexValue >= 0) {
-          state.orderdetails[indexValue].amount = action.payload.amount;
+        if (indexByProperties > 0) {
+          //Cong vao product trong state voi indexByProperties
+          state.orderdetails[indexByProperties].amount =
+            state.orderdetails[indexByProperties].amount +
+            action.payload.value.amount;
+          //Xoa theo idx
+          const newArr = state.orderdetails?.filter(
+            (val, idx) => idx !== action.payload.idx,
+          );
+          state.orderdetails = newArr;
+          return;
         }
-      } else {
-        const indexValue = state.orderdetails?.findIndex(
-          (val, idx) => val.id_combo === action.payload.product.id_combo
-        );
-
-        console.log(indexValue);
-
-        if (indexValue >= 0) {
-          state.orderdetails[indexValue].amount = action.payload.amount;
-        }
+        //Sua theo id thay idproperties
+        state.orderdetails[action.payload.idx].id_productproperties =
+          action.payload.id_productproperties;
       }
     },
 
     deleteCart: (state, action: PayloadAction<any>) => {
-      if (action.payload.category.type === 'PRODUCT') {
-        const newArr = state.orderdetails?.filter(
-          (val, idx) => val.id_product !== action.payload.id_product
-        );
+      const newArr = state.orderdetails?.filter(
+        (val, idx) => idx !== action.payload.idx,
+      );
+      state.orderdetails = newArr;
+      // if (action.payload.category.type === 'PRODUCT') {
+      //   const newArr = state.orderdetails?.filter(
+      //     (val, idx) => idx !== action.payload.idx,
+      //   );
 
-        state.orderdetails = newArr;
-      } else {
-        const newArr = state.orderdetails?.filter(
-          (val, idx) => val.id_combo !== action.payload.id_combo
-        );
-        state.orderdetails = newArr;
-      }
+      //   state.orderdetails = newArr;
+      // } else {
+      //   const newArr = state.orderdetails?.filter(
+      //     (val, idx) => val.id_combo !== action.payload.id_combo,
+      //   );
+      //   state.orderdetails = newArr;
+      // }
     },
     orderSuccsess: (state) => {
       state.orderdetails = [];
@@ -146,7 +182,7 @@ const cartSliceAdmin = createSlice({
       let product = {} as any;
 
       const indexValue = state.orderdetails?.findIndex(
-        (val, idx) => val.id_product === action.payload.id
+        (val, idx) => val.id_product === action.payload.id,
       );
 
       console.log(indexValue);
@@ -177,6 +213,7 @@ export const {
   toggleAmountProduct,
   orderSuccsess,
   addCartBuild,
+  toggleSelectProertiesProduct,
 } = cartSliceAdmin.actions;
 const { reducer } = cartSliceAdmin;
 export default reducer;

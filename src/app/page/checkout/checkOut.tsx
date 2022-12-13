@@ -203,7 +203,7 @@ function CheckOut() {
                     <thead>
                       <tr>
                         <th>Sản phẩm</th>
-                        <th>Tổng</th>
+                        <th>Đơn giá</th>
                       </tr>
                     </thead>
 

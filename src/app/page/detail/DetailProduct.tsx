@@ -18,6 +18,7 @@ import ModalNextIMG from '../../component/customer/modal/modalNextImg/modalNextI
 import {
   currency,
   Numberformat,
+  openNotification,
   openNotificationWithIcon,
   useAppDispatch,
   useAppSelector,
@@ -251,6 +252,12 @@ function DetailProduct() {
                 <div
                   className="product-details-action mt-3"
                   onClick={() => {
+                    if (products?.listproduct[0]?.productdetails.length > 0 && selectProperti === null) {
+                      return openNotification({
+                        message: 'Vui lòng chọn thuộc tính',
+                        type: 'warning',
+                      });
+                    }
                     dispatch(
                       addCart({
                         ...products?.listproduct[0],
