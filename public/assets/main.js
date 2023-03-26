@@ -36,13 +36,13 @@ jQuery(document).ready(function ($) {
   });
 
   // Mobile Menu Toggle - Show & Hide
-  // $(".mobile-menu-toggler").on("click", function (e) {
-  //   $("body").toggleClass("mmenu-active");
-  //   $(this).toggleClass("active");
-  //   e.preventDefault();
-  // });
+  $(".mobile-menu-toggler").on("click", function (e) {
+    $("body").toggleClass("mmenu-active");
+    $(this).toggleClass("active");
+    e.preventDefault();
+  });
 
-  $(".mobile-menu-overlay, .mobile-menu-close, close-menu-mobile").on(
+  $(".mobile-menu-overlay").on(
     "click",
     function (e) {
       $("body").removeClass("mmenu-active");
