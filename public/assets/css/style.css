@@ -2479,7 +2479,7 @@ blockquote.text-white cite span {
 .mobile-menu li a {
   position: relative;
   display: block;
-  padding: 1rem 4.5rem 1rem 2rem;
+  padding: 1rem 3.5rem 1rem 2rem;
   color: #fff;
   border-bottom: 0.1rem solid rgba(255, 255, 255, 0.08);
 }

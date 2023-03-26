@@ -72,19 +72,6 @@ $(document).ready(function () {
     });
   }
 
-  // Mobile Menu Toggle - Show & Hide
-  // $(".mobile-menu-toggler").on("click", function (e) {
-  //   $body.toggleClass("mmenu-active");
-  //   $(this).toggleClass("active");
-  //   e.preventDefault();
-  // });
-
-  $('.mobile-menu-overlay, .mobile-menu-close').on('click', function (e) {
-    $body.removeClass('mmenu-active');
-    $('.menu-toggler').removeClass('active');
-    e.preventDefault();
-  });
-
   // Add Mobile menu icon arrows to items with children
   $('.mobile-menu')
     .find('li')
@@ -698,8 +685,8 @@ $(document).ready(function () {
 
   var $megamenu = $('.megamenu-container .sf-with-ul');
   $megamenu.hover(function () {
-    $('.demo-item.show').addClass('hidden');
-    $('.demo-item.show').removeClass('show');
+    // $('.demo-item.show').addClass('hidden');
+    // $('.demo-item.show').removeClass('show');
     $viewAll.removeClass('disabled-hidden');
   });
 

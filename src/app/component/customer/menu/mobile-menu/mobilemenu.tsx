@@ -9,13 +9,46 @@ import { useAppSelector } from '../../../../hooks';
 
 function Mobilemenu() {
   const [productkey, setProductkey] = useState('' as string | null);
-  const dispatch = useDispatch();
   const history = useNavigate();
   const categoryTrees = useAppSelector(categoryAdminStore);
-  const company = useAppSelector(companyAdminStore);
-  useEffect(() => {
-    // dispatch(getAllCategoryAdmin());
-  }, []);
+  const [selected, setSelected] = useState([] as any);
+  const [selectedComBo, setSelectedCombo] = useState([] as any);
+  const changeSelect = (id: number, idChild?: number) => {
+    const selectCopy = selected;
+    const indexValue = selectCopy?.findIndex(
+      (val: any, idx: any) => val.id === id,
+    );
+    console.log(indexValue);
+    if (indexValue >= 0) {
+      const newArr = selectCopy?.filter((val: any, idx: any) => id !== val.id);
+      setSelected([...newArr]);
+      return;
+    }
+    selectCopy.push({ id, idChild });
+    setSelected([...selectCopy]);
+  };
+
+  const changeSelectedComBo = (id: number, idChild?: number) => {
+    const selectCopy = selected;
+    const indexValue = selectCopy?.findIndex(
+      (val: any, idx: any) => val.id === id,
+    );
+    console.log(indexValue);
+    if (indexValue >= 0) {
+      const newArr = selectCopy?.filter((val: any, idx: any) => id !== val.id);
+      setSelectedCombo([...newArr]);
+      return;
+    }
+    selectCopy.push({ id, idChild });
+    setSelectedCombo([...selectCopy]);
+  };
+
+  const closeMenuMobile = (id?: any,  router?: string) => {
+    document.body.classList.remove('mmenu-active');
+    if (id) {
+      return history(router + id);
+    }
+  };
   return (
     <div>
       <div
@@ -73,104 +106,7 @@ function Mobilemenu() {
                 Danh mục sản phẩm
               </a>
             </li>
-            {/* <li className="nav-item">
-              <a
-                className="nav-link"
-                id="mobile-cats-link"
-                data-toggle="tab"
-                href="#mobile-cats-tab"
-                role="tab"
-                aria-controls="mobile-cats-tab"
-                aria-selected="false"
-              >
-                Danh mục
-              </a>
-            </li> */}
           </ul>
-          {/* <div className="tab-content">
-            <div
-              className="tab-pane fade show active"
-              id="mobile-menu-tab"
-              role="tabpanel"
-              aria-labelledby="mobile-menu-link"
-            >
-              <nav className="mobile-nav">
-                <ul className="mobile-menu">
-                  <li className="active">
-                    <a href="index.html">Home</a>
-                    <ul>
-                      <li>
-                        <a href="index-1.html">01 - furniture store</a>
-                      </li>
-                      <li>
-                        <a href="index-2.html">02 - furniture store</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="category.html">Shop</a>
-                    <ul>
-                      <li>
-                        <a href="category-list.html">Shop List</a>
-                      </li>
-                      <li>
-                        <a href="category-2cols.html">Shop Grid 2 Columns</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="product.html" className="sf-with-ul">
-                      Product
-                    </a>
-                    <ul>
-                      <li>
-                        <a href="product.html">Default</a>
-                      </li>
-                      <li>
-                        <a href="product-centered.html">Centered</a>
-                      </li>
-                      <li>
-                        <a href="product-extended.html">
-                          <span>
-                            Extended Info
-                            <span className="tip tip-new">New</span>
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="product-gallery.html">Gallery</a>
-                      </li>
-                      <li>
-                        <a href="product-sticky.html">Sticky Info</a>
-                        <ul>
-                          <li>
-                            <a href="product.html">Default</a>
-                          </li>
-                          <li>
-                            <a href="product-centered.html">Centered</a>
-                          </li>
-                          <li>
-                            <a href="product-extended.html">
-                              <span>
-                                Extended Info
-                                <span className="tip tip-new">New</span>
-                              </span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="product-gallery.html">Gallery</a>
-                          </li>
-                          <li>
-                            <a href="product-sticky.html">Sticky Info</a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div> */}
           <div className="tab-content">
             <div
               className="tab-pane fade show active"
@@ -181,17 +117,18 @@ function Mobilemenu() {
               <nav className="mobile-nav">
                 <ul
                   className="mobile-menu"
-                  onClick={() => document.body.classList.remove('mmenu-active')}
+                  // onClick={() => document.body.classList.remove('mmenu-active')}
                 >
-                  <li className="active close-menu-mobile">
-                    <a className="close-menu-mobile" href="/">
-                      Trang chủ
-                    </a>
+                  <li
+                    className="active close-menu-mobile"
+                    onClick={closeMenuMobile}
+                  >
+                    <a href="/">Trang chủ</a>
                   </li>
-                  <li className="active">
+                  <li className="active" onClick={closeMenuMobile}>
                     <Link to={'/introduce'}>Giới thiệu</Link>
                   </li>
-                  <li className="active">
+                  <li className="active" onClick={closeMenuMobile}>
                     <Link to={'/buildcustomer'}>Xây dựng sản phẩm</Link>
                   </li>
                   <li style={{ fontWeight: 500, cursor: 'none' }}>
@@ -200,30 +137,83 @@ function Mobilemenu() {
 
                   {categoryTrees.listcategoryProduct?.map((val, idx) =>
                     val.children?.length > 0 ? (
-                      <li className="close-menu-mobile">
-                        <Link
-                          className="sf-with-ul close-menu-mobile"
-                          to={`danhmucproduct/${val.id}`}
+                      <li>
+                        <a
+                          className="sf-with-ul"
+                          style={{
+                            display: 'flex',
+                            justifyContent: 'space-around',
+                          }}
                         >
-                          {val.name}
-                        </Link>
+                          <span onClick={() => closeMenuMobile(val.id, 'danhmucproduct/')}>
+                            {val.name}
+                          </span>
+                          {val.children?.length > 0 && (
+                            <span onClick={() => changeSelect(val.id)}>
+                              {selected.some((e: any) => e.id === val.id) ? (
+                                <i className="fa-solid fa-angle-down"></i>
+                              ) : (
+                                <i className="fa-solid fa-angle-right"></i>
+                              )}
+                            </span>
+                          )}
+                        </a>
                         {val.children?.length > 0
                           ? val.children?.map((val2, idx) => (
-                              <ul style={{ display: 'block' }}>
-                                <li className="close-menu-mobile">
-                                  <Link
-                                    to={`danhmucproduct/${val2.id}`}
-                                    className="close-menu-mobile"
+                              <ul
+                                style={{
+                                  display: selected.some(
+                                    (e: any) => e.id === val.id,
+                                  )
+                                    ? 'block'
+                                    : 'none',
+                                }}
+                              >
+                                <li>
+                                  <a
+                                    style={{
+                                      display: 'flex',
+                                      justifyContent: 'space-between',
+                                    }}
                                   >
-                                    {val2.name}
-                                  </Link>
+                                    <span
+                                      onClick={() => closeMenuMobile(val2.id, 'danhmucproduct/')}
+                                    >
+                                      {val2.name}
+                                    </span>
+                                    {val2.children?.length > 0 && (
+                                      <span
+                                        onClick={() => changeSelect(val2.id)}
+                                      >
+                                        {selected.some(
+                                          (e: any) => e.id === val2.id,
+                                        ) ? (
+                                          <i className="fa-solid fa-angle-down"></i>
+                                        ) : (
+                                          <i className="fa-solid fa-angle-right"></i>
+                                        )}
+                                      </span>
+                                    )}
+                                  </a>
                                   {val2.children?.length > 0 ? (
-                                    <ul style={{ display: 'block' }}>
+                                    <ul
+                                      style={{
+                                        display: selected.some(
+                                          (e: any) => e.id === val2.id,
+                                        )
+                                          ? 'block'
+                                          : 'none',
+                                      }}
+                                    >
                                       {val2.children?.map((val3, idx) => (
-                                        <li className="close-menu-mobile">
+                                        <li>
                                           <Link
-                                            className="close-menu-mobile"
                                             to={`danhmucproduct/${val3.id}`}
+                                            style={{
+                                              display: 'flex',
+                                              justifyContent: 'space-between',
+                                            }}
+                                            onClick={closeMenuMobile}
                                           >
                                             {val3.name}
                                           </Link>
@@ -238,12 +228,7 @@ function Mobilemenu() {
                       </li>
                     ) : (
                       <li>
-                        <Link
-                          className="close-menu-mobile"
-                          to={`danhmucproduct/${val.id}`}
-                        >
-                          {val.name}
-                        </Link>
+                        <Link to={`danhmucproduct/${val.id}`}>{val.name}</Link>
                       </li>
                     ),
                   )}
@@ -255,30 +240,77 @@ function Mobilemenu() {
                   {categoryTrees.listcategoryCombo?.map((val, idx) =>
                     val.children?.length > 0 ? (
                       <li>
-                        <Link
-                          to={`danhmuccombo/${val.id}`}
-                          className="sf-with-ul close-menu-mobile"
+                        <a
+                          className="sf-with-ul"
+                          style={{
+                            display: 'flex',
+                            justifyContent: 'space-around',
+                          }}
                         >
-                          {val.name}
-                        </Link>
+                          <span onClick={() => closeMenuMobile(val.id, 'danhmuccombo/')}>
+                            {val.name}
+                          </span>
+                          {val.children?.length > 0 && (
+                            <span onClick={() => changeSelectedComBo(val.id)}>
+                              {selectedComBo.some((e: any) => e.id === val.id) ? (
+                                <i className="fa-solid fa-angle-down"></i>
+                              ) : (
+                                <i className="fa-solid fa-angle-right"></i>
+                              )}
+                            </span>
+                          )}
+                        </a>
                         {val.children?.length > 0
                           ? val.children?.map((val2, idx) => (
-                              <ul style={{ display: 'block' }}>
+                              <ul
+                                style={{
+                                  display: selectedComBo.some(
+                                    (e: any) => e.id === val.id,
+                                  )
+                                    ? 'block'
+                                    : 'none',
+                                }}
+                              >
                                 <li>
-                                  <Link
-                                    className="close-menu-mobile"
-                                    to={`danhmuccombo/${val2.id}`}
+                                  
+                                  <a
+                                    style={{
+                                      display: 'flex',
+                                      justifyContent: 'space-between',
+                                    }}
                                   >
-                                    {val2.name}
-                                  </Link>
+                                    <span
+                                      onClick={() => closeMenuMobile(val2.id, 'danhmuccombo/')}
+                                    >
+                                      {val2.name}
+                                    </span>
+                                    {val2.children?.length > 0 && (
+                                      <span
+                                        onClick={() => changeSelectedComBo(val2.id)}
+                                      >
+                                        {selectedComBo.some(
+                                          (e: any) => e.id === val2.id,
+                                        ) ? (
+                                          <i className="fa-solid fa-angle-down"></i>
+                                        ) : (
+                                          <i className="fa-solid fa-angle-right"></i>
+                                        )}
+                                      </span>
+                                    )}
+                                  </a>
                                   {val2.children?.length > 0 ? (
-                                    <ul style={{ display: 'block' }}>
+                                    <ul
+                                      style={{
+                                        display: selectedComBo.some(
+                                          (e: any) => e.id === val2.id,
+                                        )
+                                          ? 'block'
+                                          : 'none',
+                                      }}
+                                    >
                                       {val2.children?.map((val3, idx) => (
                                         <li>
-                                          <Link
-                                            className="close-menu-mobile"
-                                            to={`danhmuccombo/${val3.id}`}
-                                          >
+                                          <Link to={`danhmuccombo/${val3.id}`}>
                                             {val3.name}
                                           </Link>
                                         </li>
@@ -292,12 +324,7 @@ function Mobilemenu() {
                       </li>
                     ) : (
                       <li>
-                        <Link
-                          className="close-menu-mobile"
-                          to={`danhmuccombo/${val.id}`}
-                        >
-                          {val.name}
-                        </Link>
+                        <Link to={`danhmuccombo/${val.id}`}>{val.name}</Link>
                       </li>
                     ),
                   )}
@@ -305,31 +332,6 @@ function Mobilemenu() {
               </nav>
             </div>
           </div>
-
-          {/* <div className="social-icons">
-            <a
-              href="https://www.facebook.com/messages/t/775541669472633"
-              className="social-icon"
-              target="_blank"
-              title="Facebook"
-            >
-              <i className="icon-facebook-f"></i>
-            </a>
-            <a href="#" className="social-icon" target="_blank" title="Twitter">
-              <i className="icon-twitter"></i>
-            </a>
-            <a
-              href="#"
-              className="social-icon"
-              target="_blank"
-              title="Instagram"
-            >
-              <i className="icon-instagram"></i>
-            </a>
-            <a href="#" className="social-icon" target="_blank" title="Youtube">
-              <i className="icon-youtube"></i>
-            </a>
-          </div> */}
         </div>
       </div>
     </div>
